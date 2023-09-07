@@ -8,7 +8,10 @@
 
     <ItemGroup>
       <Folder Include="Constants\" />
-      <Folder Include="Helper\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\CommonUtility\CommonUtility.csproj" />
     </ItemGroup>
 
 </Project>

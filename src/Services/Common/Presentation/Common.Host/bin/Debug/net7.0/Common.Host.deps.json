@@ -189,19 +189,19 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "Common.Domain/1.0.0": {
         "dependencies": {
-          "Common.Interfaces": "1.0.0",
+          "Common.Domain.Interfaces": "1.0.0",
           "Dapr.Actors": "1.11.0"
         },
         "runtime": {
           "Common.Domain.dll": {}
         }
       },
-      "Common.Interfaces/1.0.0": {
+      "Common.Domain.Interfaces/1.0.0": {
         "dependencies": {
           "Dapr.Actors": "1.11.0"
         },
         "runtime": {
-          "Common.Interfaces.dll": {}
+          "Common.Domain.Interfaces.dll": {}
         }
       }
     }
@@ -378,7 +378,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Common.Interfaces/1.0.0": {
+    "Common.Domain.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

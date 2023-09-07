@@ -3,7 +3,7 @@
 /// <summary>
 ///     订单明细
 /// </summary>
-public class SaleOrderItem
+public record TradeItem
 {
     /// <summary>
     ///     产品Id

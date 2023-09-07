@@ -1,5 +1,8 @@
 namespace MultiTenancy;
 
+/// <summary>
+///     租户信息
+/// </summary>
 public class TenantInfo
 {
     public TenantInfo(Guid? tenantId, string? name = null)

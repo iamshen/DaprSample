@@ -13,6 +13,7 @@ builder.Services.AddDaprClient();
 builder.Services.AddControllers();
 builder.AddAppHealthChecks("common-db-check");
 builder.AddAppSwagger("common_api");
+builder.AddAppApiResource();
 
 var app = builder.Build();
 

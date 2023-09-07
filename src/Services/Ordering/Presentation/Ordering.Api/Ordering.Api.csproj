@@ -12,5 +12,11 @@
         <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.11.0" />
         <PackageReference Include="Dapr.AspNetCore" Version="1.11.0" />
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiExtensions\ApiExtensions.csproj" />
+      <ProjectReference Include="..\..\Application\Ordering.Application\Ordering.Application.csproj" />
+      <ProjectReference Include="..\..\Domain\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
+    </ItemGroup>
     
 </Project>

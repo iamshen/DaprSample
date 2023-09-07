@@ -13,4 +13,7 @@
     <SourceRoot Include="D:\.nuget\packages\" />
     <SourceRoot Include="D:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Pkglinq2db_PostgreSQL Condition=" '$(Pkglinq2db_PostgreSQL)' == '' ">D:\.nuget\packages\linq2db.postgresql\5.2.2</Pkglinq2db_PostgreSQL>
+  </PropertyGroup>
 </Project>

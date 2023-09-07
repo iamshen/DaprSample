@@ -6,4 +6,15 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\Linq2DbAccessor\Linq2DbAccessor.csproj" />
+      <ProjectReference Include="..\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Folder Include="Extensions\" />
+    </ItemGroup>
+
 </Project>

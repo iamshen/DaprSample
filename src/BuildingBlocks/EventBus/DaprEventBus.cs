@@ -1,4 +1,5 @@
 using Dapr.Client;
+using DaprTool.BuildingBlocks.CommonUtility.Constant;
 using DaprTool.BuildingBlocks.EventBus.Abstractions;
 using DaprTool.BuildingBlocks.EventBus.Events;
 using Microsoft.Extensions.Logging;
@@ -10,7 +11,6 @@ namespace DaprTool.BuildingBlocks.EventBus;
 /// </summary>
 public class DaprEventBus : IEventBus
 {
-    private const string PubSubName = "dapr-solution-pubsub";
 
     private readonly DaprClient _dapr;
     private readonly ILogger _logger;
@@ -33,11 +33,11 @@ public class DaprEventBus : IEventBus
 
             _logger.LogInformation("发布事件 {@Event} 到 {PubsubName}.{TopicName}",
                 integrationEvent,
-                PubSubName,
+                DaprConstants.PubSubName,
                 topicName);
 
             // 通过将事件转换为动态，并将具体类型传给 PublishEventAsync 这样能确保所有事件的字段都能正确序列化。
-            await _dapr.PublishEventAsync(PubSubName, topicName, (object)integrationEvent);
+            await _dapr.PublishEventAsync(DaprConstants.PubSubName, topicName, (object)integrationEvent);
         }
     }
 }

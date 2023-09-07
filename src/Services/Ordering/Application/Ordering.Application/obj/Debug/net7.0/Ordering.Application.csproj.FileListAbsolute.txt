@@ -10,3 +10,12 @@ D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.App
 D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\obj\Debug\net7.0\refint\Ordering.Application.dll
 D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\obj\Debug\net7.0\Ordering.Application.pdb
 D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\obj\Debug\net7.0\ref\Ordering.Application.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\CommonUtility.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\EventBus.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\Ordering.Domain.Interfaces.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\Ordering.Infrastructure.Shared.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\Ordering.Domain.Interfaces.pdb
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\Ordering.Infrastructure.Shared.pdb
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\CommonUtility.pdb
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\bin\Debug\net7.0\EventBus.pdb
+D:\Source\repos\DaprTool.Solution\src\Services\Ordering\Application\Ordering.Application\obj\Debug\net7.0\Ordering.Application.csproj.CopyComplete

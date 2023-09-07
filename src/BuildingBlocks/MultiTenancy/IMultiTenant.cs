@@ -1,6 +1,7 @@
 ﻿namespace MultiTenancy;
 
 /// <summary>
+///     租户接口
 /// </summary>
 public interface IMultiTenant
 {

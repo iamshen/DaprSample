@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6VWXdnHLe2CdhkHZkNRjWMtV1ZFrvIz+8XfFfRKn0s/jL/Gf+K9m+WJrZqEHDtAQjb9mKqfDG3/IQr7nFk8YSQ==",
+  "dgSpecHash": "72mNZTdv7S30Ve1cIvc9pMhqOEyJqfdBpp4WUX5jsO+Be8ElR8Gh25UCHSILHDFhUAlzuK1UcgdjMZyxlI7uNg==",
   "success": true,
   "projectFilePath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\Ordering.Infrastructure.Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "D:\\.nuget\\packages\\system.formats.asn1\\7.0.0\\system.formats.asn1.7.0.0.nupkg.sha512",
+    "D:\\.nuget\\packages\\system.security.cryptography.pkcs\\7.0.0\\system.security.cryptography.pkcs.7.0.0.nupkg.sha512",
+    "D:\\.nuget\\packages\\system.security.cryptography.xml\\7.0.1\\system.security.cryptography.xml.7.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

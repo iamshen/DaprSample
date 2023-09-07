@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "Common.Domain/1.0.0": {
         "dependencies": {
-          "Common.Interfaces": "1.0.0",
+          "Common.Domain.Interfaces": "1.0.0",
           "Dapr.Actors": "1.11.0"
         },
         "runtime": {
@@ -109,12 +109,12 @@
       "System.Memory/4.5.3": {},
       "System.Net.Http.Json/5.0.0": {},
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
-      "Common.Interfaces/1.0.0": {
+      "Common.Domain.Interfaces/1.0.0": {
         "dependencies": {
           "Dapr.Actors": "1.11.0"
         },
         "runtime": {
-          "Common.Interfaces.dll": {}
+          "Common.Domain.Interfaces.dll": {}
         }
       }
     }
@@ -202,7 +202,7 @@
       "path": "system.runtime.compilerservices.unsafe/4.5.2",
       "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
     },
-    "Common.Interfaces/1.0.0": {
+    "Common.Domain.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
