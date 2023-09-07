@@ -1,0 +1,12 @@
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\bin\Debug\net7.0\Common.Application.deps.json
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\bin\Debug\net7.0\Common.Application.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\bin\Debug\net7.0\Common.Application.pdb
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.csproj.AssemblyReference.cache
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.AssemblyInfoInputs.cache
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.AssemblyInfo.cs
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.csproj.CoreCompileInputs.cache
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\refint\Common.Application.dll
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\Common.Application.pdb
+D:\Source\repos\DaprTool.Solution\src\Services\Common\Application\Common.Application\obj\Debug\net7.0\ref\Common.Application.dll
