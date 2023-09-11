@@ -1,7 +1,7 @@
 ﻿using Dapr.Actors.Runtime;
 using Ordering.Domain.Interfaces.Actors;
 
-namespace Common.Domain.Actors;
+namespace Ordering.Domain.Actors;
 
 /// <summary>
 /// </summary>

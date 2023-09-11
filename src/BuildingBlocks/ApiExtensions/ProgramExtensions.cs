@@ -182,9 +182,6 @@ public static class ProgramExtensions
         }
     }
 
-
-    
-    
     private static class Errors
     {
         public const string ResourceNameCanNotNull = "自动注册API资源失败，资源名称不能为空";

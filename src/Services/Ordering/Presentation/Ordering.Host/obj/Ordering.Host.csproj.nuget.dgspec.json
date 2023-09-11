@@ -4,6 +4,364 @@
     "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Presentation\\Ordering.Host\\Ordering.Host.csproj": {}
   },
   "projects": {
+    "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj",
+        "projectName": "CommonUtility",
+        "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\iamshen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Security.Cryptography.Xml": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj",
+        "projectName": "EventBus",
+        "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\iamshen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapr.Client": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain.Interfaces\\Ordering.Domain.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain.Interfaces\\Ordering.Domain.Interfaces.csproj",
+        "projectName": "Ordering.Domain.Interfaces",
+        "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain.Interfaces\\Ordering.Domain.Interfaces.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\iamshen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj"
+              },
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\Ordering.Infrastructure.Shared.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\Ordering.Infrastructure.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapr.Actors": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.7.1, )"
+            },
+            "LanguageExt.Core": {
+              "target": "Package",
+              "version": "[4.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain\\Ordering.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain\\Ordering.Domain.csproj",
+        "projectName": "Ordering.Domain",
+        "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain\\Ordering.Domain.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\iamshen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\EventBus\\EventBus.csproj"
+              },
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain.Interfaces\\Ordering.Domain.Interfaces.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain.Interfaces\\Ordering.Domain.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapr.Actors": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
+            "Dapr.Actors.AspNetCore": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\Ordering.Infrastructure.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\Ordering.Infrastructure.Shared.csproj",
+        "projectName": "Ordering.Infrastructure.Shared",
+        "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\Ordering.Infrastructure.Shared.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Infrastructure\\Ordering.Infrastructure.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\iamshen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\CommonUtility\\CommonUtility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Presentation\\Ordering.Host\\Ordering.Host.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -33,7 +391,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain\\Ordering.Domain.csproj": {
+                "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Domain\\Ordering.Domain\\Ordering.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
