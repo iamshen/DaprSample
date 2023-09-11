@@ -11,7 +11,6 @@ namespace DaprTool.BuildingBlocks.EventBus;
 /// </summary>
 public class DaprEventBus : IEventBus
 {
-
     private readonly DaprClient _dapr;
     private readonly ILogger _logger;
 
@@ -31,13 +30,19 @@ public class DaprEventBus : IEventBus
         {
             var topicName = integrationEvent.GetType().Name;
 
-            _logger.LogInformation("发布事件 {@Event} 到 {PubsubName}.{TopicName}",
+            _logger.LogInformation(
+                "发布事件 {@Event} 到 {PubsubName}.{TopicName}",
                 integrationEvent,
                 DaprConstants.PubSubName,
                 topicName);
 
-            // 通过将事件转换为动态，并将具体类型传给 PublishEventAsync 这样能确保所有事件的字段都能正确序列化。
-            await _dapr.PublishEventAsync(DaprConstants.PubSubName, topicName, (object)integrationEvent);
+            // 通过将事件转换为动态，
+            // 并将具体类型传给 PublishEventAsync
+            // 这样能确保所有事件的字段都能正确序列化。
+            await _dapr.PublishEventAsync(
+                DaprConstants.PubSubName,
+                topicName,
+                (object)integrationEvent);
         }
     }
 }

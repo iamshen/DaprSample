@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto;
+using DaprTool.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -181,6 +182,9 @@ public static class ProgramExtensions
         }
     }
 
+
+    
+    
     private static class Errors
     {
         public const string ResourceNameCanNotNull = "自动注册API资源失败，资源名称不能为空";

@@ -790,6 +790,7 @@
           "AspNetCore.HealthChecks.NpgSql": "7.0.0",
           "AspNetCore.HealthChecks.UI.Client": "7.1.0",
           "CommonUtility": "1.0.0",
+          "EventBus": "1.0.0",
           "Healthchecks": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning": "5.1.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
@@ -817,6 +818,20 @@
         },
         "runtime": {
           "bin/placeholder/CommonUtility.dll": {}
+        }
+      },
+      "EventBus/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "CommonUtility": "1.0.0",
+          "Dapr.Client": "1.11.0"
+        },
+        "compile": {
+          "bin/placeholder/EventBus.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventBus.dll": {}
         }
       },
       "Healthchecks/1.0.0": {
@@ -2195,6 +2210,11 @@
       "type": "project",
       "path": "../../../../BuildingBlocks/CommonUtility/CommonUtility.csproj",
       "msbuildProject": "../../../../BuildingBlocks/CommonUtility/CommonUtility.csproj"
+    },
+    "EventBus/1.0.0": {
+      "type": "project",
+      "path": "../../../../BuildingBlocks/EventBus/EventBus.csproj",
+      "msbuildProject": "../../../../BuildingBlocks/EventBus/EventBus.csproj"
     },
     "Healthchecks/1.0.0": {
       "type": "project",

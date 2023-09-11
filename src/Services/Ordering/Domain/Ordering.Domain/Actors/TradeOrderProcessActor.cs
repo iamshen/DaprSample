@@ -34,7 +34,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
 
     #endregion
 
-    #region 常量类
+    #region 常量
 
     /// <summary>
     ///     异常错误
@@ -68,6 +68,8 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
     /// <exception cref="NotImplementedException"></exception>
     public async Task<Result<IdNumberRecord>> SubmitAsync(CreateTradeOrderCommand orderCommand)
     {
+        #region 验证
+
         var validator = ServiceProvider.GetRequiredService<IValidator<CreateTradeOrderCommand>>();
         var validateResult = await validator.ValidateAsync(orderCommand);
         if (!validateResult.IsValid)
@@ -76,11 +78,17 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
             return new Result<IdNumberRecord>(ex);
         }
 
+        #endregion
+    
+        // 获取状态
         var stateObj = await StateManager.TryGetStateAsync<TradeOrderState>(StateDataKey);
-        if (stateObj.HasValue) throw new Exception(Errors.RepeatCreated);
+        if (stateObj.HasValue)
+        {
+            var ex = new Exception(Errors.RepeatCreated);
+            return new Result<IdNumberRecord>(ex);
+        }
 
         var orderNo = Guid.NewGuid().ToString("N");
-
         var state = new TradeOrderState
         {
             OrderNo = orderNo,
@@ -95,13 +103,12 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
             UpdatedTime = DateTimeOffset.Now,
             OrderItems = orderCommand.OrderItems
         };
-        
         await StateManager.SetStateAsync(StateDataKey, state);
-
+        // 注册提醒器
         await RegisterReminderAsync(
             GracePeriodElapsedReminder,
             null,
-            // dueTime - 首次调用提醒前的延迟时间。指定负 1 (-1) 毫秒可禁用调用。指定零 (0) 表示在注册后立即调用提醒。
+            // dueTime - 首次调用提醒前的延迟时间。指定负 1 (-1) 毫秒可禁用调用。 指定零 (0) 表示在注册后立即调用提醒。
             // Actor 激活后， Settings.Value.GracePeriodTime 分钟内将会第一次触发提醒器
             TimeSpan.FromMinutes(Settings.Value.GracePeriodTime),
             // period - 首次调用后调用提醒的时间间隔。指定负一 (-1) 毫秒可禁用定期调用。

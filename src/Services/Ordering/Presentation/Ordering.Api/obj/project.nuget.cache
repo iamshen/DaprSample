@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "EWSUXZ8PaX3JM8ylCBwnYYt3baDp8oBFS3VrZzZODj6evyiLFuBbBaITTXT21OZBbLorBfqKdnwOLAUaPP8hUQ==",
+  "dgSpecHash": "TWsyVELJTPXdpXSP0sR/mdCKwjpatM26mKULfv1cPl1q+P8aTqw59dRNtWjFAvpfKuJtuz1+z73jRQiGrX3ZCg==",
   "success": true,
   "projectFilePath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Ordering\\Presentation\\Ordering.Api\\Ordering.Api.csproj",
   "expectedPackageFiles": [
     "D:\\.nuget\\packages\\aspnetcore.healthchecks.npgsql\\7.0.0\\aspnetcore.healthchecks.npgsql.7.0.0.nupkg.sha512",
     "D:\\.nuget\\packages\\aspnetcore.healthchecks.ui.client\\7.1.0\\aspnetcore.healthchecks.ui.client.7.1.0.nupkg.sha512",
     "D:\\.nuget\\packages\\aspnetcore.healthchecks.ui.core\\7.0.0\\aspnetcore.healthchecks.ui.core.7.0.0.nupkg.sha512",
+    "D:\\.nuget\\packages\\autofac\\7.1.0\\autofac.7.1.0.nupkg.sha512",
+    "D:\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "D:\\.nuget\\packages\\dapr.actors\\1.11.0\\dapr.actors.1.11.0.nupkg.sha512",
     "D:\\.nuget\\packages\\dapr.actors.aspnetcore\\1.11.0\\dapr.actors.aspnetcore.1.11.0.nupkg.sha512",
     "D:\\.nuget\\packages\\dapr.aspnetcore\\1.11.0\\dapr.aspnetcore.1.11.0.nupkg.sha512",
