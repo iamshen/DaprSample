@@ -1,5 +1,6 @@
 ﻿using Dapr.Actors;
 using Dapr.Actors.Client;
+using Dapr.Client;
 using LanguageExt.Common;
 using Ordering.Application.Interfaces;
 using Ordering.Domain.Interfaces.Actors;
@@ -15,7 +16,7 @@ namespace Ordering.Application.Services;
 public class TradeOrderService : ITradeOrderService
 {
     private const string ActorType = "OrderingProcessActorActor";
-
+    
     /// <summary>
     /// </summary>
     /// <param name="orderCommand"></param>

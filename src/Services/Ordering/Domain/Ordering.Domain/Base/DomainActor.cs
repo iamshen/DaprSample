@@ -61,8 +61,7 @@ public abstract class DomainActor<TState> : Actor
     /// <returns></returns>
     protected Task RaiseEvents(params IntegrationEvent[] events)
     {
-        var eventBus = ServiceProvider
-            .GetRequiredService<IEventBus>();
+        var eventBus = ServiceProvider.GetRequiredService<IEventBus>();
 
         return eventBus.RaiseAsync(events);
     }

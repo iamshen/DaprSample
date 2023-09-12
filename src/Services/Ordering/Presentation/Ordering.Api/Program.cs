@@ -1,6 +1,7 @@
 using HealthChecks.UI.Client;
 using NLog;
 using NLog.Web;
+using Ordering.Infrastructure.Shared.Options;
 
 const string appName = "Ordering.Api";
 
@@ -9,11 +10,23 @@ logger.Debug("开始初始化 API 服务 ({ApplicationName})...", appName);
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 注册 订单 配置
+builder.Services.Configure<OrderingSettings>(builder.Configuration);
+// 注册 dapr 客户端
 builder.Services.AddDaprClient();
+// 注册 api 控制器
 builder.Services.AddControllers();
-builder.AddAppHealthChecks("ordering-db-check");
+// 注册 健康检查
+const string dbConnectionStringName = "OrderingDB";
+builder.AddAppHealthChecks("ordering-db-check", dbConnectionStringName);
+// 注册 业务数据库
+builder.Services.AddAppDataConnection(builder.Configuration.GetConnectionString(dbConnectionStringName)!);
+// 注册 swagger 
 builder.AddAppSwagger("ordering_api");
+// 注册 Api 资源
 builder.AddAppApiResource();
+// 注册 事件处理器
+builder.AddEventHandlerAutofac(); 
 
 var app = builder.Build();
 

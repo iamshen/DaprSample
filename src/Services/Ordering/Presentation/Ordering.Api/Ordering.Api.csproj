@@ -17,6 +17,7 @@
       <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiExtensions\ApiExtensions.csproj" />
       <ProjectReference Include="..\..\Application\Ordering.Application\Ordering.Application.csproj" />
       <ProjectReference Include="..\..\Domain\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Linq2Db\Ordering.Infrastructure.Linq2Db.csproj" />
     </ItemGroup>
     
 </Project>

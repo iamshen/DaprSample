@@ -1,0 +1,24 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-pubsub
+spec:
+  type: pubsub.rabbitmq
+  version: v1
+  metadata:
+    - name: connectionString
+      value: "amqp://dapr:!234Qwer@localhost:5672"
+    - name: username
+      value: dapr
+    - name: password
+      value: !234Qwer
+    - name: durable
+      value: "false"
+    - name: deletedWhenUnused
+      value: "false"
+    - name: autoAck
+      value: "false"
+    - name: reconnectWait
+      value: "0"
+    - name: concurrencyMode
+      value: parallel

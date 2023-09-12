@@ -9,10 +9,18 @@ logger.Debug("开始初始化 API 服务 ({ApplicationName})...", appName);
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 注册 dapr 客户端
 builder.Services.AddDaprClient();
+// 注册 api 控制器
 builder.Services.AddControllers();
-builder.AddAppHealthChecks("common-db-check");
+// 注册 健康检查
+const string dbConnectionStringName = "CommonDB";
+builder.AddAppHealthChecks("common-db-check", dbConnectionStringName);
+// 注册 业务数据库
+builder.Services.AddAppDataConnection(builder.Configuration.GetConnectionString(dbConnectionStringName)!);
+// 注册 swagger 
 builder.AddAppSwagger("common_api");
+// 注册 Api 资源
 builder.AddAppApiResource();
 
 var app = builder.Build();

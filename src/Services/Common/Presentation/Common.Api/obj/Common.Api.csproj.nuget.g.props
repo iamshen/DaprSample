@@ -15,5 +15,6 @@
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">D:\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <Pkglinq2db_PostgreSQL Condition=" '$(Pkglinq2db_PostgreSQL)' == '' ">D:\.nuget\packages\linq2db.postgresql\5.2.2</Pkglinq2db_PostgreSQL>
   </PropertyGroup>
 </Project>

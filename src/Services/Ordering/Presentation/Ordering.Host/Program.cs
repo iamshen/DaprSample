@@ -9,6 +9,7 @@ logger.Debug("开始初始化 ({ApplicationName})...", appName);
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 注册 Actor 
 builder.Services.AddActors(options =>
 {
     options.Actors.RegisterActor<NumberGeneratorActor>();
@@ -17,6 +18,7 @@ builder.Services.AddActors(options =>
 
 var app = builder.Build();
 
+// 映射 Actor 相关的Endpoints
 app.MapActorsHandlers();
 
 try

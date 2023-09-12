@@ -214,6 +214,54 @@
           }
         }
       },
+      "linq2db/5.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/linq2db.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/linq2db.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "linq2db.AspNet/5.2.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.3",
+          "linq2db": "5.2.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/linq2db.AspNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/linq2db.AspNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "linq2db.PostgreSQL/5.2.2": {
+        "type": "package",
+        "dependencies": {
+          "Npgsql": "7.0.2",
+          "linq2db": "5.2.2"
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
       "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
         "type": "package",
         "compile": {
@@ -274,7 +322,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection/6.0.0": {
+      "Microsoft.Extensions.DependencyInjection/6.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
@@ -807,6 +855,19 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Common.Infrastructure.Linq2Db/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Linq2DbAccessor": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Common.Infrastructure.Linq2Db.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common.Infrastructure.Linq2Db.dll": {}
+        }
+      },
       "CommonUtility/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -851,6 +912,20 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Linq2DbAccessor/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "linq2db.AspNet": "5.2.2",
+          "linq2db.PostgreSQL": "5.2.2"
+        },
+        "compile": {
+          "bin/placeholder/Linq2DbAccessor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Linq2DbAccessor.dll": {}
+        }
       }
     }
   },
@@ -1066,6 +1141,112 @@
         "lib/netstandard2.1/Grpc.Net.Common.pdb",
         "lib/netstandard2.1/Grpc.Net.Common.xml",
         "packageIcon.png"
+      ]
+    },
+    "linq2db/5.2.2": {
+      "sha512": "RPELtCwa5RxL1AuP8LCLsEBDpFMizHgG9J3lo1nQWrcQDvFQnKA2+ME06W3Ke/gg2kKrTd/l8Rhqu6lgPTyNqA==",
+      "type": "package",
+      "path": "linq2db/5.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "MIT-LICENSE.txt",
+        "README.md",
+        "images/icon.png",
+        "lib/net45/linq2db.dll",
+        "lib/net45/linq2db.xml",
+        "lib/net46/linq2db.dll",
+        "lib/net46/linq2db.xml",
+        "lib/net472/linq2db.dll",
+        "lib/net472/linq2db.xml",
+        "lib/net6.0/linq2db.dll",
+        "lib/net6.0/linq2db.xml",
+        "lib/netcoreapp3.1/linq2db.dll",
+        "lib/netcoreapp3.1/linq2db.xml",
+        "lib/netstandard2.0/linq2db.dll",
+        "lib/netstandard2.0/linq2db.xml",
+        "lib/netstandard2.1/linq2db.dll",
+        "lib/netstandard2.1/linq2db.xml",
+        "linq2db.5.2.2.nupkg.sha512",
+        "linq2db.nuspec"
+      ]
+    },
+    "linq2db.AspNet/5.2.2": {
+      "sha512": "mR86MkVX5IytNPHePSC63k8BhmTjlMRuEQdPy7QGCUJZWQo3qP45yPDhDeIbITpTB4/GhDskqAal91R0fU8iNA==",
+      "type": "package",
+      "path": "linq2db.aspnet/5.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "MIT-LICENSE.txt",
+        "README.md",
+        "images/icon.png",
+        "lib/net45/linq2db.AspNet.dll",
+        "lib/net45/linq2db.AspNet.xml",
+        "lib/netstandard2.0/linq2db.AspNet.dll",
+        "lib/netstandard2.0/linq2db.AspNet.xml",
+        "linq2db.aspnet.5.2.2.nupkg.sha512",
+        "linq2db.aspnet.nuspec"
+      ]
+    },
+    "linq2db.PostgreSQL/5.2.2": {
+      "sha512": "Icb9b27sbgHr+IxAsqlSXt46ij0gncIcABu3Iu0mA1zJ1FsyvvAoT5r+tbfcyZOk3+NcDZVJwNuOYisbt46m8Q==",
+      "type": "package",
+      "path": "linq2db.postgresql/5.2.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "MIT-LICENSE.txt",
+        "README.md",
+        "build/linq2db.PostgreSQL.props",
+        "content/LinqToDB.Templates/CopyMe.PostgreSQL.tt.txt",
+        "content/LinqToDB.Templates/DataAnnotations.ttinclude",
+        "content/LinqToDB.Templates/DataModel.ttinclude",
+        "content/LinqToDB.Templates/EditableObject.ttinclude",
+        "content/LinqToDB.Templates/Equatable.ttinclude",
+        "content/LinqToDB.Templates/Humanizer.ttinclude",
+        "content/LinqToDB.Templates/LinqToDB.PostgreSQL.Tools.ttinclude",
+        "content/LinqToDB.Templates/LinqToDB.PostgreSQL.ttinclude",
+        "content/LinqToDB.Templates/LinqToDB.Tools.ttinclude",
+        "content/LinqToDB.Templates/LinqToDB.ttinclude",
+        "content/LinqToDB.Templates/MultipleFiles.ttinclude",
+        "content/LinqToDB.Templates/NotifyDataErrorInfo.ttinclude",
+        "content/LinqToDB.Templates/NotifyPropertyChanged.ttinclude",
+        "content/LinqToDB.Templates/ObsoleteAttributes.ttinclude",
+        "content/LinqToDB.Templates/PluralizationService.ttinclude",
+        "content/LinqToDB.Templates/T4Model.ttinclude",
+        "content/LinqToDB.Templates/Validation.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/CopyMe.PostgreSQL.tt.txt",
+        "contentFiles/any/any/LinqToDB.Templates/DataAnnotations.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/DataModel.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/EditableObject.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/Equatable.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/Humanizer.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/LinqToDB.PostgreSQL.Tools.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/LinqToDB.PostgreSQL.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/LinqToDB.Tools.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/LinqToDB.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/MultipleFiles.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/NotifyDataErrorInfo.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/NotifyPropertyChanged.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/ObsoleteAttributes.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/PluralizationService.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/T4Model.ttinclude",
+        "contentFiles/any/any/LinqToDB.Templates/Validation.ttinclude",
+        "images/icon.png",
+        "linq2db.postgresql.5.2.2.nupkg.sha512",
+        "linq2db.postgresql.nuspec",
+        "readme.txt",
+        "tools/Humanizer.dll",
+        "tools/Microsoft.Bcl.AsyncInterfaces.dll",
+        "tools/Microsoft.Bcl.HashCode.dll",
+        "tools/Microsoft.Extensions.Logging.Abstractions.dll",
+        "tools/Npgsql.dll",
+        "tools/System.Text.Json.dll",
+        "tools/System.Threading.Channels.dll",
+        "tools/System.Threading.Tasks.Extensions.dll",
+        "tools/linq2db.dll"
       ]
     },
     "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
@@ -1372,10 +1553,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection/6.0.0": {
-      "sha512": "k6PWQMuoBDGGHOQTtyois2u4AwyVcIwL2LaSLlTZQm2CYcJ1pxbt6jfAnpWmzENA/wfrYRI/X9DTLoUkE4AsLw==",
+    "Microsoft.Extensions.DependencyInjection/6.0.1": {
+      "sha512": "vWXPg3HJQIpZkENn1KWq8SfbqVujVD7S7vIAyFXXqK5xkf1Vho+vG0bLBCHxU36lD1cLLtmGpfYf0B3MYFi9tQ==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection/6.0.0",
+      "path": "microsoft.extensions.dependencyinjection/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1392,7 +1573,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
-        "microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2206,6 +2387,11 @@
       "path": "../../../../BuildingBlocks/ApiExtensions/ApiExtensions.csproj",
       "msbuildProject": "../../../../BuildingBlocks/ApiExtensions/ApiExtensions.csproj"
     },
+    "Common.Infrastructure.Linq2Db/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/Common.Infrastructure.Linq2Db/Common.Infrastructure.Linq2Db.csproj",
+      "msbuildProject": "../../Infrastructure/Common.Infrastructure.Linq2Db/Common.Infrastructure.Linq2Db.csproj"
+    },
     "CommonUtility/1.0.0": {
       "type": "project",
       "path": "../../../../BuildingBlocks/CommonUtility/CommonUtility.csproj",
@@ -2220,11 +2406,17 @@
       "type": "project",
       "path": "../../../../BuildingBlocks/Healthchecks/Healthchecks.csproj",
       "msbuildProject": "../../../../BuildingBlocks/Healthchecks/Healthchecks.csproj"
+    },
+    "Linq2DbAccessor/1.0.0": {
+      "type": "project",
+      "path": "../../../../BuildingBlocks/Linq2DbAccessor/Linq2DbAccessor.csproj",
+      "msbuildProject": "../../../../BuildingBlocks/Linq2DbAccessor/Linq2DbAccessor.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "ApiExtensions >= 1.0.0",
+      "Common.Infrastructure.Linq2Db >= 1.0.0",
       "Dapr.Actors.AspNetCore >= 1.11.0",
       "Dapr.AspNetCore >= 1.11.0",
       "Healthchecks >= 1.0.0",
@@ -2271,6 +2463,9 @@
             },
             "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\Healthchecks\\Healthchecks.csproj": {
               "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\BuildingBlocks\\Healthchecks\\Healthchecks.csproj"
+            },
+            "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Common\\Infrastructure\\Common.Infrastructure.Linq2Db\\Common.Infrastructure.Linq2Db.csproj": {
+              "projectPath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Common\\Infrastructure\\Common.Infrastructure.Linq2Db\\Common.Infrastructure.Linq2Db.csproj"
             }
           }
         }

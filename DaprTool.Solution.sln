@@ -85,6 +85,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Host", "src\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtility", "src\BuildingBlocks\CommonUtility\CommonUtility.csproj", "{5A8422B2-1F0D-41BE-8C30-5810D4C7D448}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{B75B1640-466C-4BAB-8EEF-2F0B3691FD77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{56D45039-23D5-47CB-B12B-CE4982E85633}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\gold-pubsub.yaml = dapr\components\gold-pubsub.yaml
+		dapr\components\gold-secretstore.yaml = dapr\components\gold-secretstore.yaml
+		dapr\components\gold-statestore.yaml = dapr\components\gold-statestore.yaml
+		dapr\components\gold-secrets.json = dapr\components\gold-secrets.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configuration", "{F3C8590F-504F-42D5-A120-198B742CCFF6}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\configuration\gold-config.yaml = dapr\configuration\gold-config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{957DAFBB-1DA6-4AB2-BCC3-D984E7C7F4A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +147,8 @@ Global
 		{90BDC411-E19C-4781-BD46-94C688BE797F} = {E2CF6914-DBA1-47C6-B445-A08560FB8BF9}
 		{4C23EB4D-BE65-44A6-B4A1-32D33E7C23FA} = {E2CF6914-DBA1-47C6-B445-A08560FB8BF9}
 		{5A8422B2-1F0D-41BE-8C30-5810D4C7D448} = {121D78F3-3F0F-4F00-B2C9-3C797653C951}
+		{56D45039-23D5-47CB-B12B-CE4982E85633} = {B75B1640-466C-4BAB-8EEF-2F0B3691FD77}
+		{F3C8590F-504F-42D5-A120-198B742CCFF6} = {B75B1640-466C-4BAB-8EEF-2F0B3691FD77}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C87955A5-00E7-4A28-BA08-514BA82BF25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "CTTzVrWdf0yAhZ3lBnV2PYgO+EJjU3tD3ZX2AAENBA5hUDEf7ar+EGWmkO4uCIJ1yQoPmjClSBGiEkYI4Hrc5g==",
+  "dgSpecHash": "EysesSwc5lGPtsdEJmwqpBypVTax4RmuQDYPMOh8YSgU8F0RYReQNtNUm7mbQVaYhl3lKdbPROS4/l4jIxgcLQ==",
   "success": true,
   "projectFilePath": "D:\\Source\\repos\\DaprTool.Solution\\src\\Services\\Common\\Infrastructure\\Common.Infrastructure.Linq2Db\\Common.Infrastructure.Linq2Db.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "D:\\.nuget\\packages\\linq2db\\5.2.2\\linq2db.5.2.2.nupkg.sha512",
+    "D:\\.nuget\\packages\\linq2db.aspnet\\5.2.2\\linq2db.aspnet.5.2.2.nupkg.sha512",
+    "D:\\.nuget\\packages\\linq2db.postgresql\\5.2.2\\linq2db.postgresql.5.2.2.nupkg.sha512",
+    "D:\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "D:\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "D:\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512",
+    "D:\\.nuget\\packages\\npgsql\\7.0.2\\npgsql.7.0.2.nupkg.sha512",
+    "D:\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
