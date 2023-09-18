@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Linq2Db\Ordering.Infrastructure.Linq2Db.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
     </ItemGroup>
 

@@ -8,6 +8,9 @@ var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentCla
 logger.Debug("开始初始化 ({ApplicationName})...", appName);
 
 var builder = WebApplication.CreateBuilder(args);
+// 注册 Nlog
+builder.Logging.ClearProviders();
+builder.Host.UseNLog();
 
 builder.Services.AddActors(options =>
 {

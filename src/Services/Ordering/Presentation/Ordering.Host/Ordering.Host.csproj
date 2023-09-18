@@ -4,11 +4,18 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>eef17b34-a879-4209-bc6c-fd4bdfd4159f</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..\..\..\..</DockerfileContext>
+        <DockerComposeProjectPath>..\..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Dapr.Actors" Version="1.11.0" />
         <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.11.0" />
+        <PackageReference Include="Dapr.AspNetCore" Version="1.11.0" />
+        <PackageReference Include="Dapr.Extensions.Configuration" Version="1.11.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
         <PackageReference Include="NLog" Version="5.2.3" />
         <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.3" />
     </ItemGroup>

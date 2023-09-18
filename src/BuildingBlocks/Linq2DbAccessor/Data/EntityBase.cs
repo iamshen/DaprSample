@@ -17,19 +17,19 @@ public abstract class EntityBase : IEntity, ICreatedTime, IUpdatedTime, ISoftDel
     /// <summary>
     ///     创建时间
     /// </summary>
-    [Column("created_time", DataType = DataType.DateTimeOffset, CanBeNull = false)]
+    [Column("created_time", DataType = DataType.Int64, CanBeNull = false)]
     public virtual long CreatedTime { get; set; }
 
     /// <summary>
     ///     删除时间
     /// </summary>
     /// <remarks>如果 删除时间 > 0 说明 数据被删除了</remarks>
-    [Column("is_soft_deleted", DataType = DataType.Boolean, CanBeNull = false)]
+    [Column("soft_deleted", DataType = DataType.Int64, CanBeNull = false)]
     public virtual long DeletedTime { get; set; }
 
     /// <summary>
     ///     上一次更新时间
     /// </summary>
-    [Column("updated_time", DataType = DataType.DateTimeOffset, CanBeNull = false)]
+    [Column("updated_time", DataType = DataType.Int64, CanBeNull = false)]
     public virtual long UpdatedTime { get; set; }
 }

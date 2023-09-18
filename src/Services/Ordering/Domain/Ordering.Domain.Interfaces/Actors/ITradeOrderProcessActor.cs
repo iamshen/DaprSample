@@ -1,5 +1,4 @@
 ﻿using Dapr.Actors;
-using LanguageExt.Common;
 using Ordering.Domain.Interfaces.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.ValueObjects;
@@ -13,11 +12,11 @@ public interface ITradeOrderProcessActor : IActor
     /// </summary>
     /// <param name="orderCommand"></param>
     /// <returns></returns>
-    public Task<Result<IdNumberRecord>> SubmitAsync(CreateTradeOrderCommand orderCommand);
+    public Task<OrderRecord> SubmitAsync(CreateTradeOrderCommand orderCommand);
 
     /// <summary>
     ///     获取订单详情
     /// </summary>
     /// <returns></returns>
-    public Task<Result<TradeOrderOutputDto>> GetAsync();
+    public Task<TradeOrderOutputDto> GetAsync();
 }

@@ -35,8 +35,11 @@ public static class AppDataConnectionExtensions
     /// <exception cref="ArgumentException"></exception>
     public static void AddAppDataConnection(this IServiceCollection services, string connectionString)
     {
+        // if (string.IsNullOrEmpty(connectionString))
+        //     throw new ArgumentException("connectionString can not be null", nameof(connectionString));
+
         if (string.IsNullOrEmpty(connectionString))
-            throw new ArgumentException("connectionString can not be null", nameof(connectionString));
+            return;
 
         services.AddLinqToDBContext<AppDataConnection>((provider, options) =>
         {

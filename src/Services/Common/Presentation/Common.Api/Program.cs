@@ -19,16 +19,19 @@ builder.AddAppHealthChecks("common-db-check", dbConnectionStringName);
 // 注册 业务数据库
 builder.Services.AddAppDataConnection(builder.Configuration.GetConnectionString(dbConnectionStringName)!);
 // 注册 swagger 
-builder.AddAppSwagger("common_api");
+builder.AddAppSwagger();
 // 注册 Api 资源
 builder.AddAppApiResource();
+// 注册 Nlog
+builder.Logging.ClearProviders();
+builder.Host.UseNLog();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseAppSwagger("common_api");
+    app.UseAppSwagger(builder.Configuration);
 }
 
 app.UseCloudEvents();

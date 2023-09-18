@@ -9,6 +9,6 @@ public interface IEventHandler
 
 /// <summary>
 /// </summary>
-public interface IDbEventHandler : IEventHandler
+public interface IDbEventHandler
 {
 }

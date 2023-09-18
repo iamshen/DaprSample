@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiExtensions\ApiExtensions.csproj" />
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiSwagger\ApiSwagger.csproj" />
       <ProjectReference Include="..\..\..\..\BuildingBlocks\Healthchecks\Healthchecks.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Common.Infrastructure.Linq2Db\Common.Infrastructure.Linq2Db.csproj" />
     </ItemGroup>

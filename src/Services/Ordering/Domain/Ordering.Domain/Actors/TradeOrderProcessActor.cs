@@ -1,7 +1,7 @@
-﻿using Dapr.Actors.Runtime;
+﻿using Dapr.Actors;
+using Dapr.Actors.Runtime;
 using DaprTool.BuildingBlocks.EventBus.Events;
 using FluentValidation;
-using LanguageExt.Common;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -54,7 +54,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
 
     private const string GracePeriodElapsedReminder = "GracePeriodElapsed"; // 订单超时提醒器
     private IOptions<OrderingSettings> Settings => ServiceProvider.GetRequiredService<IOptions<OrderingSettings>>();
-    public override string StateDataKey => "sale-order-data";
+    public override string StateDataKey => "trade-order-data";
 
     #endregion
 
@@ -66,29 +66,22 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
     /// <param name="orderCommand"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public async Task<Result<IdNumberRecord>> SubmitAsync(CreateTradeOrderCommand orderCommand)
+    public async Task<OrderRecord> SubmitAsync(CreateTradeOrderCommand orderCommand)
     {
         #region 验证
 
         var validator = ServiceProvider.GetRequiredService<IValidator<CreateTradeOrderCommand>>();
         var validateResult = await validator.ValidateAsync(orderCommand);
-        if (!validateResult.IsValid)
-        {
-            var ex = new ValidationException(validateResult.Errors);
-            return new Result<IdNumberRecord>(ex);
-        }
+        if (!validateResult.IsValid) throw new ValidationException(validateResult.Errors);
 
         #endregion
-    
+
         // 获取状态
         var stateObj = await StateManager.TryGetStateAsync<TradeOrderState>(StateDataKey);
-        if (stateObj.HasValue)
-        {
-            var ex = new Exception(Errors.RepeatCreated);
-            return new Result<IdNumberRecord>(ex);
-        }
+        if (stateObj.HasValue) throw new Exception(Errors.RepeatCreated);
 
-        var orderNo = Guid.NewGuid().ToString("N");
+        var orderNumberProxy = ProxyFactory.CreateActorProxy<INumberGeneratorActor>(new ActorId("0"), "NumberGeneratorActor");
+        var orderNo = await orderNumberProxy.GenerateNumberAsync(100);
         var state = new TradeOrderState
         {
             OrderNo = orderNo,
@@ -98,7 +91,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
             Buyer = orderCommand.Buyer,
             Seller = orderCommand.Seller,
             SaleStore = orderCommand.SaleStore,
-            Remark = orderCommand.Remark ?? OrderStatus.Created.ToString(),
+            Remark = orderCommand.Remark ?? OrderStatus.Created.GetDisplayName(),
             CreatedTime = DateTimeOffset.Now,
             UpdatedTime = DateTimeOffset.Now,
             OrderItems = orderCommand.OrderItems
@@ -136,23 +129,18 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
 
         await RaiseEvents(events.ToArray());
 
-        return new Result<IdNumberRecord>(new IdNumberRecord(ActorId, orderNo));
+        return new OrderRecord(ActorId, orderNo);
     }
 
     /// <summary>
     ///     获取订单明细
     /// </summary>
     /// <returns></returns>
-    public async Task<Result<TradeOrderOutputDto>> GetAsync()
+    public async Task<TradeOrderOutputDto> GetAsync()
     {
         var order = await StateManager.GetStateAsync<TradeOrderState>(StateDataKey);
-        if (order is null)
-        {
-            var ex = new Exception("订单不存在");
-            return new Result<TradeOrderOutputDto>(ex);
-        }
-
-        return new Result<TradeOrderOutputDto>(new TradeOrderOutputDto
+        if (order is null) throw new Exception("订单不存在");
+        return new TradeOrderOutputDto
         {
             OrderId = ActorId,
             OrderNo = order.OrderNo,
@@ -166,7 +154,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
             CreatedTime = order.CreatedTime,
             UpdatedTime = order.UpdatedTime,
             OrderItems = order.OrderItems
-        });
+        };
     }
 
     #endregion
@@ -213,7 +201,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
         if (order.OrderStatus != expectedOrderStatus)
         {
             Logger.LogWarning("订单: {OrderId} 的订单状态处于 {Status}，而非预期状态 {ExpectedStatus}",
-                ActorId, order.OrderStatus.ToString(), expectedOrderStatus.ToString());
+                ActorId, order.OrderStatus.GetDisplayName(), expectedOrderStatus.GetDisplayName());
 
             return false;
         }

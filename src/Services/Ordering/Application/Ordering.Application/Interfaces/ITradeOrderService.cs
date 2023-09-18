@@ -7,9 +7,7 @@ namespace Ordering.Application.Interfaces;
 
 public interface ITradeOrderService
 {
-    public Task<Result<IdNumberRecord>> SubmitAsync(CreateTradeOrderCommand orderCommand);
-
+    public Task<Result<OrderRecord>> SubmitAsync(CreateTradeOrderCommand orderCommand);
     public Task<Result<TradeOrderOutputDto>> GetAsync(string id);
-
     public Task<Result<TradeOrderOutputDto>> GetByOrderNumberAsync(string orderNumber);
 }

@@ -12,9 +12,9 @@ namespace DaprTool.BuildingBlocks.EventBus;
 public class DaprEventBus : IEventBus
 {
     private readonly DaprClient _dapr;
-    private readonly ILogger _logger;
+    private readonly ILogger<DaprEventBus> _logger;
 
-    public DaprEventBus(DaprClient dapr, ILogger logger)
+    public DaprEventBus(DaprClient dapr, ILogger<DaprEventBus> logger)
     {
         _dapr = dapr;
         _logger = logger;

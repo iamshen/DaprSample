@@ -1,6 +1,6 @@
 ﻿using LinqToDB;
 using LinqToDB.Data;
-using LinqToDB.DataProvider.SQLite;
+using LinqToDB.DataProvider.PostgreSQL;
 using Ordering.Infrastructure.Linq2Db.Entities;
 
 namespace Ordering.Infrastructure.Linq2Db;
@@ -18,7 +18,8 @@ public class AppDataConnection : DataConnection
     ///     初始化一个 <see cref="AppDataConnection" /> 类型的新实例
     /// </summary>
     /// <param name="connectionString"> 数据库连接字符串 </param>
-    public AppDataConnection(string connectionString) : base(SQLiteTools.GetDataProvider(), connectionString)
+    public AppDataConnection(string connectionString) : base(PostgreSQLTools.GetDataProvider(PostgreSQLVersion.v95),
+        connectionString)
     {
     }
 

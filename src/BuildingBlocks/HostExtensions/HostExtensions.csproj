@@ -6,5 +6,4 @@
         <Nullable>enable</Nullable>
         <RootNamespace>DaprTool.BuildingBlocks.HostExtensions</RootNamespace>
     </PropertyGroup>
-
 </Project>

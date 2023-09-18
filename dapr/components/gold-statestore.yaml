@@ -2,22 +2,23 @@ apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
   name: gold-statestore
+  namespace: gold
 spec:
   type: state.postgresql
   version: v1
   metadata:
     # Connection string
     - name: connectionString
-      value: "host=localhost user=dapr password=Local@Db port=5432 connect_timeout=20 database=dapr_sample_01"
+      value: "host=postgres user=dapr password=Local@Db port=5432 connect_timeout=20 database=dapr_manager"
     # Timeout for database operations, in seconds (optional)
     - name: timeoutInSeconds
       value: "20"
     # Name of the table where to store the state (optional)
     - name: tableName
-      value: "gold_dapr.state"
+      value: "dapr_state"
     # Name of the table where to store metadata used by Dapr (optional)
     - name: metadataTableName
-      value: "gold_dapr.metadata"
+      value: "dapr_metadata"
     # Cleanup interval in seconds, to remove expired rows (optional)
     - name: cleanupIntervalInSeconds
       value: "0"

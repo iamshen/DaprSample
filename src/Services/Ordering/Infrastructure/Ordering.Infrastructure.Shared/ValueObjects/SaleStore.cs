@@ -9,11 +9,11 @@ public record SaleStore
     ///     销售柜台Id
     /// </summary>
     /// <remarks>销售 店铺/柜台 Id</remarks>
-    public string SellerId { get; set; } = string.Empty;
+    public string StoreId { get; set; } = string.Empty;
 
     /// <summary>
     ///     销售柜台名称
     /// </summary>
     /// <remarks>销售 店铺/柜台 名称</remarks>
-    public string SellerName { get; set; } = string.Empty;
+    public string StoreName { get; set; } = string.Empty;
 }

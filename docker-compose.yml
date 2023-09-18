@@ -1,0 +1,49 @@
+version: '3.4'
+
+services:
+  postgres:
+    image: postgres:latest
+
+  rabbitmq:
+    image: rabbitmq:3.11.23-management-alpine
+
+#  redis:
+#    image: docker.io/redis:6
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+
+  dapr-placement:
+    image: "daprio/dapr:1.11.3"
+
+  ordering-api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: src/Services/Ordering/Presentation/Ordering.Api/Dockerfile
+    depends_on:
+      - postgres
+      - rabbitmq
+
+  ordering-api-dapr:
+    image: "daprio/daprd:1.11.3"
+    network_mode: "service:ordering-api"
+    depends_on:
+      - ordering-api
+
+  ordering-host:
+    image: ${DOCKER_REGISTRY-}orderinghost
+    build:
+      context: .
+      dockerfile: src/Services/Ordering/Presentation/Ordering.Host/Dockerfile
+    depends_on:
+      - postgres
+      - rabbitmq
+
+  ordering-host-dapr:
+    image: "daprio/daprd:1.11.3"
+    network_mode: "service:ordering-host"
+    depends_on:
+      - ordering-host
+
+

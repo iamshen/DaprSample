@@ -11,11 +11,6 @@
         <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.11.0" />
     </ItemGroup>
 
-
-    <ItemGroup>
-      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
-    </ItemGroup>
-
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\BuildingBlocks\EventBus\EventBus.csproj" />
       <ProjectReference Include="..\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />

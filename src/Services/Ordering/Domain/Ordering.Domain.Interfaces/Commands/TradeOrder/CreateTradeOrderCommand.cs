@@ -53,8 +53,8 @@ public class CreateTradeOrderCommandValidator : AbstractValidator<CreateTradeOrd
         RuleFor(x => x.Seller.SellerName).NotNull().WithMessage("销售人不能为null").NotEmpty().WithMessage("销售人不能为空");
 
         RuleFor(x => x.SaleStore).NotNull().WithMessage("销售柜台不能为空");
-        RuleFor(x => x.SaleStore.SellerId).NotNull().WithMessage("销售柜台不能为null").NotEmpty().WithMessage("销售柜台不能为空");
-        RuleFor(x => x.SaleStore.SellerName).NotNull().WithMessage("销售柜台不能为null").NotEmpty().WithMessage("销售柜台不能为空");
+        RuleFor(x => x.SaleStore.StoreId).NotNull().WithMessage("销售柜台不能为null").NotEmpty().WithMessage("销售柜台不能为空");
+        RuleFor(x => x.SaleStore.StoreName).NotNull().WithMessage("销售柜台不能为null").NotEmpty().WithMessage("销售柜台不能为空");
 
         RuleFor(x => x.OrderItems)
             .NotEmpty().WithMessage("订单明细不能为空")

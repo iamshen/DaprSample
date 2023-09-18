@@ -32,6 +32,31 @@ public class DateTimeHelper
     }
 
     #endregion
+
+    public static long GetTimestamp(bool isFromTimeSeconds = true)
+    {
+        return isFromTimeSeconds ? GetTimestampFromTimeSeconds() : GetTimestampFromMilliSeconds();
+    }
+
+
+    private static long GetTimestampFromTimeSeconds()
+    {
+        // 使用DateTimeOffset获取当前时间
+        DateTimeOffset now = DateTimeOffset.Now;
+        // 将时间转换为Unix时间戳（秒级别）
+        var unixTimestampSeconds = now.ToUnixTimeSeconds();
+        Console.WriteLine(unixTimestampSeconds);
+        return unixTimestampSeconds;
+    }
+    
+    private static long GetTimestampFromMilliSeconds()
+    {
+        // 使用DateTimeOffset获取当前时间
+        var now = DateTimeOffset.Now;
+        // 将时间转换为Unix时间戳（毫秒级别）
+        var unixTimestampMilliseconds = now.ToUnixTimeMilliseconds();
+        return unixTimestampMilliseconds;
+    }
 }
 
 #endregion

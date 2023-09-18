@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto;
-using DaprTool.BuildingBlocks.EventBus.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -8,84 +7,31 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Options;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.OpenApi.Models;
 using RestSharp;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Microsoft.Extensions.DependencyInjection;
- 
+
 public static class ProgramExtensions
 {
     /// <summary>
-    /// 注册 Swagger 
-    /// </summary>
-    /// <param name="builder"></param>
-    /// <param name="appName"></param>
-    public static void AddAppSwagger(this WebApplicationBuilder builder, string appName)
-    {
-        builder.Services.AddSwaggerGen(c =>
-        {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = $"HuangsOnDapr - {appName}", Version = "v1" });
-
-            var identityUrlExternal = builder.Configuration.GetValue<string>("IdentityUrlExternal");
-
-            c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-            {
-                Type = SecuritySchemeType.OAuth2,
-                Flows = new OpenApiOAuthFlows()
-                {
-                    Implicit = new OpenApiOAuthFlow()
-                    {
-                        AuthorizationUrl = new Uri($"{identityUrlExternal}/connect/authorize"),
-                        TokenUrl = new Uri($"{identityUrlExternal}/connect/token"),
-                        Scopes = new Dictionary<string, string>()
-                        {
-                            { "daprTool", appName }
-                        }
-                    }
-                }
-            });
-
-            c.OperationFilter<AuthorizeCheckOperationFilter>();
-        });
-    }
-
-    /// <summary>
-    /// 使用 Swagger
-    /// </summary>
-    /// <param name="app"></param>
-    /// <param name="appName"></param>
-    public static void UseAppSwagger(this WebApplication app, string appName)
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{appName} V1");
-            c.OAuthClientId("daprToolswaggerui");
-            c.OAuthAppName("daprTool Swagger UI");
-        });
-    }
-    
-      
-    /// <summary>
-    /// 添加健康检查
+    ///     添加健康检查
     /// </summary>
     /// <param name="builder"></param>
     /// <param name="sqlCheckName"></param>
     /// <param name="connectionStringName"></param>
-    public static void AddAppHealthChecks(this WebApplicationBuilder builder, string sqlCheckName, string connectionStringName = "default")
+    public static void AddAppHealthChecks(this WebApplicationBuilder builder, string sqlCheckName,
+        string connectionStringName = "default")
     {
         builder.Services.AddHealthChecks()
             .AddCheck("self", () => HealthCheckResult.Healthy())
             .AddDapr()
             .AddNpgSql(
                 builder.Configuration[$"ConnectionStrings:{connectionStringName}"]!,
-                name: sqlCheckName ,
+                name: sqlCheckName,
                 tags: new[] { sqlCheckName });
-        
     }
 
-    
+
     /// <summary>
     ///     注册 API 信息 到 IdentityServer4 的API资源中
     /// </summary>
@@ -94,7 +40,8 @@ public static class ProgramExtensions
     {
         #region 验证配置
 
-        var options = builder.Configuration.GetSection(nameof(ApiResourceOptions)).Get<ApiResourceOptions>() ?? new ApiResourceOptions();
+        var options = builder.Configuration.GetSection(nameof(ApiResourceOptions)).Get<ApiResourceOptions>() ??
+                      new ApiResourceOptions();
 
         if (!options.AutoRegisterApiResource)
             return;

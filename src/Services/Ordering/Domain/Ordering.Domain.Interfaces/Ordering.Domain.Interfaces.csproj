@@ -9,7 +9,6 @@
     <ItemGroup>
         <PackageReference Include="Dapr.Actors" Version="1.11.0" />
         <PackageReference Include="FluentValidation" Version="11.7.1" />
-        <PackageReference Include="LanguageExt.Core" Version="4.4.3" />
     </ItemGroup>
 
 
