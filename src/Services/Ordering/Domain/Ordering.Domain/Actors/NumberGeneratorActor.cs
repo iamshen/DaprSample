@@ -45,7 +45,7 @@ public class NumberGeneratorActor : Actor, INumberGeneratorActor
         // 单号 = 订单类型 + 业务类型 + 日期 + 计数器
         var orderNumber = $"{orderTypeStr}{bizTypeStr}{dateTimeStr}{counter:D8}";
         counter++; // 递增流水号
-        await StateManager.SetStateAsync(StateDataKey, counter);
+        await StateManager.SetStateAsync(key, counter);
         return orderNumber;
     }
 }
