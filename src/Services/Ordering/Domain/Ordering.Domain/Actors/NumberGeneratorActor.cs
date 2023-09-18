@@ -18,10 +18,16 @@ public class NumberGeneratorActor : Actor, INumberGeneratorActor
     }
 
     /// <summary>
+    ///     生成序列号
     /// </summary>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public async Task<string> GenerateNumberAsync(int bizType)
+    /// <param name="orderType">订单类型, 最多 三位数</param>
+    /// <param name="bizType">业务类型, 最多 两位数</param>
+    /// <returns>单号</returns>
+    /// <remarks>
+    /// <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器</para>
+    /// <para>例如: "201122023091800000001" </para>
+    /// </remarks>>
+    public async Task<string> GenerateNumberAsync(int orderType, int bizType)
     {
         // 流水号计数器
         long counter = 0;
@@ -30,7 +36,9 @@ public class NumberGeneratorActor : Actor, INumberGeneratorActor
 
         var datePart = DateTime.UtcNow.ToString("yyyyMMdd"); // 当前日期部分
 
-        var orderNumber = $"{bizType}{datePart}{counter:D7}";
+        // 单号 = 订单类型 + 业务类型 + 日期 + 计数器
+        
+        var orderNumber = $"{orderType:D3}{bizType:D2}{datePart}{counter:D8}";
 
         counter++; // 递增流水号
 

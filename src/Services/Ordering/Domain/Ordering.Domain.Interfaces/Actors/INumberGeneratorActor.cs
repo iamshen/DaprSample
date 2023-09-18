@@ -3,9 +3,14 @@
 namespace Ordering.Domain.Interfaces.Actors;
 
 /// <summary>
-/// 
 /// </summary>
 public interface INumberGeneratorActor : IActor
 {
-    Task<string> GenerateNumberAsync(int bizType);
+    /// <summary>
+    ///     生成序列号
+    /// </summary>
+    /// <param name="orderType">订单类型, 最多 三位数</param>
+    /// <param name="bizType">业务类型, 最多 两位数</param>
+    /// <returns></returns>
+    Task<string> GenerateNumberAsync(int orderType, int bizType);
 }

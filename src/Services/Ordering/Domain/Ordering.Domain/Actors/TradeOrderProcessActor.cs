@@ -81,7 +81,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
         if (stateObj.HasValue) throw new Exception(Errors.RepeatCreated);
 
         var orderNumberProxy = ProxyFactory.CreateActorProxy<INumberGeneratorActor>(new ActorId("0"), "NumberGeneratorActor");
-        var orderNo = await orderNumberProxy.GenerateNumberAsync(100);
+        var orderNo = await orderNumberProxy.GenerateNumberAsync(201, 10);
         var state = new TradeOrderState
         {
             OrderNo = orderNo,
