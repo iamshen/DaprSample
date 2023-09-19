@@ -8,11 +8,31 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Options;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using RestSharp;
+using Serilog;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ProgramExtensions
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <param name="appName"></param>
+    public static void AddAppSerilog(this WebApplicationBuilder builder, string appName)
+    {
+        var seqServerUrl = builder.Configuration["SeqServerUrl"];
+
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(builder.Configuration)
+            .WriteTo.Console()
+            .WriteTo.Seq(seqServerUrl!)
+            .Enrich.WithProperty("ApplicationName", appName)
+            .CreateLogger();
+
+        builder.Host.UseSerilog();
+    }
+    
     /// <summary>
     ///     添加健康检查
     /// </summary>

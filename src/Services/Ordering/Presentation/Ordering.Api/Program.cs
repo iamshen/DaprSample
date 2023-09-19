@@ -4,17 +4,14 @@ using DaprTool.BuildingBlocks.CommonUtility.Constant;
 using DaprTool.BuildingBlocks.EventBus;
 using DaprTool.BuildingBlocks.EventBus.Abstractions;
 using HealthChecks.UI.Client;
-using NLog;
-using NLog.Web;
 using Ordering.Infrastructure.Shared.Options;
 
 const string appName = "Ordering.Api";
 
-var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-logger.Debug("开始初始化 API 服务 ({ApplicationName})...", appName);
-
 var builder = WebApplication.CreateBuilder(args);
 
+// 注册 Serilog
+builder.AddAppSerilog(appName);
 var client = new DaprClientBuilder().Build();
 // 注册 Dapr secret 配置
 builder.Configuration.AddDaprSecretStore(DaprConstants.SecretStore, client);
@@ -39,9 +36,6 @@ builder.AddAppSwagger();
 builder.AddAppApiResource();
 // 注册 Autofac
 builder.AddAppAutofac(); 
-// 注册 Nlog
-builder.Logging.ClearProviders();
-builder.Host.UseNLog();
 
 var app = builder.Build();
 
@@ -53,7 +47,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseCloudEvents();
 
-app.MapGet("/", () => Results.LocalRedirect("~/swagger"));
+app.MapGet("/", () => Results.LocalRedirect("~/docs"));
 app.MapControllers();
 app.MapSubscribeHandler();
 
@@ -62,16 +56,13 @@ app.MapLivenessHealthChecks("/hc", "/liveness", UIResponseWriter.WriteHealthChec
 try   
 {
     app.Logger.LogInformation("Starting web api ({ApplicationName})...", appName);
-    app.Logger.LogInformation("CounterPrefix: {CounterPrefix}", builder.Configuration["CounterPrefix"]);
-    app.Logger.LogInformation("CounterQuantity: {CounterQuantity}", builder.Configuration["CounterQuantity"]);
     app.Run();
 }
 catch (Exception ex)
 {
-    logger.Error(ex, "Api ({ApplicationName}) 意外终止 ...", appName);
     app.Logger.LogCritical(ex, "Api ({ApplicationName}) 意外终止...", appName);
 }
 finally
 {
-    LogManager.Shutdown();
+    Serilog.Log.CloseAndFlush();
 }
