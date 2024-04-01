@@ -39,13 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Application", "src\Services\Common\Application\Common.Application\Common.Application.csproj", "{C87955A5-00E7-4A28-BA08-514BA82BF25C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Domain.Interfaces", "src\Services\Common\Domain\Common.Domain.Interfaces\Common.Domain.Interfaces.csproj", "{C67F383E-3FD4-4E56-81AD-885D31B17FCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Domain.Core", "src\Services\Common\Domain\Common.Domain.Core\Common.Domain.Core.csproj", "{C67F383E-3FD4-4E56-81AD-885D31B17FCB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{121D78F3-3F0F-4F00-B2C9-3C797653C951}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Healthchecks", "src\BuildingBlocks\Healthchecks\Healthchecks.csproj", "{774F02E6-B1CC-459E-A69F-7D2D7B19E920}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus", "src\BuildingBlocks\EventBus\EventBus.csproj", "{59F3DADB-E8E8-4A4F-8742-18D385D64AA6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Domain", "src\Services\Common\Domain\Common.Domain\Common.Domain.csproj", "{94603D6F-DADD-4ECF-9F6C-3BDDB189E57F}"
 EndProject
@@ -59,8 +57,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D3FF31C-4C03-40D3-8073-11123732B971}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
 		Create-DockerfileSolutionRestore.ps1 = Create-DockerfileSolutionRestore.ps1
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infrastructure.Linq2Db", "src\Services\Common\Infrastructure\Common.Infrastructure.Linq2Db\Common.Infrastructure.Linq2Db.csproj", "{72C002B1-4C62-47D7-B190-592678D38FBF}"
@@ -77,7 +75,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostExtensions", "src\Build
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Domain", "src\Services\Ordering\Domain\Ordering.Domain\Ordering.Domain.csproj", "{2878C5A8-132D-4898-88FB-7F1876D7046F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Domain.Interfaces", "src\Services\Ordering\Domain\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj", "{2AABFD98-1880-47AF-88C9-E92C3BCCFB81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Domain.Core", "src\Services\Ordering\Domain\Ordering.Domain.Core\Ordering.Domain.Core.csproj", "{2AABFD98-1880-47AF-88C9-E92C3BCCFB81}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Infrastructure.Linq2Db", "src\Services\Ordering\Infrastructure\Ordering.Infrastructure.Linq2Db\Ordering.Infrastructure.Linq2Db.csproj", "{91081233-8B24-4FEE-B1A1-65B52E1753FF}"
 EndProject
@@ -93,11 +91,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{B75B1640-4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{56D45039-23D5-47CB-B12B-CE4982E85633}"
 	ProjectSection(SolutionItems) = preProject
+		dapr\components\gold-configurationstore.yaml = dapr\components\gold-configurationstore.yaml
 		dapr\components\gold-pubsub.yaml = dapr\components\gold-pubsub.yaml
 		dapr\components\gold-secrets.json = dapr\components\gold-secrets.json
 		dapr\components\gold-secretstore.yaml = dapr\components\gold-secretstore.yaml
 		dapr\components\gold-statestore.yaml = dapr\components\gold-statestore.yaml
-		dapr\components\gold-configurationstore.yaml = dapr\components\gold-configurationstore.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configuration", "{F3C8590F-504F-42D5-A120-198B742CCFF6}"
@@ -109,7 +107,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{957DAFBB-1
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3711768E-E25A-4AF2-BA61-F0A3E11F1ECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSwagger", "src\BuildingBlocks\ApiSwagger\ApiSwagger.csproj", "{09190F8C-A670-4D83-A692-A89637823BF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiSwagger", "src\BuildingBlocks\ApiSwagger\ApiSwagger.csproj", "{09190F8C-A670-4D83-A692-A89637823BF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstractions", "src\BuildingBlocks\Abstractions\Abstractions.csproj", "{7F1A5FE9-2793-4B98-B817-6D3A7F151609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,10 +129,6 @@ Global
 		{774F02E6-B1CC-459E-A69F-7D2D7B19E920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{774F02E6-B1CC-459E-A69F-7D2D7B19E920}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{774F02E6-B1CC-459E-A69F-7D2D7B19E920}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59F3DADB-E8E8-4A4F-8742-18D385D64AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59F3DADB-E8E8-4A4F-8742-18D385D64AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59F3DADB-E8E8-4A4F-8742-18D385D64AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59F3DADB-E8E8-4A4F-8742-18D385D64AA6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94603D6F-DADD-4ECF-9F6C-3BDDB189E57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94603D6F-DADD-4ECF-9F6C-3BDDB189E57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94603D6F-DADD-4ECF-9F6C-3BDDB189E57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -209,6 +205,10 @@ Global
 		{09190F8C-A670-4D83-A692-A89637823BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09190F8C-A670-4D83-A692-A89637823BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09190F8C-A670-4D83-A692-A89637823BF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F1A5FE9-2793-4B98-B817-6D3A7F151609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F1A5FE9-2793-4B98-B817-6D3A7F151609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F1A5FE9-2793-4B98-B817-6D3A7F151609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F1A5FE9-2793-4B98-B817-6D3A7F151609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -234,7 +234,6 @@ Global
 		{C67F383E-3FD4-4E56-81AD-885D31B17FCB} = {C9159B4E-C309-4F3B-ABF9-1174F3F49943}
 		{121D78F3-3F0F-4F00-B2C9-3C797653C951} = {5724FC31-E7B7-4F84-8B04-85E8A7B964DB}
 		{774F02E6-B1CC-459E-A69F-7D2D7B19E920} = {121D78F3-3F0F-4F00-B2C9-3C797653C951}
-		{59F3DADB-E8E8-4A4F-8742-18D385D64AA6} = {121D78F3-3F0F-4F00-B2C9-3C797653C951}
 		{94603D6F-DADD-4ECF-9F6C-3BDDB189E57F} = {C9159B4E-C309-4F3B-ABF9-1174F3F49943}
 		{5B828729-2458-4EAA-B42D-F814B085FBB3} = {DF67C74A-C547-4B0A-9D30-EF86C94E5C0D}
 		{8FE50C2A-73E5-4AF5-A90F-83B6F92CEA9A} = {DF67C74A-C547-4B0A-9D30-EF86C94E5C0D}
@@ -256,5 +255,9 @@ Global
 		{56D45039-23D5-47CB-B12B-CE4982E85633} = {B75B1640-466C-4BAB-8EEF-2F0B3691FD77}
 		{F3C8590F-504F-42D5-A120-198B742CCFF6} = {B75B1640-466C-4BAB-8EEF-2F0B3691FD77}
 		{09190F8C-A670-4D83-A692-A89637823BF2} = {121D78F3-3F0F-4F00-B2C9-3C797653C951}
+		{7F1A5FE9-2793-4B98-B817-6D3A7F151609} = {121D78F3-3F0F-4F00-B2C9-3C797653C951}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE377903-BDA1-4347-BEC2-62ED2F807EE3}
 	EndGlobalSection
 EndGlobal

@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>DaprTool.BuildingBlocks.Linq2DbAccessor</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="linq2db.AspNet" Version="5.2.2" />
-      <PackageReference Include="linq2db.PostgreSQL" Version="5.2.2" />
+      <PackageReference Include="linq2db.AspNet" Version="5.4.0" />
+      <PackageReference Include="linq2db.PostgreSQL" Version="5.4.0" />
     </ItemGroup>
 
 </Project>

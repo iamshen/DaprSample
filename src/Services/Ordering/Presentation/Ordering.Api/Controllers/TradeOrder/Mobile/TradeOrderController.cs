@@ -1,7 +1,7 @@
 ﻿using LanguageExt.Common;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Interfaces;
-using Ordering.Domain.Interfaces.Commands.TradeOrder;
+using Ordering.Domain.Core.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.ValueObjects;
 

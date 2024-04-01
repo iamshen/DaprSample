@@ -12,7 +12,7 @@ COPY ["src/BuildingBlocks/CommonUtility/CommonUtility.csproj", "src/BuildingBloc
 COPY ["src/BuildingBlocks/EventBus/EventBus.csproj", "src/BuildingBlocks/EventBus/"]
 COPY ["src/BuildingBlocks/Healthchecks/Healthchecks.csproj", "src/BuildingBlocks/Healthchecks/"]
 COPY ["src/Services/Ordering/Application/Ordering.Application/Ordering.Application.csproj", "src/Services/Ordering/Application/Ordering.Application/"]
-COPY ["src/Services/Ordering/Domain/Ordering.Domain.Interfaces/Ordering.Domain.Interfaces.csproj", "src/Services/Ordering/Domain/Ordering.Domain.Interfaces/"]
+COPY ["src/Services/Ordering/Domain/Ordering.Domain.Interfaces/Ordering.Domain.Core.csproj", "src/Services/Ordering/Domain/Ordering.Domain.Interfaces/"]
 COPY ["src/Services/Ordering/Infrastructure/Ordering.Infrastructure.Shared/Ordering.Infrastructure.Shared.csproj", "src/Services/Ordering/Infrastructure/Ordering.Infrastructure.Shared/"]
 COPY ["src/Services/Ordering/Infrastructure/Ordering.Infrastructure.Linq2Db/Ordering.Infrastructure.Linq2Db.csproj", "src/Services/Ordering/Infrastructure/Ordering.Infrastructure.Linq2Db/"]
 COPY ["src/BuildingBlocks/Linq2DbAccessor/Linq2DbAccessor.csproj", "src/BuildingBlocks/Linq2DbAccessor/"]

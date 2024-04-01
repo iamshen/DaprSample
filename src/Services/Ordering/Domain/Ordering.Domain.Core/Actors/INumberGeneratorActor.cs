@@ -1,6 +1,6 @@
 ﻿using Dapr.Actors;
 
-namespace Ordering.Domain.Interfaces.Actors;
+namespace Ordering.Domain.Core.Actors;
 
 /// <summary>
 /// </summary>

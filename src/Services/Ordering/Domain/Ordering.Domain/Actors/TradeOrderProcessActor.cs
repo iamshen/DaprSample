@@ -1,14 +1,14 @@
 ﻿using Dapr.Actors;
 using Dapr.Actors.Runtime;
-using DaprTool.BuildingBlocks.EventBus.Events;
+using DaprTool.BuildingBlocks.Abstractions.Events;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Ordering.Domain.Interfaces.Actors;
-using Ordering.Domain.Interfaces.Commands.TradeOrder;
-using Ordering.Domain.Interfaces.Events.TradeOrder;
-using Ordering.Domain.Interfaces.State;
+using Ordering.Domain.Core.Actors;
+using Ordering.Domain.Core.Commands.TradeOrder;
+using Ordering.Domain.Core.Events.TradeOrder;
+using Ordering.Domain.Core.State;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.Enumerations.TradeOrder;
 using Ordering.Infrastructure.Shared.Options;
@@ -39,7 +39,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
     /// <summary>
     ///     异常错误
     /// </summary>
-    public static class Errors
+    internal static class Errors
     {
         /// <summary> 订单已创建，请勿重复操作 </summary>
         public const string RepeatCreated = "订单已创建，请勿重复操作";

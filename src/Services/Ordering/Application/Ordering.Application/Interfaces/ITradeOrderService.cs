@@ -1,5 +1,5 @@
 using LanguageExt.Common;
-using Ordering.Domain.Interfaces.Commands.TradeOrder;
+using Ordering.Domain.Core.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.ValueObjects;
 

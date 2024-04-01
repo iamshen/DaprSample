@@ -1,12 +1,15 @@
+using DaprTool.BuildingBlocks.Abstractions.Attributes;
+using DaprTool.BuildingBlocks.Abstractions.Command;
 using FluentValidation;
 using Ordering.Infrastructure.Shared.ValueObjects;
 
-namespace Ordering.Domain.Interfaces.Commands.TradeOrder;
+namespace Ordering.Domain.Core.Commands.TradeOrder;
 
 /// <summary>
 ///     创建买卖料订单
 /// </summary>
-public class CreateTradeOrderCommand
+[Command(Name = "CreateTradeOrder")]
+public class CreateTradeOrderCommand : IntegrationCommand 
 {
     /// <summary>
     ///     购买人

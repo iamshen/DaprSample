@@ -5,7 +5,7 @@ using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Interfaces;
-using Ordering.Domain.Interfaces.Commands.TradeOrder;
+using Ordering.Domain.Core.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.ValueObjects;
 

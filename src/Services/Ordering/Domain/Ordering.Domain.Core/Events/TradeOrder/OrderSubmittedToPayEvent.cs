@@ -1,12 +1,12 @@
-using DaprTool.BuildingBlocks.EventBus.Events;
+using DaprTool.BuildingBlocks.Abstractions.Events;
 using Ordering.Infrastructure.Shared.ValueObjects;
 
-namespace Ordering.Domain.Interfaces.Events.TradeOrder;
+namespace Ordering.Domain.Core.Events.TradeOrder;
 
 /// <summary>
 ///     订单已提交, 待支付事件
 /// </summary>
-public record OrderSubmittedToPayEvent : IntegrationEvent
+public class OrderSubmittedToPayEvent : IntegrationEvent
 {
     public string OrderNo { get; set; } = string.Empty;
 

@@ -1,5 +1,5 @@
 ﻿using Dapr.Actors.Runtime;
-using Ordering.Domain.Interfaces.Actors;
+using Ordering.Domain.Core.Actors;
 
 namespace Ordering.Domain.Actors;
 

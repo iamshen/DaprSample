@@ -1,9 +1,9 @@
 ﻿using Dapr.Actors;
-using Ordering.Domain.Interfaces.Commands.TradeOrder;
+using Ordering.Domain.Core.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.ValueObjects;
 
-namespace Ordering.Domain.Interfaces.Actors;
+namespace Ordering.Domain.Core.Actors;
 
 public interface ITradeOrderProcessActor : IActor
 {

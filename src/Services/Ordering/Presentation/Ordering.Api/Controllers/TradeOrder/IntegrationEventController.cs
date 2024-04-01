@@ -2,12 +2,12 @@
 using DaprTool.BuildingBlocks.CommonUtility.Constant;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.DbEventHandler;
-using Ordering.Domain.Interfaces.Events.TradeOrder;
+using Ordering.Domain.Core.Events.TradeOrder;
 
 namespace Ordering.Api.Controllers.TradeOrder;
 
 /// <summary>
-/// 买卖料订单 事件订阅控制器
+/// 买料订单 事件订阅控制器
 /// </summary>
 [ControllerName("TradeOrder")]
 public class IntegrationEventController : ApiBaseController

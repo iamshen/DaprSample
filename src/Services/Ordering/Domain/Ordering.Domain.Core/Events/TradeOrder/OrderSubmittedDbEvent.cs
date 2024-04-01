@@ -1,17 +1,18 @@
-﻿using Ordering.Infrastructure.Shared.Enumerations.TradeOrder;
+using DaprTool.BuildingBlocks.Abstractions.Events;
+using Ordering.Infrastructure.Shared.Enumerations.TradeOrder;
 using Ordering.Infrastructure.Shared.ValueObjects;
 
-namespace Ordering.Domain.Interfaces.State;
+namespace Ordering.Domain.Core.Events.TradeOrder;
 
 /// <summary>
-///     黄金买卖料订单
+///     订单已创建，持久化事件
 /// </summary>
-public class TradeOrderState
+public class OrderSubmittedDbEvent : IntegrationEvent
 {
     /// <summary>
     ///     订单号
     /// </summary>
-    public string OrderNo { get; set; } = string.Empty;
+    public string OrderNo { get; set; } = String.Empty;
 
     /// <summary>
     ///     订单状态
@@ -19,7 +20,7 @@ public class TradeOrderState
     public OrderStatus OrderStatus { get; set; } = OrderStatus.Created;
 
     /// <summary>
-    ///     支付状态
+    ///     订单状态
     /// </summary>
     public PayStatus PayStatus { get; set; } = PayStatus.Created;
 
@@ -62,4 +63,5 @@ public class TradeOrderState
     ///     订单明细
     /// </summary>
     public IList<TradeItem> OrderItems { get; set; } = new List<TradeItem>();
+    
 }

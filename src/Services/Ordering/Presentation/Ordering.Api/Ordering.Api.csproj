@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>db0f9eb4-ee32-47d3-8d93-f59a66d79da5</UserSecretsId>
@@ -11,16 +11,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.11.0" />
-        <PackageReference Include="Dapr.AspNetCore" Version="1.11.0" />
-        <PackageReference Include="Dapr.Extensions.Configuration" Version="1.11.0" />
+        <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.13.0" />
+        <PackageReference Include="Dapr.AspNetCore" Version="1.13.0" />
+        <PackageReference Include="Dapr.Extensions.Configuration" Version="1.13.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiExtensions\ApiExtensions.csproj" />
       <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiSwagger\ApiSwagger.csproj" />
       <ProjectReference Include="..\..\Application\Ordering.Application\Ordering.Application.csproj" />
-      <ProjectReference Include="..\..\Domain\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
+      <ProjectReference Include="..\..\Domain\Ordering.Domain.Core\Ordering.Domain.Core.csproj" />
       <ProjectReference Include="..\..\Domain\Ordering.Domain\Ordering.Domain.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Linq2Db\Ordering.Infrastructure.Linq2Db.csproj" />
     </ItemGroup>

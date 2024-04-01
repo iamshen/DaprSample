@@ -1,5 +1,5 @@
-﻿using DaprTool.BuildingBlocks.EventBus.Abstractions;
-using DaprTool.BuildingBlocks.EventBus.Events;
+﻿using DaprTool.BuildingBlocks.Abstractions.EventBus;
+using DaprTool.BuildingBlocks.Abstractions.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -9,6 +9,7 @@ namespace Dapr.Actors.Runtime;
 ///     Actor
 /// </summary>
 public abstract class DomainActor<TState> : Actor
+        where TState : class, new()
 {
     /// <summary>
     ///     ctor

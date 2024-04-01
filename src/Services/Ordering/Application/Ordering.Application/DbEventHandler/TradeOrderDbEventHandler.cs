@@ -3,7 +3,7 @@ using DaprTool.BuildingBlocks.EventBus.Abstractions;
 using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Ordering.Domain.Interfaces.Events.TradeOrder;
+using Ordering.Domain.Core.Events.TradeOrder;
 using Ordering.Infrastructure.Linq2Db.Entities;
 
 namespace Ordering.Application.DbEventHandler;

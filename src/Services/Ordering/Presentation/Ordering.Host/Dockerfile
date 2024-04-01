@@ -10,7 +10,7 @@ COPY ["src/Services/Ordering/Presentation/Ordering.Host/Ordering.Host.csproj", "
 COPY ["src/Services/Ordering/Domain/Ordering.Domain/Ordering.Domain.csproj", "src/Services/Ordering/Domain/Ordering.Domain/"]
 COPY ["src/BuildingBlocks/EventBus/EventBus.csproj", "src/BuildingBlocks/EventBus/"]
 COPY ["src/BuildingBlocks/CommonUtility/CommonUtility.csproj", "src/BuildingBlocks/CommonUtility/"]
-COPY ["src/Services/Ordering/Domain/Ordering.Domain.Interfaces/Ordering.Domain.Interfaces.csproj", "src/Services/Ordering/Domain/Ordering.Domain.Interfaces/"]
+COPY ["src/Services/Ordering/Domain/Ordering.Domain.Interfaces/Ordering.Domain.Core.csproj", "src/Services/Ordering/Domain/Ordering.Domain.Interfaces/"]
 COPY ["src/Services/Ordering/Infrastructure/Ordering.Infrastructure.Shared/Ordering.Infrastructure.Shared.csproj", "src/Services/Ordering/Infrastructure/Ordering.Infrastructure.Shared/"]
 RUN dotnet restore "src/Services/Ordering/Presentation/Ordering.Host/Ordering.Host.csproj"
 COPY . .

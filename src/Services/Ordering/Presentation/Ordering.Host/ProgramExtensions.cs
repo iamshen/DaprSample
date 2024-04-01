@@ -1,7 +1,7 @@
 ﻿using DaprTool.BuildingBlocks.EventBus;
 using DaprTool.BuildingBlocks.EventBus.Abstractions;
 using FluentValidation;
-using Ordering.Domain.Interfaces.Commands.TradeOrder;
+using Ordering.Domain.Core.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Options;
 using Serilog;
 

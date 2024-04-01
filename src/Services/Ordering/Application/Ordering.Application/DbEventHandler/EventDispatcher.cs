@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Autofac.Features.Indexed;
-using DaprTool.BuildingBlocks.EventBus.Abstractions;
-using DaprTool.BuildingBlocks.EventBus.Events;
+using DaprTool.BuildingBlocks.Abstractions.EventBus;
+using DaprTool.BuildingBlocks.Abstractions.Events;
 
 namespace Ordering.Application.DbEventHandler;
 

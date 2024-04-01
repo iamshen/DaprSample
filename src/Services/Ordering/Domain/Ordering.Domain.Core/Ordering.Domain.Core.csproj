@@ -1,24 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dapr.Actors" Version="1.11.0" />
-        <PackageReference Include="FluentValidation" Version="11.7.1" />
+        <PackageReference Include="Dapr.Actors" Version="1.13.0" />
+        <PackageReference Include="FluentValidation" Version="11.9.0" />
     </ItemGroup>
 
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\BuildingBlocks\EventBus\EventBus.csproj" />
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\Abstractions\Abstractions.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
     </ItemGroup>
-
-
-
-
 
 </Project>
