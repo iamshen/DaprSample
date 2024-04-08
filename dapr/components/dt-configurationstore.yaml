@@ -12,7 +12,7 @@ spec:
         name: ConnectionStrings.DaprMgr
         key: ConnectionStrings.DaprMgr
     - name: table # name of the table which holds configuration information
-      value: "appsettings"
+      value: "dapr_appsettings"
     - name: connMaxIdleTime # max timeout for connection
       value : "15s"
 auth:

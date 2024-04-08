@@ -4,17 +4,12 @@
         <name>Ordering.Api</name>
     </assembly>
     <members>
-        <member name="T:Ordering.Api.Controllers.TradeOrder.IntegrationEventController">
+        <member name="T:Ordering.Api.Controllers.PurchaseOrder.Mobile.PurchaseController">
             <summary>
-            买料订单 事件订阅控制器
+                买料订单
             </summary>
         </member>
-        <member name="T:Ordering.Api.Controllers.TradeOrder.Mobile.TradeOrderController">
-            <summary>
-                买卖料订单
-            </summary>
-        </member>
-        <member name="M:Ordering.Api.Controllers.TradeOrder.Mobile.TradeOrderController.GetAsync(System.String,Ordering.Application.Interfaces.ITradeOrderService)">
+        <member name="M:Ordering.Api.Controllers.PurchaseOrder.Mobile.PurchaseController.GetAsync(System.String,Ordering.Application.Interfaces.ITradeOrderService)">
             <summary>
                 获取订单详情
             </summary>
@@ -22,7 +17,7 @@
             <param name="apiService"></param>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Api.Controllers.TradeOrder.Mobile.TradeOrderController.GetDetailAsync(System.String,Ordering.Application.Interfaces.ITradeOrderService)">
+        <member name="M:Ordering.Api.Controllers.PurchaseOrder.Mobile.PurchaseController.GetDetailAsync(System.String,Ordering.Application.Interfaces.ITradeOrderService)">
             <summary>
                 获取订单详情
             </summary>
@@ -30,13 +25,18 @@
             <param name="apiService"></param>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Api.Controllers.TradeOrder.Mobile.TradeOrderController.SubmitAsync(Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand,Ordering.Application.Interfaces.ITradeOrderService)">
+        <member name="M:Ordering.Api.Controllers.PurchaseOrder.Mobile.PurchaseController.SubmitAsync(Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand,Ordering.Application.Interfaces.ITradeOrderService)">
             <summary>
                 提交订单
             </summary>
             <param name="request"></param>
             <param name="apiService"></param>
             <returns></returns>
+        </member>
+        <member name="T:Ordering.Api.Controllers.TradeOrder.SubscriptionController">
+            <summary>
+            买料订单 事件订阅控制器
+            </summary>
         </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.ProgramExtensions.AddAppDapr(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>

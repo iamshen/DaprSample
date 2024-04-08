@@ -148,14 +148,14 @@
                 ActorId
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Abstractions.Logging.ApplicationLogging.LogDbEventSuccess(Microsoft.Extensions.Logging.ILogger,System.String,System.Guid)">
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.Logging.ApplicationLogging.LogDbEventSuccess(Microsoft.Extensions.Logging.ILogger,System.String,System.String)">
             <summary>
-            Logs "DbEvent Handler {EventName} Success; EventId:{EventId}" at "Information" level.
+            Logs "DbEvent Handler {EventName} Success; EventId:{EvtId}" at "Information" level.
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Abstractions.Logging.ApplicationLogging.LogDbEventFailure(Microsoft.Extensions.Logging.ILogger,System.String,System.Guid,System.String,System.Exception)">
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.Logging.ApplicationLogging.LogDbEventFailure(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.String,System.Exception)">
             <summary>
-            Logs "DbEvent Handler {EventName} Fail; EventId:{EventId}; Message: {Message}" at "Error" level.
+            Logs "DbEvent Handler {EventName} Fail; EventId:{EvtId}; Message: {Message}" at "Error" level.
             </summary>
         </member>
     </members>

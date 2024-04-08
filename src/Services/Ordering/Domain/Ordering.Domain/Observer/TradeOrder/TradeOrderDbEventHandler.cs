@@ -50,7 +50,7 @@ public class TradeOrderDbEventHandler(IServiceProvider serviceProvider, ILogger<
         }
         catch (Exception ex)
         {
-            logger.LogDbEventFailure(nameof(OrderSubmittedEvent), @event.EventId, ex.Message, ex);
+            logger.LogDbEventFailure(nameof(OrderSubmittedEvent), @event.EventId, ex);
         }
     }
 
@@ -79,7 +79,7 @@ public class TradeOrderDbEventHandler(IServiceProvider serviceProvider, ILogger<
         }
         catch (Exception ex)
         {
-            logger.LogDbEventFailure(nameof(OrderStatusChangeToCancelEvent), @event.EventId, ex.Message, ex);
+            logger.LogDbEventFailure(nameof(OrderStatusChangeToCancelEvent), @event.EventId, ex);
         }
     }
 }

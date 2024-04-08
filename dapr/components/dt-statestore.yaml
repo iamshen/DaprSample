@@ -5,20 +5,19 @@ metadata:
   namespace: huangs
 spec:
   type: state.postgresql
-  version: v1
+  version: v2
   metadata:
     # Connection string
     - name: connectionString
       secretKeyRef:
         name: ConnectionStrings.DaprMgr
         key: ConnectionStrings.DaprMgr
-      # value: "host=postgres user=dapr password=Local@Db port=5432 connect_timeout=20 database=dapr_manager"
     # Timeout for database operations, as a Go duration or number of seconds (optional)
     - name: timeout
       value: 20
     # Prefix for the table where the data is stored (optional)
     - name: tablePrefix
-      value: "dapr_state"
+      value: "dapr_"
     # Name of the table where to store metadata used by Dapr (optional)
     - name: metadataTableName
       value: "dapr_metadata"
