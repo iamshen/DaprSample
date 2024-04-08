@@ -5,17 +5,31 @@ using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Ordering.Domain.Core.Actors;
-using Ordering.Domain.Core.Commands.TradeOrder;
-using Ordering.Domain.Core.Events.TradeOrder;
-using Ordering.Domain.Core.State;
+using Ordering.Domain.Commands.TradeOrder;
+using Ordering.Domain.Events.TradeOrder;
+using Ordering.Domain.State;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 using Ordering.Infrastructure.Shared.Enumerations.TradeOrder;
 using Ordering.Infrastructure.Shared.Options;
-using Ordering.Infrastructure.Shared.ValueObjects;
+using Ordering.Infrastructure.Shared.Records;
 
 namespace Ordering.Domain.Actors;
 
+public interface ITradeOrderProcessActor : IActor
+{
+    /// <summary>
+    ///     提交订单
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
+    public Task<OrderRecord> SubmitAsync(CreateTradeOrderCommand command);
+
+    /// <summary>
+    ///     获取订单详情
+    /// </summary>
+    /// <returns></returns>
+    public Task<TradeOrderOutputDto> GetAsync();
+}
 /// <summary>
 ///     买卖料订单
 /// </summary>
@@ -63,15 +77,15 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
     /// <summary>
     ///     提交订单
     /// </summary>
-    /// <param name="orderCommand"></param>
+    /// <param name="command"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public async Task<OrderRecord> SubmitAsync(CreateTradeOrderCommand orderCommand)
+    public async Task<OrderRecord> SubmitAsync(CreateTradeOrderCommand command)
     {
         #region 验证
 
         var validator = ServiceProvider.GetRequiredService<IValidator<CreateTradeOrderCommand>>();
-        var validateResult = await validator.ValidateAsync(orderCommand);
+        var validateResult = await validator.ValidateAsync(command);
         if (!validateResult.IsValid) throw new ValidationException(validateResult.Errors);
 
         #endregion
@@ -88,13 +102,13 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
             OrderStatus = OrderStatus.Submitted,
             PayStatus = PayStatus.Created,
             TradeStatus = TradeStatus.Created,
-            Buyer = orderCommand.Buyer,
-            Seller = orderCommand.Seller,
-            SaleStore = orderCommand.SaleStore,
-            Remark = orderCommand.Remark ?? OrderStatus.Created.GetDisplayName(),
+            Buyer = command.Buyer,
+            Seller = command.Seller,
+            SaleStore = command.SaleStore,
+            Remark = command.Remark ?? OrderStatus.Created.GetDisplayName(),
             CreatedTime = DateTimeOffset.Now,
             UpdatedTime = DateTimeOffset.Now,
-            OrderItems = orderCommand.OrderItems
+            OrderItems = command.OrderItems
         };
         await StateManager.SetStateAsync(StateDataKey, state);
         // 注册提醒器
@@ -110,8 +124,9 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
 
         var events = new List<IntegrationEvent>
         {
-            new OrderSubmittedDbEvent
+            new OrderSubmittedEvent
             {
+                CommandId = command.Id,
                 ActorId = ActorId,
                 OrderNo = state.OrderNo,
                 OrderStatus = state.OrderStatus,
@@ -123,7 +138,7 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
                 Remark = state.Remark,
                 CreatedTime = state.CreatedTime,
                 UpdatedTime = state.UpdatedTime,
-                OrderItems = state.OrderItems
+                OrderItems = state.OrderItems,
             }
         };
 

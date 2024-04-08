@@ -1,0 +1,10 @@
+version: 1
+common: # optional section for variables shared across apps https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-template/#template-properties
+  resourcesPath: ../../../dapr/components # any dapr resources to be shared across apps
+  env:  # any environment variable shared across apps
+    DEBUG: true
+apps:
+  - appDirPath: ./Presentation/Ordering.Api
+    appID: order-processor
+    appPort: 9001
+    command: ["dotnet", "run"]

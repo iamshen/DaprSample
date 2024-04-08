@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MultiTenancy</name>
+    </assembly>
+    <members>
+        <member name="T:MultiTenancy.IMultiTenant">
+            <summary>
+                租户接口
+            </summary>
+        </member>
+        <member name="P:MultiTenancy.IMultiTenant.TenantId">
+            <summary>租户的 ID</summary>
+        </member>
+        <member name="T:MultiTenancy.TenantInfo">
+            <summary>
+                租户信息
+            </summary>
+        </member>
+        <member name="P:MultiTenancy.TenantInfo.TenantId">
+            <summary>
+                租户的 ID
+            </summary>
+        </member>
+        <member name="P:MultiTenancy.TenantInfo.Name">
+            <summary>
+                租户名称
+            </summary>
+        </member>
+    </members>
+</doc>

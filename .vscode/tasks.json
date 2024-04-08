@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"appId": "order-processor",
+			"appPort": 9001,
+			"label": "dapr-debug",
+			"type": "dapr",
+			"dependsOn": "build"
+		},
+		{
+			"appId": "order-processor",
+			"label": "daprd-down",
+			"type": "daprd-down",
+		}
+	]
+}

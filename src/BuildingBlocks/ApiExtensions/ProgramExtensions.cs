@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto;
+using DaprTool.BuildingBlocks.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Options;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Logging;
 using RestSharp;
 using Serilog;
 
@@ -21,18 +23,15 @@ public static class ProgramExtensions
     /// <param name="appName"></param>
     public static void AddAppSerilog(this WebApplicationBuilder builder, string appName)
     {
-        var seqServerUrl = builder.Configuration["SeqServerUrl"];
-
-        Log.Logger = new LoggerConfiguration()
-            .ReadFrom.Configuration(builder.Configuration)
-            .WriteTo.Console()
-            .WriteTo.Seq(seqServerUrl!)
-            .Enrich.WithProperty("ApplicationName", appName)
-            .CreateLogger();
+         Log.Logger = new LoggerConfiguration()
+                       .ReadFrom.Configuration(builder.Configuration)
+                       .WriteTo.Console()
+                       .Enrich.WithProperty("ApplicationName", appName)
+                       .CreateLogger();
 
         builder.Host.UseSerilog();
     }
-    
+
     /// <summary>
     ///     添加健康检查
     /// </summary>
@@ -50,7 +49,6 @@ public static class ProgramExtensions
                 name: sqlCheckName,
                 tags: new[] { sqlCheckName });
     }
-
 
     /// <summary>
     ///     注册 API 信息 到 IdentityServer4 的API资源中
@@ -148,6 +146,7 @@ public static class ProgramExtensions
             _ = client.ExecuteAsync(request).Result;
         }
     }
+
 
     private static class Errors
     {

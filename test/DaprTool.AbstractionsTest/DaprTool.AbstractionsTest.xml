@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DaprTool.AbstractionsTest</name>
+    </assembly>
+    <members>
+        <member name="T:DaprTool.AbstractionsTest.Base.DependencySetupFixture">
+            <summary>
+                Test Fixture
+            </summary>
+        </member>
+        <member name="M:DaprTool.AbstractionsTest.Base.DependencySetupFixture.#ctor(Xunit.Abstractions.IMessageSink)">
+            <summary>
+                ctor
+            </summary>
+        </member>
+        <member name="P:DaprTool.AbstractionsTest.Base.DependencySetupFixture.ServiceProvider">
+            <summary>
+                ServiceProvider
+            </summary>
+        </member>
+        <member name="T:DaprTool.AbstractionsTest.DbEventHandlerTest">
+            <summary>
+                ctor
+            </summary>
+            <param name="fixture"></param>
+            <param name="testOutputHelper"></param>
+        </member>
+        <member name="M:DaprTool.AbstractionsTest.DbEventHandlerTest.#ctor(DaprTool.AbstractionsTest.Base.DependencySetupFixture,Xunit.Abstractions.ITestOutputHelper)">
+            <summary>
+                ctor
+            </summary>
+            <param name="fixture"></param>
+            <param name="testOutputHelper"></param>
+        </member>
+    </members>
+</doc>

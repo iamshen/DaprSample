@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swagger</name>
+    </assembly>
+    <members>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.DescriptionSources">
+            <summary>
+                Description sources.
+            </summary>
+        </member>
+        <member name="F:Swashbuckle.AspNetCore.SwaggerGen.DescriptionSources.DescriptionAttributes">
+            <summary>
+                <see cref="T:System.ComponentModel.DescriptionAttribute" />.
+            </summary>
+        </member>
+        <member name="F:Swashbuckle.AspNetCore.SwaggerGen.DescriptionSources.XmlComments">
+            <summary>
+                Xml comments.
+            </summary>
+        </member>
+        <member name="F:Swashbuckle.AspNetCore.SwaggerGen.DescriptionSources.DescriptionAttributesThenXmlComments">
+            <summary>
+                <see cref="T:System.ComponentModel.DescriptionAttribute" /> then xml comments.
+            </summary>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerEnumTypeExtensions">
+            <summary>
+                EnumTypeExtensions
+            </summary>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.DisplayEnumsWithValuesDocumentFilter.#ctor(Microsoft.Extensions.Options.IOptions{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions},System.Action{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions})">
+            <summary>
+                Constructor.
+            </summary>
+            <param name="options"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions" />.</param>
+            <param name="configureOptions">An <see cref="T:System.Action`1" /> to configure options for filter.</param>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.DisplayEnumsWithValuesDocumentFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+                Apply the filter.
+            </summary>
+            <param name="openApiDoc"><see cref="T:Microsoft.OpenApi.Models.OpenApiDocument" />.</param>
+            <param name="context"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext" />.</param>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.HiddenApiAttribute">
+            <summary>
+                标记此过滤器，API将在Swagger界面中隐藏
+            </summary>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.HiddenApiFilter">
+            <summary>
+                Swagger隐藏过滤器
+            </summary>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.HiddenApiFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            </summary>
+            <param name="swaggerDoc"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.XEnumNamesParameterFilter.#ctor(Microsoft.Extensions.Options.IOptions{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions},System.Action{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions})">
+            <summary>
+                Constructor.
+            </summary>
+            <param name="options"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions" />.</param>
+            <param name="configureOptions">An <see cref="T:System.Action`1" /> to configure options for filter.</param>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.XEnumNamesParameterFilter.Apply(Microsoft.OpenApi.Models.OpenApiParameter,Swashbuckle.AspNetCore.SwaggerGen.ParameterFilterContext)">
+            <summary>
+                Apply the filter.
+            </summary>
+            <param name="parameter"><see cref="T:Microsoft.OpenApi.Models.OpenApiParameter" />.</param>
+            <param name="context"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.ParameterFilterContext" />.</param>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.XEnumNamesSchemaFilter">
+            <summary>
+                Enums Name Schema Filter
+            </summary>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.XEnumNamesSchemaFilter.#ctor(Microsoft.Extensions.Options.IOptions{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions},System.Action{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions})">
+            <summary>
+                Constructor.
+            </summary>
+            <param name="options"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions" />.</param>
+            <param name="configureOptions">An <see cref="T:System.Action`1" /> to configure options for filter.</param>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.XEnumNamesSchemaFilter.Apply(Microsoft.OpenApi.Models.OpenApiSchema,Swashbuckle.AspNetCore.SwaggerGen.SchemaFilterContext)">
+            <summary>
+                Apply the filter.
+            </summary>
+            <param name="schema"><see cref="T:Microsoft.OpenApi.Models.OpenApiSchema" />.</param>
+            <param name="context"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SchemaFilterContext" />.</param>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions">
+            <summary>
+                Various configuration properties for fixing enums.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.IncludedXmlCommentsPaths">
+            <summary>
+                Included file paths with XML comments.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.IncludeDescriptions">
+            <summary>
+                Include descriptions from <see cref="T:System.ComponentModel.DescriptionAttribute" /> or xml comments. Default value is false.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.IncludeXEnumRemarks">
+            <summary>
+                Include remarks for descriptions from xml comments. Default value is false.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.DescriptionSource">
+            <summary>
+                Source to get descriptions. Default value is <see cref="F:Swashbuckle.AspNetCore.SwaggerGen.DescriptionSources.DescriptionAttributes" />.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.ApplySchemaFilter">
+            <summary>
+                Apply fix enum filter to OpenApi schema. Default value is true.
+                <para>
+                    Equivalent to "options.SchemaFilter&lt;XEnumNamesSchemaFilter&gt;();"
+                </para>
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.ApplyParameterFilter">
+            <summary>
+                Apply fix enum filter to OpenApi parameters. Default value is true.
+                <para>
+                    Equivalent to "options.ParameterFilter&lt;XEnumNamesParameterFilter&gt;();"
+                </para>
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.ApplyDocumentFilter">
+            <summary>
+                Apply fix enum filter to OpenApi document. Default value is true.
+                <para>
+                    Equivalent to "options.DocumentFilter&lt;DisplayEnumsWithValuesDocumentFilter&gt;();"
+                </para>
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.XEnumNamesAlias">
+            <summary>
+                Alias for replacing "x-enumNames" in swagger documentation.
+            </summary>
+        </member>
+        <member name="P:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions.XEnumDescriptionsAlias">
+            <summary>
+                Alias for replacing "x-enumDescriptions" in swagger documentation.
+            </summary>
+        </member>
+        <member name="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptionsExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptionsExtensions.IncludeXmlCommentsFrom(Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions,System.String)">
+            <summary>
+                Include XML comments from <paramref name="fullPath" />.
+            </summary>
+            <param name="options"><see cref="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions" />.</param>
+            <param name="fullPath">Full file path with XML comments.</param>
+            <returns>
+                Returns <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions" />.
+            </returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions">
+            <summary>
+                Swagger配置
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions.Endpoints">
+            <summary>
+                swagger终结点
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions.RoutePrefix">
+            <summary>
+                路由前缀
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions.IsHideSchemas">
+            <summary>
+                是否隐藏schemas
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions.Enabled">
+            <summary>
+                是否启用swagger
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.ApiSwagger.SwaggerEndpoint">
+            <summary>
+                swagger终结点
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiSwagger.SwaggerEndpoint.Title">
+            <summary>
+                标题
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiSwagger.SwaggerEndpoint.Name">
+            <summary>
+                名称
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions">
+            <summary>
+                Swagger ServiceCollection Extensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddAppSwagger(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+                Add GoldCloud Swagger
+            </summary>
+            <param name="builder">      </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddAppSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions,System.Action{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions})">
+            <summary>
+                Add GoldCloud Swagger
+            </summary>
+            <param name="services">       </param>
+            <param name="swaggerOptions"> </param>
+            <param name="configureOptions"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.ConfigureFixEnumsOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configure Swagger FixEnums Options
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddEnumsWithValuesFixFilters(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions,System.Action{Swashbuckle.AspNetCore.SwaggerGen.FixEnumsOptions})">
+            <summary>
+                Add Swagger Enums Values Fix Filters
+            </summary>
+            <param name="swaggerGenOptions"> </param>
+            <param name="configureOptions">  </param>
+            <returns> </returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Configuration.WebApplicationExtensions">
+            <summary>
+                Application Builder Extensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Configuration.WebApplicationExtensions.UseAppSwagger(Microsoft.AspNetCore.Builder.WebApplication,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                UseGoldCloudSwagger
+            </summary>
+            <param name="app">           </param>
+            <param name="configuration"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Configuration.WebApplicationExtensions.UseAppSwagger(Microsoft.AspNetCore.Builder.WebApplication,DaprTool.BuildingBlocks.ApiSwagger.SwaggerOptions)">
+            <summary>
+                Use GoldCloud Swagger
+            </summary>
+            <param name="app">            </param>
+            <param name="swaggerOptions"> </param>
+        </member>
+    </members>
+</doc>

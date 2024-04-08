@@ -1,7 +1,20 @@
-﻿using Dapr.Actors.Runtime;
-using Ordering.Domain.Core.Actors;
+﻿using Dapr.Actors;
+using Dapr.Actors.Runtime;
 
 namespace Ordering.Domain.Actors;
+
+/// <summary>
+/// </summary>
+public interface INumberGeneratorActor : IActor
+{
+    /// <summary>
+    ///     生成序列号
+    /// </summary>
+    /// <param name="orderType">订单类型, 最多 三位数</param>
+    /// <param name="bizType">业务类型, 最多 两位数</param>
+    /// <returns></returns>
+    Task<string> GenerateNumberAsync(int orderType, int bizType);
+}
 
 /// <summary>
 ///     流水号生成器

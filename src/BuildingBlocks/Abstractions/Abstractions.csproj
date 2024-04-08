@@ -1,18 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
 		<RootNamespace>DaprTool.BuildingBlocks.Abstractions</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Dapr.Client" Version="1.13.0" />
+		<PackageReference Include="Dapr.Client"/>
+		<PackageReference Include="MediatR" />
+		<PackageReference Include="Microsoft.Extensions.Telemetry" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\CommonUtility\CommonUtility.csproj" />
+	  <ProjectReference Include="..\Utils\Utils.csproj" />
 	</ItemGroup>
 
 </Project>

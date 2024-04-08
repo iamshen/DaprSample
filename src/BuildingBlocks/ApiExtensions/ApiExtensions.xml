@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResource">
+            <summary>
+                Api Resource Dto
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResource.Name">
+            <summary>
+                api 资源名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResource.DisplayName">
+            <summary>
+                api 资源名称 显示名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResource.Description">
+            <summary>
+                资源描述
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResource.ApiResourceScopes">
+            <summary>
+                Api 作用域
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResourceScope">
+            <summary>
+                Api 作用域
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResourceScope.Name">
+            <summary>
+                名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResourceScope.DisplayName">
+            <summary>
+                显示名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResourceScope.Description">
+            <summary>
+                描述
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.ApiResourceScope.UserClaims">
+            <summary>
+                用户声明
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering">
+            <summary>
+                控制器发现 Dto
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.AreaName">
+            <summary>
+                区域名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.ControllerName">
+            <summary>
+                控制器名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.ActionName">
+            <summary>
+                Action名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.DisplayName">
+            <summary>
+                显示名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.Description">
+            <summary>
+                接口说明
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.RouteTemplate">
+            <summary>
+                路由模板
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto.Discovering.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:System.Collections.Generic.Extensions">
+            <summary>
+                类型扩展
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.Extensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T">Attribute特性类型</typeparam>
+            <param name="memberInfo">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>存在返回第一个，不存在返回null</returns>
+        </member>
+        <member name="T:System.Collections.Generic.CollectionExtensions">
+            <summary>
+                集合扩展方法
+            </summary>
+        </member>
+        <member name="M:System.Collections.Generic.CollectionExtensions.AddIfNotExist``1(System.Collections.Generic.ICollection{``0},``0,System.Func{``0,System.Boolean})">
+            <summary>
+                如果不存在，添加项
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="value"></param>
+            <param name="existFunc"></param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.AppConstants">
+            <summary>
+                应用常量
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Mvc.AppConstants.MobileGroup">
+            <summary>mobile </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Mvc.AppConstants.OpenGroup">
+            <summary>open </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Mvc.AppConstants.DefaultGroup">
+            <summary> default </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.ApiBaseController">
+            <summary>
+                接口基类控制器
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.MobileApiBaseController">
+            <summary>
+                【移动端】接口基类控制器
+                <remarks>
+                    <para>移动端路由：[Route("Mobile/[controller]/[action]")]</para>
+                    <para>若继承此控制器，认证方式为：用户身份认证。</para>
+                    <para>请在继承的控制器类中使用特性 <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorerSettingsAttribute" /> 指定分组名称 mobile，以便于Swagger 分组。</para>
+                </remarks>
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.OpenApiBaseController">
+            <summary>
+                【开放】接口基类控制器
+                <remarks>
+                    <para>移动端路由：[Route("Open/[controller]/[action]")]</para>
+                    <para>若继承此控制器，认证方式为：匿名，不进行身份认证。</para>
+                    <para>请在继承的控制器类中使用特性 <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorerSettingsAttribute" /> 指定分组名称 open，以便于Swagger 分组。</para>
+                </remarks>
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.ApiBaseV1Controller">
+            <summary>
+                接口基类控制器
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.ApiBaseV1Controller.Logger">
+            <summary>
+                日志对象
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.ApiBaseV1Controller.ServiceProvider">
+            <summary>
+                服务提供者
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Mvc.ApiBaseV1Controller.UserInfo">
+            <summary>
+                当前用户
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ApiBaseV1Controller.GetOperator``1(System.Boolean)">
+            <summary>
+                获取操作员
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="isThrowExceptionIfNotFound"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.ValidationExceptionExtensions">
+            <summary>
+                Validation Exception Extensions
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.ValidationExceptionMiddleware">
+            <summary>
+                Validation Exception Middleware
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.ValidationExceptionMiddlewareExtensions">
+            <summary>
+                Validation Exception Middleware  Extensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.ValidationExceptionMiddlewareExtensions.UseValidationException(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Boolean)">
+            <summary>
+                Use ValidationException Middleware
+            </summary>
+            <param name="app"></param>
+            <param name="enable"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ResultExtensions.ToCreatedResult``2(LanguageExt.Common.Result{``0},System.Func{``0,``1},System.String)">
+            <summary>
+                ToCreatedResult
+            </summary>
+            <param name="result"></param>
+            <param name="mapper"></param>
+            <param name="uri"></param>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TOutput"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions">
+            <summary>
+                api 资源配置项
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.AutoRegisterApiResource">
+            <summary>
+                是否自动注册 API 资源到 IdentityServer4
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.ResourceName">
+            <summary>
+                资源名称
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.ResourceDisplayName">
+            <summary>
+                资源显示名称
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.Description">
+            <summary>
+                资源的描述
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.IdentityServerApiDomain">
+            <summary>
+                ids4 api url
+                <example>https://develop.api.inglod.net</example>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ProgramExtensions.AddAppSerilog(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="appName"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ProgramExtensions.AddAppHealthChecks(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String,System.String)">
+            <summary>
+                添加健康检查
+            </summary>
+            <param name="builder"></param>
+            <param name="sqlCheckName"></param>
+            <param name="connectionStringName"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ProgramExtensions.AddAppApiResource(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+                注册 API 信息 到 IdentityServer4 的API资源中
+            </summary>
+            <param name="builder"></param>
+        </member>
+    </members>
+</doc>

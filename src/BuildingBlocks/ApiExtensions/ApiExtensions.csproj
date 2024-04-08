@@ -1,26 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <RootNamespace>DaprTool.BuildingBlocks.ApiExtensions</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
-        <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.0" />
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
-        <PackageReference Include="RestSharp" Version="110.2.0" />
-        <PackageReference Include="LanguageExt.Core" Version="4.4.8" />
-        <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.0" />
-        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.0" />
-    </ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="RestSharp" />
+		<PackageReference Include="LanguageExt.Core" />
+		<PackageReference Include="Serilog.AspNetCore" />
+		<PackageReference Include="AspNetCore.HealthChecks.NpgSql"  />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
+		<PackageReference Include="Asp.Versioning.Mvc" />
+		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" />
+	</ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CommonUtility\CommonUtility.csproj" />
+      <ProjectReference Include="..\Utils\Utils.csproj" />
       <ProjectReference Include="..\Healthchecks\Healthchecks.csproj" />
     </ItemGroup>
     

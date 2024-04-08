@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
         <RootNamespace>DaprTool.BuildingBlocks.HealthChecks</RootNamespace>
     </PropertyGroup>
 
@@ -11,9 +9,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dapr.Client" Version="1.13.0" />
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.3" />
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="8.0.3" />
+        <PackageReference Include="Dapr.Client" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" />
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" />
     </ItemGroup>
 
 </Project>

@@ -20,7 +20,14 @@ public abstract class IntegrationCommand : ICommand
         else
         {
             var defaultAttr = commandAttributes.LastOrDefault(m => m.Default);
-            CommandName = defaultAttr == null ? commandAttributes.LastOrDefault()?.Name : defaultAttr.Name;
+            if (defaultAttr == null)
+            {
+                CommandName = (commandAttributes.LastOrDefault()?.Name) ?? type!.Name;
+            }
+            else
+            {
+                CommandName = defaultAttr.Name ?? type!.Name;
+            }
         }
     }
 
@@ -32,7 +39,7 @@ public abstract class IntegrationCommand : ICommand
     /// <summary>
     ///     命令名称
     /// </summary>
-    public required string CommandName { get; init; } 
+    public string CommandName { get; init; }
 
     /// <summary>
     ///     命令时间

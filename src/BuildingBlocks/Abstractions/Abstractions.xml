@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Attributes.CommandAttribute">
+            <summary>
+                标识命令的特性
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Attributes.CommandAttribute.Name">
+            <summary>
+                命令名称，默认为命令类型的FullName
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Attributes.CommandAttribute.Default">
+            <summary>
+                是否默认
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Attributes.EventAttribute">
+            <summary>
+            事件特性
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Attributes.EventAttribute.Name">
+            <summary>
+            给事件起个名字，默认为事件类型的FullName(改名字用于找到该名字对应的事件类型，方便反序列化)
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Attributes.EventAttribute.Default">
+            <summary>
+            是否默认
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Attributes.IgnoreEventsAttribute">
+            <summary>
+            要忽略的类型特性
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Attributes.IgnoreEventsAttribute.EventTypes">
+            <summary>
+            需要忽略的Event类型
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.Attributes.IgnoreEventsAttribute.#ctor(System.Type[])">
+            <summary>
+            初始化
+            </summary>
+            <param name="eventTypes">要忽略的类型集合</param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Command.ICommand">
+            <summary>
+                命令接口
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Command.ICommand.Id">
+            <summary>
+                命令ID
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Command.ICommand.CommandName">
+            <summary>
+                命令名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Command.ICommand.CommandTime">
+            <summary>
+                命令时间
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Command.IntegrationCommand">
+            <summary>
+            命令基类
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Command.IntegrationCommand.Id">
+            <summary>
+                命令ID
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Command.IntegrationCommand.CommandName">
+            <summary>
+                命令名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Command.IntegrationCommand.CommandTime">
+            <summary>
+                命令时间
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.EventBus.DaprEventBus">
+            <summary>
+                Dapr 事件总线
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.EventBus.DaprEventBus.#ctor(Dapr.Client.DaprClient,Microsoft.Extensions.Logging.ILogger{DaprTool.BuildingBlocks.Abstractions.EventBus.DaprEventBus})">
+            <summary>
+                Dapr 事件总线
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.EventBus.DaprEventBus.RaiseAsync(DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent[])">
+            <summary>
+                发布事件
+            </summary>
+            <param name="events"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.EventBus.IEventBus">
+            <summary>
+                事件总线接口
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.EventBus.IEventBus.RaiseAsync(DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent[])">
+            <summary>
+                发布事件
+            </summary>
+            <param name="events"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Events.IEvent">
+            <summary>
+            事件接口
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent">
+            <summary>
+                事件基类
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent.CommandId">
+            <summary>
+                命令ID
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent.EventId">
+            <summary>
+                事件ID
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent.EventTime">
+            <summary>
+                事件时间
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent.ActorId">
+            <summary>
+                ActorId
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.Logging.ApplicationLogging.LogDbEventSuccess(Microsoft.Extensions.Logging.ILogger,System.String,System.Guid)">
+            <summary>
+            Logs "DbEvent Handler {EventName} Success; EventId:{EventId}" at "Information" level.
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Abstractions.Logging.ApplicationLogging.LogDbEventFailure(Microsoft.Extensions.Logging.ILogger,System.String,System.Guid,System.String,System.Exception)">
+            <summary>
+            Logs "DbEvent Handler {EventName} Fail; EventId:{EventId}; Message: {Message}" at "Error" level.
+            </summary>
+        </member>
+    </members>
+</doc>

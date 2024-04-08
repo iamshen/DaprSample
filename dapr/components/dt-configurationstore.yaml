@@ -1,0 +1,19 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: dt-configurationstore
+  namespace: huangs
+spec:
+  type: configuration.postgresql
+  version: v1
+  metadata:
+    - name: connectionString
+      secretKeyRef:
+        name: ConnectionStrings.DaprMgr
+        key: ConnectionStrings.DaprMgr
+    - name: table # name of the table which holds configuration information
+      value: "appsettings"
+    - name: connMaxIdleTime # max timeout for connection
+      value : "15s"
+auth:
+  secretStore: dt-secretstore

@@ -1,18 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-        <PackageReference Include="Dapr.Actors" Version="1.13.0" />
-        <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.13.0" />
-    </ItemGroup>
+		<PackageReference Include="LanguageExt.Core"  />
+        <PackageReference Include="Dapr.Actors" />
+        <PackageReference Include="Dapr.Actors.AspNetCore"/>
+		<PackageReference Include="FluentValidation" />
+	</ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Ordering.Domain.Core\Ordering.Domain.Core.csproj" />
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\Abstractions\Abstractions.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Repository\Ordering.Infrastructure.Repository.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
     </ItemGroup>
 
 </Project>

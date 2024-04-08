@@ -1,9 +1,11 @@
-﻿namespace DaprTool.BuildingBlocks.Abstractions.Events;
+﻿using MediatR;
+
+namespace DaprTool.BuildingBlocks.Abstractions.Events;
 
 /// <summary>
 ///     事件基类
 /// </summary>
-public abstract class IntegrationEvent: IEvent
+public abstract class IntegrationEvent: IEvent, INotification
 {
     /// <summary>
     ///     命令ID
@@ -13,7 +15,7 @@ public abstract class IntegrationEvent: IEvent
     /// <summary>
     ///     事件ID
     /// </summary>
-    public Guid EventId { get; set; }
+    public Guid EventId { get; set; } = Guid.NewGuid();
 
     /// <summary>
     ///     事件时间

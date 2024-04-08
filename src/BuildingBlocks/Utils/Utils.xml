@@ -1,0 +1,2590 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utils</name>
+    </assembly>
+    <members>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Constant.AppConstants">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Constant.DaprConstants">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions">
+            <summary>
+                正则表达式定义
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.HttpUrl">
+            <summary>
+                匹配URL(只匹配http,https)
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.Mobile">
+            <summary>
+                手机号码(国内)
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.IdCardNo">
+            <summary>
+                身份证号码(国内)
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.CharacterOrNum">
+            <summary>
+                只包含字符或数字
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.Number">
+            <summary>
+                只匹配数字组成的字符串
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.PositiveNum">
+            <summary>
+                匹配正整数
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.PositiveNumAndZero">
+            <summary>
+                匹配正整数和零
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.MatchPositiveFloat">
+            <summary>
+                匹配正浮点数和零
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.Email">
+            <summary>
+                匹配电子邮件
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions.Ip">
+            <summary>
+                IP地址
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.DateOnlyJsonStringConverter">
+            <summary>
+            DateOnly JSON转换器(字符串)
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Converter.DateOnlyJsonStringConverter.format">
+            <summary>
+            转换的字符串格式
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateOnlyJsonStringConverter.#ctor">
+            <summary>
+            DateOnly JSON转换器(字符串)
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateOnlyJsonStringConverter.#ctor(System.String)">
+            <summary>
+            DateOnly JSON转换器(字符串)
+            </summary>
+            <param name="format"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateOnlyJsonStringConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateOnlyJsonStringConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateOnly,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            序列化
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.DateTimeJsonConverter">
+            <summary>
+                时间Json序列化转换器
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Converter.DateTimeJsonConverter.DateTimeFormat">
+            <summary>
+                时间转字符串的格式
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                字符串转时间类型
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTimeOffset,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                时间转字符串
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeJsonConverter.#ctor">
+            <summary>
+                时间Json序列化转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeJsonConverter.#ctor(System.String)">
+            <summary>
+                时间Json序列化转换器
+            </summary>
+            <param name="dateTimeFormat"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.DateTimeNullJsonConverter">
+            <summary>
+                时间Json序列化转换器
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Converter.DateTimeNullJsonConverter.DateTimeFormat">
+            <summary>
+                时间转字符串的格式
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeNullJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                字符串转时间类型
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeNullJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.DateTimeOffset},System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                时间转字符串
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeNullJsonConverter.#ctor">
+            <summary>
+                时间Json序列化转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DateTimeNullJsonConverter.#ctor(System.String)">
+            <summary>
+                时间Json序列化转换器
+            </summary>
+            <param name="dateTimeFormat"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1">
+            <summary>
+                Json转换器(动态添加复杂类型的)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.CanConvert(System.Type)">
+            <summary>
+                是否可以序列化(反序列化)
+            </summary>
+            <param name="typeToConvert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.GetTypeFromString(System.String)">
+            <summary>
+                从字符串获取类型
+            </summary>
+            <param name="moduleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadNumber(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取数字类型的值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadString(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取字符串类型的值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadArray(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取数组
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadDefault(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取默认值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.WriteObject(System.Text.Json.Utf8JsonWriter@,System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                写入Object类型
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.WriteArray(System.Text.Json.Utf8JsonWriter@,System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                写入数组
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                反序列化
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                序列化
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.appendTypeName">
+            <summary>
+                附加到序列化JSON中的类型属性名
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.appendValueName">
+            <summary>
+                附加到序列化JSON中的值属性名
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.typeCaches">
+            <summary>
+                类型缓存
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadObject(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取Object类型的值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadObject(System.Text.Json.JsonElement,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                从JsonElement中解析出属性名称和值
+            </summary>
+            <param name="jsonElement"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.DynamicTypeJsonConvert`1.ReadValue(System.Text.Json.JsonElement,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                从JsonElement中解析数属性值
+            </summary>
+            <param name="jsonElement"></param>
+            <param name="options"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.JavascriptLongJsonConverter">
+            <summary>
+                JavaScript长整型和字符串的转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.JavascriptLongJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                string转Long
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.JavascriptLongJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Int64,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                long转为string
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.JavascriptLongNullJsonConverter">
+            <summary>
+                JavaScript长整型和字符串的转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.JavascriptLongNullJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                string转Long
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.JavascriptLongNullJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Int64},System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                long转为string
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.TimeOnlyJsonStringConverter">
+            <summary>
+                TimeOnly JSON转换器(字符串)
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Converter.TimeOnlyJsonStringConverter.format">
+            <summary>
+                转换的字符串格式
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeOnlyJsonStringConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                发序列化
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeOnlyJsonStringConverter.Write(System.Text.Json.Utf8JsonWriter,System.TimeOnly,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                序列化
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeOnlyJsonStringConverter.#ctor">
+            <summary>
+                TimeOnly JSON转换器(字符串)
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeOnlyJsonStringConverter.#ctor(System.String)">
+            <summary>
+                TimeOnly JSON转换器(字符串)
+            </summary>
+            <param name="format"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.TimeSpanJsonConverter">
+            <summary>
+                TimeSpan Json序列化转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeSpanJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                字符串转TimeSpan类型
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeSpanJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.TimeSpan,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                TimeSpan?转Long
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Converter.TimeSpanNullJsonConverter">
+            <summary>
+                TimeSpan? Json序列化转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeSpanNullJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                字符串转TimeSpan?类型
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Converter.TimeSpanNullJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.TimeSpan},System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                TimeSpan?转Long
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions">
+            <summary>
+                IEnumerable 集合扩展方法
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions.WhereIf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Boolean)">
+            <summary>
+                根据第三方条件是否为真来决定是否执行指定条件的查询
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="source">要查询的数据源</param>
+            <param name="predicate">查询条件</param>
+            <param name="condition">第三方条件(bool 表达式)</param>
+            <returns>返回查询的结果</returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions.ExpandAndToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+                将集合展开并分别转换成字符串，再以指定的分隔符衔接，拼成一个字符串返回。默认分隔符为逗号
+            </summary>
+            <param name="collection"> 要处理的集合 </param>
+            <param name="separator"> 分隔符，默认为逗号 </param>
+            <returns> 拼接后的字符串 </returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions.ExpandAndToString``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.String)">
+            <summary>
+                循环集合的每一项，调用委托生成字符串，返回合并后的字符串。默认分隔符为逗号
+            </summary>
+            <param name="collection">待处理的集合</param>
+            <param name="itemFormatFunc">单个集合项的转换委托</param>
+            <param name="separator">分隔符，默认为逗号</param>
+            <typeparam name="T">泛型类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Extensions.IdentityExtensions">
+            <summary>
+                身份标识扩展方法
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Extensions.IdentityExtensions.GetUserInfo(System.Security.Principal.IIdentity)">
+            <summary>
+                从声明的身份标识中读取用户信息
+            </summary>
+            <param name="identity"> </param>
+            <returns> </returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.AttributeHelper">
+            <summary>
+                Attribute相关的助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayName(System.Enum,System.Boolean,System.Boolean)">
+            <summary>
+                获取枚举的DisplayAttribute的Name
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayShortName(System.Enum,System.Boolean,System.Boolean)">
+            <summary>
+                获取枚举的DisplayAttribute的ShortName
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayDescription(System.Enum,System.Boolean,System.Boolean)">
+            <summary>
+                获取枚举的DisplayAttribute的Description
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributeByField``2(``1,System.String,System.Boolean)">
+            <summary>
+                获取对象字段上的特性
+            </summary>
+            <typeparam name="TReturn">特性类型</typeparam>
+            <typeparam name="TInput">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributesByField``2(``1,System.String,System.Boolean)">
+            <summary>
+                获取对象字段上的特性集合
+            </summary>
+            <typeparam name="TReturn">特性类型</typeparam>
+            <typeparam name="TInput">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributeByField``1(System.Object,System.String,System.Boolean)">
+            <summary>
+                获取对象字段上的特性
+            </summary>
+            <typeparam name="T">特性类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributesByField``1(System.Object,System.String,System.Boolean)">
+            <summary>
+                获取对象字段上的特性集合
+            </summary>
+            <typeparam name="T">特性类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributesByField(System.Object,System.String,System.Boolean)">
+            <summary>
+                获取对象字段上的特性集合
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributeByProperty``2(``1,System.String,System.Boolean)">
+            <summary>
+                获取对象属性上的特性
+            </summary>
+            <typeparam name="TReturn">特性类型</typeparam>
+            <typeparam name="TInput">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributesByProperty``2(``1,System.String,System.Boolean)">
+            <summary>
+                获取对象属性上的特性
+            </summary>
+            <typeparam name="TReturn">特性类型</typeparam>
+            <typeparam name="TInput">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributeByProperty``1(System.Object,System.String,System.Boolean)">
+            <summary>
+                获取对象属性上的特性
+            </summary>
+            <typeparam name="T">特性类型</typeparam>
+            <param name="object">对象类型</param>
+            <param name="propertyName">属性名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributesByProperty``1(System.Object,System.String,System.Boolean)">
+            <summary>
+                获取对象属性上的特性
+            </summary>
+            <typeparam name="T">特性类型</typeparam>
+            <param name="object">对象类型</param>
+            <param name="propertyName">属性名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetCustomAttributesByProperty(System.Object,System.String,System.Boolean)">
+            <summary>
+                获取对象属性上的特性
+            </summary>
+            <param name="object">对象类型</param>
+            <param name="propertyName">属性名称</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayShortNameWithField``1(``0,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取字段上的DisplayAttribute特性的ShortName值
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayShortNameWithField(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取字段上的DisplayAttribute特性的Name值
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayShortNameWithProperty``1(``0,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取属性上的DisplayAttribute特性的Name值
+            </summary>
+            <typeparam name="T">要操作的对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayShortNameWithProperty(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取属性上的DisplayAttribute特性的Name值
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayNameWithField``1(``0,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取字段上的DisplayAttribute特性的Name值
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayNameWithField(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取字段上的DisplayAttribute特性的Name值
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayNameWithProperty``1(``0,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取属性上的DisplayAttribute特性的Name值
+            </summary>
+            <typeparam name="T">要操作的对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayNameWithProperty(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取属性上的DisplayAttribute特性的Name值
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayDescriptionWithField``1(``0,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取字段上的DisplayAttribute特性的Description值
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayDescriptionWithField(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取字段上的DisplayAttribute特性的Description值
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="fieldName">字段名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayDescriptionWithProperty``1(``0,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取属性上的DisplayAttribute特性的Description值
+            </summary>
+            <typeparam name="T">要操作的对象类型</typeparam>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.AttributeHelper.GetDisplayDescriptionWithProperty(System.Object,System.String,System.Boolean,System.Boolean)">
+            <summary>
+                获取属性上的DisplayAttribute特性的Description值
+            </summary>
+            <param name="object">要操作的对象</param>
+            <param name="propertyName">属性名称</param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.BitHelper">
+            <summary>
+                位运算相关的助手类
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.BitHelper.bitLength">
+            <summary>
+                一个字节的大小
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetIndex(System.Int32,System.Int32)">
+            <summary>
+                获取bit的位置
+            </summary>
+            <param name="byteLength">类型的大小</param>
+            <param name="index">要从第几位开始读取</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int64,System.Byte,System.Int32)">
+            <summary>
+                获取数据指定位置的bit值
+            </summary>
+            <param name="value">要获取的原始数据</param>
+            <param name="typeLength">原始数据的类型的长度</param>
+            <param name="index">第几个位置的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int64,System.Boolean,System.Byte,System.Int32)">
+            <summary>
+                设置数据某一个位置的bit值
+            </summary>
+            <param name="original">要操作的原始数据</param>
+            <param name="value">要设置的值</param>
+            <param name="typeLength">原始数据的类型长度</param>
+            <param name="index">第几个位置的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int64,System.Int32)">
+            <summary>
+                获取指定位置的bit值
+            </summary>
+            <param name="value">要读取的整形</param>
+            <param name="index">要读取的第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int32,System.Int32)">
+            <summary>
+                获取指定位置的bit值
+            </summary>
+            <param name="value">要读取的整形</param>
+            <param name="index">要读取的第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int16,System.Int32)">
+            <summary>
+                获取指定位置的bit值
+            </summary>
+            <param name="value">要读取的整形</param>
+            <param name="index">要读取的第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Byte[],System.Int32)">
+            <summary>
+                获取指定位置的bit值
+            </summary>
+            <param name="value">要读取的byte数组</param>
+            <param name="index">要读取的第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int64)">
+            <summary>
+                获取数据的二进制数组
+            </summary>
+            <param name="value">要转换的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int32)">
+            <summary>
+                获取数据的二进制数组
+            </summary>
+            <param name="value">要转换的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Int16)">
+            <summary>
+                获取数据的二进制数组
+            </summary>
+            <param name="value">要转换的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitValue(System.Byte[])">
+            <summary>
+                获取数据的二进制数组
+            </summary>
+            <param name="value">要转换的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int64,System.Boolean,System.Int32)">
+            <summary>
+                设置数据的某一个bit的值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <param name="index">第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int32,System.Boolean,System.Int32)">
+            <summary>
+                设置数据的某一个bit的值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <param name="index">第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int16,System.Boolean,System.Int32)">
+            <summary>
+                设置数据的某一个bit的值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <param name="index">第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Byte[],System.Boolean,System.Int32)">
+            <summary>
+                设置数据的某一个bit的值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <param name="index">第几位的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int64,System.Boolean)">
+            <summary>
+                设置数据的所有bit为指定值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int32,System.Boolean)">
+            <summary>
+                设置数据的所有bit为指定值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Int16,System.Boolean)">
+            <summary>
+                设置数据的所有bit为指定值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.SetBitValue(System.Byte[],System.Boolean)">
+            <summary>
+                设置数据的所有bit为指定值
+            </summary>
+            <param name="original">要修改的数据</param>
+            <param name="value">要设置的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitString(System.Int64)">
+            <summary>
+                获取数据的二进制字符串
+            </summary>
+            <param name="value">要转二进制字符串的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitString(System.Int32)">
+            <summary>
+                获取数据的二进制字符串
+            </summary>
+            <param name="value">要转二进制字符串的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.GetBitString(System.Int16)">
+            <summary>
+                获取数据的二进制字符串
+            </summary>
+            <param name="value">要转二进制字符串的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.ToInt16(System.String)">
+            <summary>
+                二进制字符串转short
+            </summary>
+            <param name="bitString">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.ToInt32(System.String)">
+            <summary>
+                二进制字符串转int
+            </summary>
+            <param name="bitString">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.BitHelper.ToInt64(System.String)">
+            <summary>
+                二进制字符串转long
+            </summary>
+            <param name="bitString">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ByteHelper">
+            <summary>
+                字节相关的助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ByteHelper.BytesToHexString(System.Byte[],System.String)">
+            <summary>
+                字节数组转16进制字符串
+            </summary>
+            <param name="bytes"></param>
+            <param name="separator"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.CheckSumHelper">
+            <summary>
+                校验相关助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_CCITT(System.Byte[])">
+            <summary>
+                CRC16_CCITT校验,多项式x16+x12+x5+1（0x1021），初始值0x0000，低位在前，高位在后，结果与0x0000异或
+                0x8408是0x1021按位颠倒后的结果。
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_CCITT_FALSE(System.Byte[])">
+            <summary>
+                CRC16/CCITT-FALSE校验,多项式x16+x12+x5+1（0x1021），初始值0xFFFF，低位在后，高位在前，结果与0x0000异或
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_XMODEM(System.Byte[])">
+            <summary>
+                CRC16/XMODEM校验,多项式x16+x12+x5+1（0x1021），初始值0x0000，低位在后，高位在前，结果与0x0000异或
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_X25(System.Byte[])">
+            <summary>
+                CRC16/X25校验,多项式x16+x12+x5+1（0x1021），初始值0xffff，低位在前，高位在后，结果与0xFFFF异或,0x8408是0x1021按位颠倒后的结果。
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_MODBUS(System.Byte[])">
+            <summary>
+                CRC16/MODBUS校验,多项式x16+x15+x2+1（0x8005），初始值0xFFFF，低位在前，高位在后，结果与0x0000异或，0xA001是0x8005按位颠倒后的结果
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_IBM(System.Byte[])">
+            <summary>
+                CRC16/IBM校验,多项式x16+x15+x2+1（0x8005），初始值0x0000，低位在前，高位在后，结果与0x0000异或，0xA001是0x8005按位颠倒后的结果
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_MAXIM(System.Byte[])">
+            <summary>
+                CRC16/MAXIM校验,多项式x16+x15+x2+1（0x8005），初始值0x0000，低位在前，高位在后，结果与0xFFFF异或,0xA001是0x8005按位颠倒后的结果
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_USB(System.Byte[])">
+            <summary>
+                CRC16/USB校验,多项式x16+x15+x2+1（0x8005），初始值0xFFFF，低位在前，高位在后，结果与0xFFFF异或，0xA001是0x8005按位颠倒后的结果
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.CheckSumHelper.Crc16_DNP(System.Byte[])">
+            <summary>
+                CRC16/DNP校验,多项式x16+x13+x12+x11+x10+x8+x6+x5+x2+1（0x3D65），初始值0x0000，低位在前，高位在后，结果与0xFFFF异或,0xA6BC是0x3D65按位颠倒后的结果
+            </summary>
+            <param name="buffer">校验的数组</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.DynamicMethodHelper">
+            <summary>
+                动态方法助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.DynamicMethodHelper.GetHandlerMethods``1(System.Type,System.String,System.Nullable{System.Reflection.BindingFlags})">
+            <summary>
+                获取处理器实例的指定名称的全部方法
+            </summary>
+            <param name="handlerType"></param>
+            <param name="handlerName">处理器方法名称</param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.DynamicMethodHelper.BuildMethod``1(System.Type,System.String,System.Nullable{System.Reflection.BindingFlags},System.Func{``0,System.Threading.Tasks.Task})">
+            <summary>
+                构建一个动态调用方法
+            </summary>
+            <typeparam name="T">方法的参数类型</typeparam>
+            <param name="handlerInstanceType">方法所属的class类型</param>
+            <param name="handlerName">class中定义的方法名称</param>
+            <param name="bindingFlags">查找方法的方式(共有、私有等)</param>
+            <param name="notFoundAction">如果没有找到合适的方法的时候的回调方法</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.EncryptHelper">
+            <summary>
+                常用加密相关助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.PasswordEncrypt(System.String,System.String,System.Int32)">
+            <summary>
+                密码加密(不可逆)
+            </summary>
+            <param name="source">要加密的字符串</param>
+            <param name="salt">随机盐</param>
+            <param name="loopCount">要Hash运算的次数的次数</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA1Encrypt(System.String)">
+            <summary>
+                SHA1加密
+            </summary>
+            <param name="value">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA1Encrypt(System.Byte[])">
+            <summary>
+                SHA1加密
+            </summary>
+            <param name="value">要加密的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA256Encrypt(System.String)">
+            <summary>
+                SHA256加密
+            </summary>
+            <param name="value">要加密的字符换</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA256Encrypt(System.Byte[])">
+            <summary>
+                SHA256加密
+            </summary>
+            <param name="value">要加密的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA384Encrypt(System.String)">
+            <summary>
+                SHA384加密
+            </summary>
+            <param name="value">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA384Encrypt(System.Byte[])">
+            <summary>
+                SHA384加密
+            </summary>
+            <param name="value">要加密的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA512Encrypt(System.String)">
+            <summary>
+                SHA512加密
+            </summary>
+            <param name="value">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.SHA512Encrypt(System.Byte[])">
+            <summary>
+                SHA512加密
+            </summary>
+            <param name="value">要加密的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.Base64Encrypt(System.String)">
+            <summary>
+                Base64加密
+            </summary>
+            <param name="value">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.Base64Encrypt(System.Byte[])">
+            <summary>
+                Base64加密
+            </summary>
+            <param name="value">要加密的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.Base64Decrypt(System.Char[],System.Int32,System.Int32)">
+            <summary>
+                Base64解密
+            </summary>
+            <param name="value"></param>
+            <param name="offset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.Base64Decrypt(System.String)">
+            <summary>
+                Base64解密
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.Md5Encrypt(System.String,System.Boolean)">
+            <summary>
+                MD加密
+            </summary>
+            <param name="value">要加密的字符串</param>
+            <param name="isShort">是否为16位长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.Md5Encrypt(System.Byte[],System.Boolean)">
+            <summary>
+                MD加密
+            </summary>
+            <param name="value">要加密的值</param>
+            <param name="isShort">是否为16位长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.AESEncrypt(System.String,System.String,System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+                AES加密
+            </summary>
+            <param name="content">要加密的字符串</param>
+            <param name="key">加密的密钥</param>
+            <param name="iv">向量值</param>
+            <param name="cipherMode">模式</param>
+            <param name="paddingMode">填充模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.AESEncrypt(System.Byte[],System.Byte[],System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+                AES加密
+            </summary>
+            <param name="content">要加密的内容</param>
+            <param name="key">加密密钥</param>
+            <param name="iv">向量</param>
+            <param name="cipherMode">模式</param>
+            <param name="paddingMode">填充模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.AESDecryption(System.String,System.String,System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+                AES解密
+            </summary>
+            <param name="content">要解密的内容</param>
+            <param name="key">密钥</param>
+            <param name="iv">向量</param>
+            <param name="cipherMode">模式</param>
+            <param name="paddingMode">填充模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.AESDecryption(System.Byte[],System.Byte[],System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+                AES解密
+            </summary>
+            <param name="content">要解密的内容</param>
+            <param name="key">密钥</param>
+            <param name="iv">向量</param>
+            <param name="cipherMode">模式</param>
+            <param name="paddingMode">填充模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.HMACSHA1Encrypt(System.String,System.String)">
+            <summary>
+                HMACSHA1加密
+            </summary>
+            <param name="source"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EncryptHelper.HMACSHA1Encrypt(System.Byte[],System.Byte[])">
+            <summary>
+                HMACSHA1加密
+            </summary>
+            <param name="source"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.EnumHelper">
+            <summary>
+                枚举助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.GetEnumNames(System.Type)">
+            <summary>
+                获取枚举名称列表
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.GetEnumItems(System.Type)">
+            <summary>
+                获取枚举项
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.GetEnumItems``1">
+            <summary>
+                获取枚举项
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.OrderEnumItems``1(``0[])">
+            <summary>
+                对枚举项目排序
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="items"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.GetEnumFalgsItems``1(``0)">
+            <summary>
+                获取Flags枚举包含的全部枚举列表
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="enumValue"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.GetEnumFalgsItems(System.Object)">
+            <summary>
+                获取Flags枚举包含的全部枚举列表
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.IsEnumSingleValue``1(``0)">
+            <summary>
+                判断枚举是否包含多个值,Flags标识的枚举可能包含多个值
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.EnumHelper.IsEnumSingleValue(System.Object)">
+            <summary>
+                判断枚举是否包含多个值,Flags标识的枚举可能包含多个值
+            </summary>
+            <param name="enumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.FileHelper">
+            <summary>
+                文件帮助类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.FileHelper.CreateIfNotExists(System.String)">
+            <summary>
+                创建目录
+            </summary>
+            <param name="dirName"> 目录名称 </param>
+            <returns> </returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.IntegerHelper">
+            <summary>
+                整形相关操作助手
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.IntegerHelper.GetRandomNumber(System.Int32,System.Int32)">
+            <summary>
+                生成随机数
+            </summary>
+            <param name="min">随机数的最小数</param>
+            <param name="max">随机数的最大数</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.IntegerHelper.GuidToNumber(System.Guid)">
+            <summary>
+                GUID转成一个数字
+            </summary>
+            <param name="guid">要处理的GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.IntegerHelper.GetRange(System.Int32,System.Int32)">
+            <summary>
+                生成一组连续的整数
+            </summary>
+            <param name="start">开始的整数</param>
+            <param name="end">结束的整数(小于end)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.IntegerHelper.GetSeed">
+            <summary>
+                获取一个随机数种子
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ObjectHelper">
+            <summary>
+                Object的助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ObjectHelper.ObjectToUrlString(System.Object)">
+            <summary>
+                将对象的属性转为Url的Key=Value的字符串
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.RegularHelper">
+            <summary>
+                正则表达式助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchHttpUrl(System.String)">
+            <summary>
+                检查是否是合法的Http或者https的url
+            </summary>
+            <param name="text">要检查的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchHttpUrl(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+                检查是否是合法的Http或者https的url
+            </summary>
+            <param name="text">要检查的字符串</param>
+            <param name="options">匹配选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchMobile(System.String)">
+            <summary>
+                是否是合法的手机号码
+            </summary>
+            <param name="mobile">手机号码</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchMobile(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+                是否是合法的手机号码
+            </summary>
+            <param name="mobile">手机号码</param>
+            <param name="options">匹配选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchEmail(System.String)">
+            <summary>
+                是否合法邮件地址
+            </summary>
+            <param name="email">邮件地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchEmail(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+                是否合法邮件地址
+            </summary>
+            <param name="email">邮件地址</param>
+            <param name="options">匹配选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchIp(System.String)">
+            <summary>
+                是否合法IP
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.MatchIp(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+                是否合法IP
+            </summary>
+            <param name="ip"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.RegularMatch(System.String,System.String,System.Boolean)">
+            <summary>
+                检查字符串是否和正则表达式匹配
+            </summary>
+            <param name="regex">正则表达式</param>
+            <param name="text">要验证的字符串</param>
+            <param name="isContains">是完全匹配还是包含,true为包含，fasle为完全匹配</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.RegularHelper.RegularMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.Boolean)">
+            <summary>
+                检查字符串是否和正则表达式匹配
+            </summary>
+            <param name="regex">正则表达式</param>
+            <param name="text">要验证的字符串</param>
+            <param name="options">匹配模式选项</param>
+            <param name="isContains">是完全匹配还是包含,true为包含，fasle为完全匹配</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.StringHelper">
+            <summary>
+                字符串助手类
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.StringHelper._allChars">
+            <summary>
+                26个英文字母
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.Compare(System.String,System.String,System.Boolean)">
+            <summary>
+                比较两个字符串是否相等
+            </summary>
+            <param name="strA">字符串a</param>
+            <param name="strB">字符串b</param>
+            <param name="ignoreCase">是否忽略大小写</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.IsNullOrEmptyOrSpace(System.String)">
+            <summary>
+                字符串是否为null或者空字符串或者是空格字符串
+            </summary>
+            <param name="str">要判断的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.GetDisplayString(System.String,System.Int32,System.Int32,System.Char)">
+            <summary>
+                获取替换掉指定范围的字符后的字符串
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="startIndex">从第几个开是替换</param>
+            <param name="endIndex">到第几个字符结束</param>
+            <param name="character">隐藏部分显示的字符</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.GetFixLengthNumber(System.Int16)">
+            <summary>
+                生成固定长度的随机纯数字字符串(不保证重复)
+            </summary>
+            <param name="length">字符串的长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.GetFixLengthString(System.Int16)">
+            <summary>
+                生成固定长度的纯字母字符串
+            </summary>
+            <param name="length">字符串的长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.GetRandomFileName">
+            <summary>
+                生成随机文件名(保证不重复)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.NewIdWithGuid">
+            <summary>
+                根据GUID生成唯一ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.NewIdWithGuid(System.Guid)">
+            <summary>
+                根据GUID生成唯一ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.NewIdForShortWithGuid">
+            <summary>
+                GUID压缩到12位的字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.StringHelper.NewIdForShortWithGuid(System.Guid)">
+            <summary>
+                GUID压缩到12位的字符串
+            </summary>
+            <param name="guid">要处理的GUID</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.TaskHelper">
+            <summary>
+                Task相关的助手类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.TaskHelper.Duplication(System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Boolean)">
+            <summary>
+                重复执行方法
+            </summary>
+            <param name="action">要执行的方法</param>
+            <param name="exceptionContinue">如果发生异常后是否继续</param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.TaskHelper.Duplication(System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Func{System.Exception,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+                重复执行方法
+            </summary>
+            <param name="action">要执行的方法</param>
+            <param name="exceptionAction">执行发生异常后调用的方法</param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.Address">
+            <summary>
+                地址对象
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.ProvinceCode">
+            <summary>
+                省 地址编码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.Province">
+            <summary>
+                省
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.CityCode">
+            <summary>
+                市 地址编码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.City">
+            <summary>
+                市
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.AreaCode">
+            <summary>
+                区 编码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.Area">
+            <summary>
+                区
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.StreetCode">
+            <summary>
+                街道/镇 地址编码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.Street">
+            <summary>
+                街道/镇
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.VillageCode">
+            <summary>
+                居委会/村庄 地址编码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.Village">
+            <summary>
+                居委会/村庄
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.Detailed">
+            <summary>
+                详细地址
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.ToString">
+            <summary>
+                转字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition">
+            <summary>
+            地理位置
+            </summary>
+            <param name="Longitude">经度</param>
+            <param name="Latitude">纬度</param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.#ctor(System.Double,System.Double)">
+            <summary>
+            地理位置
+            </summary>
+            <param name="Longitude">经度</param>
+            <param name="Latitude">纬度</param>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.Longitude">
+            <summary>经度</summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.Latitude">
+            <summary>纬度</summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.UserId">
+            <summary>
+                用户主键
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.UserName">
+            <summary>
+                用户名
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.DisplayName">
+            <summary>
+                显示名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.RealName">
+            <summary>
+                真实名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.Avatar">
+            <summary>
+                头像
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.AccountStatus">
+            <summary>
+                账号状态
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.AuthenticationStatus">
+            <summary>
+                认证状态
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.Email">
+            <summary>
+                电子邮箱
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.PhoneNumber">
+            <summary>
+                手机号码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.OpenId">
+            <summary>
+                OpenId
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.UserType">
+            <summary>
+                用户类型
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.Roles">
+            <summary>
+                Roles
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityRoleInfo">
+            <summary>
+                IdentityRoleInfo
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityRoleInfo.Id">
+            <summary>
+                id
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityRoleInfo.Name">
+            <summary>
+                名称
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject">
+            <summary>
+                枚举对象
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Name">
+            <summary>
+                名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.NormalizedName">
+            <summary>
+                标准化名称
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Remark">
+            <summary>
+                说明
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.EnumItems">
+            <summary>
+                枚举值、说明
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.#ctor(System.Type)">
+            <summary>
+                枚举对象
+            </summary>
+            <param name="enumType"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.#ctor(System.Type,System.String)">
+            <summary>
+                枚举对象
+            </summary>
+            <param name="enumType"></param>
+            <param name="remark"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.#ctor(System.Type,System.String,System.String)">
+            <summary>
+                枚举对象
+            </summary>
+            <param name="enumType"></param>
+            <param name="name"></param>
+            <param name="remark"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Create(System.Type)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Create``1">
+            <summary>
+                创建枚举对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Create(System.Type,System.String)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <param name="enumType"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Create``1(System.String)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Create(System.Type,System.String,System.String)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <param name="enumType"></param>
+            <param name="name"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject.Create``1(System.String,System.String)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1">
+            <summary>
+                枚举对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1.#ctor">
+            <summary>
+                枚举对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1.#ctor(System.String)">
+            <summary>
+                枚举对象
+            </summary>
+            <param name="remark"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1.#ctor(System.String,System.String)">
+            <summary>
+                枚举对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1.Create">
+            <summary>
+                创建枚举对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1.Create(System.String)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumSubject`1.Create(System.String,System.String)">
+            <summary>
+                创建枚举对象
+            </summary>
+            <param name="name"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumItem">
+            <summary>
+                枚举项对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumItem.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+                枚举项对象
+            </summary>
+            <param name="text">枚举显示值</param>
+            <param name="code">枚举项代码</param>
+            <param name="value">枚举实际值</param>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumItem.Text">
+            <summary>
+                枚举显示值
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumItem.Code">
+            <summary>
+                枚举代码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.EnumItem.Value">
+            <summary>
+                枚举实际值
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.OperatorObject`1">
+            <summary>
+                操作人对象
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.OperatorObject`1.OperatorId">
+            <summary>
+                操作人ID
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.OperatorObject`1.OperatorUserName">
+            <summary>
+                操作人用户名
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.OperatorObject`1.OperatorRealName">
+            <summary>
+                操作人真实姓名
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1">
+            <summary>
+                分页查询结果对象
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.#ctor">
+            <summary>
+                分页查询结果对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+                分页查询结果对象(目的是为了自动计算TotalCount)
+            </summary>
+            <param name="totoRecords">总记录数</param>
+            <param name="showSize">每页要显示的记录数</param>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.Data">
+            <summary>
+                结果集
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.TotalCount">
+            <summary>
+                总的记录数
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.TotalPages">
+            <summary>
+                总页数
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.PageSize">
+            <summary>
+                当前实际的记录数
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.PageIndex">
+            <summary>
+                第几页
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest">
+            <summary>
+                分页请求对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest.GetDefaultPredicate``1(System.Boolean)">
+            <summary>
+                获取默认的查询表达式
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest._pageIndex">
+            <summary>
+                页索引
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest._pageSize">
+            <summary>
+                页大小
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest.PageIndex">
+            <summary>
+                获取或设置 页索引
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest.PageSize">
+            <summary>
+                获取或设置 页大小
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest.DefaultPageSize">
+            <summary>
+                默认每页显示大记录数
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest.DefaultPageIndex">
+            <summary>
+                默认的页码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest.KeyWord">
+            <summary>
+                获取或设置 查询关键字
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult">
+            <summary>
+                请求应答结果
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Create(System.Int32,System.String,System.String,System.String,System.Object)">
+            <summary>
+                创建对象
+            </summary>
+            <param name="code"></param>
+            <param name="version"></param>
+            <param name="traceId"></param>
+            <param name="msg"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.ErrorCode">
+            <summary>
+                错误码
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Description">
+            <summary>
+                描述
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Version">
+            <summary>
+                版本号
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.TraceId">
+            <summary>
+                追踪ID
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Content">
+            <summary>
+                内容
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1">
+            <summary>
+                泛型请求应答结果
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Content">
+            <summary>
+                内容
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Create(System.Int32,System.String,System.String,`0)">
+            <summary>
+                创建对象
+            </summary>
+            <param name="code"></param>
+            <param name="version"></param>
+            <param name="msg"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.RuntimeInfoObject">
+            <summary>
+            .Net运行时信息对象
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.RuntimeInfoObject.FrameworkDescription">
+            <summary>
+            .Net框架描述
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.RuntimeInfoObject.RuntimeDirectory">
+            <summary>
+            运行时目录
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.RuntimeInfoObject.HostClrVersion">
+            <summary>
+            公共语言运行时版本
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem">
+            <summary>
+                值对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.ToInt32">
+            <summary>
+                将Value转为整形
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.ToString">
+            <summary>
+                将Value转为字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.Value">
+            <summary>
+                配置值
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.Privacy">
+            <summary>
+                是否隐私数据
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.Remark">
+            <summary>
+                备注
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.#ctor">
+            <summary>
+                支付服务配置对象
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ValueItem.#ctor(System.Object,System.Boolean,System.String)">
+            <summary>
+                支付服务配置对象
+            </summary>
+            <param name="value">值</param>
+            <param name="privacy">是否隐私数据</param>
+            <param name="remark">备注</param>
+        </member>
+        <member name="T:System.Linq.CollectionPropertySorter`1">
+            <summary>
+                集合类型字符串排序操作类
+            </summary>
+            <typeparam name="T">集合项类型</typeparam>
+        </member>
+        <member name="M:System.Linq.CollectionPropertySorter`1.OrderBy(System.Collections.Generic.IEnumerable{`0},System.String,System.ComponentModel.ListSortDirection)">
+            <summary>
+                按指定的属性名称对<see cref="T:System.Collections.Generic.IEnumerable`1" />序列进行排序
+            </summary>
+            <param name="source"><see cref="T:System.Collections.Generic.IEnumerable`1" />序列</param>
+            <param name="propertyName">属性名称</param>
+            <param name="sortDirection">排序方向</param>
+        </member>
+        <member name="M:System.Linq.CollectionPropertySorter`1.ThenBy(System.Linq.IOrderedEnumerable{`0},System.String,System.ComponentModel.ListSortDirection)">
+            <summary>
+                按指定的属性名称对<see cref="T:System.Linq.IOrderedEnumerable`1" />进行继续排序
+            </summary>
+            <param name="source"><see cref="T:System.Linq.IOrderedEnumerable`1" />序列</param>
+            <param name="propertyName">属性名称</param>
+            <param name="sortDirection">排序方向</param>
+        </member>
+        <member name="M:System.Linq.CollectionPropertySorter`1.OrderBy(System.Linq.IQueryable{`0},System.String,System.ComponentModel.ListSortDirection)">
+            <summary>
+                按指定的属性名称对<see cref="T:System.Linq.IQueryable`1" />序列进行排序
+            </summary>
+            <param name="source">IQueryable{T}序列</param>
+            <param name="propertyName">属性名称</param>
+            <param name="sortDirection">排序方向</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.CollectionPropertySorter`1.ThenBy(System.Linq.IOrderedQueryable{`0},System.String,System.ComponentModel.ListSortDirection)">
+            <summary>
+                按指定的属性名称对<see cref="T:System.Linq.IOrderedQueryable`1" />序列进行排序
+            </summary>
+            <param name="source">IOrderedQueryable{T}序列</param>
+            <param name="propertyName">属性名称</param>
+            <param name="sortDirection">排序方向</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Linq.Expressions.ExpressionExtensions">
+            <summary>
+                表达式扩展方法
+            </summary>
+        </member>
+        <member name="M:System.Linq.Expressions.ExpressionExtensions.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                表达式And运算
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="leftExpression"></param>
+            <param name="rightExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.Expressions.ExpressionExtensions.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                表达式OR运算
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="expr1"></param>
+            <param name="expr2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Linq.QueryableExtensions">
+            <summary>
+                IQueryable 查询扩展
+            </summary>
+        </member>
+        <member name="M:System.Linq.QueryableExtensions.WhereIf``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)">
+            <summary>
+                根据第三方条件是否为真来决定是否执行指定条件的查询
+            </summary>
+            <typeparam name="T">动态类型 </typeparam>
+            <param name="source">  要查询的源  </param>
+            <param name="predicate"> 查询条件 </param>
+            <param name="condition"> 第三方条件 </param>
+            <returns> 查询的结果 </returns>
+        </member>
+        <member name="M:System.Linq.QueryableExtensions.PageBy``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+                分页查询 (请注意分页前，先排序)
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <param name="source">    </param>
+            <param name="pageIndex"> </param>
+            <param name="pageSize">  </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Linq.QueryableExtensions.PageBy``1(System.Linq.IQueryable{``0},DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest)">
+            <summary>
+                分页查询
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <param name="source">      </param>
+            <param name="pageRequest"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Linq.QueryableExtensions.PageBy``2(System.Linq.IQueryable{``0},DaprTool.BuildingBlocks.Utils.ValueObjects.PageRequest,System.Linq.Expressions.Expression{System.Func{``0,``1}},System.ComponentModel.ListSortDirection)">
+            <summary>
+                分页查询
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="source"></param>
+            <param name="pageRequest">分页请求对象</param>
+            <param name="keySelector">排序字段</param>
+            <param name="listSortDirection">指定集合的排序方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.QueryableExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String,System.ComponentModel.ListSortDirection)">
+            <summary>
+                把<see cref="T:System.Linq.IQueryable`1" />集合按指定字段与排序方式进行排序
+            </summary>
+            <param name="source">要排序的数据集</param>
+            <param name="propertyName">排序属性名</param>
+            <param name="sortDirection">排序方向</param>
+            <typeparam name="T">动态类型</typeparam>
+            <returns>排序后的数据集</returns>
+        </member>
+        <member name="M:System.Linq.QueryableExtensions.ThenBy``1(System.Linq.IOrderedQueryable{``0},System.String,System.ComponentModel.ListSortDirection)">
+            <summary>
+                把<see cref="T:System.Linq.IOrderedQueryable`1" />集合继续按指定字段排序方式进行排序
+            </summary>
+            <typeparam name="T">动态类型</typeparam>
+            <param name="source">要排序的数据集</param>
+            <param name="propertyName">排序属性名</param>
+            <param name="sortDirection">排序方向</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.EnumerationExtensions">
+            <summary>
+                枚举的相关扩展方法
+            </summary>
+        </member>
+        <member name="M:System.EnumerationExtensions.GetEnumNames(System.Enum)">
+            <summary>
+                获取枚举的全部的名称、值等
+            </summary>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.GetEnumFalgsItems``1(``0)">
+            <summary>
+                获取Falgs枚举包含的全部枚举
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.IsEnumSingleValue``1(``0)">
+            <summary>
+                判断枚举是否包含多个值,Flags标识的枚举可能包含多个值
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.ToByte(System.Enum)">
+            <summary>
+                获取枚举的值
+            </summary>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.ToShort(System.Enum)">
+            <summary>
+                获取枚举的值
+            </summary>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.ToInt32(System.Enum)">
+            <summary>
+                获取枚举的值
+            </summary>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.ToInt64(System.Enum)">
+            <summary>
+                获取枚举的值
+            </summary>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.GetEnumItems(System.Enum)">
+            <summary>
+                获取枚举的全部项
+            </summary>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.EnumerationExtensions.GetEnumItems``1(``0)">
+            <summary>
+                获取枚举的全部项
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="enum"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.ObjectDisplayNameExtensions">
+            <summary>
+                对象的获取DisplayAttribute特性的扩展方法
+            </summary>
+        </member>
+        <member name="M:System.ObjectDisplayNameExtensions.GetDisplayName(System.Enum,System.Boolean,System.Boolean)">
+            <summary>
+                获取枚举上的DisplayAttribute特性的Name属性
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.ObjectDisplayNameExtensions.GetDisplayNames``1(``0,System.Boolean,System.Boolean)">
+            <summary>
+                获取Flags标识的枚举值所包含的全部枚举的DisplayAttribute特性的Name属性
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="enum"></param>
+            <param name="isCulture"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.ObjectDisplayNameExtensions.GetDisplayShortName(System.Enum,System.Boolean,System.Boolean)">
+            <summary>
+                获取枚举的DisplayAttribute的ShortName
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture">是否使用资源文件</param>
+            <param name="inherit">是否同时查找从父类继承的特性</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.ObjectDisplayNameExtensions.GetDisplayShortNames``1(``0,System.Boolean,System.Boolean)">
+            <summary>
+                获取Flags标识的枚举值所包含的全部枚举的DisplayAttribute特性的ShortName属性
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.ObjectDisplayNameExtensions.GetDisplayDescription(System.Enum,System.Boolean,System.Boolean)">
+            <summary>
+                获取枚举上的DisplayAttribute特性的Description属性
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.ObjectDisplayNameExtensions.GetDisplayDescriptions``1(``0,System.Boolean,System.Boolean)">
+            <summary>
+                获取Flags标识的枚举值所包含的全部枚举的DisplayAttribute特性的Description属性
+            </summary>
+            <param name="enum"></param>
+            <param name="isCulture"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.ObjectExtensions">
+            <summary>
+                Object 扩展
+            </summary>
+        </member>
+        <member name="M:System.ObjectExtensions.CastTo(System.Object,System.Type)">
+            <summary>
+                将对象类型转换为指定类型
+            </summary>
+            <param name="value">当前Object对象</param>
+            <param name="conversionType">需要转换的类型</param>
+            <returns>返回转换后的Object（目标类型）</returns>
+        </member>
+        <member name="M:System.ObjectExtensions.CastTo``1(System.Object)">
+            <summary>
+                将对象转换为指定类型
+            </summary>
+            <typeparam name="T">目标类型</typeparam>
+            <param name="value">要转换的对象</param>
+            <returns>返回转换后的目标类型</returns>
+        </member>
+        <member name="M:System.ObjectExtensions.CastTo``1(System.Object,``0)">
+            <summary>
+                将对象类型转换为指定类型，如转换失败返回指定的默认值
+            </summary>
+            <typeparam name="T">目标类型</typeparam>
+            <param name="value">要转换的对象</param>
+            <param name="defaultValue">转换失败返回指定的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.ObjectExtensions.Serialize(System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                序列化
+            </summary>
+            <param name="obj"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.StringExtensions">
+            <summary>
+                字符串 <see cref="T:System.String" /> 类型的扩展辅助操作类
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.Deserialize``1(System.String,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                反序列化
+            </summary>
+            <typeparam name="T"> </typeparam>
+            <param name="json">    </param>
+            <param name="options"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.StringExtensions.IsEmail(System.String)">
+            <summary>
+                是否电子邮件
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.IsMatch(System.String,System.String,System.Boolean)">
+            <summary>
+                指示所指定的正则表达式在指定的输入字符串中是否找到了匹配项
+            </summary>
+            <param name="value">要搜索匹配项的字符串</param>
+            <param name="pattern">要匹配的正则表达式模式</param>
+            <param name="isContains">是否包含，否则全匹配</param>
+            <returns>是完全匹配还是包含,true为包含，fasle为完全匹配</returns>
+        </member>
+        <member name="M:System.StringExtensions.IsMobileNumber(System.String,System.Boolean)">
+            <summary>
+                是否手机号码
+            </summary>
+            <param name="value">      </param>
+            <param name="isRestrict"> 是否按严格格式验证 </param>
+        </member>
+        <member name="M:System.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+                指示指定的字符串是 null 还是 System.String.Empty 字符串
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+                指示指定的字符串是 null、空还是仅由空白字符组成。
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.FormatBase64String(System.String)">
+            <summary>
+                Base64 解码
+            </summary>
+            <param name="base64String"> Base64密文 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.StringExtensions.ToBase64String(System.String)">
+            <summary>
+                Base64 编码
+            </summary>
+            <param name="plainText"> 需要加密的明文 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.StringExtensions.IsBase64String(System.String)">
+            <summary>
+                是否Base64字符串
+            </summary>
+            <param name="plainText"> </param>
+            <returns> </returns>
+        </member>
+        <member name="T:System.Threading.Tasks.TaskFactoryExtensions">
+            <summary>
+                TaskFactory相关的扩展方法
+            </summary>
+        </member>
+        <member name="M:System.Threading.Tasks.TaskFactoryExtensions.Duplication(System.Threading.Tasks.TaskFactory,System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Boolean)">
+            <summary>
+                重复执行方法
+            </summary>
+            <param name="factory"></param>
+            <param name="action">要执行的方法</param>
+            <param name="exceptionContinue">如果发生异常后是否继续</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Threading.Tasks.TaskFactoryExtensions.Duplication(System.Threading.Tasks.TaskFactory,System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Func{System.Exception,System.Threading.Tasks.Task{System.Boolean}})">
+            <summary>
+                重复执行方法
+            </summary>
+            <param name="factory"></param>
+            <param name="action">要执行的方法</param>
+            <param name="exceptionAction">执行发生异常后调用的方法</param>
+            <returns></returns>
+        </member>
+        <member name="T:System.TimeSpanExtensions">
+            <summary>
+            TimeSpan相关的扩展类
+            </summary>
+        </member>
+        <member name="M:System.TimeSpanExtensions.ToFriendlyString(System.TimeSpan)">
+            <summary>
+            转字符串
+            </summary>
+            <param name="timeSpan"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Reflection.TypeExtensions">
+            <summary>
+            Type 相关扩展
+            </summary>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsAnonymousType(System.Type)">
+            <summary>
+            判断类型是否为匿名类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsNullableType(System.Type)">
+            <summary>
+            判断类型是否为Nullable类型
+            </summary>
+            <param name="type"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetUnNullableType(System.Type)">
+            <summary>
+            通过类型转换器获取Nullable类型的基础类型
+            </summary>
+            <param name="type"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetDescription(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            获取成员元数据的Description特性描述信息
+            </summary>
+            <param name="member">  成员元数据对象 </param>
+            <param name="inherit"> 是否搜索成员的继承链以查找描述特性 </param>
+            <returns> 返回Description特性描述信息，如不存在则返回成员的名称 </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T"> Attribute特性类型 </typeparam>
+            <param name="memberInfo"> 类型类型成员 </param>
+            <param name="inherit">    是否从继承中查找 </param>
+            <returns> 存在返回第一个，不存在返回null </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+            从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T"> Attribute特性类型 </typeparam>
+            <param name="memberInfo"> 类型类型成员 </param>
+            <param name="inherit">    是否从继承中查找 </param>
+            <returns> 返回所有指定Attribute特性的数组 </returns>
+        </member>
+        <member name="T:System.Xml.XmlHelper">
+            <summary>
+                Xml助手类
+            </summary>
+        </member>
+        <member name="M:System.Xml.XmlHelper.ConvertXmlToString(System.Xml.XmlDocument)">
+            <summary>
+                对象转xml字符串
+            </summary>
+            <param name="xmlDoc">xml文档对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Xml.XmlHelper.ConvertObjectToXml(System.Object)">
+            <summary>
+                对象转XmlDocument对象
+            </summary>
+            <param name="packet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Xml.XmlHelper.Sha1Signature(System.Xml.XmlDocument@,System.String,System.Security.Cryptography.AsymmetricAlgorithm)">
+            <summary>
+                Xml签名
+            </summary>
+            <param name="xmlDoc">xml文档对象</param>
+            <param name="referenceId">引用的接点ID</param>
+            <param name="privateKey">签名的私钥</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Linq2DbAccessor</name>
+    </assembly>
+    <members>
+        <member name="T:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1">
+            <summary>
+                Json转换器(动态添加复杂类型的)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.CanConvert(System.Type)">
+            <summary>
+                是否可以序列化(反序列化)
+            </summary>
+            <param name="typeToConvert"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.GetTypeFromString(System.String)">
+            <summary>
+                从字符串获取类型
+            </summary>
+            <param name="moduleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadNumber(System.Text.Json.Utf8JsonReader@,System.Type)">
+            <summary>
+                读取数字类型的值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadString(System.Text.Json.Utf8JsonReader@,System.Type)">
+            <summary>
+                读取字符串类型的值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadArray(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取数组
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadDefault(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取默认值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.WriteObject(System.Text.Json.Utf8JsonWriter@,System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                写入Object类型
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.WriteArray(System.Text.Json.Utf8JsonWriter@,System.Object,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                写入数组
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                反序列化
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                序列化
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.AppendTypeName">
+            <summary>
+                附加到序列化JSON中的类型属性名
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.AppendValueName">
+            <summary>
+                附加到序列化JSON中的值属性名
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1._typeCaches">
+            <summary>
+                类型缓存
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadObject(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                读取Object类型的值
+            </summary>
+            <param name="reader"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadObject(System.Text.Json.JsonElement,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                从JsonElement中解析出属性名称和值
+            </summary>
+            <param name="jsonElement"></param>
+            <param name="type"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.DynamicTypeJsonConvert`1.ReadValue(System.Text.Json.JsonElement,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+                从JsonElement中解析数属性值
+            </summary>
+            <param name="jsonElement"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.JsonValueConverter`1">
+            <summary>JSON和字符串的转换器</summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.JsonValueConverter`1.#ctor">
+            <summary>JSON和字符串的转换器</summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.JsonValueConverter`1.#ctor(System.Text.Json.JsonSerializerOptions,System.Text.Json.JsonSerializerOptions)">
+            <summary>JSON和字符串的转换器</summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.TimeSpanConverter">
+            <summary>
+                TimeSpan和整形的转换器
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Linq2DbAccessor.Converter.TimeSpanConverter.#ctor">
+            <summary>
+                TimeSpan和整形的转换器
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.EntityBase">
+            <summary>
+                实体类基类
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.EntityBase.Id">
+            <summary>
+                Id 主键
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.EntityBase.CreatedTime">
+            <summary>
+                创建时间
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.EntityBase.UpdatedTime">
+            <summary>
+                上一次更新时间
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.EntityBase.DeletedTime">
+            <summary>
+                删除时间
+            </summary>
+            <remarks>如果 删除时间 > 0 说明 数据被删除了</remarks>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.ICreatedTime.CreatedTime">
+            <summary> Created Time </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.IEntity.Id">
+            <summary> Id  </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.ISoftDeleted.DeletedTime">
+            <summary>
+                是否已删除
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.IUpdatedTime.UpdatedTime">
+            <summary> Updated Time </summary>
+        </member>
+        <member name="T:System.Reflection.TypeExtensions">
+            <summary>
+                Type 相关扩展
+            </summary>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsAnonymousType(System.Type)">
+            <summary>
+                判断类型是否为匿名类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsNullableType(System.Type)">
+            <summary>
+                判断类型是否为Nullable类型
+            </summary>
+            <param name="type"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetUnNullableType(System.Type)">
+            <summary>
+                通过类型转换器获取Nullable类型的基础类型
+            </summary>
+            <param name="type"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetDescription(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                获取成员元数据的Description特性描述信息
+            </summary>
+            <param name="member">  成员元数据对象 </param>
+            <param name="inherit"> 是否搜索成员的继承链以查找描述特性 </param>
+            <returns> 返回Description特性描述信息，如不存在则返回成员的名称 </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T"> Attribute特性类型 </typeparam>
+            <param name="memberInfo"> 类型类型成员 </param>
+            <param name="inherit">    是否从继承中查找 </param>
+            <returns> 存在返回第一个，不存在返回null </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T"> Attribute特性类型 </typeparam>
+            <param name="memberInfo"> 类型类型成员 </param>
+            <param name="inherit">    是否从继承中查找 </param>
+            <returns> 返回所有指定Attribute特性的数组 </returns>
+        </member>
+        <member name="T:System.Linq.IQueryableExtensions">
+            <summary>
+                ITable的扩展方法
+            </summary>
+        </member>
+        <member name="M:System.Linq.IQueryableExtensions.JsonWhere``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+                构建JSON WHERE表达式
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.IQueryableExtensions.JsonWhereIf``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)">
+            <summary>
+                构建JSON WHERE IF表达式
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.IQueryableExtensions.GetLeftExpression(System.Linq.Expressions.Expression,System.Type)">
+            <summary>
+                构建LEFT表达式
+            </summary>
+            <param name="expression"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.IQueryableExtensions.GetRightExpression(System.Linq.Expressions.Expression,System.Type)">
+            <summary>
+                构建RIGHT表达式
+            </summary>
+            <param name="expression"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.IQueryableExtensions.ConvertExpression(System.Linq.Expressions.LambdaExpression)">
+            <summary>
+                转换为SQL表达式
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Linq.IQueryableExtensions.GetFieldType(System.Linq.Expressions.Expression)">
+            <summary>
+                获取字段类型
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LinqToDB.CustomPostgreSQLExtensions">
+            <summary>
+            Postgre SQL 自定义查询函数扩展
+            </summary>
+        </member>
+        <member name="M:LinqToDB.CustomPostgreSQLExtensions.JsonExtractPathText``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            查询实体中 jsonb/json 字段中的某个属性
+            <example>
+            <para>例如：</para>
+            <code>
+                var query = db.XXX.WhereIf(x => x.Authentication.JsonExtractPathText(json => json.RealName) == "张三" );
+            </code>
+            <para>可以参考 https://github.com/linq2db/linq2db/blob/master/Tests/Linq/Linq/ExpressionsTests.cs </para>
+            </example>
+            </summary>
+            <typeparam name="TColumn">查询列</typeparam>
+            <typeparam name="TJsonProp">查询的属性</typeparam>
+            <param name="field">字段</param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LinqToDB.CustomPostgreSQLExtensions.JsonExtractPathExpression``2">
+            <summary>
+            表达式转换
+            </summary>
+            <typeparam name="TColumn"></typeparam>
+            <typeparam name="TJsonProp"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:LinqToDB.Extensions.JsonWhereBuilder">
+            <summary>
+                构建JsonWhere表达式
+            </summary>
+        </member>
+        <member name="M:LinqToDB.Extensions.JsonWhereBuilder.Left``1(System.Object)">
+            <summary>
+                左表达式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LinqToDB.Extensions.JsonWhereBuilder.Right``1(System.Object)">
+            <summary>
+                右表达式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LinqToDB.Extensions.JsonLeftExtensionCallBuilder">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LinqToDB.Extensions.JsonLeftExtensionCallBuilder.Build(LinqToDB.Sql.ISqExtensionBuilder)">
+            <summary>
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:LinqToDB.Extensions.JsonRightExtensionCallBuilder">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LinqToDB.Extensions.JsonRightExtensionCallBuilder.Build(LinqToDB.Sql.ISqExtensionBuilder)">
+            <summary>
+            </summary>
+            <param name="builder"></param>
+        </member>
+    </members>
+</doc>

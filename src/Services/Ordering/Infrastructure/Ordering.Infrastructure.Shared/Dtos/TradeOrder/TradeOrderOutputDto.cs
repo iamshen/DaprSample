@@ -1,5 +1,5 @@
 ﻿using Ordering.Infrastructure.Shared.Enumerations.TradeOrder;
-using Ordering.Infrastructure.Shared.ValueObjects;
+using Ordering.Infrastructure.Shared.Records;
 
 namespace Ordering.Infrastructure.Shared.Dtos.TradeOrder;
 
@@ -56,7 +56,7 @@ public class TradeOrderOutputDto
     public Seller Seller { get; set; } = new();
 
     /// <summary>
-    ///     销售柜台
+    ///     销售门店
     /// </summary>
     public SaleStore SaleStore { get; set; } = new();
 
@@ -78,5 +78,5 @@ public class TradeOrderOutputDto
     /// <summary>
     ///     订单明细
     /// </summary>
-    public IList<TradeItem> OrderItems { get; set; } = new List<TradeItem>();
+    public ICollection<TradeItem> OrderItems { get; set; } = new List<TradeItem>();
 }

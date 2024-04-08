@@ -1,62 +1,51 @@
 # 使用 Dapr 构建分布式应用测试项目
 
 
-## `Dapr` 配置文件目录
+
+## 1. 先决条件
+
+### 基础设施
+
+- **[`WSL2 - Ubuntu OS`](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**
+- **[`Docker for desktop`](https://www.docker.com/products/docker-desktop)** 
+- **[`Dapr`](https://dapr.io/)**
+- **[`.NET Aspire`](https://github.com/dotnet/aspire)** 
+
+### 后端
+
+- **[`.NET Core 8 +`](https://dotnet.microsoft.com/download)** 
+- **[`IdentityServer4`](https://identityserver.io)**
+- **[`Yarp`](https://github.com/microsoft/reverse-proxy)**
+- **[`FluentValidation`](https://github.com/FluentValidation/FluentValidation)**
+- **[`MediatR`](https://github.com/jbogard/MediatR)**
+- **[`Linq2Db`](https://github.com/linq2db/linq2db)**
+- **[`Scrutor`](https://github.com/khellang/Scrutor)** - 通过扫描类型所在的程序集并找到约定的类型提供自动注册服务。（使用的是默认的依赖注入容器）
+- **[`Serilog`](https://github.com/serilog/serilog)**
+- **[`Swashbuckle.AspNetCore`](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)** 
+- **[`NEST`](https://github.com/elastic/elasticsearch-net)**
+
+### 前端
+
+- **[`ASP.NET Core Web UI`](https://learn.microsoft.com/zh-cn/aspnet/core/tutorials/choose-web-ui?view=aspnetcore-8.0)**
+- **[`Nodejs 20.x`](https://nodejs.org/en/download)**
+- **[`Typescript`](https://www.typescriptlang.org)**
+- **[`Vite`](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project)**
 
 
-### 1. `resources` 
+## 2. Dpar 配置
 
-- 在 Dapr 的上下文中，resources 目录可能用于存储与应用相关的其他资源配置，例如 Kubernetes 部署文件、Docker Compose 文件等。
-- 这些配置文件通常与部署和运维相关，而不是 Dapr 组件的配置。
-
-
-### 2. `components` 
-
-- 存储 Dapr 组件的配置文件，这些配置文件定义了 Dapr 组件的属性和行为，如状态存储、发布订阅、绑定等。
-- 这些组件配置文件会被 Dapr 运行时自动加载，并根据配置初始化相应的组件。
+[详情查看](./CONFIGURATION.md)
 
 
-#### `dapr postgres` 配置
-
-```postgresql
--- # 
-CREATE TABLE IF	NOT EXISTS gold_dapr.appsettings ( KEY VARCHAR NOT NULL, VALUE VARCHAR NOT NULL, VERSION VARCHAR NOT NULL, METADATA JSON );
-
--- # 在配置表上创建 触发器 TRIGGER。创建 TRIGGER 的函数示例如下
-
-CREATE OR REPLACE FUNCTION configuration_event() RETURNS TRIGGER AS $$
-    DECLARE 
-        data json;
-        notification json;
-    
-    BEGIN
-
-        IF (TG_OP = 'DELETE') THEN
-            data = row_to_json(OLD);
-        ELSE
-            data = row_to_json(NEW);
-        END IF;
-        
-        notification = json_build_object(
-                          'table',TG_TABLE_NAME,
-                          'action', TG_OP,
-                          'data', data);
-
-        PERFORM pg_notify('config',notification::text);
-        RETURN NULL; 
-    END;  
-$$ LANGUAGE plpgsql;
+## 3. QuickStart
 
 
--- # 创建触发器，在标为数据的字段中封装数据
+```bash
 
+git clone git@gitee.com:gold-cloud/dapr-tool-solution.git
 
+cd dapr-tool-solution
 
--- 订阅配置通知时，应使用作为 pg_notify 属性提及的通道。
--- 由于这是一个通用创建的触发器，请将此触发器映射到配置表
-
-CREATE TRIGGER config
-AFTER INSERT OR UPDATE OR DELETE ON "gold_dapr"."appsettings"
-FOR EACH ROW EXECUTE PROCEDURE "gold_dapr"."configuration_event"();
+dapr run -f .\src\Services\Ordering
 
 ```

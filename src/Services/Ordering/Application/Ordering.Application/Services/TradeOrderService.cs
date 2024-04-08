@@ -5,16 +5,16 @@ using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Interfaces;
-using Ordering.Domain.Core.Commands.TradeOrder;
+using Ordering.Domain.Commands.TradeOrder;
 using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
-using Ordering.Infrastructure.Shared.ValueObjects;
+using Ordering.Infrastructure.Shared.Records;
 
 namespace Ordering.Application.Services;
 
 /// <summary>
 ///     买卖料订单服务
 /// </summary>
-public class TradeOrderService : ITradeOrderService
+public class TradeOrderService : ITradeOrderService 
 {
     private const string ActorType = "TradeOrderProcessActor";
     private readonly ILogger<TradeOrderService> _logger;
@@ -40,8 +40,13 @@ public class TradeOrderService : ITradeOrderService
     {
         try
         {
+            //var proxy1 = ActorProxy.Create<ITradeOrderProcessActor>(ActorId.CreateRandom(), ActorType);
+            //var submitResult1 = await proxy1.SubmitAsync(orderCommand);
+            //Console.WriteLine(submitResult1.OrderNo);
+
             var proxy = ActorProxy.DefaultProxyFactory.Create(ActorId.CreateRandom(), ActorType);
             var submitResult = await proxy.InvokeMethodAsync<CreateTradeOrderCommand, OrderRecord>("SubmitAsync", orderCommand);
+
             return new Result<OrderRecord>(submitResult);
         }
         catch (Exception ex)

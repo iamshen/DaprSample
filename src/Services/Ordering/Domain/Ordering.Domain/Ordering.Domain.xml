@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ordering.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Ordering.Domain.Actors.INumberGeneratorActor">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Ordering.Domain.Actors.INumberGeneratorActor.GenerateNumberAsync(System.Int32,System.Int32)">
+            <summary>
+                生成序列号
+            </summary>
+            <param name="orderType">订单类型, 最多 三位数</param>
+            <param name="bizType">业务类型, 最多 两位数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ordering.Domain.Actors.NumberGeneratorActor">
+            <summary>
+                流水号生成器
+            </summary>
+        </member>
+        <member name="M:Ordering.Domain.Actors.NumberGeneratorActor.#ctor(Dapr.Actors.Runtime.ActorHost)">
+            <summary>
+                ctor
+            </summary>
+            <param name="host"></param>
+        </member>
+        <member name="M:Ordering.Domain.Actors.NumberGeneratorActor.GenerateNumberAsync(System.Int32,System.Int32)">
+            <summary>
+                生成序列号
+            </summary>
+            <param name="orderType">订单类型, 最多 三位数</param>
+            <param name="bizType">业务类型, 最多 两位数</param>
+            <returns>单号</returns>
+            <remarks>
+                <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器</para>
+                <para>例如: "201122023091800000001" </para>
+            </remarks>
+            >
+        </member>
+        <member name="M:Ordering.Domain.Actors.ITradeOrderProcessActor.SubmitAsync(Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand)">
+            <summary>
+                提交订单
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Domain.Actors.ITradeOrderProcessActor.GetAsync">
+            <summary>
+                获取订单详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ordering.Domain.Actors.TradeOrderProcessActor">
+            <summary>
+                买卖料订单
+            </summary>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.#ctor(Dapr.Actors.Runtime.ActorHost,System.IServiceProvider)">
+            <summary>
+                ctor
+            </summary>
+            <param name="host"></param>
+            <param name="serviceProvider"></param>
+        </member>
+        <member name="T:Ordering.Domain.Actors.TradeOrderProcessActor.Errors">
+            <summary>
+                异常错误
+            </summary>
+        </member>
+        <member name="F:Ordering.Domain.Actors.TradeOrderProcessActor.Errors.RepeatCreated">
+            <summary> 订单已创建，请勿重复操作 </summary>
+        </member>
+        <member name="F:Ordering.Domain.Actors.TradeOrderProcessActor.Errors.GracePeriodElapsed">
+            <summary> 订单已超时，系统自动取消订单 </summary>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.SubmitAsync(Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand)">
+            <summary>
+                提交订单
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.GetAsync">
+            <summary>
+                获取订单明细
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.GetCancelEvents(System.String)">
+            <summary>
+                获取取消订单的事件
+            </summary>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.TryUpdateOrderStatusAsync(Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus,Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus)">
+            <summary>
+                尝试更新订单状态，如果预期订单状态与 Actor 中 的 State 不符，那么返回 false
+            </summary>
+            <param name="expectedOrderStatus">预期订单状态</param>
+            <param name="newOrderStatus">新订单状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.ReceiveReminderAsync(System.String,System.Byte[],System.TimeSpan,System.TimeSpan)">
+            <summary>
+                提醒器
+            </summary>
+            <param name="reminderName"></param>
+            <param name="state"></param>
+            <param name="dueTime"></param>
+            <param name="period"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Domain.Actors.TradeOrderProcessActor.OnGracePeriodElapsedAsync">
+            <summary>
+                订单超时处理
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand">
+            <summary>
+                创建买卖料订单
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand.Buyer">
+            <summary>
+                购买人
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand.Seller">
+            <summary>
+                销售员工
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand.SaleStore">
+            <summary>
+                销售门店
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand.Remark">
+            <summary>
+                备注
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand.OrderItems">
+            <summary>
+                订单明细
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommandValidator">
+            <summary>
+                创建买卖料订单命令验证机
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Commands.TradeOrder.PayNotifyCommand">
+            <summary>
+                支付通知命令
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.PayNotifyCommand.PayRecord">
+            <summary>
+                支付记录
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Commands.TradeOrder.PayNotifyCommand.IsSuccess">
+            <summary>
+                支付是否成功
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Events.TradeOrder.OrderStatusChangeToCancelEvent">
+            <summary>
+                订单已经取消
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent">
+            <summary>
+                订单已创建，持久化事件
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.OrderNo">
+            <summary>
+                订单号
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.OrderStatus">
+            <summary>
+                订单状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.PayStatus">
+            <summary>
+                订单状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.TradeStatus">
+            <summary>
+                交易状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.Buyer">
+            <summary>
+                购买人
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.Seller">
+            <summary>
+                销售员工
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.SaleStore">
+            <summary>
+                销售门店
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.Remark">
+            <summary>
+                备注
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.CreatedTime">
+            <summary>
+                创建时间
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.UpdatedTime">
+            <summary>
+                更新时间
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Events.TradeOrder.OrderSubmittedEvent.OrderItems">
+            <summary>
+                订单明细
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Events.TradeOrder.OrderSubmittedToPayEvent">
+            <summary>
+                订单已提交, 待支付事件
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Observer.TradeOrder.TradeOrderDbEventHandler">
+            <summary>
+                买卖料订单 db 事件处理器
+            </summary>
+        </member>
+        <member name="M:Ordering.Domain.Observer.TradeOrder.TradeOrderDbEventHandler.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{Ordering.Domain.Observer.TradeOrder.TradeOrderDbEventHandler})">
+            <summary>
+                买卖料订单 db 事件处理器
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.State.TradeOrderState">
+            <summary>
+                黄金买卖料订单
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.OrderNo">
+            <summary>
+                订单号
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.OrderStatus">
+            <summary>
+                订单状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.PayStatus">
+            <summary>
+                支付状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.TradeStatus">
+            <summary>
+                交易状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.Buyer">
+            <summary>
+                购买人
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.Seller">
+            <summary>
+                销售员工
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.SaleStore">
+            <summary>
+                销售门店
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.Remark">
+            <summary>
+                备注
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.CreatedTime">
+            <summary>
+                创建时间
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.UpdatedTime">
+            <summary>
+                更新时间
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.State.TradeOrderState.OrderItems">
+            <summary>
+                订单明细
+            </summary>
+        </member>
+        <member name="T:Dapr.Actors.Runtime.DomainActor`1">
+            <summary>
+                Actor
+            </summary>
+        </member>
+        <member name="M:Dapr.Actors.Runtime.DomainActor`1.#ctor(Dapr.Actors.Runtime.ActorHost,System.IServiceProvider)">
+            <summary>
+                ctor
+            </summary>
+            <param name="host"></param>
+            <param name="serviceProvider"></param>
+        </member>
+        <member name="P:Dapr.Actors.Runtime.DomainActor`1.StateDataKey">
+            <summary>  StateDataKey </summary>
+        </member>
+        <member name="P:Dapr.Actors.Runtime.DomainActor`1.ServiceProvider">
+            <summary>
+                服务提供者
+            </summary>
+        </member>
+        <member name="P:Dapr.Actors.Runtime.DomainActor`1.ActorId">
+            <summary>
+                ActorId
+            </summary>
+        </member>
+        <member name="M:Dapr.Actors.Runtime.DomainActor`1.OnActivateAsync">
+            <summary>
+                每当激活一个 actor 时，都会调用该方法
+                当首次调用一个 actor 的任何方法时，该 actor 就会被激活
+            </summary>
+        </member>
+        <member name="M:Dapr.Actors.Runtime.DomainActor`1.OnDeactivateAsync">
+            <summary>
+                每当 actor 在一段时间的非活动状态后被停用时，都会调用该方法
+            </summary>
+        </member>
+        <member name="M:Dapr.Actors.Runtime.DomainActor`1.RaiseEvents(DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent[])">
+            <summary>
+                发布事件
+            </summary>
+            <param name="events"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

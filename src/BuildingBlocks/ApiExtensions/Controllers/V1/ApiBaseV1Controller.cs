@@ -1,8 +1,8 @@
-﻿using DaprTool.BuildingBlocks.CommonUtility.ValueObjects;
-using GoldCloud.Infrastructure.Common.Extensions;
+﻿using Asp.Versioning;
+using DaprTool.BuildingBlocks.Utils.Extensions;
+using DaprTool.BuildingBlocks.Utils.ValueObjects;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using IdentityUserInfo = GoldCloud.Infrastructure.Common.Extensions.IdentityUserInfo;
 
 namespace Microsoft.AspNetCore.Mvc;
 

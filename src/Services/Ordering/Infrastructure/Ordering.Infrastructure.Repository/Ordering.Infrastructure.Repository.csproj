@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\Linq2DbAccessor\Linq2DbAccessor.csproj" />
+      <ProjectReference Include="..\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
+    </ItemGroup>
+
+</Project>
