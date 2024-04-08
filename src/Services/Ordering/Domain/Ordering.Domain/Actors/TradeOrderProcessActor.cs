@@ -1,5 +1,6 @@
 ﻿using Dapr.Actors;
 using Dapr.Actors.Runtime;
+using DaprTool.BuildingBlocks.Abstractions.Actors;
 using DaprTool.BuildingBlocks.Abstractions.Events;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -94,8 +95,8 @@ public class TradeOrderProcessActor : DomainActor<TradeOrderState>, ITradeOrderP
         var stateObj = await StateManager.TryGetStateAsync<TradeOrderState>(StateDataKey);
         if (stateObj.HasValue) throw new Exception(Errors.RepeatCreated);
 
-        var orderNumberProxy = ProxyFactory.CreateActorProxy<INumberGeneratorActor>(new ActorId("0"), "NumberGeneratorActor");
-        var orderNo = await orderNumberProxy.GenerateNumberAsync(201, 10);
+        var orderNumberProxy = ProxyFactory.CreateActorProxy<INumberGeneratorActor>(new ActorId("0"), nameof(NumberGeneratorActor));
+        var orderNo = await orderNumberProxy.GenerateAsync(201, 10);
         var state = new TradeOrderState
         {
             OrderNo = orderNo,

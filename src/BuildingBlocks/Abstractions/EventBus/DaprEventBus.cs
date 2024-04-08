@@ -20,12 +20,11 @@ public class DaprEventBus(DaprClient dapr, ILogger<DaprEventBus> logger) : IEven
         {
             var topicName = integrationEvent.GetType().Name;
 
-            logger.LogInformation(
+            logger.LogDebug(
                 "发布事件 {@Event} 到 {PubsubName}.{TopicName}",
                 integrationEvent,
                 DaprConstants.PubSubName,
                 topicName);
-
 
             // 通过将事件转换为动态，
             // 并将具体类型传给 PublishEventAsync

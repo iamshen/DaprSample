@@ -1,8 +1,7 @@
-﻿using System.Reflection;
-using Dapr.Client;
+﻿using Dapr.Client;
 using Dapr.Extensions.Configuration;
+using DaprTool.BuildingBlocks.Abstractions.Actors;
 using DaprTool.BuildingBlocks.Abstractions.EventBus;
-using DaprTool.BuildingBlocks.Utils;
 using DaprTool.BuildingBlocks.Utils.Constant;
 using FluentValidation;
 using Ordering.Domain.Actors;
@@ -60,9 +59,9 @@ public static class ProgramExtensions
         // 注册 Api 控制器
         builder.Services.AddControllers();
         // 注册 健康检查
-        builder.AddAppHealthChecks("ordering-db-check", "OrderingDB");
+        builder.AddAppHealthChecks("ordering-db-check", "Ordering");
         // 注册 业务数据库
-        builder.Services.AddAppDataConnection(builder.Configuration.GetConnectionString("OrderingDB")!);
+        builder.Services.AddAppDataConnection(builder.Configuration.GetConnectionString("Ordering")!);
     }
 
     /// <summary>

@@ -1,9 +1,10 @@
-﻿using DaprTool.BuildingBlocks.Abstractions.EventBus;
+using Dapr.Actors.Runtime;
+using DaprTool.BuildingBlocks.Abstractions.EventBus;
 using DaprTool.BuildingBlocks.Abstractions.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Dapr.Actors.Runtime;
+namespace DaprTool.BuildingBlocks.Abstractions.Actors;
 
 /// <summary>
 ///     Actor
@@ -40,7 +41,7 @@ public abstract class DomainActor<TState> : Actor
     /// </summary>
     protected override Task OnActivateAsync()
     {
-        Logger.LogInformation("Actor 已激活 ActorId: {Id}", ActorId);
+        Logger.LogDebug("Actor 已激活 ActorId: {Id}", ActorId);
 
         return Task.CompletedTask;
     }
@@ -50,7 +51,7 @@ public abstract class DomainActor<TState> : Actor
     /// </summary>
     protected override Task OnDeactivateAsync()
     {
-        Logger.LogInformation("Actor 已失活 ActorId: {Id}", ActorId);
+        Logger.LogDebug("Actor 已失活 ActorId: {Id}", ActorId);
 
         return Task.CompletedTask;
     }

@@ -9,7 +9,7 @@ namespace Ordering.Infrastructure.Repository.Entities;
 /// <summary>
 ///     买卖料订单明细
 /// </summary>
-[Table(Schema = "gold_work", Name = "t_order_trade_item")]
+[Table(Schema = "public", Name = "t_order_trade_item")]
 public class TradeOrderItemTable : EntityBase
 {
     /// <summary>

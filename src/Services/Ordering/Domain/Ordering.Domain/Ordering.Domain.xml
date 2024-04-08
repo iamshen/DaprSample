@@ -4,42 +4,6 @@
         <name>Ordering.Domain</name>
     </assembly>
     <members>
-        <member name="T:Ordering.Domain.Actors.INumberGeneratorActor">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:Ordering.Domain.Actors.INumberGeneratorActor.GenerateNumberAsync(System.Int32,System.Int32)">
-            <summary>
-                生成序列号
-            </summary>
-            <param name="orderType">订单类型, 最多 三位数</param>
-            <param name="bizType">业务类型, 最多 两位数</param>
-            <returns></returns>
-        </member>
-        <member name="T:Ordering.Domain.Actors.NumberGeneratorActor">
-            <summary>
-                流水号生成器
-            </summary>
-        </member>
-        <member name="M:Ordering.Domain.Actors.NumberGeneratorActor.#ctor(Dapr.Actors.Runtime.ActorHost)">
-            <summary>
-                ctor
-            </summary>
-            <param name="host"></param>
-        </member>
-        <member name="M:Ordering.Domain.Actors.NumberGeneratorActor.GenerateNumberAsync(System.Int32,System.Int32)">
-            <summary>
-                生成序列号
-            </summary>
-            <param name="orderType">订单类型, 最多 三位数</param>
-            <param name="bizType">业务类型, 最多 两位数</param>
-            <returns>单号</returns>
-            <remarks>
-                <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器</para>
-                <para>例如: "201122023091800000001" </para>
-            </remarks>
-            >
-        </member>
         <member name="M:Ordering.Domain.Actors.ITradeOrderProcessActor.SubmitAsync(Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand)">
             <summary>
                 提交订单
@@ -309,49 +273,6 @@
             <summary>
                 订单明细
             </summary>
-        </member>
-        <member name="T:Dapr.Actors.Runtime.DomainActor`1">
-            <summary>
-                Actor
-            </summary>
-        </member>
-        <member name="M:Dapr.Actors.Runtime.DomainActor`1.#ctor(Dapr.Actors.Runtime.ActorHost,System.IServiceProvider)">
-            <summary>
-                ctor
-            </summary>
-            <param name="host"></param>
-            <param name="serviceProvider"></param>
-        </member>
-        <member name="P:Dapr.Actors.Runtime.DomainActor`1.StateDataKey">
-            <summary>  StateDataKey </summary>
-        </member>
-        <member name="P:Dapr.Actors.Runtime.DomainActor`1.ServiceProvider">
-            <summary>
-                服务提供者
-            </summary>
-        </member>
-        <member name="P:Dapr.Actors.Runtime.DomainActor`1.ActorId">
-            <summary>
-                ActorId
-            </summary>
-        </member>
-        <member name="M:Dapr.Actors.Runtime.DomainActor`1.OnActivateAsync">
-            <summary>
-                每当激活一个 actor 时，都会调用该方法
-                当首次调用一个 actor 的任何方法时，该 actor 就会被激活
-            </summary>
-        </member>
-        <member name="M:Dapr.Actors.Runtime.DomainActor`1.OnDeactivateAsync">
-            <summary>
-                每当 actor 在一段时间的非活动状态后被停用时，都会调用该方法
-            </summary>
-        </member>
-        <member name="M:Dapr.Actors.Runtime.DomainActor`1.RaiseEvents(DaprTool.BuildingBlocks.Abstractions.Events.IntegrationEvent[])">
-            <summary>
-                发布事件
-            </summary>
-            <param name="events"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>

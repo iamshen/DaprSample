@@ -1,7 +1,7 @@
 ﻿using Dapr.Actors;
 using Dapr.Actors.Runtime;
 
-namespace Ordering.Domain.Actors;
+namespace DaprTool.BuildingBlocks.Abstractions.Actors;
 
 /// <summary>
 /// </summary>
@@ -13,23 +13,19 @@ public interface INumberGeneratorActor : IActor
     /// <param name="orderType">订单类型, 最多 三位数</param>
     /// <param name="bizType">业务类型, 最多 两位数</param>
     /// <returns></returns>
-    Task<string> GenerateNumberAsync(int orderType, int bizType);
+    Task<string> GenerateAsync(int orderType, int bizType);
 }
 
 /// <summary>
 ///     流水号生成器
 /// </summary>
-public class NumberGeneratorActor : Actor, INumberGeneratorActor
+/// <remarks>
+///     ctor
+/// </remarks>
+/// <param name="host"></param>
+public class NumberGeneratorActor(ActorHost host) : Actor(host), INumberGeneratorActor
 {
     private const string StateDataKey = "serial-number-{0}-{1}-{2}";
-
-    /// <summary>
-    ///     ctor
-    /// </summary>
-    /// <param name="host"></param>
-    public NumberGeneratorActor(ActorHost host) : base(host)
-    {
-    }
 
     /// <summary>
     ///     生成序列号
@@ -38,11 +34,11 @@ public class NumberGeneratorActor : Actor, INumberGeneratorActor
     /// <param name="bizType">业务类型, 最多 两位数</param>
     /// <returns>单号</returns>
     /// <remarks>
-    ///     <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器</para>
-    ///     <para>例如: "201122023091800000001" </para>
+    ///     <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器(8位数)</para>
+    ///     <para>例如: "201 12 2024 04 08 00000001" => "201122024040800000001" </para>
     /// </remarks>
     /// >
-    public async Task<string> GenerateNumberAsync(int orderType, int bizType)
+    public async Task<string> GenerateAsync(int orderType, int bizType)
     {
         // 流水号计数器
         long counter = 0;

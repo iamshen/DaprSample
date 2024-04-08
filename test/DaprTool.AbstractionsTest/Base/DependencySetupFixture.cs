@@ -29,7 +29,7 @@ public class DependencySetupFixture : IDisposable
         // 注册 MediatR
         serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DependencySetupFixture).Assembly));
         // 注册 业务数据库
-        serviceCollection.AddAppDataConnection(configuration.GetConnectionString("OrderingDB")!);
+        serviceCollection.AddAppDataConnection(configuration.GetConnectionString("Ordering")!);
 
         ServiceProvider = serviceCollection.BuildServiceProvider();
     }
