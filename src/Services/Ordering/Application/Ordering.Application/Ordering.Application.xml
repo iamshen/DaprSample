@@ -4,46 +4,46 @@
         <name>Ordering.Application</name>
     </assembly>
     <members>
-        <member name="T:Ordering.Application.Services.TradeOrderService">
+        <member name="T:Ordering.Application.Services.PurchaseOrderApiService">
             <summary>
-                买卖料订单服务
+                买料订单服务
             </summary>
         </member>
-        <member name="M:Ordering.Application.Services.TradeOrderService.#ctor(Microsoft.Extensions.Logging.ILogger{Ordering.Application.Services.TradeOrderService},System.IServiceProvider)">
+        <member name="M:Ordering.Application.Services.PurchaseOrderApiService.#ctor(Microsoft.Extensions.Logging.ILogger{Ordering.Application.Services.PurchaseOrderApiService},System.IServiceProvider)">
             <summary>
                 ctor
             </summary>
             <param name="logger"></param>
             <param name="serviceProvider"></param>
         </member>
-        <member name="M:Ordering.Application.Services.TradeOrderService.SubmitAsync(Ordering.Domain.Commands.TradeOrder.CreateTradeOrderCommand)">
+        <member name="M:Ordering.Application.Services.PurchaseOrderApiService.SubmitAsync(Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand)">
             <summary>
                 提交订单
             </summary>
             <param name="orderCommand"></param>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Application.Services.TradeOrderService.GetAsync(System.String)">
+        <member name="M:Ordering.Application.Services.PurchaseOrderApiService.GetAsync(System.String)">
             <summary>
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Ordering.Application.Services.TradeOrderService.GetByOrderNumberAsync(System.String)">
+        <member name="M:Ordering.Application.Services.PurchaseOrderApiService.GetByOrderNumberAsync(System.String)">
             <summary>
             </summary>
             <param name="orderNumber"></param>
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:Ordering.Application.Services.TradeOrderService.GetOrderStateAsync(System.String)">
+        <member name="M:Ordering.Application.Services.PurchaseOrderApiService.GetOrderStateAsync(System.String)">
             <summary>
                 获取订单State
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:ServiceCollectionExtensions.AddAppServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:ServiceCollectionExtensions.AddAppApiServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             注册服务
             </summary>

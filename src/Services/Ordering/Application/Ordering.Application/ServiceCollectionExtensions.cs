@@ -11,9 +11,9 @@ public static class ServiceCollectionExtensions
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>
-    public static IServiceCollection AddAppServices(this IServiceCollection services)
+    public static IServiceCollection AddAppApiServices(this IServiceCollection services)
     {
-        services.AddTransient<ITradeOrderService, TradeOrderService>();
+        services.AddTransient<IPurchaseOrderApiService, PurchaseOrderApiService>();
 
         return services;
     }

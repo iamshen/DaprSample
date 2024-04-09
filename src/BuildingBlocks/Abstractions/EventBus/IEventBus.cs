@@ -1,6 +1,6 @@
-﻿using DaprTool.BuildingBlocks.Abstractions.Events;
+﻿using DaprTool.BuildingBlocks.Domain.Events;
 
-namespace DaprTool.BuildingBlocks.Abstractions.EventBus;
+namespace DaprTool.BuildingBlocks.Domain.EventBus;
 
 /// <summary>
 ///     事件总线接口

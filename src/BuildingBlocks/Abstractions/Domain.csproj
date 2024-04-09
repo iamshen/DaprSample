@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RootNamespace>DaprTool.BuildingBlocks.Domain</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" />
+		<PackageReference Include="LanguageExt.Core" />
+        <PackageReference Include="Dapr.Actors" />
+        <PackageReference Include="Dapr.Actors.AspNetCore" />
+		<PackageReference Include="Dapr.Client" />
+		<PackageReference Include="MediatR" />
+		<PackageReference Include="Microsoft.Extensions.Telemetry" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Utils\Utils.csproj" />
+	</ItemGroup>
+
+</Project>

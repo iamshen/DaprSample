@@ -9,16 +9,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+        <PackageReference Include="Dapr.Actors" />
+        <PackageReference Include="Dapr.Actors.AspNetCore" />
+        <PackageReference Include="Dapr.AspNetCore" />
 		<PackageReference Include="RestSharp" />
 		<PackageReference Include="LanguageExt.Core" />
 		<PackageReference Include="Serilog.AspNetCore" />
-		<PackageReference Include="AspNetCore.HealthChecks.NpgSql"  />
+		<PackageReference Include="AspNetCore.HealthChecks.NpgSql" />
 		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
 		<PackageReference Include="Asp.Versioning.Mvc" />
 		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" />
 	</ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Swagger\Swagger.csproj" />
       <ProjectReference Include="..\Utils\Utils.csproj" />
       <ProjectReference Include="..\Healthchecks\Healthchecks.csproj" />
     </ItemGroup>

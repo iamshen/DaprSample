@@ -15,79 +15,79 @@
             </summary>
             <param name="connectionString"> 数据库连接字符串 </param>
         </member>
-        <member name="T:Ordering.Infrastructure.Repository.Entities.TradeOrderItemTable">
+        <member name="T:Ordering.Infrastructure.Repository.Entities.PurchaseOrderItemTable">
             <summary>
-                买卖料订单明细
+                买料订单明细
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderItemTable.ProductId">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderItemTable.ProductId">
             <summary>
                 产品Id
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderItemTable.ProductName">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderItemTable.ProductName">
             <summary>
                 产品名称
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderItemTable.UnitPrice">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderItemTable.UnitPrice">
             <summary>
                 产品单价
             </summary>
             <remarks>产品单价：元/克 </remarks>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderItemTable.LaborCost">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderItemTable.LaborCost">
             <summary>
                 工费
             </summary>
             <remarks>产品工费：元/克 </remarks>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderItemTable.Pictures">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderItemTable.Pictures">
             <summary>
                 产品照片
             </summary>
         </member>
-        <member name="T:Ordering.Infrastructure.Repository.Entities.TradeOrderTable">
+        <member name="T:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable">
             <summary>
-                买卖料订单表
+                买料订单表
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.OrderNo">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.OrderNo">
             <summary>
                 订单号
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.OrderStatus">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.OrderStatus">
             <summary>
                 订单状态
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.PayStatus">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.PayStatus">
             <summary>
                 支付状态
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.TradeStatus">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.TradeStatus">
             <summary>
                 交易状态
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.Buyer">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.Buyer">
             <summary>
                 购买人
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.Seller">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.Seller">
             <summary>
                 销售员工
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.SaleStore">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.SaleStore">
             <summary>
                 销售门店
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Repository.Entities.TradeOrderTable.Remark">
+        <member name="P:Ordering.Infrastructure.Repository.Entities.PurchaseOrderTable.Remark">
             <summary>
                 备注
             </summary>

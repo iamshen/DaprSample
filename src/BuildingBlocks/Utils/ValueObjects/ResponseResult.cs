@@ -1,111 +1,80 @@
-﻿#nullable disable
-
+﻿
 namespace DaprTool.BuildingBlocks.Utils.ValueObjects;
 
-#region 请求应答结果
-
 /// <summary>
-///     请求应答结果
+///     统一返回结果
 /// </summary>
-public class ResponseResult
+[Serializable]
+public record ResponseResult<T>
 {
-    #region 方法
-
-    /// <summary>
-    ///     创建对象
-    /// </summary>
-    /// <param name="code"></param>
-    /// <param name="version"></param>
-    /// <param name="traceId"></param>
-    /// <param name="msg"></param>
-    /// <param name="content"></param>
-    /// <returns></returns>
-    public static ResponseResult Create(int code, string version, string traceId = null, string msg = null,
-        object content = null)
-    {
-        return new ResponseResult
-        {
-            ErrorCode = code,
-            Version = version,
-            TraceId = traceId,
-            Description = $"{msg}",
-            Content = content
-        };
-    }
-
-    #endregion
-
-    #region 属性
-
     /// <summary>
     ///     错误码
     /// </summary>
 
-    public int ErrorCode { get; init; }
+    public ErrorCode ErrorCode { get; init; }
+
+    /// <summary>
+    ///     错误码字符串
+    /// </summary> 
+    public string ErrorCodeStraight => ErrorCode.ToString();
 
     /// <summary>
     ///     描述
     /// </summary>
-    public string Description { get; init; }
+    public string Description { get; init; } = string.Empty;
 
     /// <summary>
     ///     版本号
     /// </summary>
-    public string Version { get; init; }
+    public string Version { get; init; } = "1.0";
 
     /// <summary>
     ///     追踪ID
     /// </summary>
-    public string TraceId { get; init; }
+    public string TraceId { get; init; } = string.Empty;
 
     /// <summary>
     ///     内容
     /// </summary>
-    public object Content { get; init; }
+    public T? Content { get; init; } = default;
 
-    #endregion
-}
-
-#endregion
-
-#region 泛型请求应答结果
-
-/// <summary>
-///     泛型请求应答结果
-/// </summary>
-public class ResponseResult<T> : ResponseResult
-{
-    #region 属性
 
     /// <summary>
-    ///     内容
+    ///     返回失败。
     /// </summary>
-    public new T Content { get; set; }
-
-    #endregion
-
-    #region 方法
-
-    /// <summary>
-    ///     创建对象
-    /// </summary>
-    /// <param name="code"></param>
+    /// <param name="message"></param>
     /// <param name="version"></param>
-    /// <param name="msg"></param>
-    /// <param name="content"></param>
+    /// <param name="traceId"></param>
+    /// <param name="data"></param>
+    /// <param name="code"></param>
     /// <returns></returns>
-    public static ResponseResult<T> Create(int code, string version, string msg = null, T content = default)
+    public static ResponseResult<T> Failed(ErrorCode code = ErrorCode.Unknown, string message = "", string version = "1.0", string traceId = "", T? data = default)
     {
         return new ResponseResult<T>
         {
             ErrorCode = code,
-            Version = version,
-            Description = $"{msg}",
-            Content = content
+            Description = message,
+            Content = data,
+            TraceId = traceId,
+            Version = version
         };
     }
 
-    #endregion
+    /// <summary>
+    ///     返回成功。
+    /// </summary>
+    /// <returns></returns>
+    public static ResponseResult<T> Succeed(T? data = default, string message = "成功", string version = "1.0", string traceId = "")
+    {
+        return new ResponseResult<T>
+        {
+            ErrorCode = ErrorCode.Success,
+            Description = message,
+            Content = data,
+            TraceId = traceId,
+            Version = version
+        };
+    }
+
 }
 
-#endregion

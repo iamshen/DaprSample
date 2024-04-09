@@ -1,10 +1,10 @@
 using Dapr.Actors.Runtime;
-using DaprTool.BuildingBlocks.Abstractions.EventBus;
-using DaprTool.BuildingBlocks.Abstractions.Events;
+using DaprTool.BuildingBlocks.Domain.EventBus;
+using DaprTool.BuildingBlocks.Domain.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace DaprTool.BuildingBlocks.Abstractions.Actors;
+namespace DaprTool.BuildingBlocks.Domain.Actors;
 
 /// <summary>
 ///     Actor
@@ -23,7 +23,7 @@ public abstract class DomainActor<TState> : Actor
     }
 
     /// <summary>  StateDataKey </summary>
-    public abstract string StateDataKey { get; }
+    public string StateDataKey => GetType().Name;
 
     /// <summary>
     ///     服务提供者

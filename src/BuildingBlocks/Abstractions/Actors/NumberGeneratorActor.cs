@@ -1,7 +1,7 @@
 ﻿using Dapr.Actors;
 using Dapr.Actors.Runtime;
 
-namespace DaprTool.BuildingBlocks.Abstractions.Actors;
+namespace DaprTool.BuildingBlocks.Domain.Actors;
 
 /// <summary>
 /// </summary>
@@ -25,7 +25,7 @@ public interface INumberGeneratorActor : IActor
 /// <param name="host"></param>
 public class NumberGeneratorActor(ActorHost host) : Actor(host), INumberGeneratorActor
 {
-    private const string StateDataKey = "serial-number-{0}-{1}-{2}";
+    private const string StateDataKey = "serial_number_{0}{1}{2}";
 
     /// <summary>
     ///     生成序列号

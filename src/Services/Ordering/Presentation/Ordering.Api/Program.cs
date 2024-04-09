@@ -1,28 +1,34 @@
+using DaprTool.BuildingBlocks.Domain.Actors;
 using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Mvc;
+using Ordering.Domain.Actors;
 
 const string appName = "Ordering.Api";
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 注册 Dapr
-builder.AddAppDapr();
 // 注册 应用服务
 builder.AddAppServices();
+
+// 注册 Dapr
+builder.AddAppDapr(options =>
+{
+    options.Actors.RegisterActor<NumberGeneratorActor>();
+    options.Actors.RegisterActor<PurchaseOrderProcessActor>();
+});
+
 
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-    app.UseAppSwagger(builder.Configuration);
-}
-
+app.UseGlobalException();
+app.UseLanguage();
+app.UseTraceInfo();
 app.UseAppSwagger(builder.Configuration);
 app.UseCloudEvents();
 
-app.MapGet("/", () => Results.LocalRedirect("~/docs"));
 
+app.MapGet("/", () => Results.LocalRedirect("~/docs"));
 app.MapControllers();
 app.MapSubscribeHandler();
 app.MapActorsHandlers();

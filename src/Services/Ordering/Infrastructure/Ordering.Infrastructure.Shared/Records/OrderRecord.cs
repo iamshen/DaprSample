@@ -1,15 +1,14 @@
-﻿namespace Ordering.Infrastructure.Shared.Records;
+﻿using System.Runtime.Serialization;
+
+namespace Ordering.Infrastructure.Shared.Records;
 
 /// <summary>
 ///     订单id 单号 对象
 /// </summary>
-public class OrderRecord
+[DataContract]
+public record OrderRecord
 {
-    /// <summary>
-    ///     ctor
-    /// </summary>
-    /// <param name="orderId"></param>
-    /// <param name="orderNo"></param>
+
     public OrderRecord(string orderId, string orderNo)
     {
         OrderId = orderId;
@@ -17,14 +16,16 @@ public class OrderRecord
     }
 
     /// <summary>
-    ///     ctor
+    /// 
     /// </summary>
-    public OrderRecord()
-    {
-        OrderId = string.Empty;
-        OrderNo = string.Empty;
-    }
+    /// <value></value>
+    [property: DataMember]
+    public string OrderId { get; set; } = string.Empty;
 
-    public string OrderId { get; set; }
-    public string OrderNo { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    [property: DataMember]
+    public string OrderNo { get; set; } = string.Empty;
 }

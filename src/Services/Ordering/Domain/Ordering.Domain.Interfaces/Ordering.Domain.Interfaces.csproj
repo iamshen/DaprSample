@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+	</ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\Abstractions\Domain.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

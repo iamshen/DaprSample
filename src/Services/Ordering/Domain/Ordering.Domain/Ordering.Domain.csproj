@@ -1,9 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\BuildingBlocks\Abstractions\Abstractions.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Repository\Ordering.Infrastructure.Repository.csproj" />
-      <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Shared\Ordering.Infrastructure.Shared.csproj" />
+      <ProjectReference Include="..\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
     </ItemGroup>
 
 </Project>

@@ -25,7 +25,7 @@ public class ApiBaseController : ApiBaseV1Controller
 ///         <para>请在继承的控制器类中使用特性 <see cref="ApiExplorerSettingsAttribute" /> 指定分组名称 mobile，以便于Swagger 分组。</para>
 ///     </remarks>
 /// </summary>
-[Route("Mobile/[controller]/[action]")]
+[Route("Mobile/[controller]")]
 [ApiExplorerSettings(GroupName = "mobile")]
 public abstract class MobileApiBaseController : ApiBaseController
 {
@@ -40,7 +40,7 @@ public abstract class MobileApiBaseController : ApiBaseController
 ///     </remarks>
 /// </summary>
 [AllowAnonymous]
-[Route("Open/[controller]/[action]")]
+[Route("Open/[controller]")]
 [ApiExplorerSettings(GroupName = "open")]
 public abstract class OpenApiBaseController : ApiBaseController
 {

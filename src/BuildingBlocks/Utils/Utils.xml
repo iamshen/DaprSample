@@ -4,13 +4,19 @@
         <name>Utils</name>
     </assembly>
     <members>
-        <member name="T:DaprTool.BuildingBlocks.Utils.Constant.AppConstants">
+        <member name="T:DaprTool.BuildingBlocks.Utils.Attributes.PageRequestErrorDefaultResultAttribute">
             <summary>
-            
+            标识分页查询如果发生异常则对结果做默认处理
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Attributes.PageRequestErrorDefaultResultAttribute.Result">
+            <summary>
+            要返回的默认的结果
             </summary>
         </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.Constant.DaprConstants">
             <summary>
+             Dapr Constants
             </summary>
         </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions">
@@ -440,6 +446,304 @@
             <param name="writer"></param>
             <param name="value"></param>
             <param name="options"></param>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ErrorCode">
+            <summary>
+            错误编码
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.Unknown">
+            <summary>
+            未知错误
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OperationTimedout">
+            <summary>
+            操作超时
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.VersionsUnsupported">
+            <summary>
+            不支持的版本号
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.InvalidArgument">
+            <summary>
+            无效参数
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.Unauthorized">
+            <summary>
+            未授权
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.Forbidden">
+            <summary>
+            禁止操作
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ResourcesNotFound">
+            <summary>
+            资源未找到
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ServiceUnavailable">
+            <summary>
+            服务不可用
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ArgumentException">
+            <summary>
+            参数异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ObjectCannotInitialized">
+            <summary>
+            对象不能初始化
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ObjectAlreadyExists">
+            <summary>
+            对象已经存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.NotSupportTradingType">
+            <summary>
+            不支持的交易类型
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OutOfRange">
+            <summary>
+            超出范围
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ObjectNotExists">
+            <summary>
+            对象不存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.UnsupportedResourceType">
+            <summary>
+            不支持的资源类型
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OperatingTooAften">
+            <summary>
+            操作太频繁
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.SignatureValidateFailed">
+            <summary>
+            签名验证失败
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.MissingParameter">
+            <summary>
+            丢失参数
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ConfigNotFound">
+            <summary>
+            配置未找到
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OrderStatusAbnormal">
+            <summary>
+            订单状态异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.DataNotFound">
+            <summary>
+            数据未找到
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.PaymentStatusAbnormal">
+            <summary>
+            付款状态异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.PayeeAccountAbnormal">
+            <summary>
+            收款账户异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OrderCancelled">
+            <summary>
+            订单已取消
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.Unapprove">
+            <summary>
+            审核未通过
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.NotFoundPaymentService">
+            <summary>
+            未找到付款服务
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.AmountOutOfRange">
+            <summary>
+            数额超出范围
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.PaymentFailed">
+            <summary>
+            付款失败
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.PayeeAccountInvalid">
+            <summary>
+            收款账户无效
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.PayeeAccountMismatch">
+            <summary>
+            收款账户信息不匹配
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.PaymentStatusUndefined">
+            <summary>
+            付款状态不明确
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OperationFailed">
+            <summary>
+            操作失败
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.OrderNotExists">
+            <summary>
+            订单不存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.InformationInconsistency">
+            <summary>
+            信息不一致
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.AuthenticationFailed">
+            <summary>
+            身份验证失败
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.NetworkError">
+            <summary>
+            网络错误
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.DataAlreadyExists">
+            <summary>
+            数据已经存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.InvalidOperation">
+            <summary>
+            无效操作
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.HasReachedUpperLimit">
+            <summary>
+            已经达到上限
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.UserNotExists">
+            <summary>
+            用户不存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.MerchantNotExists">
+            <summary>
+            商户不存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.StoreNotExists">
+            <summary>
+            店铺不存在
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.MaterialPoolAbnormal">
+            <summary>
+            材料池异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.MaterialPoolStatusAbnormal">
+            <summary>
+            材料池状态异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.KeyNotFound">
+            <summary>
+            尝试访问不存在的键
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.UnauthorizedAccess">
+            <summary>
+            未经授权的资源
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.DaprApi">
+            <summary>
+            DaprApi 操作异常
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.ErrorCode.ActorInvoke">
+            <summary>
+            DaprActor 操作异常
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.ErrorCodeExtensions">
+            <summary>
+            错误编码扩展类
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ErrorCodeExtensions.IsSuccessful(DaprTool.BuildingBlocks.Utils.ErrorCode)">
+            <summary>
+            是否正常
+            </summary>
+            <param name="errorCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException">
+            <summary>
+            统一异常对象
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.ErrorCode">
+            <summary>
+            错误编码
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.#ctor(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="message">异常描述</param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.#ctor(DaprTool.BuildingBlocks.Utils.ErrorCode)">
+            <summary>
+            初始化
+            </summary>
+            <param name="errorCode">错误编码</param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.#ctor(DaprTool.BuildingBlocks.Utils.ErrorCode,System.String,System.Exception)">
+            <summary>
+            初始化
+            </summary>
+            <param name="errorCode">错误编码</param>
+            <param name="message">异常描述</param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.ToString">
+            <summary>
+            异常的字符串形式
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions">
             <summary>
@@ -1902,12 +2206,11 @@
                 分页查询结果对象
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.#ctor(System.Int32,System.Int32)">
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.#ctor(System.Int32)">
             <summary>
                 分页查询结果对象(目的是为了自动计算TotalCount)
             </summary>
             <param name="totoRecords">总记录数</param>
-            <param name="showSize">每页要显示的记录数</param>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.Data">
             <summary>
@@ -1926,7 +2229,7 @@
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.PageSize">
             <summary>
-                当前实际的记录数
+                页数
             </summary>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.PagedList`1.PageIndex">
@@ -1982,50 +2285,34 @@
                 获取或设置 查询关键字
             </summary>
         </member>
-        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult">
+        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1">
             <summary>
-                请求应答结果
+                统一返回结果
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Create(System.Int32,System.String,System.String,System.String,System.Object)">
-            <summary>
-                创建对象
-            </summary>
-            <param name="code"></param>
-            <param name="version"></param>
-            <param name="traceId"></param>
-            <param name="msg"></param>
-            <param name="content"></param>
-            <returns></returns>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.ErrorCode">
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.ErrorCode">
             <summary>
                 错误码
             </summary>
         </member>
-        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Description">
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.ErrorCodeStraight">
+            <summary>
+                错误码字符串
+            </summary> 
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Description">
             <summary>
                 描述
             </summary>
         </member>
-        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Version">
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Version">
             <summary>
                 版本号
             </summary>
         </member>
-        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.TraceId">
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.TraceId">
             <summary>
                 追踪ID
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult.Content">
-            <summary>
-                内容
-            </summary>
-        </member>
-        <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1">
-            <summary>
-                泛型请求应答结果
             </summary>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Content">
@@ -2033,14 +2320,21 @@
                 内容
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Create(System.Int32,System.String,System.String,`0)">
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Failed(DaprTool.BuildingBlocks.Utils.ErrorCode,System.String,System.String,System.String,`0)">
             <summary>
-                创建对象
+                返回失败。
             </summary>
-            <param name="code"></param>
+            <param name="message"></param>
             <param name="version"></param>
-            <param name="msg"></param>
-            <param name="content"></param>
+            <param name="traceId"></param>
+            <param name="data"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.ResponseResult`1.Succeed(`0,System.String,System.String,System.String)">
+            <summary>
+                返回成功。
+            </summary>
             <returns></returns>
         </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.RuntimeInfoObject">

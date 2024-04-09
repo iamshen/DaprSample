@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ordering.Domain.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Ordering.Domain.Interfaces.Actors.IPurchaseOrderProcessActor">
+            <summary>
+                买料订单
+            </summary>
+        </member>
+        <member name="M:Ordering.Domain.Interfaces.Actors.IPurchaseOrderProcessActor.SubmitAsync(Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand)">
+            <summary>
+                提交订单
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ordering.Domain.Interfaces.Actors.IPurchaseOrderProcessActor.GetAsync">
+            <summary>
+                获取订单详情
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand">
+            <summary>
+                创建买料订单
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand.Buyer">
+            <summary>
+                购买人
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand.Seller">
+            <summary>
+                销售员工
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand.SaleStore">
+            <summary>
+                销售门店
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand.Remark">
+            <summary>
+                备注
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.CreateOrderCommand.OrderItems">
+            <summary>
+                订单明细
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Interfaces.Commands.PurchaseOrder.PayNotifyCommand">
+            <summary>
+                支付通知命令
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.PayNotifyCommand.PayRecord">
+            <summary>
+                支付记录
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Commands.PurchaseOrder.PayNotifyCommand.IsSuccess">
+            <summary>
+                支付是否成功
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderStatusChangeToCancelEvent">
+            <summary>
+                订单已经取消
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent">
+            <summary>
+                订单已创建，持久化事件
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.OrderNo">
+            <summary>
+                订单号
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.OrderStatus">
+            <summary>
+                订单状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.PayStatus">
+            <summary>
+                订单状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.TradeStatus">
+            <summary>
+                交易状态
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.Buyer">
+            <summary>
+                购买人
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.Seller">
+            <summary>
+                销售员工
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.SaleStore">
+            <summary>
+                销售门店
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.Remark">
+            <summary>
+                备注
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.CreatedTime">
+            <summary>
+                创建时间
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.UpdatedTime">
+            <summary>
+                更新时间
+            </summary>
+        </member>
+        <member name="P:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedEvent.OrderItems">
+            <summary>
+                订单明细
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Interfaces.Events.PurchaseOrder.OrderSubmittedToPayEvent">
+            <summary>
+                订单已提交, 待支付事件
+            </summary>
+        </member>
+        <member name="T:Ordering.Domain.Interfaces.Validators.PurchaseOrder.CreateOrderCommandValidator">
+            <summary>
+                创建买料订单命令验证机
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions">
+            <summary>
+            WebApplicationBuilderExtensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddAppValidators(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+                添加 命令验证器
+            </summary>
+            <param name="builder"></param>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,4 @@
-﻿namespace DaprTool.BuildingBlocks.Abstractions.Attributes;
+﻿namespace DaprTool.BuildingBlocks.Domain.Attributes;
 
 /// <summary>
 ///     标识命令的特性

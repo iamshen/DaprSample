@@ -2,10 +2,10 @@
 using DaprTool.BuildingBlocks.Utils.Constant;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Ordering.Domain.Events.TradeOrder;
+using Ordering.Domain.Interfaces.Events.PurchaseOrder;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Ordering.Api.Controllers.TradeOrder;
+namespace Ordering.Api.Controllers.PurchaseOrder;
 
 /// <summary>
 /// 买料订单 事件订阅控制器

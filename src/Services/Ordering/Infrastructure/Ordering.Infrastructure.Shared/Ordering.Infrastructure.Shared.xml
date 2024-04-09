@@ -4,172 +4,172 @@
         <name>Ordering.Infrastructure.Shared</name>
     </assembly>
     <members>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.OrderId">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.OrderId">
             <summary>
                 订单Id
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.OrderNo">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.OrderNo">
             <summary>
                 订单号
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.OrderStatus">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.OrderStatus">
             <summary>
                 订单状态
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.OrderStatusDesc">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.OrderStatusDesc">
             <summary>
                 订单状态说明
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.PayStatus">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.PayStatus">
             <summary>
                 支付状态
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.PayStatusDesc">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.PayStatusDesc">
             <summary>
                 支付状态说明
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.TradeStatus">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.TradeStatus">
             <summary>
                 交易状态
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.TradeStatusDesc">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.TradeStatusDesc">
             <summary>
                 交易状态说明
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.Buyer">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.Buyer">
             <summary>
                 购买人
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.Seller">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.Seller">
             <summary>
                 销售员工
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.SaleStore">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.SaleStore">
             <summary>
                 销售门店
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.Remark">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.Remark">
             <summary>
                 备注
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.CreatedTime">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.CreatedTime">
             <summary>
                 创建时间
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.UpdatedTime">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.UpdatedTime">
             <summary>
                 更新时间
             </summary>
         </member>
-        <member name="P:Ordering.Infrastructure.Shared.Dtos.TradeOrder.TradeOrderOutputDto.OrderItems">
+        <member name="P:Ordering.Infrastructure.Shared.Dtos.PurchaseOrder.PurchaseOrderOutputDto.OrderItems">
             <summary>
                 订单明细
             </summary>
         </member>
-        <member name="T:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus">
+        <member name="T:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus">
             <summary>
-                买卖料订单状态
+                买料订单状态
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus.Created">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus.Created">
             <summary>
                 已创建 (待提交)
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus.Submitted">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus.Submitted">
             <summary>
                 已提交
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus.AwaitingPay">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus.AwaitingPay">
             <summary>
                 待付款
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus.Completed">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus.Completed">
             <summary>
                 已完成
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus.Cancelled">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus.Cancelled">
             <summary>
                 已取消
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.OrderStatus.Returned">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.OrderStatus.Returned">
             <summary>
                 已退单
             </summary>
         </member>
-        <member name="T:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.PayStatus">
+        <member name="T:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.PayStatus">
             <summary>
-                买卖料订单支付状态
+                买料订单支付状态
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.PayStatus.Created">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.PayStatus.Created">
             <summary>
                 已创建 （待支付）
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.PayStatus.Paying">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.PayStatus.Paying">
             <summary>
                 支付中
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.PayStatus.Paid">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.PayStatus.Paid">
             <summary>
                 已支付
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.PayStatus.Failed">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.PayStatus.Failed">
             <summary>
                 已失败
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.PayStatus.Cancelled">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.PayStatus.Cancelled">
             <summary>
                 已取消
             </summary>
         </member>
-        <member name="T:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.TradeStatus">
+        <member name="T:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.TradeStatus">
             <summary>
                 交易状态
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.TradeStatus.Created">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.TradeStatus.Created">
             <summary>
                 待交易
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.TradeStatus.Trading">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.TradeStatus.Trading">
             <summary>
                 交易中
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.TradeStatus.Completed">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.TradeStatus.Completed">
             <summary>
                 已完成
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.TradeStatus.Fail">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.TradeStatus.Fail">
             <summary>
                 已失败
             </summary>
         </member>
-        <member name="F:Ordering.Infrastructure.Shared.Enumerations.TradeOrder.TradeStatus.Cancel">
+        <member name="F:Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder.TradeStatus.Cancel">
             <summary>
                 已取消
             </summary>
@@ -199,17 +199,17 @@
                 订单id 单号 对象
             </summary>
         </member>
-        <member name="M:Ordering.Infrastructure.Shared.Records.OrderRecord.#ctor(System.String,System.String)">
+        <member name="P:Ordering.Infrastructure.Shared.Records.OrderRecord.OrderId">
             <summary>
-                ctor
+            
             </summary>
-            <param name="orderId"></param>
-            <param name="orderNo"></param>
+            <value></value>
         </member>
-        <member name="M:Ordering.Infrastructure.Shared.Records.OrderRecord.#ctor">
+        <member name="P:Ordering.Infrastructure.Shared.Records.OrderRecord.OrderNo">
             <summary>
-                ctor
+            
             </summary>
+            <value></value>
         </member>
         <member name="P:Ordering.Infrastructure.Shared.Records.PayRecord.Id">
             <summary>

@@ -1,4 +1,4 @@
-﻿namespace DaprTool.BuildingBlocks.Abstractions.Command;
+﻿namespace DaprTool.BuildingBlocks.Domain.Command;
 
 /// <summary>
 ///     命令接口

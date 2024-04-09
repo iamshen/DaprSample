@@ -23,6 +23,6 @@ public class AppDataConnection : DataConnection
     {
     }
 
-    public ITable<TradeOrderTable> TradeOrder => this.GetTable<TradeOrderTable>();
-    public ITable<TradeOrderItemTable> TradeOrderItems => this.GetTable<TradeOrderItemTable>();
+    public ITable<PurchaseOrderTable> PurchaseOrder => this.GetTable<PurchaseOrderTable>();
+    public ITable<PurchaseOrderItemTable> PurchaseOrderItems => this.GetTable<PurchaseOrderItemTable>();
 }

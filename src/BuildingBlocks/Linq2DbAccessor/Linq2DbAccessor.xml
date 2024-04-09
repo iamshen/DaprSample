@@ -174,7 +174,7 @@
         </member>
         <member name="P:DaprTool.BuildingBlocks.Linq2DbAccessor.Data.EntityBase.DeletedTime">
             <summary>
-                删除时间
+                删除时间(软删除)
             </summary>
             <remarks>如果 删除时间 > 0 说明 数据被删除了</remarks>
         </member>

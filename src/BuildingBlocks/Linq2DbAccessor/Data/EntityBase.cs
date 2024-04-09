@@ -11,25 +11,25 @@ public abstract class EntityBase : IEntity, ICreatedTime, IUpdatedTime, ISoftDel
     /// <summary>
     ///     Id 主键
     /// </summary>
-    [Column("id", Order = 0, IsPrimaryKey = true, CanBeNull = false)]
+    [Column("id", Order = 1, IsPrimaryKey = true, CanBeNull = false)]
     public virtual string Id { get; set; } = string.Empty;
 
     /// <summary>
     ///     创建时间
     /// </summary>
-    [Column("created_time", Order = 110, DataType = DataType.Int64, CanBeNull = false)]
+    [Column("created_time", Order = -50, DataType = DataType.Int64, CanBeNull = false)]
     public virtual long CreatedTime { get; set; } = TimeProvider.System.GetTimestamp();
 
     /// <summary>
     ///     上一次更新时间
     /// </summary>
-    [Column("updated_time", Order = 120, DataType = DataType.Int64, CanBeNull = false)]
+    [Column("updated_time", Order = -45, DataType = DataType.Int64, CanBeNull = false)]
     public virtual long UpdatedTime { get; set; } = TimeProvider.System.GetTimestamp();
 
     /// <summary>
-    ///     删除时间
+    ///     删除时间(软删除)
     /// </summary>
     /// <remarks>如果 删除时间 > 0 说明 数据被删除了</remarks>
-    [Column("soft_deleted", Order = 130, DataType = DataType.Int64, CanBeNull = false)]
+    [Column("deleted_time", Order = -40, DataType = DataType.Int64, CanBeNull = false)]
     public virtual long DeletedTime { get; set; }
 }

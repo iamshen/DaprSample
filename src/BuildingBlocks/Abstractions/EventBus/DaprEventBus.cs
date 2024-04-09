@@ -1,9 +1,9 @@
 using Dapr.Client;
-using DaprTool.BuildingBlocks.Abstractions.Events;
+using DaprTool.BuildingBlocks.Domain.Events;
 using DaprTool.BuildingBlocks.Utils.Constant;
 using Microsoft.Extensions.Logging;
 
-namespace DaprTool.BuildingBlocks.Abstractions.EventBus;
+namespace DaprTool.BuildingBlocks.Domain.EventBus;
 
 /// <summary>
 ///     Dapr 事件总线

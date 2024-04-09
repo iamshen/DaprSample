@@ -1,7 +1,7 @@
-﻿namespace DaprTool.BuildingBlocks.Abstractions.Events;
+﻿namespace DaprTool.BuildingBlocks.Domain.Events;
 
 /// <summary>
 /// 事件接口
 /// </summary>
-public interface IEvent 
+public interface IEvent
 { }

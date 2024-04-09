@@ -35,18 +35,12 @@ public static class AppDataConnectionExtensions
     /// <exception cref="ArgumentException"></exception>
     public static void AddAppDataConnection(this IServiceCollection services, string connectionString)
     {
-        // if (string.IsNullOrEmpty(connectionString))
-        //     throw new ArgumentException("connectionString can not be null", nameof(connectionString));
-
         if (string.IsNullOrEmpty(connectionString))
-            return;
+            throw new ArgumentException("connectionString can not be null", nameof(connectionString));
 
-        services.AddLinqToDBContext<AppDataConnection>((provider, options) =>
-        {
-            options.UsePostgreSQL(connectionString);
-            options.UseDefaultLogging(provider);
-            return options;
-        }, ServiceLifetime.Singleton);
+        services.AddLinqToDBContext<AppDataConnection>(
+            (provider, options) => options.UsePostgreSQL(connectionString).UseDefaultLogging(provider),
+            ServiceLifetime.Singleton);
 
         services.Replace(new ServiceDescriptor(typeof(AppDataConnection), _ => new AppDataConnection(connectionString),
             ServiceLifetime.Transient));

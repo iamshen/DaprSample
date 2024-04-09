@@ -7,18 +7,18 @@ namespace DaprTool.AbstractionsTest;
 
 public class OrderTableCreateTest(DependencySetupFixture fixture) : IClassFixture<DependencySetupFixture>
 {
-    [Fact(DisplayName = "01. 创建订单表")]
+    [Fact(DisplayName = "01. 创建买料订单数据表")]
     public async Task Test1()
     {
         using var scope = fixture.ServiceProvider.CreateScope();
         await using var db = scope.ServiceProvider.GetAppConnection();
 
-        await db.DropTableAsync<TradeOrderTable>(throwExceptionIfNotExists: false);
-        var table = db.CreateTable<TradeOrderTable>();
+        await db.DropTableAsync<PurchaseOrderTable>(throwExceptionIfNotExists: false);
+        var table = db.CreateTable<PurchaseOrderTable>();
         Assert.NotNull(table);
 
-        await db.DropTableAsync<TradeOrderItemTable>(throwExceptionIfNotExists: false);
-        var table2 = db.CreateTable<TradeOrderItemTable>();
+        await db.DropTableAsync<PurchaseOrderItemTable>(throwExceptionIfNotExists: false);
+        var table2 = db.CreateTable<PurchaseOrderItemTable>();
         Assert.NotNull(table2);
     }
 }

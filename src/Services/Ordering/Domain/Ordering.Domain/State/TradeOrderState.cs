@@ -1,12 +1,12 @@
-﻿using Ordering.Infrastructure.Shared.Enumerations.TradeOrder;
+﻿using Ordering.Infrastructure.Shared.Enumerations.PurchaseOrder;
 using Ordering.Infrastructure.Shared.Records;
 
 namespace Ordering.Domain.State;
 
 /// <summary>
-///     黄金买卖料订单
+///     黄金买料订单
 /// </summary>
-public class TradeOrderState
+public class PurchaseOrderState
 {
     /// <summary>
     ///     订单号

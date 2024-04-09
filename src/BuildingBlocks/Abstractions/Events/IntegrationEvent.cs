@@ -1,11 +1,11 @@
 ﻿using MediatR;
 
-namespace DaprTool.BuildingBlocks.Abstractions.Events;
+namespace DaprTool.BuildingBlocks.Domain.Events;
 
 /// <summary>
 ///     事件基类
 /// </summary>
-public abstract class IntegrationEvent: IEvent, INotification
+public abstract class IntegrationEvent : IEvent, INotification
 {
     /// <summary>
     ///     命令ID

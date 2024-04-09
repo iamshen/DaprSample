@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\BuildingBlocks\Abstractions\Abstractions.csproj" />
+		<ProjectReference Include="..\..\src\BuildingBlocks\Abstractions\Domain.csproj" />
 		<ProjectReference Include="..\..\src\Services\Ordering\Infrastructure\Ordering.Infrastructure.Repository\Ordering.Infrastructure.Repository.csproj" />
 	</ItemGroup>
 

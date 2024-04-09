@@ -23,10 +23,9 @@ public class PagedList<T> where T : class
     ///     分页查询结果对象(目的是为了自动计算TotalCount)
     /// </summary>
     /// <param name="totoRecords">总记录数</param>
-    /// <param name="showSize">每页要显示的记录数</param>
-    public PagedList(int totoRecords, int showSize) : this()
+    public PagedList(int totoRecords) : this()
     {
-        TotalPages = (int)Math.Ceiling((double)totoRecords / (showSize <= 0 ? 1 : showSize));
+        TotalPages = (int)Math.Ceiling((double)totoRecords / (PageSize <= 0 ? 1 : PageSize));
         TotalCount = totoRecords;
     }
 
@@ -50,9 +49,9 @@ public class PagedList<T> where T : class
     public int TotalPages { get; set; }
 
     /// <summary>
-    ///     当前实际的记录数
+    ///     页数
     /// </summary>
-    public int PageSize => Data.Count;
+    public int PageSize { get; set; }
 
     /// <summary>
     ///     第几页

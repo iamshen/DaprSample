@@ -1,7 +1,7 @@
-﻿using DaprTool.BuildingBlocks.Abstractions.Attributes;
+﻿using DaprTool.BuildingBlocks.Domain.Attributes;
 using System.Reflection;
 
-namespace DaprTool.BuildingBlocks.Abstractions.Command;
+namespace DaprTool.BuildingBlocks.Domain.Command;
 
 /// <summary>
 /// 命令基类

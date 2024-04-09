@@ -1,4 +1,4 @@
-﻿namespace DaprTool.BuildingBlocks.Abstractions.Attributes;
+﻿namespace DaprTool.BuildingBlocks.Domain.Attributes;
 
 /// <summary>
 /// 要忽略的类型特性

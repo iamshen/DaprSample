@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace DaprTool.BuildingBlocks.Abstractions.Logging;
+namespace DaprTool.BuildingBlocks.Domain.Logging;
 
 public static partial class ApplicationLogging
 {

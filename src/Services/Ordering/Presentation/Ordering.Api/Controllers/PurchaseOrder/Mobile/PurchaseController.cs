@@ -1,8 +1,9 @@
 ﻿using Asp.Versioning;
+using DaprTool.BuildingBlocks.Utils.ValueObjects;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Interfaces;
-using Ordering.Domain.Commands.TradeOrder;
-using Ordering.Infrastructure.Shared.Dtos.TradeOrder;
+using Ordering.Domain.Interfaces.Commands.PurchaseOrder;
+using Ordering.Infrastructure.Shared.Dtos.PurchaseOrder;
 using Ordering.Infrastructure.Shared.Records;
 
 namespace Ordering.Api.Controllers.PurchaseOrder.Mobile;
@@ -19,17 +20,15 @@ public class PurchaseController : MobileApiBaseController
     ///     获取订单详情
     /// </summary>
     /// <param name="id">订单Id</param>
-    /// <param name="apiService"></param>
+    /// <param name="apiApiService"></param>
     /// <returns></returns>
-    [HttpGet]
-    [ApiVersion("1.0")]
-    [ActionName("Get")]
-    [ProducesResponseType(typeof(TradeOrderOutputDto), 200)]
+    [HttpGet("Get")]
+    [ProducesResponseType(typeof(PurchaseOrderOutputDto), 200)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAsync(string id,
-        [FromServices] ITradeOrderService apiService)
+        [FromServices] IPurchaseOrderApiService apiApiService)
     {
-        var result = await apiService.GetAsync(id);
+        var result = await apiApiService.GetAsync(id);
         return result.ToOkResult(data => data);
     }
 
@@ -37,17 +36,15 @@ public class PurchaseController : MobileApiBaseController
     ///     获取订单详情
     /// </summary>
     /// <param name="orderNumber">订单号</param>
-    /// <param name="apiService"></param>
+    /// <param name="apiApiService"></param>
     /// <returns></returns>
-    [HttpGet]
-    [ApiVersion("1.0")]
-    [ActionName("Detail")]
-    [ProducesResponseType(typeof(TradeOrderOutputDto), 200)]
+    [HttpGet("Detail")]
+    [ProducesResponseType(typeof(PurchaseOrderOutputDto), 200)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetDetailAsync(string orderNumber,
-        [FromServices] ITradeOrderService apiService)
+        [FromServices] IPurchaseOrderApiService apiApiService)
     {
-        var result = await apiService.GetByOrderNumberAsync(orderNumber);
+        var result = await apiApiService.GetByOrderNumberAsync(orderNumber);
         return result.ToOkResult(data => data);
     }
 
@@ -55,19 +52,16 @@ public class PurchaseController : MobileApiBaseController
     ///     提交订单
     /// </summary>
     /// <param name="request"></param>
-    /// <param name="apiService"></param>
+    /// <param name="apiApiService"></param>
     /// <returns></returns>
-    [HttpPost]
-    [ApiVersion("1.0")]
-    [ActionName("Submit")]
-    [ProducesResponseType(typeof(OrderRecord), 201)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [HttpPost("Submit")]
+    [ProducesResponseType(typeof(ResponseResult<OrderRecord>), 200)]
     public async Task<IActionResult> SubmitAsync(
-        [FromBody] CreateTradeOrderCommand request,
-        [FromServices] ITradeOrderService apiService)
+        [FromBody] CreateOrderCommand request,
+        [FromServices] IPurchaseOrderApiService apiApiService)
     {
-        var result = await apiService.SubmitAsync(request);
+        var result = await apiApiService.SubmitAsync(request);
 
-        return result.ToCreatedResult(data => data, "/mobile/tradeOrder/get");
+        return result.ToOkResult(data => data);
     }
 }
