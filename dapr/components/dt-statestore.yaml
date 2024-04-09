@@ -4,37 +4,58 @@ metadata:
   name: dt-statestore
   namespace: huangs
 spec:
-  type: state.postgresql
-  version: v2
+  type: state.redis
+  version: v1
   metadata:
-    # Connection string
-    - name: connectionString
-      secretKeyRef:
-        name: ConnectionStrings.DaprMgr
-        key: ConnectionStrings.DaprMgr
-    # Timeout for database operations, as a Go duration or number of seconds (optional)
-    - name: timeout
-      value: 20
-    # Prefix for the table where the data is stored (optional)
-    - name: tablePrefix
-      value: "dapr_"
-    # Name of the table where to store metadata used by Dapr (optional)
-    - name: metadataTableName
-      value: "dapr_metadata"
-    # Cleanup interval in seconds, to remove expired rows (optional)
-    - name: cleanupInterval
-      value: "1h"
-    # Maximum number of connections pooled by this component (optional)
-    - name: maxConns
-      value: 0
-    # Max idle time for connections before they're closed (optional)
-    - name: connectionMaxIdleTime
-      value: 0
-    # Controls the default mode for executing queries. (optional)
-    - name: queryExecMode
+    - name: redisHost
+      value: localhost:6379
+    - name: redisPassword
       value: ""
-    # Uncomment this if you wish to use PostgreSQL as a state store for actors (optional)
     - name: actorStateStore
       value: "true"
-auth:
-  secretStore: dt-secretstore
+  # - name: enableTLS
+  #   value: <bool> # Optional. Allowed: true, false.
+  # - name: maxRetries
+  #   value: # Optional
+  # - name: maxRetryBackoff
+  #   value: # Optional
+  # - name: failover
+  #   value: <bool> # Optional. Allowed: true, false.
+  # - name: sentinelMasterName
+  #   value: <string> # Optional
+  # - name: redeliverInterval
+  #   value: # Optional
+  # - name: processingTimeout
+  #   value: # Optional
+  # - name: redisType
+  #   value: # Optional
+  # - name: redisDB
+  #   value: # Optional
+  # - name: redisMaxRetries
+  #   value: # Optional
+  # - name: redisMinRetryInterval
+  #   value: # Optional
+  # - name: redisMaxRetryInterval
+  #   value: # Optional
+  # - name: dialTimeout
+  #   value: # Optional
+  # - name: readTimeout
+  #   value: # Optional
+  # - name: writeTimeout
+  #   value: # Optional
+  # - name: poolSize
+  #   value: # Optional
+  # - name: poolTimeout
+  #   value: # Optional
+  # - name: maxConnAge
+  #   value: # Optional
+  # - name: minIdleConns
+  #   value: # Optional
+  # - name: idleCheckFrequency
+  #   value: # Optional
+  # - name: idleTimeout
+  #   value: # Optional
+  # - name: ttlInSeconds
+  #   value: <int> # Optional
+  # - name: queryIndexes
+  #   value: <string> # Optional
