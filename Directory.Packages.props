@@ -1,69 +1,61 @@
 <Project>
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<FrameworkVersion>8.0.0</FrameworkVersion>
-		<ExtensionsVersion>8.0.0</ExtensionsVersion>
-		<DaprVersion>1.13.0</DaprVersion>
-	</PropertyGroup>
-
-	<!-- dapr -->
-	<ItemGroup>
-		<PackageVersion Include="Dapr.Client" Version="$(DaprVersion)" />
-		<PackageVersion Include="Dapr.Actors" Version="$(DaprVersion)" />
-		<PackageVersion Include="Dapr.Actors.AspNetCore" Version="$(DaprVersion)" />
-		<PackageVersion Include="Dapr.AspNetCore" Version="$(DaprVersion)" />
-		<PackageVersion Include="Dapr.Extensions.Configuration" Version="$(DaprVersion)" />
-	</ItemGroup>
-
-	<!--microsoft asp.net core -->
-	<ItemGroup>
-		<PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="$(FrameworkVersion)" />
-		<PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="$(FrameworkVersion)" />
-	</ItemGroup>
-
-	<!--microsoft extensions -->
-	<ItemGroup>
-		<PackageVersion Include="Microsoft.Extensions.Hosting" Version="$(ExtensionsVersion)" />
-		<PackageVersion Include="Microsoft.Extensions.Telemetry" Version="$(ExtensionsVersion)" />
-		<PackageVersion Include="Microsoft.Extensions.Logging" Version="$(ExtensionsVersion)" />
-		<PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="$(ExtensionsVersion)" />
-		<PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="$(ExtensionsVersion)" />
-	</ItemGroup>
-
-	<!--System-->
-	<ItemGroup>
-		<PackageVersion Include="System.Security.Cryptography.Xml" Version="8.0.0" />
-	</ItemGroup>
-
-	<!--misc -->
-	<ItemGroup>
-		<PackageVersion Include="linq2db.AspNet" Version="5.4.1" />
-		<PackageVersion Include="linq2db.PostgreSQL" Version="5.4.1" />
-		<PackageVersion Include="RestSharp" Version="110.2.0" />
-		<PackageVersion Include="LanguageExt.Core" Version="4.4.8" />
-		<PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
-		<PackageVersion Include="MediatR" Version="12.2.0" />
-		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-		<PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
-		<PackageVersion Include="FluentValidation" Version="11.9.0" />
-		<PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
-	</ItemGroup>
-
-	<!-- api versioning -->
-	<ItemGroup>
-		<PackageVersion Include="Asp.Versioning.Mvc" Version="8.1.0" />
-		<PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
-	</ItemGroup>
-
-
-	<!--tests -->
-	<ItemGroup>
-		<PackageVersion Include="coverlet.collector" Version="6.0.0" />
-		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-		<PackageVersion Include="xunit" Version="2.5.3" />
-		<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
-	</ItemGroup>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FrameworkVersion>8.0.0</FrameworkVersion>
+    <ExtensionsVersion>8.0.0</ExtensionsVersion>
+    <DaprVersion>1.13.0</DaprVersion>
+  </PropertyGroup>
+  <!-- dapr -->
+  <ItemGroup>
+    <PackageVersion Include="Dapr.Client" Version="$(DaprVersion)" />
+    <PackageVersion Include="Dapr.Actors" Version="$(DaprVersion)" />
+    <PackageVersion Include="Dapr.Actors.AspNetCore" Version="$(DaprVersion)" />
+    <PackageVersion Include="Dapr.AspNetCore" Version="$(DaprVersion)" />
+    <PackageVersion Include="Dapr.Extensions.Configuration" Version="$(DaprVersion)" />
+    <PackageVersion Include="Dapr.PluggableComponents.AspNetCore" Version="0.3.0-rc02" />
+  </ItemGroup>
+  <!--microsoft asp.net core -->
+  <ItemGroup>
+    <PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="$(FrameworkVersion)" />
+    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="$(FrameworkVersion)" />
+  </ItemGroup>
+  <!--microsoft extensions -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="$(ExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Telemetry" Version="$(ExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(ExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="$(ExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="$(ExtensionsVersion)" />
+  </ItemGroup>
+  <!--System-->
+  <ItemGroup>
+    <PackageVersion Include="System.Security.Cryptography.Xml" Version="8.0.0" />
+  </ItemGroup>
+  <!--misc -->
+  <ItemGroup>
+    <PackageVersion Include="linq2db.AspNet" Version="5.4.1" />
+    <PackageVersion Include="linq2db.PostgreSQL" Version="5.4.1" />
+    <PackageVersion Include="RestSharp" Version="110.2.0" />
+    <PackageVersion Include="LanguageExt.Core" Version="4.4.8" />
+    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageVersion Include="MediatR" Version="12.2.0" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageVersion Include="FluentValidation" Version="11.9.0" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+  </ItemGroup>
+  <!-- api versioning -->
+  <ItemGroup>
+    <PackageVersion Include="Asp.Versioning.Mvc" Version="8.1.0" />
+    <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+  </ItemGroup>
+  <!--tests -->
+  <ItemGroup>
+    <PackageVersion Include="coverlet.collector" Version="6.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageVersion Include="xunit" Version="2.5.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
 </Project>

@@ -1,0 +1,12 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: my-postgresql-state-store
+spec:
+  type: state.npgsqlstore
+  version: v1
+  metadata:
+    - name: key1
+      value: value1
+    - name: key2
+      value: value1

@@ -30,6 +30,7 @@ dapr run -f .\src\Services\Ordering
 - **[`Docker for desktop`](https://www.docker.com/products/docker-desktop)** 
 - **[`Dapr`](https://dapr.io/)**
 - **[`Dotnet`](https://dotnet.microsoft.com/download)** 
+- **[`WSL2 - Ubuntu OS`](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**
 
 ### 后端
 
@@ -58,3 +59,8 @@ dapr run -f .\src\Services\Ordering
 
 
 [详情查看](./CONFIGURATION.md)
+
+
+# 可插拔组件
+
+> 本地测试 可插拔组件的时候  请使用 wsl 运行 dotnet run
