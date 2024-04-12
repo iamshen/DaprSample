@@ -87,7 +87,7 @@ public interface ISampleActor : IActor
     /// 获取已注册的提醒
     /// </summary>
     /// <returns></returns>
-    Task<ActorReminderData> GetReminder();
+    Task<ActorReminderData?> GetReminder();
 
     /// <summary>
     /// 注销已注册的计时器。

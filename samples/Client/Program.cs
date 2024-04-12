@@ -2,8 +2,7 @@
 using Dapr.Actors.Client;
 using SampleInterfaces;
 
-Console.WriteLine("starting sapmle client...");
-
+System.Console.WriteLine("starting sapmle client...");
 
 var data = new SampleState()
 {
@@ -12,16 +11,37 @@ var data = new SampleState()
 };
 
 // 创建一个 actor Id.
-var actorId = ActorId.CreateRandom();
+var actorId = new ActorId("abc123456");
 
 // 使用强类型调用
 var proxy = ActorProxy.Create<ISampleActor>(actorId, "SampleActor");
+try
+{
 
-Console.WriteLine("调用 actor proxy 保存数据");
-await proxy.SaveData(data, TimeSpan.FromMinutes(10));
-Console.WriteLine("调用 actor proxy 获取数据");
-var receivedData = await proxy.GetData();
-Console.WriteLine($"接收到数据 {receivedData}.");
+    Console.WriteLine("调用 actor proxy 保存数据");
+    await proxy.SaveData(data, TimeSpan.FromMinutes(10));
+    Console.WriteLine("调用 actor proxy 获取数据");
+    var receivedData = await proxy.GetData();
+    Console.WriteLine($"接收到数据 {receivedData} hash: {receivedData.GetHashCode()} ");
+    await Task.Delay(1000 * Random.Shared.Next(1,3));
+
+    var receivedData1 = await proxy.GetData();
+    Console.WriteLine($"接收到数据 {receivedData1} hash: {receivedData1.GetHashCode()} ");
+    await Task.Delay(1000 * Random.Shared.Next(1,3));
+
+    var receivedData2 = await proxy.GetData();
+    Console.WriteLine($"接收到数据 {receivedData2} hash: {receivedData2.GetHashCode()} ");
+    await Task.Delay(1000 * Random.Shared.Next(1,3));
+
+    var receivedData3 = await proxy.GetData();
+    Console.WriteLine($"接收到数据 {receivedData} hash: {receivedData3.GetHashCode()} ");
+}
+catch (System.Exception ex)
+{
+    System.Console.WriteLine(ex.Message);
+    System.Console.WriteLine(ex.InnerException?.Message);
+    throw;
+}
 
 // try
 // {

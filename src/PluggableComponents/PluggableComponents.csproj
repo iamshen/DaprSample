@@ -7,6 +7,13 @@
     <WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
   </PropertyGroup>
 
+ <ItemGroup>
+    <Using Include="Dapr.PluggableComponents" />
+    <Using Include="Dapr.PluggableComponents.Adaptors" />
+    <Using Include="Dapr.PluggableComponents.Components" />
+    <Using Include="Dapr.PluggableComponents.Components.StateStore" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Dapr.PluggableComponents.AspNetCore" />
   </ItemGroup>

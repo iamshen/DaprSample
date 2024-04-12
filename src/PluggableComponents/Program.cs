@@ -6,23 +6,23 @@ var app = DaprPluggableComponentsApplication.Create();
 app.Logging.AddConsole();
 
 app.RegisterService(
-    "npgsqlstore",
+    "hstore",
     serviceBuilder =>
     {
         // Register one or more components with this service.
 
 
         // Use this registration method to have a single state store instance for all components.
-        serviceBuilder.RegisterStateStore<PostgreSQLStatestore>();
+        // serviceBuilder.RegisterStateStore<HStatestore>();
 
         // This registration method enables a state store instance per component instance.
-        // serviceBuilder.RegisterStateStore(
-        //     context =>
-        //     {
-        //         Console.WriteLine("Creating state store for instance '{0}' on socket '{1}'...", context.InstanceId, context.SocketPath);
+        serviceBuilder.RegisterStateStore(
+            context =>
+            {
+                Console.WriteLine("Creating state store for instance '{0}' on socket '{1}'...", context.InstanceId, context.SocketPath);
 
-        //         return new PostgreSQLStatestore(context.ServiceProvider.GetRequiredService<ILogger<PostgreSQLStatestore>>());
-        //     });
+                return new HStatestore(context.ServiceProvider.GetRequiredService<ILogger<HStatestore>>());
+            });
     });
 
 System.Console.WriteLine("starting pluggable components...");

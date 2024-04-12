@@ -15,6 +15,9 @@
     <PackageVersion Include="Dapr.AspNetCore" Version="$(DaprVersion)" />
     <PackageVersion Include="Dapr.Extensions.Configuration" Version="$(DaprVersion)" />
     <PackageVersion Include="Dapr.PluggableComponents.AspNetCore" Version="0.3.0-rc02" />
+    <PackageVersion Include="Serilog" Version="3.1.1" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="5.0.0" />
   </ItemGroup>
   <!--microsoft asp.net core -->
   <ItemGroup>

@@ -4,22 +4,22 @@
         <name>PluggableComponents</name>
     </assembly>
     <members>
-        <member name="T:PluggableComponents.PostgreSQLStatestore">
+        <member name="T:PluggableComponents.HStatestore">
             <summary>
             自定义实现 PostgreSQL Statestore 组件
             </summary>
             <remarks>
-            实例化一个新的   <see cref="T:PluggableComponents.PostgreSQLStatestore"/> 类.
+            实例化一个新的   <see cref="T:PluggableComponents.HStatestore"/> 类.
             </remarks>
             <param name="logger">logger</param>
             <exception cref="T:System.ArgumentNullException"></exception>
         </member>
-        <member name="M:PluggableComponents.PostgreSQLStatestore.#ctor(Microsoft.Extensions.Logging.ILogger{PluggableComponents.PostgreSQLStatestore})">
+        <member name="M:PluggableComponents.HStatestore.#ctor(Microsoft.Extensions.Logging.ILogger{PluggableComponents.HStatestore})">
             <summary>
             自定义实现 PostgreSQL Statestore 组件
             </summary>
             <remarks>
-            实例化一个新的   <see cref="T:PluggableComponents.PostgreSQLStatestore"/> 类.
+            实例化一个新的   <see cref="T:PluggableComponents.HStatestore"/> 类.
             </remarks>
             <param name="logger">logger</param>
             <exception cref="T:System.ArgumentNullException"></exception>

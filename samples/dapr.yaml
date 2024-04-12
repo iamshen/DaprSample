@@ -1,0 +1,17 @@
+version: 1
+common: # optional section for variables shared across apps https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-template/#template-properties
+  resourcesPath: ./resources # any dapr resources to be shared across apps
+  env:  # any environment variable shared across apps
+    DEBUG: true
+apps:
+  - appDirPath: ./Service
+    appID: actorservice
+    appProtocol: http
+    appPort: 5001
+    daprHTTPPort: 3500
+    daprGRPCPort: 45001
+    command: ["dotnet", "run", "--urls=http://localhost:5001/"]
+  # - appDirPath: ./Client
+  #   appID: actorclient
+  #   daprGRPCPort: 55001
+  #   command: ["dotnet", "run"]

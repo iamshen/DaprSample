@@ -4,5 +4,22 @@
         <name>SampleService</name>
     </assembly>
     <members>
+        <member name="M:SampleService.SampleActor.#ctor(Dapr.Actors.Runtime.ActorHost)">
+            <summary>
+            Initializes a new instance of SmokeDetectorActor
+            </summary>
+            <param name="host">The Dapr.Actors.Runtime.ActorHost that will host this actor instance.</param>
+        </member>
+        <member name="M:SampleService.SampleActor.OnActivateAsync">
+            <summary>
+            This method is called whenever an actor is activated.
+            An actor is activated the first time any of its methods are invoked.
+            </summary>
+        </member>
+        <member name="M:SampleService.SampleActor.OnDeactivateAsync">
+            <summary>
+            This method is called whenever an actor is deactivated after a period of inactivity.
+            </summary>
+        </member>
     </members>
 </doc>

@@ -1,6 +1,4 @@
-﻿using Dapr.PluggableComponents.Adaptors;
-using Dapr.PluggableComponents.Components;
-using Dapr.PluggableComponents.Components.StateStore;
+﻿using Dapr.PluggableComponents.Components;
 
 namespace PluggableComponents;
 
@@ -8,15 +6,15 @@ namespace PluggableComponents;
 /// 自定义实现 PostgreSQL Statestore 组件
 /// </summary>
 /// <remarks>
-/// 实例化一个新的   <see cref="PostgreSQLStatestore"/> 类.
+/// 实例化一个新的   <see cref="HStatestore"/> 类.
 /// </remarks>
 /// <param name="logger">logger</param>
 /// <exception cref="ArgumentNullException"></exception>
-public class PostgreSQLStatestore(ILogger<PostgreSQLStatestore> logger) : IStateStore //, IBulkStateStore, ITransactionalStateStore, IQueryableStateStore
+public class HStatestore(ILogger<HStatestore> logger) : IStateStore , IBulkStateStore, ITransactionalStateStore, IQueryableStateStore
 {
 
-    private readonly ILogger<PostgreSQLStatestore> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-    // TODO: npgsql connection storage
+    private readonly ILogger<HStatestore> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+    // TODO: my  storage( it can be pg mem ...)
 
     #region StateStore
 
@@ -48,8 +46,6 @@ public class PostgreSQLStatestore(ILogger<PostgreSQLStatestore> logger) : IState
         {
             _logger.LogInformation("Metadata Properties {key}: {value}", key, value);
         }
-
-
         await Task.CompletedTask;
     }
 
@@ -63,11 +59,9 @@ public class PostgreSQLStatestore(ILogger<PostgreSQLStatestore> logger) : IState
             _logger.LogInformation("Metadata {key}: {value}", key, value);
         }
 
-
         await Task.CompletedTask;
     }
     #endregion
-
 
     #region BulkStateStore
 
@@ -94,7 +88,6 @@ public class PostgreSQLStatestore(ILogger<PostgreSQLStatestore> logger) : IState
     }
 
     #endregion
-
 
     #region TransactionalStateStore
 

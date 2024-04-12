@@ -9,6 +9,9 @@
    <ItemGroup>
       <PackageReference Include="Dapr.Actors" />
       <PackageReference Include="Dapr.Actors.AspNetCore" />
+      <PackageReference Include="Serilog" />
+      <PackageReference Include="Serilog.Sinks.Console" />
+      <PackageReference Include="Serilog.Sinks.File" />
     </ItemGroup>
 
    <ItemGroup>

@@ -1,12 +1,15 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: my-postgresql-state-store
+  name: statestore
+  namespace: sample
 spec:
-  type: state.npgsqlstore
+  type: state.hstore
   version: v1
   metadata:
-    - name: key1
-      value: value1
-    - name: key2
-      value: value1
+  - name: redisHost
+    value: localhost:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"

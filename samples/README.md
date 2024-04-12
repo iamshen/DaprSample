@@ -13,8 +13,10 @@ bash
 
 
 ```bash
-dapr run --dapr-http-port 3500 --app-id my_actor_service --app-port 5001 --resources-path ../resources -- dotnet run
-#dapr run --dapr-http-port 56001 --app-id my_actor_service --app-port 5001 --resources-path ../resources -- dotnet run
+
+#dapr run --dapr-http-port 3500 --app-id my_actor_service --app-port 5001 --app-protocol http --resources-path ../resources -- dotnet run --urls=http://localhost:5001/
+#dapr run --app-id actorservice --app-port 5110 --dapr-http-port 56001 --resources-path ../resources -- dotnet run --urls=http://localhost:5001/
+dapr run --dapr-http-port 3500 --app-id sample_actor --app-port 5011  --resources-path ../resources -- dotnet run --urls=http://localhost:5011/
 ```
 
 
@@ -36,7 +38,7 @@ dapr run .... --dapr-http-port 56001
 cd Client
 bash
 
-export DAPR_HTTP_PORT=56001
+export DAPR_HTTP_PORT=3500
 
-dapr run --app-id actorclient -- dotnet run
+dapr run --app-id actorclient --resources-path ../resources -- dotnet run
 ```
