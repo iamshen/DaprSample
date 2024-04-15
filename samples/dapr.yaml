@@ -7,10 +7,10 @@ apps:
   - appDirPath: ./Service
     appID: actorservice
     appProtocol: http
-    appPort: 5001
-    daprHTTPPort: 3500
-    daprGRPCPort: 45001
-    command: ["dotnet", "run", "--urls=http://localhost:5001/"]
+    appPort: 3001
+    daprHTTPPort: 4502
+    daprGRPCPort: 55003
+    command: ["dotnet", "run", "--urls=http://localhost:3001/"]
   # - appDirPath: ./Client
   #   appID: actorclient
   #   daprGRPCPort: 55001

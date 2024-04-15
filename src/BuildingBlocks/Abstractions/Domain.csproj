@@ -5,13 +5,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation" />
 		<PackageReference Include="LanguageExt.Core" />
-        <PackageReference Include="Dapr.Actors" />
-        <PackageReference Include="Dapr.Actors.AspNetCore" />
-		<PackageReference Include="Dapr.Client" />
 		<PackageReference Include="MediatR" />
 		<PackageReference Include="Microsoft.Extensions.Telemetry" />
+		<PackageReference Include="Dapr.Actors" />
+		<PackageReference Include="Dapr.Actors.AspNetCore" />
+		<PackageReference Include="Dapr.Client" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -31,6 +31,29 @@ public static class EnumerableExtensions
 
     #endregion
 
+    #region 将集合按指定前缀排序
+
+    /// <summary>
+    ///     将字符串集合按指定前缀排序
+    /// </summary>
+    public static IEnumerable<T> OrderByPrefixes<T>(this IEnumerable<T> source, Func<T, string> keySelector,
+        params string[] prefixes)
+    {
+        var all = source.OrderBy(keySelector).ToList();
+        var result = new List<T>();
+        foreach (var prefix in prefixes)
+        {
+            var tmpList = all.Where(m => keySelector(m).StartsWith(prefix)).OrderBy(keySelector).ToList();
+            all = all.Except(tmpList).ToList();
+            result.AddRange(tmpList);
+        }
+
+        result.AddRange(all);
+        return result;
+    }
+
+    #endregion
+
     #region 将集合展开并分别转换成字符串，再以指定的分隔符衔接，拼成一个字符串返回。默认分隔符为逗号
 
     /// <summary>

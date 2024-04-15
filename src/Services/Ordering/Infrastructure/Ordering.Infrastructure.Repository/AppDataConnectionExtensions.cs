@@ -1,7 +1,8 @@
-﻿using LinqToDB;
+﻿using DaprTool.BuildingBlocks.Utils.Constant;
+using LinqToDB;
 using LinqToDB.AspNet;
 using LinqToDB.AspNet.Logging;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Configuration;
 using Ordering.Infrastructure.Repository;
 
 namespace Microsoft.Extensions.DependencyInjection;
@@ -38,11 +39,22 @@ public static class AppDataConnectionExtensions
         if (string.IsNullOrEmpty(connectionString))
             throw new ArgumentException("connectionString can not be null", nameof(connectionString));
 
-        services.AddLinqToDBContext<AppDataConnection>(
-            (provider, options) => options.UsePostgreSQL(connectionString).UseDefaultLogging(provider),
-            ServiceLifetime.Singleton);
+        services.AddLinqToDBContext<AppDataConnection>((provider, options)
+                => options
+                    .UsePostgreSQL(connectionString)
+                    .UseDefaultLogging(provider),
+            ServiceLifetime.Transient);
+    }
 
-        services.Replace(new ServiceDescriptor(typeof(AppDataConnection), _ => new AppDataConnection(connectionString),
-            ServiceLifetime.Transient));
+    /// <summary>
+    ///     注册 DataConnection
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="configuration"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    public static void AddAppDataConnection(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAppDataConnection(configuration.GetConnectionString(DaprConstants.Ordering.AppId)!);
     }
 }

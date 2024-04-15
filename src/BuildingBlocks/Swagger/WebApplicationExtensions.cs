@@ -1,7 +1,7 @@
 ﻿using DaprTool.BuildingBlocks.ApiSwagger;
-using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 
-namespace Microsoft.Extensions.Configuration;
+namespace Microsoft.AspNetCore.Builder;
 
 #region Swagger中间件相关扩展方法
 
@@ -18,7 +18,7 @@ public static class WebApplicationExtensions
     /// <param name="app">           </param>
     /// <param name="configuration"> </param>
     /// <returns> </returns>
-    public static void UseAppSwagger(this WebApplication app, IConfiguration configuration)
+    public static void UseAppSwagger(this IApplicationBuilder app, IConfiguration configuration)
     {
         app.UseAppSwagger(configuration.GetSection(nameof(SwaggerOptions)).Get<SwaggerOptions>()!);
     }
@@ -29,7 +29,7 @@ public static class WebApplicationExtensions
     /// </summary>
     /// <param name="app">            </param>
     /// <param name="swaggerOptions"> </param>
-    private static void UseAppSwagger(this WebApplication app, SwaggerOptions swaggerOptions)
+    private static void UseAppSwagger(this IApplicationBuilder app, SwaggerOptions swaggerOptions)
     {
         if (swaggerOptions?.Enabled != true)
             return;

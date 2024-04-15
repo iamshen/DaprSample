@@ -80,7 +80,8 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
         var stateObj = await StateManager.TryGetStateAsync<PurchaseOrderState>(StateDataKey);
         if (stateObj.HasValue) throw new Exception(Errors.RepeatCreated);
 
-        var orderNumberProxy = ProxyFactory.CreateActorProxy<INumberGeneratorActor>(new ActorId("0"), nameof(NumberGeneratorActor));
+        var orderNumberProxy =
+            ProxyFactory.CreateActorProxy<ISerialNumberActor>(new ActorId("0"), nameof(SerialNumberActor));
         var orderNo = await orderNumberProxy.GenerateAsync(201, 10);
         var state = new PurchaseOrderState
         {
@@ -124,7 +125,7 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
                 Remark = state.Remark,
                 CreatedTime = state.CreatedTime,
                 UpdatedTime = state.UpdatedTime,
-                OrderItems = state.OrderItems,
+                OrderItems = state.OrderItems
             }
         };
 

@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dependency</name>
+    </assembly>
+    <members>
+        <member name="T:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute">
+            <summary>
+                自动依赖注入行为特性
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute.#ctor(Microsoft.Extensions.DependencyInjection.ServiceLifetime)">
+            <summary>
+                初始化一个<see cref="T:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute" />类型的新实例
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute.Lifetime">
+            <summary>
+                获取 生命周期类型，代替
+                <see cref="T:DaprTool.BuildingBlocks.Dependency.ISingletonInject" />,<see cref="T:DaprTool.BuildingBlocks.Dependency.IScopeInject" />,<see cref="T:DaprTool.BuildingBlocks.Dependency.ITransientInject" />三个接口的作用
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute.TryAdd">
+            <summary>
+                获取或设置 是否为TryAdd方式注册，通常用于默认服务，当服务可能被替换时，应设置为true
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute.ReplaceExisting">
+            <summary>
+                获取或设置 是否替换已存在的服务实现，通常用于主要服务，当服务存在时即优先使用时，应设置为true
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute.AddSelf">
+            <summary>
+                获取或设置 是否注册自身类型，默认没有接口的类型会注册自身，当此属性值为true时，也会注册自身
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Dependency.IgnoreDependencyAttribute">
+            <summary>
+                标注了此特性的类，将忽略依赖注入自动映射
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Dependency.MultipleAutoInjectAttribute">
+            <summary>
+                标记允许多重注入，即一个接口可以注入多个实例
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Dependency.IScopeInject">
+            <summary>
+                实现此接口的类型将被注册为<see cref="F:Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped" />模式
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Dependency.ISingletonInject">
+            <summary>
+                实现此接口的类型将被注册为<see cref="F:Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton" />模式
+            </summary>
+        </member>
+        <member name="T:DaprTool.BuildingBlocks.Dependency.ITransientInject">
+            <summary>
+                实现此接口的类型将自动注册为<see cref="F:Microsoft.Extensions.DependencyInjection.ServiceLifetime.Transient" />模式
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.ServiceCollectionExtensions.AddAutoInject(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                注册自动依赖注入
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.ServiceCollectionExtensions.AddToServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)">
+            <summary>
+                将服务实现类型注册到服务集合中
+            </summary>
+            <param name="services"></param>
+            <param name="implementationType"></param>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.ServiceCollectionExtensions.GetImplementedInterfaces(System.Type)">
+            <summary>
+                获取实现类型的所有可注册服务接口
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.ServiceCollectionExtensions.GetLifetime(System.Type)">
+            <summary>
+                从类型获取要注册的<see cref="T:Microsoft.Extensions.DependencyInjection.ServiceLifetime" />生命周期类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.ServiceCollectionExtensions.FindDependencyTypes">
+            <summary>
+                查找所有自动注册的服务实现类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Dependency.ServiceCollectionExtensions.AddSingleService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.DependencyInjection.ServiceDescriptor,DaprTool.BuildingBlocks.Dependency.Attributes.AutoInjectAttribute)">
+            <summary>
+                注册单个服务
+            </summary>
+            <param name="services"></param>
+            <param name="descriptor"></param>
+            <param name="dependencyAttribute"></param>
+        </member>
+    </members>
+</doc>

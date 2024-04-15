@@ -142,16 +142,5 @@
                 创建买料订单命令验证机
             </summary>
         </member>
-        <member name="T:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions">
-            <summary>
-            WebApplicationBuilderExtensions
-            </summary>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddAppValidators(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
-            <summary>
-                添加 命令验证器
-            </summary>
-            <param name="builder"></param>
-        </member>
     </members>
 </doc>

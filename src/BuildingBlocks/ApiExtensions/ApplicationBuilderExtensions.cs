@@ -1,24 +1,43 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
-using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
-namespace Microsoft.AspNetCore.Mvc;
+namespace Microsoft.Extensions.DependencyInjection;
 
 #region ApplicationBuilder扩展方法
 
 /// <summary>
-/// ApplicationBuilder扩展方法
+///     ApplicationBuilder扩展方法
 /// </summary>
-public static class IApplicationBuilderExtensions
+public static class ApplicationBuilderExtensions
 {
+    /// <summary>
+    ///     UseAppServer
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <param name="configuration"></param>
+    /// <returns></returns>
+    public static IApplicationBuilder UseAppServer(this IApplicationBuilder builder, IConfiguration configuration)
+    {
+        builder.UseGlobalException();
+        builder.UseLanguage();
+        builder.UseTraceInfo();
+        builder.UseAppSwagger(configuration);
+        builder.UseCloudEvents();
+
+        return builder;
+    }
+
     #region 配置多语言
 
     /// <summary>
-    /// 配置多语言
+    ///     配置多语言
     /// </summary>
     /// <param name="builder"></param>
     /// <returns></returns>
-    public static IApplicationBuilder UseLanguage(this IApplicationBuilder builder)
+    private static IApplicationBuilder UseLanguage(this IApplicationBuilder builder)
     {
         var cultureList = new List<CultureInfo>();
         var options = new RequestLocalizationOptions();
@@ -40,7 +59,7 @@ public static class IApplicationBuilderExtensions
         var queryStringProvider = new QueryStringRequestCultureProvider
         {
             QueryStringKey = "lang",
-            UIQueryStringKey = "lang",
+            UIQueryStringKey = "lang"
         };
         //将提供程序插入到集合的第一个位置，这样优先使用
         options.RequestCultureProviders.Insert(0, queryStringProvider);
@@ -50,20 +69,20 @@ public static class IApplicationBuilderExtensions
 
     #endregion
 
-
     #region 设置追踪信息
 
     /// <summary>
-    /// 设置追踪信息
+    ///     设置追踪信息
     /// </summary>
     /// <param name="builder"></param>
     /// <returns></returns>
-    public static IApplicationBuilder UseTraceInfo(this IApplicationBuilder builder)
+    private static IApplicationBuilder UseTraceInfo(this IApplicationBuilder builder)
     {
         //通过中间件设置追中追踪ID,如果请求头中设置了"Request-Trace-Id"则使用设置的RequestTraceIdKey，否则自己生成一个
         builder.Use(async (context, next) =>
         {
-            if (context.Request.Headers.TryGetValue(AppConstants.RequestTraceIdKey, out var value) && !string.IsNullOrEmpty(value))
+            if (context.Request.Headers.TryGetValue(AppConstants.RequestTraceIdKey, out var value) &&
+                !string.IsNullOrEmpty(value))
                 context.TraceIdentifier = value!;
             else
                 context.TraceIdentifier = Guid.NewGuid().ToString();

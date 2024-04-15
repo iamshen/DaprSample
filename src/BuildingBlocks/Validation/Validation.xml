@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Validation</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddValidators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                注册验证器
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddValidator(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type)">
+            <summary>
+                注册验证器
+            </summary>
+            <param name="services"></param>
+            <param name="validatorType"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.FindDependencyTypes">
+            <summary>
+                查找所有 AbstractValidator 的实现类型
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

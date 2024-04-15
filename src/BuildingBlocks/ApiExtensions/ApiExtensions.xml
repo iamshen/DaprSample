@@ -120,6 +120,101 @@
             <param name="value"></param>
             <param name="existFunc"></param>
         </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.ApplicationBuilderExtensions">
+            <summary>
+                ApplicationBuilder扩展方法
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ApplicationBuilderExtensions.UseAppServer(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                UseAppServer
+            </summary>
+            <param name="builder"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ApplicationBuilderExtensions.UseLanguage(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                配置多语言
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ApplicationBuilderExtensions.UseTraceInfo(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+                设置追踪信息
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ResultExtensions.ToCreatedResult``2(LanguageExt.Common.Result{``0},System.Func{``0,``1},System.String)">
+            <summary>
+                ToCreatedResult
+            </summary>
+            <param name="result"></param>
+            <param name="mapper"></param>
+            <param name="uri"></param>
+            <typeparam name="TResult"></typeparam>
+            <typeparam name="TOutput"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions">
+            <summary>
+                api 资源配置项
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.AutoRegisterApiResource">
+            <summary>
+                是否自动注册 API 资源到 IdentityServer4
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.ResourceName">
+            <summary>
+                资源名称
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.ResourceDisplayName">
+            <summary>
+                资源显示名称
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.Description">
+            <summary>
+                资源的描述
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.IdentityServerApiDomain">
+            <summary>
+                ids4 api url
+                <example>https://develop.api.inglod.net</example>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppServices(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+                注册 api 应用服务
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppSerilog(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String)">
+            <summary>
+                注册 Serilog 日志
+            </summary>
+            <param name="builder"></param>
+            <param name="appName"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppHealthChecks(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String)">
+            <summary>
+                添加健康检查
+            </summary>
+            <param name="builder"></param>
+            <param name="appName"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppApiResource(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+                注册 API 信息 到 IdentityServer4 的API资源中
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="T:Microsoft.AspNetCore.Mvc.AppConstants">
             <summary>
                 应用常量
@@ -202,25 +297,6 @@
             <param name="isThrowExceptionIfNotFound"></param>
             <returns></returns>
         </member>
-        <member name="T:Microsoft.AspNetCore.Mvc.IApplicationBuilderExtensions">
-            <summary>
-            ApplicationBuilder扩展方法
-            </summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.IApplicationBuilderExtensions.UseLanguage(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            配置多语言
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Mvc.IApplicationBuilderExtensions.UseTraceInfo(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            设置追踪信息
-            </summary>
-            <param name="builder"></param>
-            <returns></returns>
-        </member>
         <member name="T:Microsoft.AspNetCore.Mvc.Filters.ResultFilter">
             <summary>
             统一返回格式的内容的Fileter
@@ -253,75 +329,6 @@
             <param name="enable"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException"></exception>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.ResultExtensions.ToCreatedResult``2(LanguageExt.Common.Result{``0},System.Func{``0,``1},System.String)">
-            <summary>
-                ToCreatedResult
-            </summary>
-            <param name="result"></param>
-            <param name="mapper"></param>
-            <param name="uri"></param>
-            <typeparam name="TResult"></typeparam>
-            <typeparam name="TOutput"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="T:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions">
-            <summary>
-                api 资源配置项
-            </summary>
-        </member>
-        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.AutoRegisterApiResource">
-            <summary>
-                是否自动注册 API 资源到 IdentityServer4
-            </summary>
-        </member>
-        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.ResourceName">
-            <summary>
-                资源名称
-            </summary>
-        </member>
-        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.ResourceDisplayName">
-            <summary>
-                资源显示名称
-            </summary>
-        </member>
-        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.Description">
-            <summary>
-                资源的描述
-            </summary>
-        </member>
-        <member name="P:Microsoft.Extensions.DependencyInjection.Options.ApiResourceOptions.IdentityServerApiDomain">
-            <summary>
-                ids4 api url
-                <example>https://develop.api.inglod.net</example>
-            </summary>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppServices(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String)">
-            <summary>
-            注册 api 应用服务
-            </summary>
-            <param name="builder"></param>
-            <param name="appName"></param>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppSerilog(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String)">
-            <summary>
-               注册 Serilog 日志
-            </summary>
-            <param name="builder"></param>
-            <param name="appName"></param>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppHealthChecks(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String)">
-            <summary>
-                添加健康检查
-            </summary>
-            <param name="builder"></param>
-            <param name="appName"></param>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppApiResource(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
-            <summary>
-                注册 API 信息 到 IdentityServer4 的API资源中
-            </summary>
-            <param name="builder"></param>
         </member>
     </members>
 </doc>

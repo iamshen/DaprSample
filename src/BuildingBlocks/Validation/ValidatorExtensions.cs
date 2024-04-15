@@ -17,9 +17,10 @@ public static class ValidatorExtensions
         }
     }
 
-    public static async Task ValidateAndThrowGlobalAsync<T>(this IValidator<T> validator, T instance, CancellationToken cancellationToken = default(CancellationToken))
+    public static async Task ValidateAndThrowGlobalAsync<T>(this IValidator<T> validator, T instance,
+        CancellationToken cancellationToken = default)
     {
-        var validateResult = await validator.ValidateAsync(instance);
+        var validateResult = await validator.ValidateAsync(instance, cancellationToken);
         if (!validateResult.IsValid)
         {
             var message = string.Join(";", validateResult.Errors.Select(x => x.ErrorMessage));

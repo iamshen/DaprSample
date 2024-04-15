@@ -15,6 +15,8 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\BuildingBlocks\Abstractions\Domain.csproj" />
+		<ProjectReference Include="..\..\src\BuildingBlocks\Validation\Validation.csproj" />
+		<ProjectReference Include="..\..\src\Services\Ordering\Domain\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
 		<ProjectReference Include="..\..\src\Services\Ordering\Infrastructure\Ordering.Infrastructure.Repository\Ordering.Infrastructure.Repository.csproj" />
 	</ItemGroup>
 

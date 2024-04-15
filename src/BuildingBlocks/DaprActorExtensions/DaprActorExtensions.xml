@@ -9,7 +9,7 @@
                 WebApplication Builder Extensions
             </summary>
         </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.AddAppDapr(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.Action{Dapr.Actors.Runtime.ActorRuntimeOptions})">
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationBuilderExtensions.RegisterAppDapr(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.Action{Dapr.Actors.Runtime.ActorRuntimeOptions})">
             <summary>
                 添加应用 Dapr
             </summary>

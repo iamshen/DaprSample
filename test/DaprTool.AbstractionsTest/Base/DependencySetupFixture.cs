@@ -1,47 +1,35 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using static Google.Rpc.Help.Types;
-using Xunit.Sdk;
-using Xunit.Abstractions;
 
 namespace DaprTool.AbstractionsTest.Base;
 
-/// <summary>
-///     Test Fixture
-/// </summary>
-public class DependencySetupFixture : IDisposable
+public abstract class DependencySetupFixture
 {
-
-    /// <summary>
-    ///     ctor
-    /// </summary>
-    public DependencySetupFixture(IMessageSink sink)
+    protected DependencySetupFixture()
     {
-        this.Sink = sink;
-        var serviceCollection = new ServiceCollection();
+        ServiceCollection = new ServiceCollection();
 
         var configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.SetBasePath(Directory.GetCurrentDirectory());
         configurationBuilder.AddJsonFile("appsettings.json", true, true);
 
-        var configuration = configurationBuilder.Build();
+        Configuration = configurationBuilder.Build();
 
-        // 注册 MediatR
-        serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DependencySetupFixture).Assembly));
-        // 注册 业务数据库
-        serviceCollection.AddAppDataConnection(configuration.GetConnectionString("Ordering")!);
-
-        ServiceProvider = serviceCollection.BuildServiceProvider();
+        Init();
     }
 
-    /// <summary>
-    ///     ServiceProvider
-    /// </summary>
-    public IServiceProvider ServiceProvider { get; private set; }
-    public IMessageSink Sink;
-
-    public void Dispose()
+    public void Init()
     {
-        Sink.OnMessage(new DiagnosticMessage("DIAG TEST DISPOSE"));
+        ConfigurationServices();
     }
+
+    /// <summary>  ServiceProvider </summary>
+    public IServiceProvider ServiceProvider => ServiceCollection.BuildServiceProvider();
+
+    /// <summary> IServiceCollection </summary>
+    public IServiceCollection ServiceCollection { get; set; }
+
+    public IConfigurationRoot Configuration { get; set; }
+
+    public abstract void ConfigurationServices();
 }

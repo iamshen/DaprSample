@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\Validation\Validation.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Ordering.Infrastructure.Repository\Ordering.Infrastructure.Repository.csproj" />
       <ProjectReference Include="..\Ordering.Domain.Interfaces\Ordering.Domain.Interfaces.csproj" />
     </ItemGroup>

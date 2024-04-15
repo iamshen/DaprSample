@@ -47,11 +47,11 @@
             <param name="events"></param>
             <returns></returns>
         </member>
-        <member name="T:DaprTool.BuildingBlocks.Domain.Actors.INumberGeneratorActor">
+        <member name="T:DaprTool.BuildingBlocks.Domain.Actors.ISerialNumberActor">
             <summary>
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.INumberGeneratorActor.GenerateAsync(System.Int32,System.Int32)">
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.ISerialNumberActor.GenerateAsync(System.Int32,System.Int32)">
             <summary>
                 生成序列号
             </summary>
@@ -59,25 +59,29 @@
             <param name="bizType">业务类型, 最多 两位数</param>
             <returns></returns>
         </member>
-        <member name="T:DaprTool.BuildingBlocks.Domain.Actors.NumberGeneratorActor">
+        <member name="T:DaprTool.BuildingBlocks.Domain.Actors.SerialNumberActor">
             <summary>
                 流水号生成器
             </summary>
             <remarks>
-                ctor
+                <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器(8位数)</para>
+                <para>例如: "201122024040800000001" => "201 12 2024 04 08 00000001" </para>
             </remarks>
+            <remarks> </remarks>
             <param name="host"></param>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.NumberGeneratorActor.#ctor(Dapr.Actors.Runtime.ActorHost)">
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.SerialNumberActor.#ctor(Dapr.Actors.Runtime.ActorHost)">
             <summary>
                 流水号生成器
             </summary>
             <remarks>
-                ctor
+                <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器(8位数)</para>
+                <para>例如: "201122024040800000001" => "201 12 2024 04 08 00000001" </para>
             </remarks>
+            <remarks> </remarks>
             <param name="host"></param>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.NumberGeneratorActor.GenerateAsync(System.Int32,System.Int32)">
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.SerialNumberActor.GenerateAsync(System.Int32,System.Int32)">
             <summary>
                 生成序列号
             </summary>
@@ -86,7 +90,7 @@
             <returns>单号</returns>
             <remarks>
                 <para>单号 = 订单类型 + 业务类型 + 日期 + 计数器(8位数)</para>
-                <para>例如: "201 12 2024 04 08 00000001" => "201122024040800000001" </para>
+                <para>例如: "201122024040800000001" => "201 12 2024 04 08 00000001" </para>
             </remarks>
             >
         </member>
@@ -243,6 +247,13 @@
             <summary>
             Logs "DbEvent Handler {EventName} Fail; EventId:{EvtId}; Message: {Message}" at "Error" level.
             </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.WebApplicationExtensions.AddAppMediators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                注册 Mediator
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

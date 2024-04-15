@@ -15,6 +15,9 @@
     <PackageVersion Include="Dapr.AspNetCore" Version="$(DaprVersion)" />
     <PackageVersion Include="Dapr.Extensions.Configuration" Version="$(DaprVersion)" />
     <PackageVersion Include="Dapr.PluggableComponents.AspNetCore" Version="0.3.0-rc02" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="8.0.0" />
     <PackageVersion Include="Serilog" Version="3.1.1" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.1" />
     <PackageVersion Include="Serilog.Sinks.File" Version="5.0.0" />
@@ -29,6 +32,7 @@
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="$(ExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Telemetry" Version="$(ExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(ExtensionsVersion)" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="$(ExtensionsVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="$(ExtensionsVersion)" />
   </ItemGroup>
@@ -47,7 +51,6 @@
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     <PackageVersion Include="FluentValidation" Version="11.9.0" />
-    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
   </ItemGroup>
   <!-- api versioning -->
   <ItemGroup>

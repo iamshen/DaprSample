@@ -22,9 +22,11 @@
 	</ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Dependency\Dependency.csproj" />
       <ProjectReference Include="..\Swagger\Swagger.csproj" />
       <ProjectReference Include="..\Utils\Utils.csproj" />
       <ProjectReference Include="..\Healthchecks\Healthchecks.csproj" />
+      <ProjectReference Include="..\Validation\Validation.csproj" />
     </ItemGroup>
     
 

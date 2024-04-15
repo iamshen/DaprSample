@@ -17,7 +17,7 @@ public static class WebApplicationBuilderExtensions
     /// </summary>
     /// <param name="builder"></param>
     /// <param name="configure"></param>
-    public static void AddAppDapr(this WebApplicationBuilder builder, Action<ActorRuntimeOptions>? configure)
+    public static void RegisterAppDapr(this WebApplicationBuilder builder, Action<ActorRuntimeOptions>? configure)
     {
         // 注册 Dapr 客户端
         builder.Services.AddDaprClient();

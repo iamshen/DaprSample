@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DaprTool.BuildingBlocks.ApiExtensions.ApiResource.Dto;
+using DaprTool.BuildingBlocks.Dependency;
 using DaprTool.BuildingBlocks.Utils.Constant;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -17,11 +18,10 @@ namespace Microsoft.Extensions.DependencyInjection;
 public static class WebApplicationExtensions
 {
     /// <summary>
-    /// 注册 api 应用服务
+    ///     注册 api 应用服务
     /// </summary>
     /// <param name="builder"></param>
-    /// <param name="appName"></param>
-    public static void AddAppServices(this WebApplicationBuilder builder, string appName)
+    public static void AddAppServices(this WebApplicationBuilder builder)
     {
         // 注册 Serilog
         builder.AddAppSerilog(DaprConstants.Ordering.AppId);
@@ -34,26 +34,39 @@ public static class WebApplicationExtensions
         // 注册 Api 控制器
         builder.Services.AddControllers(options =>
         {
+            // 注册过滤器
             // options.Filters.Add<ExceptionFilter>();
             options.Filters.Add(new ResultFilter(AppConstants.ResponseJsonContentType));
         });
+        // 注册 自动依赖注入
+        builder.Services.AddAutoInject();
+        // 注册 验证器
+        builder.Services.AddValidators();
     }
 
+    #region 私有方法
+
+    #region Serilog
+
     /// <summary>
-    ///    注册 Serilog 日志
+    ///     注册 Serilog 日志
     /// </summary>
     /// <param name="builder"></param>
     /// <param name="appName"></param>
     private static void AddAppSerilog(this WebApplicationBuilder builder, string appName)
     {
         Log.Logger = new LoggerConfiguration()
-                      .ReadFrom.Configuration(builder.Configuration)
-                      .WriteTo.Console()
-                      .Enrich.WithProperty("ApplicationName", appName)
-                      .CreateLogger();
+            .ReadFrom.Configuration(builder.Configuration)
+            .WriteTo.Console()
+            .Enrich.WithProperty("ApplicationName", appName)
+            .CreateLogger();
 
         builder.Host.UseSerilog();
     }
+
+    #endregion
+
+    #region HealthChecks
 
     /// <summary>
     ///     添加健康检查
@@ -72,6 +85,10 @@ public static class WebApplicationExtensions
                 name: sqlCheckName,
                 tags: new[] { sqlCheckName });
     }
+
+    #endregion
+
+    #region ApiResource
 
     /// <summary>
     ///     注册 API 信息 到 IdentityServer4 的API资源中
@@ -96,6 +113,8 @@ public static class WebApplicationExtensions
 
         #endregion
 
+        // TODO: 从 服务提供者中使用 EndpointDataSource 替代  IActionDescriptorCollectionProvider
+        //var dataSource = builder.Services.BuildServiceProvider().GetRequiredService<EndpointDataSource>();
         // 获取控制器提供者
         var descriptorCollectionProvider = builder.Services.BuildServiceProvider()
             .GetRequiredService<IActionDescriptorCollectionProvider>();
@@ -170,9 +189,17 @@ public static class WebApplicationExtensions
         }
     }
 
+    #endregion
+
+    #region Errors
+
     private static class Errors
     {
         public const string ResourceNameCanNotNull = "自动注册API资源失败，资源名称不能为空";
         public const string DomainServerCanNotNull = "自动注册API资源失败，认证服务域名不能为空";
     }
+
+    #endregion
+
+    #endregion
 }

@@ -716,24 +716,24 @@
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.ErrorCode">
             <summary>
-            错误编码
+                错误编码
             </summary>
         </member>
         <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.#ctor(System.String)">
             <summary>
-            初始化
+                初始化
             </summary>
             <param name="message">异常描述</param>
         </member>
         <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.#ctor(DaprTool.BuildingBlocks.Utils.ErrorCode)">
             <summary>
-            初始化
+                初始化
             </summary>
             <param name="errorCode">错误编码</param>
         </member>
         <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.#ctor(DaprTool.BuildingBlocks.Utils.ErrorCode,System.String,System.Exception)">
             <summary>
-            初始化
+                初始化
             </summary>
             <param name="errorCode">错误编码</param>
             <param name="message">异常描述</param>
@@ -741,7 +741,7 @@
         </member>
         <member name="M:DaprTool.BuildingBlocks.Utils.Exceptions.GlobalException.ToString">
             <summary>
-            异常的字符串形式
+                异常的字符串形式
             </summary>
             <returns></returns>
         </member>
@@ -759,6 +759,11 @@
             <param name="predicate">查询条件</param>
             <param name="condition">第三方条件(bool 表达式)</param>
             <returns>返回查询的结果</returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions.OrderByPrefixes``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.String[])">
+            <summary>
+                将字符串集合按指定前缀排序
+            </summary>
         </member>
         <member name="M:DaprTool.BuildingBlocks.Utils.Extensions.EnumerableExtensions.ExpandAndToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
@@ -1850,6 +1855,51 @@
             <param name="exceptionAction">执行发生异常后调用的方法</param>
             <returns></returns>
         </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.AssemblyFilterFunc">
+            <summary>
+                设置 程序集过滤器
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.AllAssemblies">
+            <summary>
+                获取 所有程序集
+            </summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.AllTypes">
+            <summary>
+                获取 所有类型
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.Init">
+            <summary>
+                初始化
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.FindTypes(System.Func{System.Type,System.Boolean})">
+            <summary>
+                查找指定条件的类型
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.FindTypesByBase``1">
+            <summary>
+                查找指定基类的实现类型
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.FindTypesByBase(System.Type)">
+            <summary>
+                查找指定基类的实现类型
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.FindTypesByAttribute``1(System.Boolean)">
+            <summary>
+                查找指定Attribute特性的实现类型
+            </summary>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Utils.Reflection.AssemblyManager.FindTypesByAttribute(System.Type,System.Boolean)">
+            <summary>
+                查找指定Attribute特性的实现类型
+            </summary>
+        </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.ValueObjects.Address">
             <summary>
                 地址对象
@@ -2806,30 +2856,9 @@
             Type 相关扩展
             </summary>
         </member>
-        <member name="M:System.Reflection.TypeExtensions.IsAnonymousType(System.Type)">
-            <summary>
-            判断类型是否为匿名类型
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:System.Reflection.TypeExtensions.IsNullableType(System.Type)">
-            <summary>
-            判断类型是否为Nullable类型
-            </summary>
-            <param name="type"> </param>
-            <returns> </returns>
-        </member>
-        <member name="M:System.Reflection.TypeExtensions.GetUnNullableType(System.Type)">
-            <summary>
-            通过类型转换器获取Nullable类型的基础类型
-            </summary>
-            <param name="type"> </param>
-            <returns> </returns>
-        </member>
         <member name="M:System.Reflection.TypeExtensions.GetDescription(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
-            获取成员元数据的Description特性描述信息
+                获取成员元数据的Description特性描述信息
             </summary>
             <param name="member">  成员元数据对象 </param>
             <param name="inherit"> 是否搜索成员的继承链以查找描述特性 </param>
@@ -2837,7 +2866,7 @@
         </member>
         <member name="M:System.Reflection.TypeExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
-            从类型成员获取指定Attribute特性
+                从类型成员获取指定Attribute特性
             </summary>
             <typeparam name="T"> Attribute特性类型 </typeparam>
             <param name="memberInfo"> 类型类型成员 </param>
@@ -2846,39 +2875,83 @@
         </member>
         <member name="M:System.Reflection.TypeExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
-            从类型成员获取指定Attribute特性
+                从类型成员获取指定Attribute特性
             </summary>
             <typeparam name="T"> Attribute特性类型 </typeparam>
             <param name="memberInfo"> 类型类型成员 </param>
             <param name="inherit">    是否从继承中查找 </param>
             <returns> 返回所有指定Attribute特性的数组 </returns>
         </member>
-        <member name="T:System.Xml.XmlHelper">
+        <member name="M:System.Reflection.TypeExtensions.HasAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
-                Xml助手类
+                检查指定指定类型成员中是否存在指定的Attribute特性
             </summary>
+            <typeparam name="T">要检查的Attribute特性类型</typeparam>
+            <param name="memberInfo">要检查的类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>是否存在</returns>
         </member>
-        <member name="M:System.Xml.XmlHelper.ConvertXmlToString(System.Xml.XmlDocument)">
+        <member name="M:System.Reflection.TypeExtensions.IsAnonymousType(System.Type)">
             <summary>
-                对象转xml字符串
+                判断类型是否为匿名类型
             </summary>
-            <param name="xmlDoc">xml文档对象</param>
+            <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Xml.XmlHelper.ConvertObjectToXml(System.Object)">
+        <member name="M:System.Reflection.TypeExtensions.IsDeriveClassFrom``1(System.Type,System.Boolean)">
             <summary>
-                对象转XmlDocument对象
+                判断当前类型是否可由指定类型派生
             </summary>
-            <param name="packet"></param>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsDeriveClassFrom(System.Type,System.Type,System.Boolean)">
+            <summary>
+                判断当前类型是否可由指定类型派生
+            </summary>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsNullableType(System.Type)">
+            <summary>
+                判断类型是否为Nullable类型
+            </summary>
+            <param name="type"> </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetNonNullableType(System.Type)">
+            <summary>
+                由类型的Nullable类型返回实际类型
+            </summary>
+            <param name="type"> 要处理的类型对象 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.GetUnNullableType(System.Type)">
+            <summary>
+                通过类型转换器获取Nullable类型的基础类型
+            </summary>
+            <param name="type"> 要处理的类型对象 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsBaseOn(System.Type,System.Type)">
+            <summary>
+                返回当前类型是否是指定基类的派生类
+            </summary>
+            <param name="type">当前类型</param>
+            <param name="baseType">要判断的基类型</param>
             <returns></returns>
         </member>
-        <member name="M:System.Xml.XmlHelper.Sha1Signature(System.Xml.XmlDocument@,System.String,System.Security.Cryptography.AsymmetricAlgorithm)">
+        <member name="M:System.Reflection.TypeExtensions.IsBaseOn``1(System.Type)">
             <summary>
-                Xml签名
+                返回当前类型是否是指定基类的派生类
             </summary>
-            <param name="xmlDoc">xml文档对象</param>
-            <param name="referenceId">引用的接点ID</param>
-            <param name="privateKey">签名的私钥</param>
+            <typeparam name="TBaseType">要判断的基类型</typeparam>
+            <param name="type">当前类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Reflection.TypeExtensions.IsGenericAssignableFrom(System.Type,System.Type)">
+            <summary>
+                判断当前泛型类型是否可由指定类型的实例填充
+            </summary>
+            <param name="genericType">泛型类型</param>
+            <param name="type">指定类型</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
