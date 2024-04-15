@@ -1,6 +1,8 @@
+using Dapr.Actors;
 using Dapr.Actors.Runtime;
 using DaprTool.BuildingBlocks.Domain.EventBus;
 using DaprTool.BuildingBlocks.Domain.Events;
+using DaprTool.BuildingBlocks.Utils.Constant;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -10,7 +12,7 @@ namespace DaprTool.BuildingBlocks.Domain.Actors;
 ///     Actor
 /// </summary>
 public abstract class DomainActor<TState> : Actor
-        where TState : class, new()
+    where TState : class, new()
 {
     /// <summary>
     ///     ctor
@@ -57,6 +59,45 @@ public abstract class DomainActor<TState> : Actor
     }
 
     /// <summary>
+    ///     方法被执行之前
+    /// </summary>
+    /// <param name="actorMethodContext"></param>
+    /// <returns></returns>
+    protected override Task OnPreActorMethodAsync(ActorMethodContext actorMethodContext)
+    {
+        Logger.LogInformation("On Pre ActorMethod: {MethodName}", actorMethodContext.MethodName);
+
+        return base.OnPreActorMethodAsync(actorMethodContext);
+    }
+
+    /// <summary>
+    ///     方法被执行之后
+    /// </summary>
+    /// <param name="actorMethodContext"></param>
+    /// <returns></returns>
+    protected override Task OnPostActorMethodAsync(ActorMethodContext actorMethodContext)
+    {
+        Logger.LogInformation("On Post ActorMethod: {MethodName}", actorMethodContext.MethodName);
+
+        return base.OnPreActorMethodAsync(actorMethodContext);
+    }
+
+    /// <summary>
+    ///     方法执行失败时
+    /// </summary>
+    /// <param name="actorMethodContext"></param>
+    /// <param name="ex"></param>
+    /// <returns></returns>
+    protected override Task OnActorMethodFailedAsync(ActorMethodContext actorMethodContext, Exception ex)
+    {
+        Logger.LogInformation("On Actor MethodFailed: {MethodName}", actorMethodContext.MethodName);
+        Logger.LogError(ex, nameof(OnActorMethodFailedAsync));
+
+        return base.OnPreActorMethodAsync(actorMethodContext);
+    }
+
+
+    /// <summary>
     ///     发布事件
     /// </summary>
     /// <param name="events"></param>
@@ -66,5 +107,19 @@ public abstract class DomainActor<TState> : Actor
         var eventBus = ServiceProvider.GetRequiredService<IEventBus>();
 
         return eventBus.RaiseAsync(events);
+    }
+
+    /// <summary>
+    ///     获取序列号生成器
+    /// </summary>
+    /// <returns></returns>
+    public ISerialNumberActor GetSerialNumberService()
+    {
+        var orderNumberActorId = new ActorId(DaprConstants.DefaultActorId);
+
+        var orderNumberProxy =
+            ProxyFactory.CreateActorProxy<ISerialNumberActor>(orderNumberActorId, nameof(SerialNumberActor));
+
+        return orderNumberProxy;
     }
 }

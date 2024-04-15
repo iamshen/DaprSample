@@ -1,4 +1,5 @@
 ﻿using Dapr.Actors.Runtime;
+using DaprTool.BuildingBlocks.Utils.Enumerations;
 
 namespace DaprTool.BuildingBlocks.Domain.Actors;
 
@@ -26,14 +27,14 @@ public class SerialNumberActor(ActorHost host) : Actor(host), ISerialNumberActor
     ///     <para>例如: "201122024040800000001" => "201 12 2024 04 08 00000001" </para>
     /// </remarks>
     /// >
-    public async Task<string> GenerateAsync(int orderType, int bizType)
+    public async Task<string> GenerateAsync(OrderType orderType, int bizType)
     {
         // 流水号计数器
         long counter = 0;
 
-        var orderTypeStr = $"{orderType:D3}";
-        var bizTypeStr = $"{bizType:D2}";
         var dateTimeStr = $"{DateTime.UtcNow:yyyyMMdd}";
+        var orderTypeStr = $"{orderType.ToInt32():D3}";
+        var bizTypeStr = $"{bizType:D2}";
 
         var key = string.Format(StateDataKey, dateTimeStr, orderTypeStr, bizTypeStr);
         var numberState = await StateManager.TryGetStateAsync<long>(key);

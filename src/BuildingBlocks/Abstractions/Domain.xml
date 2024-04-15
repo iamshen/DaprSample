@@ -40,6 +40,28 @@
                 每当 actor 在一段时间的非活动状态后被停用时，都会调用该方法
             </summary>
         </member>
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.DomainActor`1.OnPreActorMethodAsync(Dapr.Actors.Runtime.ActorMethodContext)">
+            <summary>
+                方法被执行之前
+            </summary>
+            <param name="actorMethodContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.DomainActor`1.OnPostActorMethodAsync(Dapr.Actors.Runtime.ActorMethodContext)">
+            <summary>
+                方法被执行之后
+            </summary>
+            <param name="actorMethodContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.DomainActor`1.OnActorMethodFailedAsync(Dapr.Actors.Runtime.ActorMethodContext,System.Exception)">
+            <summary>
+                方法执行失败时
+            </summary>
+            <param name="actorMethodContext"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
         <member name="M:DaprTool.BuildingBlocks.Domain.Actors.DomainActor`1.RaiseEvents(DaprTool.BuildingBlocks.Domain.Events.IntegrationEvent[])">
             <summary>
                 发布事件
@@ -47,11 +69,17 @@
             <param name="events"></param>
             <returns></returns>
         </member>
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.DomainActor`1.GetSerialNumberService">
+            <summary>
+                获取序列号生成器
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:DaprTool.BuildingBlocks.Domain.Actors.ISerialNumberActor">
             <summary>
             </summary>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.ISerialNumberActor.GenerateAsync(System.Int32,System.Int32)">
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.ISerialNumberActor.GenerateAsync(DaprTool.BuildingBlocks.Utils.Enumerations.OrderType,System.Int32)">
             <summary>
                 生成序列号
             </summary>
@@ -81,7 +109,7 @@
             <remarks> </remarks>
             <param name="host"></param>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.SerialNumberActor.GenerateAsync(System.Int32,System.Int32)">
+        <member name="M:DaprTool.BuildingBlocks.Domain.Actors.SerialNumberActor.GenerateAsync(DaprTool.BuildingBlocks.Utils.Enumerations.OrderType,System.Int32)">
             <summary>
                 生成序列号
             </summary>
@@ -145,39 +173,9 @@
                 命令接口
             </summary>
         </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Command.ICommand.Id">
-            <summary>
-                命令ID
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Command.ICommand.CommandName">
-            <summary>
-                命令名称
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Command.ICommand.CommandTime">
-            <summary>
-                命令时间
-            </summary>
-        </member>
         <member name="T:DaprTool.BuildingBlocks.Domain.Command.IntegrationCommand">
             <summary>
             命令基类
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Command.IntegrationCommand.Id">
-            <summary>
-                命令ID
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Command.IntegrationCommand.CommandName">
-            <summary>
-                命令名称
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Command.IntegrationCommand.CommandTime">
-            <summary>
-                命令时间
             </summary>
         </member>
         <member name="T:DaprTool.BuildingBlocks.Domain.EventBus.DaprEventBus">
@@ -216,11 +214,6 @@
         <member name="T:DaprTool.BuildingBlocks.Domain.Events.IntegrationEvent">
             <summary>
                 事件基类
-            </summary>
-        </member>
-        <member name="P:DaprTool.BuildingBlocks.Domain.Events.IntegrationEvent.CommandId">
-            <summary>
-                命令ID
             </summary>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Domain.Events.IntegrationEvent.EventId">

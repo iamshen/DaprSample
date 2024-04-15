@@ -70,7 +70,8 @@ public static class ServiceCollectionExtensions
                 {
                     //有多个接口，后边的接口注册使用第一个接口的实例，保证同个实现类的多个接口获得同一实例
                     var firstServiceType = serviceTypes[0];
-                    descriptor = new ServiceDescriptor(serviceType, provider => provider.GetService(firstServiceType),
+                    descriptor = new ServiceDescriptor(serviceType,
+                        sp => sp.GetRequiredService(firstServiceType),
                         lifetime.Value);
                 }
 

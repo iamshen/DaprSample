@@ -1,7 +1,9 @@
-﻿using Dapr.Actors;
-using Dapr.Actors.Runtime;
+﻿using Dapr.Actors.Runtime;
 using DaprTool.BuildingBlocks.Domain.Actors;
 using DaprTool.BuildingBlocks.Domain.Events;
+using DaprTool.BuildingBlocks.Utils;
+using DaprTool.BuildingBlocks.Utils.Enumerations;
+using DaprTool.BuildingBlocks.Utils.Exceptions;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -49,11 +51,13 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
         public const string GracePeriodElapsed = "订单已超时，系统自动取消订单";
     }
 
+    internal const string GracePeriodElapsedReminder = "GracePeriodElapsed"; // 订单超时提醒器
+    internal const int PurchaseOrderBizType = 10; // current biz is 10
+
     #endregion
 
     #region 属性
 
-    private const string GracePeriodElapsedReminder = "GracePeriodElapsed"; // 订单超时提醒器
     private IOptions<OrderingSettings> Settings => ServiceProvider.GetRequiredService<IOptions<OrderingSettings>>();
 
     #endregion
@@ -68,21 +72,19 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
     /// <exception cref="NotImplementedException"></exception>
     public async Task<OrderRecord> SubmitAsync(CreateOrderCommand command)
     {
-        #region 验证
-
+        // 验证入参
         var validator = ServiceProvider.GetRequiredService<IValidator<CreateOrderCommand>>();
-
         await validator.ValidateAndThrowGlobalAsync(command);
-
-        #endregion
 
         // 获取状态
         var stateObj = await StateManager.TryGetStateAsync<PurchaseOrderState>(StateDataKey);
         if (stateObj.HasValue) throw new Exception(Errors.RepeatCreated);
 
-        var orderNumberProxy =
-            ProxyFactory.CreateActorProxy<ISerialNumberActor>(new ActorId("0"), nameof(SerialNumberActor));
-        var orderNo = await orderNumberProxy.GenerateAsync(201, 10);
+        // 生成单号
+        var orderNumberProxy = GetSerialNumberService();
+        var orderNo = await orderNumberProxy.GenerateAsync(OrderType.PurchaseOrder, PurchaseOrderBizType);
+
+        // 更新状态
         var state = new PurchaseOrderState
         {
             OrderNo = orderNo,
@@ -98,6 +100,7 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
             OrderItems = command.OrderItems
         };
         await StateManager.SetStateAsync(StateDataKey, state);
+
         // 注册提醒器
         await RegisterReminderAsync(
             GracePeriodElapsedReminder,
@@ -109,11 +112,11 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
             // 每15分钟执行一次。
             TimeSpan.FromMinutes(Settings.Value.GracePeriodTime));
 
+        // 发布事件（便于持久化到业务库）
         var events = new List<IntegrationEvent>
         {
             new OrderSubmittedEvent
             {
-                CommandId = command.Id,
                 ActorId = ActorId,
                 OrderNo = state.OrderNo,
                 OrderStatus = state.OrderStatus,
@@ -128,7 +131,6 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
                 OrderItems = state.OrderItems
             }
         };
-
         await RaiseEvents(events.ToArray());
 
         return new OrderRecord(ActorId, orderNo);
@@ -140,22 +142,22 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
     /// <returns></returns>
     public async Task<PurchaseOrderOutputDto> GetAsync()
     {
-        var order = await StateManager.GetStateAsync<PurchaseOrderState>(StateDataKey);
-        if (order is null) throw new Exception("订单不存在");
+        var order = await StateManager.TryGetStateAsync<PurchaseOrderState>(StateDataKey);
+        if (!order.HasValue) throw new GlobalException(ErrorCode.OrderNotExists, ActorId);
         return new PurchaseOrderOutputDto
         {
             OrderId = ActorId,
-            OrderNo = order.OrderNo,
-            OrderStatus = order.OrderStatus,
-            PayStatus = order.PayStatus,
-            TradeStatus = order.TradeStatus,
-            Buyer = order.Buyer,
-            Seller = order.Seller,
-            SaleStore = order.SaleStore,
-            Remark = order.Remark,
-            CreatedTime = order.CreatedTime,
-            UpdatedTime = order.UpdatedTime,
-            OrderItems = order.OrderItems
+            OrderNo = order.Value.OrderNo,
+            OrderStatus = order.Value.OrderStatus,
+            PayStatus = order.Value.PayStatus,
+            TradeStatus = order.Value.TradeStatus,
+            Buyer = order.Value.Buyer,
+            Seller = order.Value.Seller,
+            SaleStore = order.Value.SaleStore,
+            Remark = order.Value.Remark,
+            CreatedTime = order.Value.CreatedTime,
+            UpdatedTime = order.Value.UpdatedTime,
+            OrderItems = order.Value.OrderItems
         };
     }
 
@@ -170,12 +172,15 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
     /// <returns></returns>
     private async Task<IList<IntegrationEvent>> GetCancelEvents(string reason)
     {
+        Console.WriteLine("11111111111");
         var order = await StateManager.GetStateAsync<PurchaseOrderState>(StateDataKey);
 
         var events = new List<IntegrationEvent>
         {
             new OrderStatusChangeToCancelEvent { ActorId = ActorId, OrderNo = order.OrderNo, Remark = reason }
         };
+        Console.WriteLine("22222222222222222");
+
         return events;
     }
 
@@ -193,22 +198,24 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
             return false;
         }
 
-        var order = await StateManager.GetStateAsync<PurchaseOrderState>(StateDataKey);
-        if (order is null)
+        var order = await StateManager.TryGetStateAsync<PurchaseOrderState>(StateDataKey);
+        if (!order.HasValue)
         {
             Logger.LogWarning("订单: {OrderId} 不存在，无法更新", ActorId);
             return false;
         }
 
-        if (order.OrderStatus != expectedOrderStatus)
+
+        if (order.Value.OrderStatus != expectedOrderStatus)
         {
             Logger.LogWarning("订单: {OrderId} 的订单状态处于 {Status}，而非预期状态 {ExpectedStatus}",
-                ActorId, order.OrderStatus.GetDisplayName(), expectedOrderStatus.GetDisplayName());
+                ActorId, order.Value.OrderStatus.GetDisplayName(), expectedOrderStatus.GetDisplayName());
 
             return false;
         }
 
-        order.OrderStatus = newOrderStatus;
+
+        order.Value.OrderStatus = newOrderStatus;
 
         await StateManager.SetStateAsync(StateDataKey, order);
 
@@ -249,24 +256,28 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
         // 订单创建 15 分钟后，如果：
         // 订单状态还是 Submitted, 支付状态是 Created, 交易状态是 Created
         // 那么意味着订单已超时，可以取消订单。
-        var order = await StateManager.GetStateAsync<PurchaseOrderState>(StateDataKey);
-        if (order is null)
+        var order = await StateManager.TryGetStateAsync<PurchaseOrderState>(StateDataKey);
+        if (!order.HasValue)
         {
             Logger.LogWarning("订单: {OrderId} 不存在，取消超时处理", ActorId);
             return;
         }
 
-        if (order.OrderStatus is OrderStatus.Submitted &&
-            order.PayStatus is PayStatus.Created &&
-            order.TradeStatus is TradeStatus.Created)
+        if (order.Value.OrderStatus is OrderStatus.Submitted &&
+            order.Value.PayStatus is PayStatus.Created &&
+            order.Value.TradeStatus is TradeStatus.Created)
         {
             var statusChanged = await TryUpdateOrderStatusAsync(OrderStatus.Submitted, OrderStatus.Cancelled);
             if (statusChanged)
-            {
-                var events = await GetCancelEvents(Errors.GracePeriodElapsed);
-
-                await RaiseEvents(events.ToArray());
-            }
+                await RaiseEvents(new List<IntegrationEvent>
+                {
+                    new OrderStatusChangeToCancelEvent
+                    {
+                        ActorId = ActorId,
+                        OrderNo = order.Value.OrderNo,
+                        Remark = Errors.GracePeriodElapsed
+                    }
+                }.ToArray());
         }
 
         // 卸载提醒器

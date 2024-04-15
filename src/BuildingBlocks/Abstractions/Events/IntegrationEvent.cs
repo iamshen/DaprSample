@@ -8,11 +8,6 @@ namespace DaprTool.BuildingBlocks.Domain.Events;
 public abstract class IntegrationEvent : IEvent, INotification
 {
     /// <summary>
-    ///     命令ID
-    /// </summary>
-    public Guid CommandId { get; set; }
-
-    /// <summary>
     ///     事件ID
     /// </summary>
     public Guid EventId { get; set; } = Guid.NewGuid();

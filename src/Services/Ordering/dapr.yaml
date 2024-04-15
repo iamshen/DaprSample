@@ -7,4 +7,4 @@ apps:
   - appDirPath: ./Presentation/Ordering.Api
     appID: order-processor
     appPort: 9001
-    command: ["dotnet", "run"]
+    command: ["dotnet", "run", "--urls=http://localhost:9001/"]

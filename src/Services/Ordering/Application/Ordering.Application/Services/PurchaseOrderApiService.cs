@@ -58,10 +58,7 @@ public class PurchaseOrderApiService : IPurchaseOrderApiService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public async Task<Result<PurchaseOrderOutputDto>> GetAsync(string id)
-    {
-        return await GetOrderStateAsync(id);
-    }
+    public Task<Result<PurchaseOrderOutputDto>> GetAsync(string id) => GetOrderStateAsync(id);
 
     /// <summary>
     /// </summary>
