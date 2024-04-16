@@ -300,19 +300,19 @@
         </member>
         <member name="T:LinqToDB.CustomPostgreSQLExtensions">
             <summary>
-            Postgre SQL 自定义查询函数扩展
+                PostgreSQL 自定义查询函数扩展
             </summary>
         </member>
         <member name="M:LinqToDB.CustomPostgreSQLExtensions.JsonExtractPathText``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
-            查询实体中 jsonb/json 字段中的某个属性
-            <example>
-            <para>例如：</para>
-            <code>
-                var query = db.XXX.WhereIf(x => x.Authentication.JsonExtractPathText(json => json.RealName) == "张三" );
-            </code>
-            <para>可以参考 https://github.com/linq2db/linq2db/blob/master/Tests/Linq/Linq/ExpressionsTests.cs </para>
-            </example>
+                查询实体中 jsonb/json 字段中的某个属性(仅限字符串)
+                <example>
+                    <para>例如：</para>
+                    <code>
+                        var query = db.XXX.WhereIf(x => x.Authentication.JsonExtractPathText(json => json.RealName) == "张三" );
+                    </code>
+                    <para>可以参考 https://github.com/linq2db/linq2db/blob/master/Tests/Linq/Linq/ExpressionsTests.cs </para>
+                </example>
             </summary>
             <typeparam name="TColumn">查询列</typeparam>
             <typeparam name="TJsonProp">查询的属性</typeparam>
@@ -322,7 +322,7 @@
         </member>
         <member name="M:LinqToDB.CustomPostgreSQLExtensions.JsonExtractPathExpression``2">
             <summary>
-            表达式转换
+                表达式转换
             </summary>
             <typeparam name="TColumn"></typeparam>
             <typeparam name="TJsonProp"></typeparam>
