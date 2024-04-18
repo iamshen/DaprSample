@@ -38,7 +38,7 @@ dapr run .... --dapr-http-port 56001
 cd Client
 bash
 
-export DAPR_HTTP_PORT=3500
+export DAPR_HTTP_PORT=4502
 
 dapr run --app-id actorclient --resources-path ../resources -- dotnet run
 ```

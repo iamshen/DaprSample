@@ -147,7 +147,7 @@ public class HStatestore(ILogger<HStatestore> logger) : IStateStore, IBulkStateS
     {
         await Task.CompletedTask;
 
-        string[] features = { "ETAG", "TRANSACTIONAL" };
+        string[] features = { "QUERY_API", "TRANSACTIONAL" };
         _logger.LogInformation($"Registering State Store Features : {string.Join(",", features)}");
         return features;
 
