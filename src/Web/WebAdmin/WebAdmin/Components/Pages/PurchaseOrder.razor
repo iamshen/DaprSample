@@ -1,0 +1,81 @@
+﻿@page "/order"
+@attribute [StreamRendering]
+@rendermode InteractiveServer
+@inject AppDataConnection DataConnection
+
+<FluentDataGrid EmptyContent="@(builder => builder.AddMarkupContent(1, "<p>暂无数据</p>"))"
+                Items="@FilteredItems"
+                ResizableColumns="true"
+                Pagination="@_pagination"
+                GridTemplateColumns="0.4fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr"
+                RowClass="@_rowClass"
+                RowStyle="@_rowStyle"
+                Style="height: 405px; overflow: auto;">
+
+    <PropertyColumn Property="@(c => c.OrderNo)" Sortable="true" Filtered="!string.IsNullOrWhiteSpace(_orderNoFilter)" Align="Align.Center" Tooltip="true" Title="订单号">
+        <ColumnOptions>
+            <div class="search-box">
+                <FluentSearch Autofocus="true" @bind-Value="_orderNoFilter" @oninput="HandleOrderFilter" @bind-Value:after="HandleClear" Placeholder="请输入订单号..."/>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>
+    <PropertyColumn Title="订单状态" Property="@(c => c.OrderStatus.ToString())" Sortable="true" Align="Align.Center" Tooltip="true"/>
+    <PropertyColumn Title="支付状态" Property="@(c => c.PayStatus.ToString())" Sortable="true" Align="Align.Center" Tooltip="true"/>
+    <PropertyColumn Title="交易状态" Property="@(c => c.TradeStatus.ToString())" Sortable="true" Align="Align.Center" Tooltip="true"/>
+    <PropertyColumn Title="销售门店" Property="@(c => c.SaleStore.StoreName)" Align="Align.Start" Tooltip="true" TooltipText="@(c => "门店编号: " + c.SaleStore.StoreId)"/>
+    <PropertyColumn Title="销售员" Property="@(c => c.Seller.SellerName)" Align="Align.Center" Tooltip="true"/>
+    <PropertyColumn Title="购买人" Property="@(c => c.Buyer.BuyerName)" Align="Align.End"/>
+    <PropertyColumn Title="备注" Property="@(c => c.Remark)" Align="Align.End"/>
+</FluentDataGrid>
+
+
+<FluentPaginator State="@_pagination"/>
+
+<FluentSwitch @bind-Value="@_clearItems"
+              @bind-Value:after="ToggleItemsAsync"
+              UncheckedMessage="Clear all results"
+              CheckedMessage="Restore all results">
+</FluentSwitch>
+
+
+@code {
+    bool _clearItems;
+    IQueryable<PurchaseOrderTable>? _items;
+    readonly PaginationState _pagination = new() { ItemsPerPage = 10 };
+    string _orderNoFilter = string.Empty;
+    readonly Func<PurchaseOrderTable, string?> _rowClass = x => x.OrderNo.EndsWith("00000000") ? "highlighted-row" : null;
+    readonly Func<PurchaseOrderTable, string?> _rowStyle = x => x.OrderNo.StartsWith("Au") ? "background-color: var(--highlight-bg);" : null;
+
+    IQueryable<PurchaseOrderTable>? FilteredItems => _items?.Where(x => x.OrderNo.Contains(_orderNoFilter, StringComparison.CurrentCultureIgnoreCase));
+
+    protected override async Task OnInitializedAsync()
+    {
+        _items = DataConnection.PurchaseOrder.Where(x => x.DeletedTime == 0);
+
+        await Task.CompletedTask;
+    }
+
+    private void HandleOrderFilter(ChangeEventArgs args)
+    {
+        if (args.Value is string value)
+        {
+            _orderNoFilter = value;
+        }
+    }
+
+    private void HandleClear()
+    {
+        if (string.IsNullOrWhiteSpace(_orderNoFilter))
+        {
+            _orderNoFilter = string.Empty;
+        }
+    }
+
+    private async Task ToggleItemsAsync()
+    {
+        _items = _clearItems ? null : DataConnection.PurchaseOrder.Where(x => x.DeletedTime == 0);
+
+        await Task.CompletedTask;
+    }
+
+}

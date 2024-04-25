@@ -11,7 +11,7 @@ public class DbDependencySetupFixture : DependencySetupFixture
     {
         // 注册 业务数据库
         ServiceCollection.AddLogging();
-        ServiceCollection.AddAppDataConnection(Configuration);
+        ServiceCollection.AddOrderAppDataConnection(Configuration);
     }
 }
 
@@ -25,7 +25,7 @@ public class ObserverDependencySetupFixture : DependencySetupFixture
         // 注册 MediatR
         ServiceCollection.AddLogging();
         ServiceCollection.AddAppMediators();
-        ServiceCollection.AddAppDataConnection(Configuration);
+        ServiceCollection.AddOrderAppDataConnection(Configuration);
     }
 }
 

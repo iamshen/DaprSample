@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAdmin</name>
+    </assembly>
+    <members>
+        <member name="T:WebAdmin.Configurations.AdminUiOptions">
+            <summary>
+                管理后台配置
+            </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminUiOptions.Admin">
+            <summary> 管理后台的基础配置 </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminUiOptions.Culture">
+            <summary> 全球化配置 </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminUiOptions.Http">
+            <summary>   HTTP 托管环境配置 </summary>
+        </member>
+        <member name="M:WebAdmin.Configurations.AdminUiOptions.BindConfiguration(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                将从 appsettings 文件解析的配置应用到这些选项中。
+            </summary>
+            <param name="configuration">绑定到此实例的配置</param>
+        </member>
+        <member name="T:WebAdmin.Configurations.AdminConfiguration">
+            <summary>
+                管理后台的基础配置
+            </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.PageTitle">
+            <summary> Page Name </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.FaviconUri">
+            <summary> Favicon Uri </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.AdminRedirectUri">
+            <summary> Web Admin Redirect Uri </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.Scopes">
+            <summary> Scopes </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.AdministrationRole">
+            <summary> Administration Role Name</summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.RequireHttpsMetadata">
+            <summary> Require HttpsMetadata </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.AdminCookieName">
+            <summary> Web Admin CookieName </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.AdminCookieExpiresUtcHours">
+            <summary> Web Admin Cookie Expires UtcHours </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.TokenValidationClaimName">
+            <summary> Token Validation ClaimName </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.TokenValidationClaimRole">
+            <summary> Token Validation ClaimRole </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.IdentityServerBaseUrl">
+            <summary> IdentityServer BaseUrl </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.ClientId">
+            <summary> ClientId </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.ClientSecret">
+            <summary> ClientSecret </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.AdminConfiguration.OidcResponseType">
+            <summary> Oidc ResponseType </summary>
+        </member>
+        <member name="T:WebAdmin.Configurations.CultureConfiguration">
+            <summary>
+                全球化配置
+            </summary>
+        </member>
+        <member name="F:WebAdmin.Configurations.CultureConfiguration.AvailableCultures">
+            <summary> 可用的多语言文化 </summary>
+        </member>
+        <member name="F:WebAdmin.Configurations.CultureConfiguration.DefaultRequestCulture">
+            <summary> 默认的文化 </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.CultureConfiguration.Cultures">
+            <summary> 可用的多语言文化列表 </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.CultureConfiguration.DefaultCulture">
+            <summary> 默认的文化 </summary>
+        </member>
+        <member name="T:WebAdmin.Configurations.HttpConfiguration">
+            <summary>
+                Http 配置
+            </summary>
+        </member>
+        <member name="P:WebAdmin.Configurations.HttpConfiguration.BasePath">
+            <summary> BasePath </summary>
+        </member>
+        <member name="T:WebAdmin.Infrastructure.AppVersionService">
+            <summary>
+                AppVersion Service
+            </summary>
+        </member>
+        <member name="T:WebAdmin.Infrastructure.IAppVersionService">
+            <summary>
+                AppVersion Service
+            </summary>
+        </member>
+    </members>
+</doc>

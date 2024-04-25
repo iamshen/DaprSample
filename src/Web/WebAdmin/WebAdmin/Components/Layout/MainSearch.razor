@@ -1,0 +1,24 @@
+﻿@using Microsoft.Extensions.Localization
+@rendermode InteractiveServer
+@inject IStringLocalizer<NavMenu> L
+
+<div class="search">
+    <FluentAutocomplete TOption="NavItem"
+                        Width="200px"
+                        AutoComplete="off"
+                        Placeholder="搜索文档..."
+                        MaximumSelectedOptions="1"
+                        OptionText="@(item => L[item.Name])"
+                        @bind-ValueText="@_searchTerm"
+                        @bind-SelectedOptions="_selectedOptions"
+                        @bind-SelectedOptions:after="HandleSearchClicked"
+                        OnOptionsSearch="@HandleSearchInput"
+                        ShowOverlayOnEmptyResults="false">
+        <OptionTemplate>
+            <span slot="start">
+                <FluentIcon Value="@(context.Icon)" Class="search-result-icon" Color="Color.Neutral" Slot="start"/>
+            </span>
+            @context.Name
+        </OptionTemplate>
+    </FluentAutocomplete>
+</div>
