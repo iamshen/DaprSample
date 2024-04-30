@@ -1,0 +1,7 @@
+﻿@inject IDialogService DialogService
+
+<div class="settings">
+    <FluentButton BackgroundColor="#0000" Color="@ConfigurationConsts.HeaderColor" OnClick="OpenSiteSettingsAsync" Title="网站设置">
+        <FluentIcon Value="@(new Icons.Regular.Size20.Settings().WithColor(ConfigurationConsts.HeaderColor))" Title="网站设置" />
+    </FluentButton>
+</div>
