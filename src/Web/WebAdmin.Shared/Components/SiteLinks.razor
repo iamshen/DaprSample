@@ -1,0 +1,22 @@
+﻿<div class="links">
+    <FluentButton
+        Appearance="Appearance.Lightweight"
+        BackgroundColor="#0000"
+        Color="@ConfigurationConsts.HeaderColor"
+        IconEnd="@(new CustomIcons.Size20.GitHub().WithColor(ConfigurationConsts.HeaderColor))"
+        Title="iamshen Github Repo"
+        OnClick="@NavigateToGitHub"
+        />
+</div>
+
+
+@code {
+
+    [Inject] protected IJSRuntime JsRuntime { get; set; } = null!;
+
+    private async Task NavigateToGitHub()
+    {
+        await JsRuntime.InvokeVoidAsync("open", "http://github.com/iamshen", "_blank");
+    }
+
+}

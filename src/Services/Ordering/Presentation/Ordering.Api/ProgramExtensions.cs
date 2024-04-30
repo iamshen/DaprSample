@@ -17,6 +17,6 @@ public static class ProgramExtensions
         // 注册 应用配置
         builder.Services.Configure<OrderingSettings>(builder.Configuration);
         // 注册 业务数据库
-        builder.Services.AddAppDataConnection(builder.Configuration);
+        builder.Services.AddOrderAppDataConnection(builder.Configuration);
     }
 }

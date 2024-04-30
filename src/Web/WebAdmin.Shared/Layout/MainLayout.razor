@@ -1,0 +1,111 @@
+﻿@inherits LayoutComponentBase
+
+<FluentLayout>
+    <FluentHeader Class="siteheader">
+        <FluentStack HorizontalAlignment="HorizontalAlignment.Start">
+            <span>WebAdmin</span>
+        </FluentStack>
+        <FluentSpacer/>
+        <FluentStack HorizontalAlignment="HorizontalAlignment.End">
+            <SiteSearch/>
+            <CultureSelector/>
+            <SiteLinks/>
+            <SiteSettings/>
+            <UserProfile/>
+        </FluentStack>
+    </FluentHeader>
+    <FluentStack Class="main" Orientation="Orientation.Horizontal" Width="100%">
+        <NavMenu/>
+        <FluentBodyContent id="body-content" Class="body-content" Style="height: calc(100dvh - 90px);">
+            <div class="content">
+                <article id="article">
+                    <FluentMessageBarProvider Section="@MESSAGES_TOP" />
+
+                    <CascadingValue Value=@OnRefreshTableOfContents>
+                        @Body
+                    </CascadingValue>
+                </article>
+                <aside>
+                    <TableOfContents @ref=_toc />
+                </aside>
+
+                <FluentToastProvider MaxToastCount="10" />
+                <FluentDialogProvider/>
+                <FluentTooltipProvider/>
+                <FluentMessageBarProvider/>
+
+            </div>
+        </FluentBodyContent>
+    </FluentStack>
+    <FluentFooter>
+        <a href="https://github.com/iamshen" target="_blank">github</a>
+        <FluentSpacer/>
+        <a href="/" target="_blank">Copyright Ⓒ 2024 WebAdmin</a>
+    </FluentFooter>
+</FluentLayout>
+
+
+@code
+{
+    
+    private const string MESSAGES_NOTIFICATION_CENTER = "NOTIFICATION_CENTER";
+    private const string MESSAGES_TOP = "TOP";
+    private const string MESSAGES_DIALOG = "DIALOG";
+    private const string MESSAGES_CARD = "CARD";
+    private const string JAVASCRIPT_FILE = "./_content/WebAdmin.Shared/Layout/MainLayout.razor.js";
+    private string? _version;
+    private bool _mobile;
+    private string? _prevUri;
+    private TableOfContents? _toc;
+    private bool _menuChecked = true;
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        _version = AppVersionService.GetVersionFromAssembly();
+
+        _prevUri = NavigationManager.Uri;
+        NavigationManager.LocationChanged += LocationChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", JAVASCRIPT_FILE);
+            _mobile = await jsModule.InvokeAsync<bool>("isDevice");
+            await jsModule.DisposeAsync();
+        }
+    }
+
+    public EventCallback OnRefreshTableOfContents => EventCallback.Factory.Create(this, RefreshTableOfContentsAsync);
+
+    private async Task RefreshTableOfContentsAsync()
+    {
+        await _toc!.Refresh();
+    }
+
+    private void HandleChecked()
+    {
+        _menuChecked = !_menuChecked;
+    }
+
+    private void LocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+
+        if (!e.IsNavigationIntercepted && new Uri(_prevUri!).AbsolutePath != new Uri(e.Location).AbsolutePath)
+        {
+            _prevUri = e.Location;
+            if (_mobile && _menuChecked == true)
+            {
+                _menuChecked = false;
+                StateHasChanged();
+            }
+        }
+    }
+}

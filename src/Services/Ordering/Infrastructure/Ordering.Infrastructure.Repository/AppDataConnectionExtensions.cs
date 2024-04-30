@@ -34,7 +34,7 @@ public static class AppDataConnectionExtensions
     /// <param name="connectionString"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentException"></exception>
-    public static void AddAppDataConnection(this IServiceCollection services, string connectionString)
+    public static void AddOrderAppDataConnection(this IServiceCollection services, string connectionString)
     {
         if (string.IsNullOrEmpty(connectionString))
             throw new ArgumentException("connectionString can not be null", nameof(connectionString));
@@ -53,8 +53,8 @@ public static class AppDataConnectionExtensions
     /// <param name="configuration"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentException"></exception>
-    public static void AddAppDataConnection(this IServiceCollection services, IConfiguration configuration)
+    public static void AddOrderAppDataConnection(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddAppDataConnection(configuration.GetConnectionString(DaprConstants.Ordering.AppId)!);
+        services.AddOrderAppDataConnection(configuration.GetConnectionString(DaprConstants.Ordering.AppId)!);
     }
 }

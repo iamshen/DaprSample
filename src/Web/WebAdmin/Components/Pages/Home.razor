@@ -1,0 +1,123 @@
+﻿@page "/"
+@inject IStringLocalizer<Home> L
+@inject AdminConfiguration AdminConfiguration
+@inject IToastService ToastService
+@inject NavigationManager NavigationManager
+
+<PageTitle>@L["PageTitle"] - @AdminConfiguration.PageTitle</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to new Blazor Web App Admin
+
+<FluentCard>
+
+    <h2>MessageBar</h2>
+    <FluentStack Orientation="@Orientation.Vertical" VerticalGap="40">
+        <FluentMessageBar Title="复杂度不会消失，只会转移。">
+            当你听到一些人对于精致的概念模型侃侃而谈，请保持清醒。
+        </FluentMessageBar>
+
+        <FluentMessageBar Title="电灯熄灭" Intent="@MessageIntent.Success">
+            物换星移 泥牛入海<br>黑暗好像 一颗巨石 按在胸口<br>独脚大盗
+            百万富翁 摸爬滚打<br>黑暗好像 一颗巨石 按在胸口
+        </FluentMessageBar>
+
+        <FluentMessageBar Title="心中的火苗" Intent="@MessageIntent.Warning">
+            可以照亮最黑暗的夜，也可以燃尽一切过往。<br>
+            在时间的长河里，我们都是匆匆的过客，留下的只有脚印和故事。<br>
+            一颗心被封存太久，就会生锈，忘记了如何跳动。<br>
+            命运之轮不停转动，我们不过是其中的一粒尘埃，飘忽不定。<br>
+        </FluentMessageBar>
+
+        <FluentMessageBar Title="人生就像一杯茶" Intent="@MessageIntent.Error">
+            不会苦一辈子，但总有苦的一段时间。<br>
+            当我们站得太高时，忘记了脚下的路有多远。<br>
+            每个人的心里都有一座孤岛，时常有潮水上涨，也有退潮时刻。<br>
+        </FluentMessageBar>
+
+        <FluentMessageBar Title="每一条上升的道路" Intent="@MessageIntent.Custom" Icon="@(new Icons.Filled.Size20.LeafTwo())" IconColor="Color.Neutral">
+            都有下坡的一天。<br>
+            当我们把昨天抛在身后，明天的路也会变得更加宽广。<br>
+            有些事，可以预见未来，但无法阻止发生。<br>
+        </FluentMessageBar>
+
+        <FluentMessageBar Title="成功是一个过程" Intent="@MessageIntent.Error" AllowDismiss="false">
+            不是一个终点，它在于持续的努力而非偶然的机遇。
+        </FluentMessageBar>
+    </FluentStack>
+
+    <h2>Toast</h2>
+    <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+        <FluentStack Wrap="true">
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowSuccess("成功确认。"))">
+                <FluentIcon Value="@(new Icons.Filled.Size20.CheckmarkCircle())" Color="@Color.Success" Slot="start" />
+                显示成功
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowWarning("警告确认。"))">
+                <FluentIcon Value="@(new Icons.Filled.Size20.Warning())" Color="@Color.Warning" Slot="start" />
+                显示警告
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowError("错误确认。"))">
+                <FluentIcon Value="@(new Icons.Filled.Size20.DismissCircle())" Color="@Color.Error" Slot="start" />
+                显示错误
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowInfo("信息确认。"))">
+                <FluentIcon Value="@(new Icons.Filled.Size20.Info())" Color="@Color.Info" Slot="start" />
+                显示信息
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowProgress("进度确认。"))">
+                <FluentIcon Value="@(new Icons.Regular.Size20.Flash())" Color="@Color.Neutral" Slot="start" />
+                显示进度
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowUpload("上传确认。"))">
+                <FluentIcon Value="@(new Icons.Regular.Size20.ArrowUpload())" Color="@Color.Neutral" Slot="start" />
+                显示上传
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowDownload("下载确认。"))">
+                <FluentIcon Value="@(new Icons.Regular.Size20.ArrowDownload())" Color="@Color.Neutral" Slot="start" />
+                显示下载
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowEvent("活动确认。"))">
+                <FluentIcon Value="@(new Icons.Regular.Size20.CalendarLtr())" Color="@Color.Neutral" Slot="start" />
+                展示活动
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowMention("提及确认。"))">
+                <FluentIcon Value="@(new Icons.Regular.Size20.Person())" Color="@Color.Neutral" Slot="start" />
+                显示提及
+            </FluentButton>
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowCustom("自定义确认。", null, null, null, (new Icons.Regular.Size24.Delete(), Color.Accent)))">
+                <FluentIcon Value="@(new Icons.Regular.Size20.Delete())" Color="@Color.Neutral" Slot="start" />
+                显示自定义
+            </FluentButton>
+        </FluentStack>
+        <FluentStack Wrap="true">
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowCustom("无图标确认。"))">
+                无图标
+            </FluentButton>
+
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowSuccess("用 Action 确认成功。", null, "Action", EventCallback.Factory.Create<ToastResult>(this, HandleTopAction)))">
+                有 Action
+            </FluentButton>
+
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowInfo("信息确认自定义设置。"))">
+                自定义超时
+            </FluentButton>
+
+            <FluentButton Appearance="Appearance.Neutral" @onclick="@(() => ToastService.ShowSuccess("用大量文字进行成功确认，看看 Toast 写得很大时是什么样子。"))">
+                <FluentIcon Value="@(new Icons.Filled.Size20.CheckmarkCircle())" Color="@Color.Success" Slot="start" />
+                长时间 成功
+            </FluentButton>
+        </FluentStack>
+    </FluentStack>
+
+</FluentCard>
+
+@code {
+
+    private void HandleTopAction(ToastResult result)
+    {
+        Console.WriteLine("Toast clicked");
+    }
+
+}

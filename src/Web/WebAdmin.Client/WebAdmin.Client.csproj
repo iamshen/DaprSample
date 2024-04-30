@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+    <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+	<PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebAdmin.Shared\WebAdmin.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
