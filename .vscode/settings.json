@@ -3,6 +3,7 @@
         "configurationstore",
         "Dapr",
         "Healthchecks",
+        "iamshen",
         "Idsrv",
         "Linq",
         "Pluggable",
