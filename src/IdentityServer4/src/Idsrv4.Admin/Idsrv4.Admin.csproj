@@ -35,9 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Idsrv4.Admin.BusinessLogic\Idsrv4.Admin.BusinessLogic.csproj" />
-    <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.MySql\Idsrv4.Admin.EntityFramework.MySql.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.PostgreSQL\Idsrv4.Admin.EntityFramework.PostgreSQL.csproj" />
-    <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.SqlServer\Idsrv4.Admin.EntityFramework.SqlServer.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.UI\Idsrv4.Admin.UI.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.Shared\Idsrv4.Admin.Shared.csproj" />
   </ItemGroup>
