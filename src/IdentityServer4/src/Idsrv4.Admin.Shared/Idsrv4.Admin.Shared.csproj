@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Shared common layer for the administration of the IdentityServer4 and Asp.Net Core Identity</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
+    <PackageReference Include="Sendgrid" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Idsrv4.Admin.BusinessLogic.Identity\Idsrv4.Admin.BusinessLogic.Identity.csproj" />
+  </ItemGroup>
+</Project>

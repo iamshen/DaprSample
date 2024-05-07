@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>DbContexts and Identity entities for the administration of the IdentityServer4 and Asp.Net Core Identity</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Configuration\Idsrv4.Admin.EntityFramework.Configuration.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Entity Framework layer for the administration of the IdentityServer4</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Reborn.IdentityServer4.EntityFramework" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Idsrv4.Admin.AuditLogging.EntityFramework\Idsrv4.Admin.AuditLogging.EntityFramework.csproj" />
+    <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Extensions\Idsrv4.Admin.EntityFramework.Extensions.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Entity Framework layer for the administration of the Asp.Net Core Identity and IdentityServer4</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Reborn.IdentityServer4.EntityFramework" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Idsrv4.Admin.EntityFramework\Idsrv4.Admin.EntityFramework.csproj" />
+  </ItemGroup>
+</Project>
