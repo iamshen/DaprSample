@@ -349,6 +349,7 @@ public static class StartupHelpers
                 options.DefaultForbidScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
             })
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
                 options => { options.Cookie.Name = adminConfiguration.IdentityAdminCookieName; })

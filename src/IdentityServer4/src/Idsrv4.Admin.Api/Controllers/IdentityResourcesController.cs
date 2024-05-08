@@ -11,7 +11,7 @@ using Idsrv4.Admin.BusinessLogic.Services.Interfaces;
 
 namespace Idsrv4.Admin.Api.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 [TypeFilter(typeof(ControllerExceptionFilterAttribute))]
 [Produces("application/json", "application/problem+json")]

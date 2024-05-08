@@ -1,4 +1,7 @@
 ﻿using Idsrv4.Admin.Shared.ModuleInitializer;
+using Idsrv4.Admin.UI.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Idsrv4.Admin.UI.Helpers;
 
 const string seedArgs = "/seed";
 const string migrateOnlyArgs = "/migrateonly";
@@ -38,6 +41,8 @@ try
             // Applies configuration from appsettings.
             options.BindConfiguration(builder.Configuration);
 
+            builder.Services.TryAddSingleton(options.Http);
+
             options.Security.UseDeveloperExceptionPage = builder.Environment.IsDevelopment();
             options.Security.UseHsts = builder.Environment.IsDevelopment();
 
@@ -45,6 +50,7 @@ try
             var migrationsAssembly =
                 MigrationAssemblyConfiguration.GetMigrationAssemblyByProvider(options.DatabaseProvider);
             options.DatabaseMigrations.SetMigrationsAssemblies(migrationsAssembly);
+
 
             // Use production DbContexts and auth services.
             options.Testing.IsStaging = false;
@@ -69,6 +75,32 @@ try
 
     var app = builder.Build();
 
+    var httpConfiguration = app.Services.GetRequiredService<HttpConfiguration>();
+    var securityConfiguration = app.Services.GetRequiredService<SecurityConfiguration>();
+
+    #region SecurityHeaders
+
+    // Add custom security headers
+    app.UseSecurityHeaders(securityConfiguration.CspTrustedDomains);
+
+    #endregion
+
+    #region BasePath
+
+    if (!string.IsNullOrWhiteSpace(httpConfiguration.BasePath))
+        app.UsePathBase(httpConfiguration.BasePath);
+
+    #endregion
+
+    app.UseCookiePolicy();
+
+    if (securityConfiguration.UseDeveloperExceptionPage)
+        app.UseDeveloperExceptionPage();
+    else
+        app.UseExceptionHandler("/Home/Error");
+
+    if (securityConfiguration.UseHsts) app.UseHsts();
+
     #region Migrations
 
 
@@ -85,14 +117,18 @@ try
 
     #region Middleware
 
+
+    app.UseStaticFiles();
+
+    // Use Localization
+    app.ConfigureLocalization();
+
     app.UseRouting();
     app.UseIdentityServer4AdminUi();
     app.MapIdentityServer4AdminUi();
     app.MapIdentityServer4AdminUiHealthChecks();
 
     #endregion
-
-    //NpgsqlModuleInitializer.EnableLegacyTimestampBehavior();
 
     await app.RunAsync();
 }

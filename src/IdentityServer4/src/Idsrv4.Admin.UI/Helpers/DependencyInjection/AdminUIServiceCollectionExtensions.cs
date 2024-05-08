@@ -78,7 +78,7 @@ public static class AdminUiServiceCollectionExtensions
             RoleClaimDto<string>>(services, optionsAction);
 
     /// <summary>
-    ///     Adds the Skoruba IdentityServer4 Admin UI with a fully custom entity model and database contexts.
+    ///     Adds the IdentityServer4 Admin UI with a fully custom entity model and database contexts.
     /// </summary>
     /// <param name="services"></param>
     /// <param name="optionsAction"></param>
@@ -201,7 +201,7 @@ public static class AdminUiServiceCollectionExtensions
         services.AddSingleton(options.Testing);
         services.AddSingleton(options.Security);
         services.AddSingleton(options.Http);
-        services.AddTransient<IStartupFilter, StartupFilter>();
+        // services.AddTransient<IStartupFilter, StartupFilter>();
 
         return services;
     }
