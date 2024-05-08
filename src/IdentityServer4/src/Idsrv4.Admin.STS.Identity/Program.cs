@@ -1,4 +1,6 @@
 ﻿using Idsrv4.Admin.Shared.ModuleInitializer;
+using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder();
 
@@ -79,7 +81,18 @@ try
     #endregion
 
     var app = builder.Build();
+    IdentityModelEventSource.ShowPII = true;
+    // Add custom security headers
+    app.UseSecurityHeaders(builder.Configuration);
+    
+   #region BasePath
 
+     string basePath = builder.Configuration.GetValue<string>("BasePath");
+    if (!string.IsNullOrWhiteSpace(basePath))
+            app.UsePathBase(new PathString(basePath));
+
+   #endregion
+            
     app.UseCookiePolicy();
 
     if (app.Environment.IsDevelopment())
@@ -87,13 +100,10 @@ try
     else
         app.UseHsts();
 
-    app.UsePathBase(builder.Configuration.GetValue<string>("BasePath"));
 
     app.UseStaticFiles();
     app.UseIdentityServer();
 
-    // Add custom security headers
-    app.UseSecurityHeaders(builder.Configuration);
 
     app.UseMvcLocalizationServices();
 
@@ -107,8 +117,6 @@ try
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
 
-
-    //NpgsqlModuleInitializer.EnableLegacyTimestampBehavior();
     await app.RunAsync();
 }
 catch (Exception ex)

@@ -1,12 +1,28 @@
 {
     "cSpell.words": [
+        "Antiforgery",
+        "ASPNETCORE",
         "configurationstore",
+        "Consts",
         "Dapr",
+        "Dtos",
+        "gstatic",
         "Healthchecks",
+        "Hsts",
+        "iamshen",
+        "identitydata",
+        "identityserverdata",
         "Idsrv",
         "Linq",
+        "Middlerware",
+        "migrateonly",
+        "Oidc",
+        "Pkce",
         "Pluggable",
+        "Proto",
         "secretstore",
-        "statestore"
+        "Serilog",
+        "statestore",
+        "swaggerui"
     ]
 }

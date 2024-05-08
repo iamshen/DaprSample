@@ -1,4 +1,5 @@
 ﻿using Idsrv4.Admin.Shared.ModuleInitializer;
+using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder();
 
@@ -117,6 +118,14 @@ try
     app.AddForwardHeaders();
 
     if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
+
+    #region BasePath
+
+     string basePath = builder.Configuration.GetValue<string>("BasePath");
+    if (!string.IsNullOrWhiteSpace(basePath))
+            app.UsePathBase(new PathString(basePath));
+
+   #endregion
 
     #region Swagger
 

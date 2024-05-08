@@ -23,6 +23,7 @@
     <PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.1" />
     <PackageVersion Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="8.0.1" />
     <PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
+    <PackageVersion Include="Yarp.ReverseProxy" Version="2.1.0" />
   </ItemGroup>
   <!--FluentUI-->
   <ItemGroup>

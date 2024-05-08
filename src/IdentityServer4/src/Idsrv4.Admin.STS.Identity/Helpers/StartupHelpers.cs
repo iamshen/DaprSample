@@ -95,11 +95,13 @@ public static class StartupHelpers
     {
         var forwardingOptions = new ForwardedHeadersOptions
         {
-            ForwardedHeaders = ForwardedHeaders.All
+            ForwardedHeaders = ForwardedHeaders.All,
+            KnownNetworks = {},
+            KnownProxies = {}
         };
 
-        forwardingOptions.KnownNetworks.Clear();
-        forwardingOptions.KnownProxies.Clear();
+        // forwardingOptions.KnownNetworks.Clear();
+        // forwardingOptions.KnownProxies.Clear();
 
         app.UseForwardedHeaders(forwardingOptions);
 
@@ -356,7 +358,7 @@ public static class StartupHelpers
         where TUserIdentity : class
     {
         var configurationSection = configuration.GetSection(nameof(IdentityServerOptions));
-
+        
         var builder = services.AddIdentityServer(options => configurationSection.Bind(options))
             .AddConfigurationStore<TConfigurationDbContext>()
             .AddOperationalStore<TPersistedGrantDbContext>()

@@ -27,6 +27,7 @@ using Idsrv4.Admin.AuditLogging.EntityFramework.Entities;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Extensions;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Repositories;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Idsrv4.Admin.Api.Helpers;
 
@@ -199,6 +200,17 @@ public static class StartupHelpers
                 options.Authority = adminApiConfiguration.IdentityServerBaseUrl;
                 options.RequireHttpsMetadata = adminApiConfiguration.RequireHttpsMetadata;
                 options.Audience = adminApiConfiguration.OidcApiName;
+
+                  options.Events = new JwtBearerEvents
+                {
+                    // 认证失败事件
+                    OnAuthenticationFailed = context =>
+                    {
+                        Log.Error(context.Exception, "认证失败事件");
+                        return System.Threading.Tasks.Task.CompletedTask;
+                    },
+
+                };
             });
     }
 
@@ -258,6 +270,7 @@ public static class StartupHelpers
                 policy =>
                     policy.RequireAssertion(context => context.User.HasClaim(c =>
                             (c.Type == JwtClaimTypes.Role && c.Value == adminApiConfiguration.AdministrationRole) ||
+                            (c.Type == System.Security.Claims.ClaimsIdentity.DefaultRoleClaimType && c.Value == adminApiConfiguration.AdministrationRole) ||
                             (c.Type == $"client_{JwtClaimTypes.Role}" &&
                              c.Value == adminApiConfiguration.AdministrationRole)
                         ) && context.User.HasClaim(c

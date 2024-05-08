@@ -1,4 +1,5 @@
 using System.Globalization;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.FluentUI.AspNetCore.Components;
 using WebAdmin.Components;
 using WebAdmin.Shared.Configurations;
@@ -25,6 +26,31 @@ builder.Services.AddFluentUIComponents();
 builder.Services.AddControllers();
 var app = builder.Build();
 
+#region BasePath
+
+if (!string.IsNullOrWhiteSpace(adminUiOptions.Http.BasePath))
+    app.UsePathBase(new PathString(adminUiOptions.Http.BasePath));
+
+#endregion
+
+#region ForwardedHeaders
+// forward
+var forwardingOptions = new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.All
+};
+
+forwardingOptions.KnownNetworks.Clear();
+forwardingOptions.KnownProxies.Clear();
+
+app.UseForwardedHeaders(forwardingOptions);
+
+app.UseXXssProtection(options => options.EnabledWithBlockMode());
+app.UseXContentTypeOptions();
+app.UseXfo(options => options.SameOrigin());
+app.UseReferrerPolicy(options => options.NoReferrer());
+#endregion
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -36,7 +62,7 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseRouting();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.UseRequestLocalization(options =>
@@ -46,7 +72,7 @@ app.UseRequestLocalization(options =>
         (cultureConfiguration?.Cultures?.Count > 0
             ? cultureConfiguration.Cultures.Intersect(CultureConfiguration.AvailableCultures)
             : CultureConfiguration.AvailableCultures).ToArray();
-    if (!supportedCultureCodes.Any()) 
+    if (!supportedCultureCodes.Any())
         supportedCultureCodes = CultureConfiguration.AvailableCultures;
     var defaultCultureCode = string.IsNullOrEmpty(cultureConfiguration?.DefaultCulture)
         ? CultureConfiguration.DefaultRequestCulture

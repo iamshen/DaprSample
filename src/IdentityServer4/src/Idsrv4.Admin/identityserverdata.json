@@ -84,7 +84,7 @@
       {
         "ClientId": "identity_admin",
         "ClientName": "identity_admin",
-        "ClientUri": "https://localhost:44303",
+        "ClientUri": "https://localhost:44303/authAdmin",
         "AllowedGrantTypes": [
           "authorization_code"
         ],
@@ -95,14 +95,14 @@
           }
         ],
         "RedirectUris": [
-          "https://localhost:44303/signin-oidc"
+          "https://localhost:44303/authAdmin/signin-oidc"
         ],
-        "FrontChannelLogoutUri": "https://localhost:44303/signout-oidc",
+        "FrontChannelLogoutUri": "https://localhost:44303/authAdmin/signout-oidc",
         "PostLogoutRedirectUris": [
-          "https://localhost:44303/signout-callback-oidc"
+          "https://localhost:44303/authAdmin/signout-callback-oidc"
         ],
         "AllowedCorsOrigins": [
-          "https://localhost:44303"
+          "https://localhost:44303/authAdmin"
         ],
         "AllowedScopes": [
           "openid",
