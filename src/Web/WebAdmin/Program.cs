@@ -1,4 +1,3 @@
-using System.Globalization;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.FluentUI.AspNetCore.Components;
 using WebAdmin.Components;
