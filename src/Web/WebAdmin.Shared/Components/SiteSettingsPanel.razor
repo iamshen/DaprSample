@@ -8,13 +8,19 @@
                        StorageName="theme" />
 
     <FluentStack Orientation="Orientation.Vertical" VerticalGap="0">
-        <FluentSelect Label="主题"
+        <FluentSelect Label="选择模式"
                       Width="100%"
                       Style="margin-bottom: 30px;"
                       Items="@AllModes"
-                      @bind-SelectedOption="@Mode" />
+                      @bind-SelectedOption="@Mode" >
+            <OptionTemplate>
+                <FluentStack>
+                    <FluentLabel>@DesignThemeModesMapper.Map(context) </FluentLabel>
+                </FluentStack>
+            </OptionTemplate>
+        </FluentSelect>
 
-        <FluentSelect Label="颜色"
+        <FluentSelect Label="主题颜色"
                       Style="margin-bottom: 30px;"
                       Width="100%"
                       Items="@(OfficeColorUtilities.AllColors.Cast<OfficeColor?>())"
@@ -37,7 +43,7 @@
                       Value="@_ltr"
                       ValueChanged="HandleDirectionChanged" />
         <FluentLabel>
-            这些值（方向值除外）将被持久保存在 LocalStorage 中，并将在下次访问时恢复。
+             （方向值除外）将被持久保存在 LocalStorage 中，并将在下次访问时恢复。
             <br /><br />
             <FluentLabel Typo="Typography.Body">  "重置设置" 按钮 重置系统主题和颜色。 </FluentLabel>
             <br />

@@ -1,0 +1,61 @@
+﻿<div class="site-breadcrumb">
+    <FluentBreadcrumb>
+
+        @foreach (var breadcrumbItem in Links)
+        {
+            <FluentBreadcrumbItem Href="@breadcrumbItem.Href">
+                @L[breadcrumbItem.Name]
+                <FluentIcon Value="@breadcrumbItem.Icon" Color="@breadcrumbItem.IconColor" Slot="start"/>
+                <FluentIcon Value="@(new Icons.Regular.Size20.ChevronDoubleRight())" Color="@Color.Neutral" Slot="separator"/>
+            </FluentBreadcrumbItem>
+        }
+
+    </FluentBreadcrumb>
+</div>
+
+@code
+{
+    private NavItem HomeNav => NavProvider.NavMenuItems.FirstOrDefault(x => x.Name.Equals("home", StringComparison.OrdinalIgnoreCase))!;
+    private List<NavItem> Links { get; set; } = [];
+
+    [Inject] AdminUiOptions AdminUiOptions { get; set; } = default!;
+    [Inject] ILogger<SiteBreadcrumb> Logger { get; set; } = default!;
+    [Inject] NavProvider NavProvider { get; set; } = default!;
+    [Inject] IStringLocalizer<NavMenu> L { get; set; } = default!;
+    
+    private NavItem? _previousNav;
+    [Parameter]
+    public NavItem? CurrentNav { get; set; }
+
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        // 检查 CurrentNav 是否发生了更改
+        if (CurrentNav != _previousNav)
+        {
+            // 调用事件处理方法
+            OnCurrentNavChanged(CurrentNav);
+
+            // 更新_previousNav以反映最新的CurrentNav值
+            _previousNav = CurrentNav;
+        }
+    }
+
+    private void OnCurrentNavChanged(NavItem? currentNavItem)
+    {
+        if (currentNavItem is not null)
+        {
+            Links = NavProvider.FindNavItemAndBuildBreadcrumb(currentNavItem.Name, NavProvider.NavMenuItems.ToList());
+        }
+
+        if (!Links.Any(x => x.Name.Equals("home", StringComparison.OrdinalIgnoreCase)))
+        {
+            Links.Insert(0, HomeNav);
+        }
+
+        StateHasChanged();
+    }
+
+}

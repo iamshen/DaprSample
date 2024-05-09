@@ -167,7 +167,6 @@ public class NavProvider
     public IReadOnlyList<NavItem> NavMenuItems { get; init; }
 
     public IReadOnlyList<NavItem> FlattenedMenuItems { get; init; }
-
     private static IEnumerable<NavItem> GetFlattenedMenuItems(IEnumerable<NavItem> items)
     {
         foreach (var item in items)
@@ -179,4 +178,55 @@ public class NavProvider
             foreach (var flattenedMenuItem in GetFlattenedMenuItems(group.Children)) yield return flattenedMenuItem;
         }
     }
+
+    public List<NavItem> FindNavItemAndBuildBreadcrumb(string searchName, IReadOnlyList<NavItem> items, List<NavItem>? breadcrumb = null)
+    {
+        breadcrumb ??= [];
+
+        foreach (var item in items)
+        {
+            // 如果找到匹配的项，返回包含当前项的面包屑链
+            if (item.Name == searchName)
+            {
+                breadcrumb.Add(item);
+                return breadcrumb;
+            }
+
+            // 如果是 NavGroup，递归搜索其子项
+            if (item is NavGroup group)
+            {
+                breadcrumb.Add(item);  // 将当前 NavGroup 添加到面包屑中
+                var result = FindNavItemAndBuildBreadcrumb(searchName, group.Children, breadcrumb);
+                if (result != null) return result;  // 如果在子项中找到了，返回结果
+                breadcrumb.RemoveAt(breadcrumb.Count - 1);  // 如果没有找到，从面包屑中移除当前 NavGroup
+            }
+        }
+
+        return [];  // 如果遍历完成后未找到任何匹配项，返回 []
+    }
+
+    public NavItem? FindNavItemByHref(string href, IReadOnlyList<NavItem> items)
+    {
+        foreach (var item in items)
+        {
+            // 检查当前项的 href 是否匹配
+            if (item.Href == href)
+            {
+                return item;
+            }
+
+            // 如果是 NavGroup，递归搜索其子项
+            if (item is NavGroup group)
+            {
+                var foundItem = FindNavItemByHref(href, group.Children);
+                if (foundItem != null)
+                {
+                    return foundItem;
+                }
+            }
+        }
+
+        return null;  // 如果遍历完成后未找到任何匹配项，返回 null
+    }
+
 }

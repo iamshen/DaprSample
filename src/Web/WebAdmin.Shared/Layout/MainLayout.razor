@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
+
 <FluentLayout>
     <FluentHeader Class="siteheader">
         <FluentStack HorizontalAlignment="HorizontalAlignment.Start">
@@ -14,22 +15,24 @@
             <UserProfile/>
         </FluentStack>
     </FluentHeader>
+    
     <FluentStack Class="main" Orientation="Orientation.Horizontal" Width="100%">
-        <NavMenu/>
+        <NavMenu @bind-CurrentNav="@CurrentRoute"/>
         <FluentBodyContent id="body-content" Class="body-content" Style="height: calc(100dvh - 90px);">
+            <SiteBreadcrumb CurrentNav="@CurrentRoute" />
             <div class="content">
                 <article id="article">
-                    <FluentMessageBarProvider Section="@MESSAGES_TOP" />
+                    <FluentMessageBarProvider Section="@MessagesTop"/>
 
                     <CascadingValue Value=@OnRefreshTableOfContents>
                         @Body
                     </CascadingValue>
                 </article>
                 <aside>
-                    <TableOfContents @ref=_toc />
+                    <TableOfContents @ref=_toc/>
                 </aside>
 
-                <FluentToastProvider MaxToastCount="10" />
+                <FluentToastProvider MaxToastCount="10"/>
                 <FluentDialogProvider/>
                 <FluentTooltipProvider/>
                 <FluentMessageBarProvider/>
@@ -47,37 +50,43 @@
 
 @code
 {
-    
-    private const string MESSAGES_NOTIFICATION_CENTER = "NOTIFICATION_CENTER";
-    private const string MESSAGES_TOP = "TOP";
-    private const string MESSAGES_DIALOG = "DIALOG";
-    private const string MESSAGES_CARD = "CARD";
-    private const string JAVASCRIPT_FILE = "./_content/WebAdmin.Shared/Layout/MainLayout.razor.js";
+    private const string MessagesTop = "TOP";
+    private const string JavascriptFile = "./_content/WebAdmin.Shared/Layout/MainLayout.razor.js";
     private string? _version;
     private bool _mobile;
     private string? _prevUri;
+    private string? _relativePah;
     private TableOfContents? _toc;
     private bool _menuChecked = true;
+    
+    [Inject] NavProvider NavProvider { get; set; } = default!;
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
     [Inject]
-    public IJSRuntime JSRuntime { get; set; } = default!;
+    public IJSRuntime JsRuntime { get; set; } = default!;
+
+    private NavItem? CurrentRoute { get; set; }
+
 
     protected override void OnInitialized()
     {
         _version = AppVersionService.GetVersionFromAssembly();
 
         _prevUri = NavigationManager.Uri;
+        _relativePah = NavigationManager.ToBaseRelativePath(_prevUri);
         NavigationManager.LocationChanged += LocationChanged;
+
+        CurrentRoute ??= NavProvider.FindNavItemByHref(_relativePah, NavProvider.NavMenuItems);
+        CurrentRoute ??= NavProvider.NavMenuItems.FirstOrDefault(x => x.Name.Equals("home", StringComparison.OrdinalIgnoreCase));
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            var jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", JAVASCRIPT_FILE);
+            var jsModule = await JsRuntime.InvokeAsync<IJSObjectReference>("import", JavascriptFile);
             _mobile = await jsModule.InvokeAsync<bool>("isDevice");
             await jsModule.DisposeAsync();
         }

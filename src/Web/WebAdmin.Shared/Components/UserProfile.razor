@@ -1,23 +1,15 @@
-﻿<div class="profile">
+﻿@inject NavigationManager NavigationManager
+
+<div class="profile">
     <FluentProfileMenu Image="https://pic.rmb.bdstatic.com/4004e8a8a3d0d5e089b933dbd4634fd4.jpg@h_480"
                        Status="@PresenceStatus.Available"
                        HeaderLabel="教育科研工作者 帝国大炮丈量者"
                        Initials="艾千古"
                        FullName="艾千古"
                        HeaderButton="注销"
-                       OnHeaderButtonClick="@OnLogout"
+                       OnHeaderButtonClick="@(() => NavigationManager.NavigateTo("Account/Logout", true))"
                        FooterLink="查看账户"
+                       OnFooterLinkClick="@(() => NavigationManager.NavigateTo("UserProfile", true))"
                        EMail="aiyuejin@china.com"
                        Style="min-width: 330px;" />
 </div>
-
-@code
-{
-    [Inject] protected NavigationManager NavigationManager { get; set; } = null!;
-
-    public void OnLogout()
-    {
-        Console.WriteLine("on logout ...");
-        NavigationManager.NavigateTo("Account/Logout", true);
-    }
-}

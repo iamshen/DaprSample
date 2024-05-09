@@ -11,13 +11,13 @@
             <ChildContent>
                 @foreach (var item in group.Children)
                 {
-                    <NavMenuItem Value="item"/>
+                    <NavMenuItem Value="item" ValueChanged="@(() => OnNavLinkClick(item))"/>
                 }
             </ChildContent>
         </FluentNavGroup>
         break;
     case NavLink:
-        <FluentNavLink Icon="@Value.Icon" Href="@Value.Href" Match="@Value.Match">
+        <FluentNavLink Icon="@Value.Icon" Href="@Value.Href" Match="@Value.Match" OnClick="@(() => OnNavLinkClick(Value))">
             @if (Value.Match is NavLinkMatch.All)
             {
                 <h3>@L[Value.Name]</h3>
@@ -32,4 +32,12 @@
 
 @code {
     [Parameter] [EditorRequired] public required NavItem Value { get; set; }
+
+    [Parameter] public EventCallback<NavItem> ValueChanged { get; set; }
+
+    public async Task OnNavLinkClick(NavItem item)
+    {
+        await ValueChanged.InvokeAsync(item);
+    }
+
 }

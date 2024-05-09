@@ -1,10 +1,6 @@
 ﻿@inject IStringLocalizer<NavMenu> L
 @inject NavProvider NavProvider
 
-@code {
-    private bool _expanded = true;
-}
-
 <div class="navmenu">
     <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon"/>
     <label for="navmenu-toggle" class="navmenu-icon">
@@ -12,10 +8,27 @@
     </label>
     <nav class="sitenav" aria-labelledby="main-menu" onclick="document.getElementById('navmenu-toggle').click();">
         <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" @bind-Expanded="_expanded">
-            @foreach(var item in NavProvider.NavMenuItems)
+            @foreach (var item in NavProvider.NavMenuItems)
             {
-                <NavMenuItem Value="item"/>
+                <NavMenuItem Value="item"  ValueChanged="OnNavClick"/>
             }
         </FluentNavMenu>
     </nav>
 </div>
+
+
+@code {
+    private bool _expanded = true;
+
+    [Parameter] public NavItem? CurrentNav { get; set; }
+
+    [Parameter] public EventCallback<NavItem> CurrentNavChanged { get; set; }
+    
+    public async Task OnNavClick(NavItem valueItem)
+    {
+        CurrentNav = valueItem;
+
+        await CurrentNavChanged.InvokeAsync(valueItem);
+    }
+
+}

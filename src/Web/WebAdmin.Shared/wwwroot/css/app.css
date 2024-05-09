@@ -1,4 +1,7 @@
 ﻿@import '/admin/_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css';
+:root {
+ --sitenav-with: 18rem;
+}
 
 body {
     height: 100%;
@@ -92,7 +95,7 @@ nav.sitenav {
     background-color: var(--neutral-layer-1);
     padding: 1.5rem 1rem;
     height: calc(100dvh - 90px);
-    width: 18rem;
+    width: var(--sitenav-with); /*18rem;*/
     overflow-y: auto;
 }
 
