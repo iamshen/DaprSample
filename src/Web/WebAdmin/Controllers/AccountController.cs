@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebAdmin.Areas.Admin.Controllers;
+namespace WebAdmin.Controllers;
 
 [Authorize]
 [Route("[controller]/[action]")]
