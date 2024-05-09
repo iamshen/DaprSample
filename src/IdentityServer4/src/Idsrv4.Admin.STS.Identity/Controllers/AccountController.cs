@@ -29,6 +29,7 @@ using Idsrv4.Admin.STS.Identity.Configuration;
 using Idsrv4.Admin.STS.Identity.Helpers;
 using Idsrv4.Admin.STS.Identity.Helpers.Localization;
 using Idsrv4.Admin.STS.Identity.ViewModels.Account;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Idsrv4.Admin.STS.Identity.Controllers;
 
@@ -174,7 +175,7 @@ public class AccountController<TUser, TKey> : Controller
 
             await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "invalid credentials",
                 clientId: context?.Client.ClientId));
-            ModelState.AddModelError(string.Empty, AccountOptions.InvalidCredentialsErrorMessage);
+            ModelState.AddModelError(string.Empty, _localizer["InvalidCredentialsErrorMessage"]);
         }
 
         // something went wrong, show form with error

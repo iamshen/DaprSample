@@ -204,4 +204,7 @@
   <data name="VerificationSent" xml:space="preserve">
     <value>Varmennusviesti lähetetty. Ole hyvä ja tarkista sähköpostisi.</value>
   </data>
+  <data name="InvalidCredentialsErrorMessage" xml:space="preserve">
+	  <value>Invalid username or password</value>
+  </data>
 </root>

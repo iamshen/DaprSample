@@ -1,8 +1,15 @@
+using IdentityModel.AspNetCore.AccessTokenManagement;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.FluentUI.AspNetCore.Components;
+using Microsoft.IdentityModel.Tokens;
 using WebAdmin.Components;
+using WebAdmin.Plumbing;
 using WebAdmin.Shared.Configurations;
 using WebAdmin.Shared.Infrastructure;
+using _Imports = WebAdmin.Client._Imports;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,16 +30,95 @@ builder.Services.AddLocalization(opts => opts.ResourcesPath = ConfigurationConst
 builder.Services.AddAdminUiServerServices();
 builder.Services.AddFluentUIComponents();
 builder.Services.AddControllers();
+
+var adminConfiguration = adminUiOptions.Admin;
+
+// 参考链接
+// https://github.com/IdentityModel/IdentityModel.AspNetCore/blob/72479bf781eac07b5f7f568ae45e498b5ba9ed69/samples/BlazorServer/HostingExtensions.cs#L15
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+        options.DefaultSignOutScheme = OpenIdConnectDefaults.AuthenticationScheme;
+    })
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
+        options =>
+        {
+            options.Cookie.Name = adminConfiguration.AdminCookieName;
+        })
+    .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+    {
+        options.Authority = adminConfiguration.IdentityServerBaseUrl;
+        options.RequireHttpsMetadata = adminConfiguration.RequireHttpsMetadata;
+        options.ClientId = adminConfiguration.ClientId;
+        options.ClientSecret = adminConfiguration.ClientSecret;
+        options.ResponseType = adminConfiguration.OidcResponseType!;
+
+
+        options.Scope.Clear();
+        foreach (var scope in adminConfiguration.Scopes) options.Scope.Add(scope);
+
+        options.ClaimActions.MapJsonKey(adminConfiguration.TokenValidationClaimRole!,
+            adminConfiguration.TokenValidationClaimRole!,
+            adminConfiguration.TokenValidationClaimRole!);
+
+        options.SaveTokens = true;
+
+        options.GetClaimsFromUserInfoEndpoint = true;
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            NameClaimType = adminConfiguration.TokenValidationClaimName,
+            RoleClaimType = adminConfiguration.TokenValidationClaimRole
+        };
+
+        options.Events = new OpenIdConnectEvents
+        {
+            OnMessageReceived = context =>
+            {
+                if (context.Properties is null) return Task.CompletedTask;
+
+                context.Properties.IsPersistent = true;
+                context.Properties.ExpiresUtc =
+                    new DateTimeOffset(DateTime.Now.AddHours(adminConfiguration.AdminCookieExpiresUtcHours));
+                return Task.CompletedTask;
+            },
+            OnRedirectToIdentityProvider = context =>
+            {
+                if (!string.IsNullOrEmpty(adminConfiguration.AdminRedirectUri))
+                    context.ProtocolMessage.RedirectUri = adminConfiguration.AdminRedirectUri;
+
+                return Task.CompletedTask;
+            }
+        };
+    });
+
+// 添加 access token 管理
+builder.Services.AddAccessTokenManagement();
+// 无法在会话（session）中管理令牌 因为 在 Blazor 服务器中不允许以编程方式使用 HttpContext
+builder.Services.AddSingleton<IUserAccessTokenStore, ServerSideTokenStore>();
+
+
+builder.Services.AddAuthorization(options =>
+{
+    // 默认情况下，所有请求都将根据默认策略进行授权 如果您想从用户界面驱动登录/注销工作流程，注释掉
+    options.FallbackPolicy = options.DefaultPolicy;
+});
+
+
 var app = builder.Build();
 
 #region BasePath
 
 if (!string.IsNullOrWhiteSpace(adminUiOptions.Http.BasePath))
+{
     app.UsePathBase(new PathString(adminUiOptions.Http.BasePath));
+}
 
 #endregion
 
 #region ForwardedHeaders
+
 // forward
 var forwardingOptions = new ForwardedHeadersOptions
 {
@@ -48,7 +134,10 @@ app.UseXXssProtection(options => options.EnabledWithBlockMode());
 app.UseXContentTypeOptions();
 app.UseXfo(options => options.SameOrigin());
 app.UseReferrerPolicy(options => options.NoReferrer());
+
 #endregion
+
+app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -57,11 +146,14 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseExceptionHandler("/Error", true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.UseRequestLocalization(options =>
@@ -83,10 +175,11 @@ app.UseRequestLocalization(options =>
         .AddSupportedUICultures(supportedCultureCodes)
         .SetDefaultCulture(defaultCultureCode!);
 });
-app.UseStaticFiles();
 app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(WebAdmin.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(_Imports).Assembly);
+
+
 app.Run();

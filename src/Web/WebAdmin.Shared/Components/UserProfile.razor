@@ -5,7 +5,19 @@
                        Initials="艾千古"
                        FullName="艾千古"
                        HeaderButton="注销"
+                       OnHeaderButtonClick="@OnLogout"
                        FooterLink="查看账户"
                        EMail="aiyuejin@china.com"
                        Style="min-width: 330px;" />
 </div>
+
+@code
+{
+    [Inject] protected NavigationManager NavigationManager { get; set; } = null!;
+
+    public void OnLogout()
+    {
+        Console.WriteLine("on logout ...");
+        NavigationManager.NavigateTo("Account/Logout", true);
+    }
+}

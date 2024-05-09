@@ -12,14 +12,14 @@ public class NavProvider
         NavMenuItems =
         [
             new NavLink(
-                href: "/",
+                href: "/admin/",
                 match: NavLinkMatch.All,
                 icon: new Icons.Regular.Size20.Home(),
                 name: "Home"
             ),
 
             new NavLink(
-                href: "/counter",
+                href: "counter",
                 match: NavLinkMatch.All,
                 icon: new Icons.Regular.Size20.NumberSymbolSquare(),
                 name: "Counter"
@@ -27,7 +27,7 @@ public class NavProvider
 
 
             new NavLink(
-                href: "/weather",
+                href: "weather",
                 match: NavLinkMatch.All,
                 icon: new Icons.Regular.Size20.PersonKey(),
                 name: "Weather"
@@ -42,12 +42,12 @@ public class NavProvider
                 children:
                 [
                     new NavLink(
-                        href: "/customer/list",
+                        href: "customer/list",
                         icon: new Icons.Regular.Size20.Accessibility(),
                         name: "CustomerList"
                     ),
                     new NavLink(
-                        href: "/customer/level",
+                        href: "customer/level",
                         icon: new Icons.Regular.Size20.Trophy(),
                         name: "CustomerLevel"
                     )
@@ -62,12 +62,12 @@ public class NavProvider
                 children:
                 [
                     new NavLink(
-                        href: "/order/purchase",
+                        href: "order/purchase",
                         icon: new Icons.Regular.Size20.ShoppingBag(),
                         name: "PurchaseOrder"
                     ),
                     new NavLink(
-                        href: "/order/process",
+                        href: "order/process",
                         icon: new Icons.Regular.Size20.BuildingFactory(),
                         name: "ProcessOrder"
                     )
@@ -82,12 +82,12 @@ public class NavProvider
                 children:
                 [
                     new NavLink(
-                        href: "/payment/receiving-orders",
+                        href: "payment/receiving-orders",
                         icon: new Icons.Regular.Size20.CreditCardClock(),
                         name: "ReceiveOrder"
                     ),
                     new NavLink(
-                        href: "/payment/paid-orders",
+                        href: "payment/paid-orders",
                         icon: new Icons.Regular.Size20.WalletCreditCard(),
                         name: "PaidOrder"
                     )
@@ -102,17 +102,17 @@ public class NavProvider
                 children:
                 [
                     new NavLink(
-                        href: "/logistics/orders",
+                        href: "logistics/orders",
                         icon: new Icons.Regular.Size20.BoxMultipleSearch(),
                         name: "LogisticsOrder"
                     ),
                     new NavLink(
-                        href: "/logistics/services",
+                        href: "logistics/services",
                         icon: new Icons.Regular.Size20.Globe(),
                         name: "LogisticsService"
                     ),
                     new NavLink(
-                        href: "/logistics/channels",
+                        href: "logistics/channels",
                         icon: new Icons.Regular.Size20.CompassNorthwest(),
                         name: "LogisticsChannel"
                     )
@@ -127,32 +127,32 @@ public class NavProvider
                 children:
                 [
                     new NavLink(
-                        href: "/device/list",
+                        href: "device/list",
                         icon: new Icons.Regular.Size20.DeviceMeetingRoom(),
                         name: "DeviceList"
                     ),
                     new NavLink(
-                        href: "/device/types",
+                        href: "device/types",
                         icon: new Icons.Regular.Size20.AppsList(),
                         name: "DeviceType"
                     ),
                     new NavLink(
-                        href: "/device/models",
+                        href: "device/models",
                         icon: new Icons.Regular.Size20.Cube(),
                         name: "DeviceModule"
                     ),
                     new NavLink(
-                        href: "/device/maintenance-orders",
+                        href: "device/maintenance-orders",
                         icon: new Icons.Regular.Size20.VirtualNetworkToolbox(),
                         name: "DeviceMaintain"
                     ),
                     new NavLink(
-                        href: "/device/remote-controls",
+                        href: "device/remote-controls",
                         icon: new Icons.Regular.Size20.DesktopCursor(),
                         name: "RemoveControl"
                     ),
                     new NavLink(
-                        href: "/device/versions",
+                        href: "device/versions",
                         icon: new Icons.Regular.Size20.BranchFork(),
                         name: "VersionMgr"
                     )

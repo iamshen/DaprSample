@@ -98,4 +98,7 @@
   <data name="VerificationSent" xml:space="preserve">
     <value>Bevestigings email verzonden. Controleer a.u.b. uw email.</value>
   </data>
+	<data name="InvalidCredentialsErrorMessage" xml:space="preserve">
+		<value>Invalid username or password</value>
+	</data>
 </root>

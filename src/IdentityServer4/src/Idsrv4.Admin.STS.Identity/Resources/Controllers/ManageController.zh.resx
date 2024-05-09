@@ -204,4 +204,7 @@
   <data name="VerificationSent" xml:space="preserve">
     <value>已发送验证邮件。 请检查您的电子邮件。</value>
   </data>
+  <data name="InvalidCredentialsErrorMessage" xml:space="preserve">
+	  <value>用户名或密码无效</value>
+  </data>
 </root>

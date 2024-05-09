@@ -15,8 +15,11 @@
 @if (cultureItems.Count > 1)
 {
     <div title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
-        <form id="selectLanguage" asp-controller="Home"
-              asp-action="SetLanguage" asp-area="@CommonConsts.AdminUIArea" asp-route-returnUrl="@returnUrl"
+        <form id="selectLanguage"
+              asp-controller="Home"
+              asp-action="SetLanguage"
+              asp-area="@CommonConsts.AdminUIArea!"
+              asp-route-returnUrl="@returnUrl"
               method="post" class="form-inline justify-content-end" role="form">
             <div class="form-group">
                 <label asp-for="@requestCulture.RequestCulture.UICulture.Name" class="mr-2">@Localizer["Language:"]</label>

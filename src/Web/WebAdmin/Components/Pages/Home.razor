@@ -1,17 +1,24 @@
 ﻿@page "/"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Identity
 @inject IStringLocalizer<Home> L
 @inject AdminConfiguration AdminConfiguration
 @inject IToastService ToastService
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ILogger<Home> Logger
 
 <PageTitle>@L["PageTitle"] - @AdminConfiguration.PageTitle</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Hello World~</h1>
 
-Welcome to new Blazor Web App Admin
+<h2> @LoginUserName - @LoginUserId</h2>
+
+
+Welcome to new Blazor Web-App-Admin
 
 <FluentCard>
-
     <h2>MessageBar</h2>
     <FluentStack Orientation="@Orientation.Vertical" VerticalGap="40">
         <FluentMessageBar Title="复杂度不会消失，只会转移。">
@@ -115,9 +122,24 @@ Welcome to new Blazor Web App Admin
 
 @code {
 
+    public string? LoginUserName;
+    public string? LoginUserId;
+
     private void HandleTopAction(ToastResult result)
     {
         Console.WriteLine("Toast clicked");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity is { IsAuthenticated: true })
+        {
+            LoginUserName = user.Identity.Name;
+            LoginUserId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        }
     }
 
 }

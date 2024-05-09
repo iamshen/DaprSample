@@ -204,4 +204,7 @@
   <data name="VerificationSent" xml:space="preserve">
     <value>Verifizierungs-E-Mail gesendet. Bitte überprüfen Sie Ihre E-Mail.</value>
   </data>
+  <data name="InvalidCredentialsErrorMessage" xml:space="preserve">
+	  <value>Invalid username or password</value>
+  </data>
 </root>
