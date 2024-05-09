@@ -33,6 +33,14 @@ public class NavProvider
                 name: "Weather"
             ),
 
+            new NavLink(
+                href: "userProfile",
+                match: NavLinkMatch.All,
+                icon: new Icons.Regular.Size20.PersonBoard(),
+                name: "UserProfile",
+                isHidden: true
+            ),
+
             // 会员管理
             new NavGroup(
                 icon: new Icons.Regular.Size20.Group(),

@@ -3,7 +3,7 @@
 
         @foreach (var breadcrumbItem in Links)
         {
-            <FluentBreadcrumbItem Href="@breadcrumbItem.Href">
+            <FluentBreadcrumbItem onclick="@(() => NavigationManager.NavigateTo(breadcrumbItem.Href!))">
                 @L[breadcrumbItem.Name]
                 <FluentIcon Value="@breadcrumbItem.Icon" Color="@breadcrumbItem.IconColor" Slot="start"/>
                 <FluentIcon Value="@(new Icons.Regular.Size20.ChevronDoubleRight())" Color="@Color.Neutral" Slot="separator"/>
@@ -22,6 +22,7 @@
     [Inject] ILogger<SiteBreadcrumb> Logger { get; set; } = default!;
     [Inject] NavProvider NavProvider { get; set; } = default!;
     [Inject] IStringLocalizer<NavMenu> L { get; set; } = default!;
+    [Inject] NavigationManager NavigationManager { get; set; } = default!; 
     
     private NavItem? _previousNav;
     [Parameter]

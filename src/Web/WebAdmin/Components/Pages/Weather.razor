@@ -9,29 +9,46 @@
 
 <p>该组件用于显示数据。</p>
 
+<h3>DataGrid</h3>
 <FluentCard>
-    <h3>DataGrid</h3>
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        
-        <FluentDataGrid Id="weathergrid" Items="@forecasts" GridTemplateColumns="1fr 1fr 1fr 2fr" TGridItem="WeatherForecast">
-            <PropertyColumn Title="Date" Sortable="true" Property="@(c => c!.Date)" Align="Align.Start" />
-            <PropertyColumn Title="Temp. (C)" Sortable="true" Property="@(c => c!.TemperatureC)" Align="Align.Center" />
-            <PropertyColumn Title="Temp. (F)" Sortable="true" Property="@(c => c!.TemperatureF)" Align="Align.Center" />
-            <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Align="Align.End" />
-        </FluentDataGrid>
+    
+    @* <FluentDataGrid Id="weathergrid" Items="@forecasts" GridTemplateColumns="1fr 1fr 1fr 2fr" TGridItem="WeatherForecast"> *@
+    <FluentDataGrid Id="weathergrid" Items="@forecasts" Pagination="@pagination"  TGridItem="WeatherForecast">
+        <PropertyColumn Title="Date" Sortable="true" Property="@(c => c!.Date)" Align="Align.Start" />
+        <PropertyColumn Title="Temp. (C)" Sortable="true" Property="@(c => c!.TemperatureC)" Align="Align.Center" />
+        <PropertyColumn Title="Temp. (F)" Sortable="true" Property="@(c => c!.TemperatureF)" Align="Align.Center" />
+        <PropertyColumn Title="Summary" Property="@(c => c!.Summary)" Align="Align.End" />
+    </FluentDataGrid>
 
-    </FluentStack>
+    <div class="page-buttons">
+        Page:
+        @if (pagination.TotalItemCount.HasValue)
+        {
+            for (var pageIndex = 0; pageIndex <= pagination.LastPageIndex; pageIndex++)
+            {
+                var capturedIndex = pageIndex;
+                <FluentButton @onclick="@(() => GoToPageAsync(capturedIndex))"
+                              Appearance="@PageButtonAppearance(capturedIndex)"
+                              aria-current="@AriaCurrentValue(capturedIndex)"
+                              aria-label="@AriaLabel(capturedIndex + 1)">
+                    @(capturedIndex + 1)
+                </FluentButton>
+            }
+        }
+    </div>
 </FluentCard>
 
 
 
-
 @code {
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
     private IQueryable<WeatherForecast>? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         await OnQueryAsync();
+
+        pagination.TotalItemCountChanged += (sender, eventArgs) => StateHasChanged();
 
         StateHasChanged();
     }
@@ -47,13 +64,28 @@
 
         var startDate = DateOnly.FromDateTime(DateTime.Now);
         var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+
+        forecasts = Enumerable.Range(1, 50).Select(index => new WeatherForecast
         {
             Date = startDate.AddDays(index),
             TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = summaries[Random.Shared.Next(summaries.Length)]
+                Summary = summaries[Random.Shared.Next(summaries.Length)] + "index:" + index
         }).AsQueryable();
     }
+
+    private async Task GoToPageAsync(int pageIndex)
+    {
+        await pagination.SetCurrentPageIndexAsync(pageIndex);
+    }
+
+    private Appearance PageButtonAppearance(int pageIndex)
+        => pagination.CurrentPageIndex == pageIndex ? Appearance.Accent : Appearance.Neutral;
+
+    private string? AriaCurrentValue(int pageIndex)
+        => pagination.CurrentPageIndex == pageIndex ? "page" : null;
+
+    private string AriaLabel(int pageIndex)
+        => $"Go to page {pageIndex}";
 
     private class WeatherForecast
     {
