@@ -1,8 +1,26 @@
 ﻿<FluentDesignTheme StorageName="theme" />
 
-<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }">
+<Router AppAssembly="typeof(Program).Assembly" 
+        AdditionalAssemblies="new[] { typeof(Client._Imports).Assembly }" 
+        OnNavigateAsync="OnNavigating">
     <Found Context="routeData">
         <RouteView RouteData="routeData" DefaultLayout="typeof(Shared.Layout.MainLayout)" />
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
     </Found>
 </Router>
+
+@code {
+    [Inject] public IJSRuntime JsRuntime { get; set; } = default!;
+
+    private async void OnNavigating(NavigationContext navigationContext)
+    {
+        await JsRuntime.InvokeVoidAsync("startProgress");
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JsRuntime.InvokeVoidAsync("stopProgress");
+    }
+
+}
