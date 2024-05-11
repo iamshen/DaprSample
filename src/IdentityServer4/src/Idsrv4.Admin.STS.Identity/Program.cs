@@ -1,8 +1,10 @@
-﻿using Idsrv4.Admin.Shared.ModuleInitializer;
+using Idsrv4.Admin.Shared.ModuleInitializer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Logging;
 
 var builder = WebApplication.CreateBuilder();
+
+builder.AddServiceDefaults();
 
 #region Config
 
@@ -110,12 +112,9 @@ try
     app.UseRouting();
     app.UseAuthorization();
 
-
+    app.MapDefaultEndpoints();
     app.MapDefaultControllerRoute();
-    app.MapHealthChecks("/health", new HealthCheckOptions
-    {
-        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-    });
+    
 
     await app.RunAsync();
 }
@@ -127,3 +126,4 @@ finally
 {
     await Log.CloseAndFlushAsync();
 }
+

@@ -6,6 +6,8 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddProblemDetails();
+builder.AddServiceDefaults();
 // 注册 应用 服务
 builder.RegisterAppServices();
 // 注册 Dapr 服务
@@ -17,13 +19,14 @@ builder.RegisterAppDapr(options =>
 
 var app = builder.Build();
 
+app.MapDefaultEndpoints();
+
 app.UseAppServer(builder.Configuration);
 
 app.MapGet("/", () => Results.LocalRedirect("~/docs"));
 app.MapControllers();
 app.MapSubscribeHandler();
 app.MapActorsHandlers();
-app.MapLivenessHealthChecks("/hc", "/liveness", UIResponseWriter.WriteHealthCheckUIResponse);
 
 try
 {

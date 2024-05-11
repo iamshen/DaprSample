@@ -37,6 +37,7 @@
     <PackageReference Include="NWebsec.AspNetCore.Middleware" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.AuditLogging.EntityFramework\Idsrv4.Admin.AuditLogging.EntityFramework.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Configuration\Idsrv4.Admin.EntityFramework.Configuration.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Shared\Idsrv4.Admin.EntityFramework.Shared.csproj" />

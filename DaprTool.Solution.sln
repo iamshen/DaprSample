@@ -75,10 +75,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{B75B1640-4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{56D45039-23D5-47CB-B12B-CE4982E85633}"
 	ProjectSection(SolutionItems) = preProject
+		dapr\components\dt-config.yaml = dapr\components\dt-config.yaml
 		dapr\components\dt-configurationstore.yaml = dapr\components\dt-configurationstore.yaml
 		dapr\components\dt-pubsub.yaml = dapr\components\dt-pubsub.yaml
-		dapr\components\dt-secrets.json = dapr\components\dt-secrets.json
-		dapr\components\dt-secretstore.yaml = dapr\components\dt-secretstore.yaml
 		dapr\components\dt-statestore.yaml = dapr\components\dt-statestore.yaml
 	EndProjectSection
 EndProject
@@ -146,6 +145,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProxyServer", "ProxyServer", "{60ABC20F-873F-4DA3-A86B-DAA5B563A2B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServer", "src\ProxyServer\ProxyServer.csproj", "{E8CEAD9D-B4BF-4ED1-9DA6-ABC41E797D60}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{B4373E4B-C419-4D3D-8A52-2A07AF906D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprTool.Solution.AppHost", "build\DaprTool.Solution.AppHost\DaprTool.Solution.AppHost.csproj", "{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprTool.Solution.ServiceDefaults", "build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj", "{F2165039-0483-4149-BEB6-A40928C17D4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -289,6 +294,14 @@ Global
 		{E8CEAD9D-B4BF-4ED1-9DA6-ABC41E797D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8CEAD9D-B4BF-4ED1-9DA6-ABC41E797D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8CEAD9D-B4BF-4ED1-9DA6-ABC41E797D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2165039-0483-4149-BEB6-A40928C17D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2165039-0483-4149-BEB6-A40928C17D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2165039-0483-4149-BEB6-A40928C17D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2165039-0483-4149-BEB6-A40928C17D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -351,6 +364,8 @@ Global
 		{07E8E5C4-DA82-44DD-B526-6A4150D5C9FD} = {D2F20A9C-E732-43EA-9615-70F9FD46253A}
 		{60ABC20F-873F-4DA3-A86B-DAA5B563A2B5} = {5724FC31-E7B7-4F84-8B04-85E8A7B964DB}
 		{E8CEAD9D-B4BF-4ED1-9DA6-ABC41E797D60} = {60ABC20F-873F-4DA3-A86B-DAA5B563A2B5}
+		{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E} = {B4373E4B-C419-4D3D-8A52-2A07AF906D0F}
+		{F2165039-0483-4149-BEB6-A40928C17D4E} = {B4373E4B-C419-4D3D-8A52-2A07AF906D0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE377903-BDA1-4347-BEC2-62ED2F807EE3}

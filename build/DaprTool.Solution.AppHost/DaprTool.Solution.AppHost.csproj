@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>c133ed2f-bc1c-454b-a392-fe658f2f9f74</UserSecretsId>
+	<RootNamespace>DaprToolSolution.AppHost</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Dapr" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BuildingBlocks\Utils\Utils.csproj" />
+    <ProjectReference Include="..\..\src\IdentityServer4\src\Idsrv4.Admin.Api\Idsrv4.Admin.Api.csproj" />
+    <ProjectReference Include="..\..\src\IdentityServer4\src\Idsrv4.Admin.STS.Identity\Idsrv4.Admin.STS.Identity.csproj" />
+    <ProjectReference Include="..\..\src\IdentityServer4\src\Idsrv4.Admin\Idsrv4.Admin.csproj" />
+    <ProjectReference Include="..\..\src\ProxyServer\ProxyServer.csproj" />
+    <ProjectReference Include="..\..\src\Services\Ordering\Presentation\Ordering.Api\Ordering.Api.csproj" />
+    <ProjectReference Include="..\..\src\Web\WebAdmin\WebAdmin.csproj" />
+  </ItemGroup>
+
+</Project>

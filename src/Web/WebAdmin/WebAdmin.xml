@@ -4,5 +4,10 @@
         <name>WebAdmin</name>
     </assembly>
     <members>
+        <member name="T:WebAdmin.Plumbing.ServerSideTokenStore">
+            <summary>
+            服务器端令牌存储的简单实现，根据业务需求扩展
+            </summary>
+        </member>
     </members>
 </doc>

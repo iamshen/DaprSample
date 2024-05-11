@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
       <ProjectReference Include="..\..\..\..\BuildingBlocks\DaprActorExtensions\DaprActorExtensions.csproj" />
       <ProjectReference Include="..\..\..\..\BuildingBlocks\Utils\Utils.csproj" />
       <ProjectReference Include="..\..\..\..\BuildingBlocks\ApiExtensions\ApiExtensions.csproj" />

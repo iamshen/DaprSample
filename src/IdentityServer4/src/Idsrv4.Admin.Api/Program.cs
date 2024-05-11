@@ -1,7 +1,9 @@
-﻿using Idsrv4.Admin.Shared.ModuleInitializer;
+using Idsrv4.Admin.Shared.ModuleInitializer;
 using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder();
+
+builder.AddServiceDefaults();
 
 #region Config
 
@@ -150,15 +152,8 @@ try
     app.UseAuthorization();
 
     #endregion
-
+    app.MapDefaultEndpoints();
     app.MapControllers();
-    app.MapHealthChecks("/health", new HealthCheckOptions
-    {
-        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-    });
-
-
-    //NpgsqlModuleInitializer.EnableLegacyTimestampBehavior();
 
     await app.RunAsync();
 }

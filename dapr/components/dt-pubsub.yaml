@@ -12,21 +12,13 @@ spec:
   - name: protocol
     value: amqp  
   - name: hostname
-    secretKeyRef:
-      name: RabbitMQ.Host
-      key: RabbitMQ.Host 
+    value: "localhost"
   - name: username
-    secretKeyRef:
-      name: RabbitMQ.UserName
-      key: RabbitMQ.UserName 
+    value: "dapr"
   - name: password
-    secretKeyRef:
-      name: RabbitMQ.Password
-      key: RabbitMQ.Password 
+    value: "!234Qwer"
   - name: consumerID
-    secretKeyRef:
-      name: RabbitMQ.ConsumerID
-      key: RabbitMQ.ConsumerID 
+    value: "dapr-pubsub"
   - name: durable
     value: false
   - name: deletedWhenUnused

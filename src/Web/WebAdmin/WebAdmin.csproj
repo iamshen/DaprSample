@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
     <ProjectReference Include="..\WebAdmin.Client\WebAdmin.Client.csproj" />
   </ItemGroup>
 

@@ -61,10 +61,6 @@ public class Startup(IWebHostEnvironment environment, IConfiguration configurati
         app.UseEndpoints(endpoint =>
         {
             endpoint.MapDefaultControllerRoute();
-            endpoint.MapHealthChecks("/health", new HealthCheckOptions
-            {
-                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            });
         });
     }
 

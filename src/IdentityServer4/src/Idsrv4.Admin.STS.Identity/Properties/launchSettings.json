@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Reborn.IdentityServer4.AspNetIdentity": {
+    "https": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

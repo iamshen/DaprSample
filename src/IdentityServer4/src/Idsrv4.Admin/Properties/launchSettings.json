@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Idsrv4.Admin": {
+    "https": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

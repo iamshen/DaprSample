@@ -27,8 +27,8 @@ public static class WebApplicationExtensions
         builder.AddAppSerilog(DaprConstants.Ordering.AppId);
         // 注册 Api 资源
         builder.AddAppApiResource();
-        // 注册 健康检查
-        builder.AddAppHealthChecks(DaprConstants.Ordering.AppId);
+        //// 注册 健康检查
+        //builder.AddAppHealthChecks(DaprConstants.Ordering.AppId);
         // 注册 Swagger 
         builder.AddAppSwagger();
         // 注册 Api 控制器

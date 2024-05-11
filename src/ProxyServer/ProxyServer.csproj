@@ -2,4 +2,7 @@
   <ItemGroup>
     <PackageReference Include="Yarp.ReverseProxy" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
+  </ItemGroup>
 </Project>

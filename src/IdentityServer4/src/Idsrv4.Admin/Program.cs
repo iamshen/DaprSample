@@ -1,4 +1,4 @@
-﻿using Idsrv4.Admin.Shared.ModuleInitializer;
+using Idsrv4.Admin.Shared.ModuleInitializer;
 using Idsrv4.Admin.UI.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Idsrv4.Admin.UI.Helpers;
@@ -7,6 +7,8 @@ const string seedArgs = "/seed";
 const string migrateOnlyArgs = "/migrateonly";
 
 var builder = WebApplication.CreateBuilder(args.Where(x => x != seedArgs).ToArray());
+
+builder.AddServiceDefaults();
 
 #region Config
 
@@ -123,10 +125,10 @@ try
     // Use Localization
     app.ConfigureLocalization();
 
+    app.MapDefaultEndpoints();
     app.UseRouting();
     app.UseIdentityServer4AdminUi();
     app.MapIdentityServer4AdminUi();
-    app.MapIdentityServer4AdminUiHealthChecks();
 
     #endregion
 
@@ -140,6 +142,7 @@ finally
 {
     await Log.CloseAndFlushAsync();
 }
+
 
 return;
 

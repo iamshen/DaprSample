@@ -44,7 +44,6 @@ public class StartupTest
         app.UseEndpoints(endpoint =>
         {
             endpoint.MapIdentityServer4AdminUi();
-            endpoint.MapIdentityServer4AdminUiHealthChecks();
         });
     }
 

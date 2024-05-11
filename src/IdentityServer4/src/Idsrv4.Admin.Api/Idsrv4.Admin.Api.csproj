@@ -36,6 +36,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.BusinessLogic.Identity\Idsrv4.Admin.BusinessLogic.Identity.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.BusinessLogic\Idsrv4.Admin.BusinessLogic.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.PostgreSQL\Idsrv4.Admin.EntityFramework.PostgreSQL.csproj" />

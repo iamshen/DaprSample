@@ -34,22 +34,4 @@ public static class AdminUiApplicationBuilderExtensions
         => endpoint.MapAreaControllerRoute(CommonConsts.AdminUIArea, CommonConsts.AdminUIArea,
             patternPrefix + "{controller=Home}/{action=Index}/{id?}");
 
-    /// <summary>
-    ///     Maps the IdentityServer4 Admin UI health checks to the routes of this application.
-    /// </summary>
-    /// <param name="endpoint"></param>
-    /// <param name="pattern"></param>
-    /// <param name="configureAction"></param>
-    public static IEndpointConventionBuilder MapIdentityServer4AdminUiHealthChecks(this IEndpointRouteBuilder endpoint,
-        string pattern = "/health", Action<HealthCheckOptions> configureAction = null)
-    {
-        var options = new HealthCheckOptions
-        {
-            ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-        };
-
-        configureAction?.Invoke(options);
-
-        return endpoint.MapHealthChecks(pattern, options);
-    }
 }

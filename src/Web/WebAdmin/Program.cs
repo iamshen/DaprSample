@@ -13,6 +13,11 @@ using _Imports = WebAdmin.Client._Imports;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddProblemDetails();
+
+builder.AddServiceDefaults();
+
 var adminUiOptions = new AdminUiOptions();
 
 adminUiOptions.BindConfiguration(builder.Configuration);
@@ -33,7 +38,7 @@ builder.Services.AddControllers();
 
 var adminConfiguration = adminUiOptions.Admin;
 
-// ²Î¿¼Á´½Ó
+// å‚è€ƒé“¾æ¥
 // https://github.com/IdentityModel/IdentityModel.AspNetCore/blob/72479bf781eac07b5f7f568ae45e498b5ba9ed69/samples/BlazorServer/HostingExtensions.cs#L15
 builder.Services.AddAuthentication(options =>
     {
@@ -93,20 +98,22 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
-// Ìí¼Ó access token ¹ÜÀí
+// æ·»åŠ  access token ç®¡ç†
 builder.Services.AddAccessTokenManagement();
-// ÎŞ·¨ÔÚ»á»°£¨session£©ÖĞ¹ÜÀíÁîÅÆ ÒòÎª ÔÚ Blazor ·şÎñÆ÷ÖĞ²»ÔÊĞíÒÔ±à³Ì·½Ê½Ê¹ÓÃ HttpContext
+// æ— æ³•åœ¨ä¼šè¯ï¼ˆsessionï¼‰ä¸­ç®¡ç†ä»¤ç‰Œ å› ä¸º åœ¨ Blazor æœåŠ¡å™¨ä¸­ä¸å…è®¸ä»¥ç¼–ç¨‹æ–¹å¼ä½¿ç”¨ HttpContext
 builder.Services.AddSingleton<IUserAccessTokenStore, ServerSideTokenStore>();
 
 
 builder.Services.AddAuthorization(options =>
 {
-    // Ä¬ÈÏÇé¿öÏÂ£¬ËùÓĞÇëÇó¶¼½«¸ù¾İÄ¬ÈÏ²ßÂÔ½øĞĞÊÚÈ¨ Èç¹ûÄúÏë´ÓÓÃ»§½çÃæÇı¶¯µÇÂ¼/×¢Ïú¹¤×÷Á÷³Ì£¬×¢ÊÍµô
+    // é»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰€æœ‰è¯·æ±‚éƒ½å°†æ ¹æ®é»˜è®¤ç­–ç•¥è¿›è¡Œæˆæƒ å¦‚æœæ‚¨æƒ³ä»ç”¨æˆ·ç•Œé¢é©±åŠ¨ç™»å½•/æ³¨é”€å·¥ä½œæµç¨‹ï¼Œæ³¨é‡Šæ‰
     options.FallbackPolicy = options.DefaultPolicy;
 });
 
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 #region BasePath
 
