@@ -14,10 +14,65 @@
             要返回的默认的结果
             </summary>
         </member>
-        <member name="T:DaprTool.BuildingBlocks.Utils.Constant.DaprConstants">
-            <summary>
-             Dapr Constants
-            </summary>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.ResourcesPath">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.PubSubName">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.SecretStore">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.StateStore">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.ConfigurationStore">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.DefaultActorId">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.ClusterSuffix">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.ApiPathPrefix">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.RoutePattern">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.DaprServiceInvocation">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.ProxyServer">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.WebAdmin">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.AuthAdmin">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.AuthApi">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.AuthSts">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.Ordering">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.Identity">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.Catalog">
+            <summary />
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.Constant.ApplicationConstants.AllRoutes">
+            <summary />
         </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.Constant.RegularExpressions">
             <summary>

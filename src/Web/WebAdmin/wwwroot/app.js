@@ -11,3 +11,7 @@ function startProgress() {
 function stopProgress() {
     NProgress.done();
 }
+
+function myFunction() {
+    console.log("myFunction>>>")
+}

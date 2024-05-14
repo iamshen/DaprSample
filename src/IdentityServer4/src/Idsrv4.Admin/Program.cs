@@ -79,7 +79,7 @@ try
 
     var httpConfiguration = app.Services.GetRequiredService<HttpConfiguration>();
     var securityConfiguration = app.Services.GetRequiredService<SecurityConfiguration>();
-
+    var adminConfiguration = app.Services.GetRequiredService<AdminConfiguration>();
     #region SecurityHeaders
 
     // Add custom security headers

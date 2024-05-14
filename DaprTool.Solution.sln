@@ -105,6 +105,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluggableComponents", "src\PluggableComponents\PluggableComponents.csproj", "{CF4563D4-23A0-4140-B663-6A475D18282C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E386703B-38C2-40D2-8DB8-4592B2B6034D}"
+	ProjectSection(SolutionItems) = preProject
+		samples\dapr.yaml = samples\dapr.yaml
+		samples\README.md = samples\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClient", "samples\Client\SampleClient.csproj", "{A8A8732D-8658-4500-8F9F-C5E4782B0F37}"
 EndProject

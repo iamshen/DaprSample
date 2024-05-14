@@ -15,10 +15,10 @@ namespace Ordering.Api.Controllers.PurchaseOrder;
 public class SubscriptionController(IPublisher dispatcher) : Controller
 {
     [HttpPost(nameof(OrderSubmittedEvent))]
-    [Topic(DaprConstants.PubSubName, nameof(OrderSubmittedEvent))]
+    [Topic(ApplicationConstants.PubSubName, nameof(OrderSubmittedEvent))]
     public Task HandleAsync(OrderSubmittedEvent @event) => dispatcher.Publish(@event);
 
     [HttpPost(nameof(OrderStatusChangeToCancelEvent))]
-    [Topic(DaprConstants.PubSubName, nameof(OrderStatusChangeToCancelEvent))]
+    [Topic(ApplicationConstants.PubSubName, nameof(OrderStatusChangeToCancelEvent))]
     public Task HandleAsync(OrderStatusChangeToCancelEvent @event) => dispatcher.Publish(@event);
 }

@@ -4,5 +4,26 @@
         <name>ProxyServer</name>
     </assembly>
     <members>
+        <member name="M:Microsoft.Extensions.DependencyInjection.ReverseProxyServiceCollectionExtensions.LoadHardCodeConfig(Microsoft.Extensions.DependencyInjection.IReverseProxyBuilder,Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            添加 常量配置
+            <para> 把 /api/{appid}/{*remainder} 路由转换为 /v1.0/invoke/{appid}/method/{remainder} </para>
+            </summary>
+            <param name="reverseProxyBuilder"></param>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.ReverseProxyServiceCollectionExtensions.SystemRoutes">
+            <summary /> 
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.ReverseProxyServiceCollectionExtensions.SystemClusters">
+            <summary /> 
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.ReverseProxyServiceCollectionExtensions.Routes">
+            <summary /> 
+        </member>
+        <member name="P:Microsoft.Extensions.DependencyInjection.ReverseProxyServiceCollectionExtensions.Clusters">
+            <summary /> 
+        </member>
     </members>
 </doc>

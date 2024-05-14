@@ -1,6 +1,5 @@
 using DaprTool.BuildingBlocks.Domain.Actors;
 using DaprTool.BuildingBlocks.Utils.Constant;
-using HealthChecks.UI.Client;
 using Ordering.Domain.Actors;
 using Serilog;
 
@@ -19,6 +18,7 @@ builder.RegisterAppDapr(options =>
 
 var app = builder.Build();
 
+
 app.MapDefaultEndpoints();
 
 app.UseAppServer(builder.Configuration);
@@ -30,15 +30,15 @@ app.MapActorsHandlers();
 
 try
 {
-    app.Logger.LogInformation("Starting web api ({ApplicationName})...", DaprConstants.Ordering.AppId);
+    app.Logger.LogInformation("Starting web api ({ApplicationName})...", ApplicationConstants.Ordering.AppId);
     await app.RunAsync();
 }
 catch (Exception ex)
 {
-    app.Logger.LogCritical(ex, "Api ({ApplicationName}) 意外终止...", DaprConstants.Ordering.AppId);
+    app.Logger.LogCritical(ex, "Api ({ApplicationName}) 意外终止...", ApplicationConstants.Ordering.AppId);
 }
 finally
 {
-    app.Logger.LogCritical("stop finally web api ({ApplicationName})... ", DaprConstants.Ordering.AppId);
+    app.Logger.LogCritical("stop finally web api ({ApplicationName})... ", ApplicationConstants.Ordering.AppId);
     Log.CloseAndFlush();
 }

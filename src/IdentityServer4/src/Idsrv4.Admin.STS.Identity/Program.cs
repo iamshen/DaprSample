@@ -28,7 +28,6 @@ try
     builder.Configuration.GetSection(ConfigurationConsts.AdminConfigurationKey).Bind(rootConfiguration.AdminConfiguration);
     builder.Configuration.GetSection(ConfigurationConsts.RegisterConfigurationKey).Bind(rootConfiguration.RegisterConfiguration);
     builder.Services.AddSingleton(rootConfiguration);
-
     #endregion
 
     #region Services

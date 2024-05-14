@@ -14,13 +14,21 @@
 
     private async void OnNavigating(NavigationContext navigationContext)
     {
-        await JsRuntime.InvokeVoidAsync("startProgress");
+        try
+        {
+            await JsRuntime.InvokeVoidAsync("startProgress");
+        }
+        catch {}
     }
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JsRuntime.InvokeVoidAsync("stopProgress");
+       try
+        {
+            await JsRuntime.InvokeVoidAsync("stopProgress");
+        }
+        catch {}
     }
 
 }

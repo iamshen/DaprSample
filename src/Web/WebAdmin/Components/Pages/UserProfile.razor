@@ -1,13 +1,65 @@
 ﻿@page "/UserProfile"
 @using System.Security.Claims
+@using IdentityModel.AspNetCore.AccessTokenManagement
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Identity
 @inject IStringLocalizer<UserProfile> L
 @inject AdminConfiguration AdminConfiguration
 @inject IToastService ToastService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IUserAccessTokenManagementService UserAccessTokenManagementService
 
-<h3>UserProfile</h3>
+<h2>UserProfile</h2>
+
+<h3>UserClaims </h3>
+<ul>
+    @foreach(var item in UserClaims)
+    {
+        <li>Type: @item.Type - Value: @item.Value</li>
+    }
+</ul>
+
+
+<h3>IdentityClaims </h3>
+<ul>
+    @foreach (var item in IdentityClaims)
+    {
+        <li>RoleType: @item.RoleClaimType -NameClaimType: @item.NameClaimType -Name: @item.Name</li>
+
+       <ul>
+        @foreach (var subItem in item.Claims)
+        {
+           <li>Type: @subItem.Type -Value: @subItem.Value</li>
+        }
+        </ul>
+    }
+</ul>
+
+<h3>User AccessToken</h3>
+
+<div>@accessToken</div>
 
 @code {
+    IEnumerable<Claim> UserClaims = [];
+    IEnumerable<ClaimsIdentity> IdentityClaims = [];
+    string? accessToken = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity is { IsAuthenticated: true })
+        {
+            UserClaims = user.Claims;
+            IdentityClaims = user.Identities;
+            try
+            {
+                accessToken = await UserAccessTokenManagementService.GetUserAccessTokenAsync(user);
+            }
+            catch { }
+        }
+
+    }
 
 }

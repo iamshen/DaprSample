@@ -46,6 +46,7 @@ using Idsrv4.Admin.AuditLogging.EntityFramework.Entities;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Extensions;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Repositories;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Services;
+using System.Text.Json.Serialization;
 
 namespace Idsrv4.Admin.UI.Helpers;
 
@@ -250,6 +251,10 @@ public static class StartupHelpers
                 LanguageViewLocationExpanderFormat.Suffix,
                 opts => { opts.ResourcesPath = ConfigurationConsts.ResourcesPath; })
             .AddDataAnnotationsLocalization()
+            .AddJsonOptions(opts =>
+            {
+                opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+            })
             .ConfigureApplicationPartManager(m =>
             {
                 m.FeatureProviders.Add(
@@ -351,8 +356,11 @@ public static class StartupHelpers
                 options.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
             })
-            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
-                options => { options.Cookie.Name = adminConfiguration.IdentityAdminCookieName; })
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => 
+            { 
+                options.Cookie.Name = adminConfiguration.IdentityAdminCookieName;
+                options.SessionStore = new CookieSessionStore(); 
+            })
             .AddOpenIdConnect(AuthenticationConsts.OidcAuthenticationScheme, options =>
             {
                 options.Authority = adminConfiguration.IdentityServerBaseUrl;
@@ -380,20 +388,26 @@ public static class StartupHelpers
                 options.Events = new OpenIdConnectEvents
                 {
                     OnMessageReceived = context => OnMessageReceived(context, adminConfiguration),
-                    OnRedirectToIdentityProvider = context => OnRedirectToIdentityProvider(context, adminConfiguration)
+                    OnRedirectToIdentityProvider = context => OnRedirectToIdentityProvider(context, adminConfiguration),
+                    OnAuthenticationFailed  = context =>
+                    {
+                        Console.WriteLine("OnAuthenticationFailed>>>");
+                        Console.WriteLine(context.Exception?.Message);
+                        Console.WriteLine(context.Exception?.InnerException?.Message);
+
+                        return Task.CompletedTask;
+                    },
                 };
             });
 
         authenticationBuilderAction?.Invoke(authenticationBuilder);
     }
 
-
     private static Task OnMessageReceived(MessageReceivedContext context, AdminConfiguration adminConfiguration)
     {
         context.Properties.IsPersistent = true;
         context.Properties.ExpiresUtc =
             new DateTimeOffset(DateTime.Now.AddHours(adminConfiguration.IdentityAdminCookieExpiresUtcHours));
-
         return Task.CompletedTask;
     }
 

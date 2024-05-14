@@ -4,5 +4,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\BuildingBlocks\Utils\Utils.csproj" />
   </ItemGroup>
 </Project>

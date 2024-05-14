@@ -24,6 +24,7 @@ using Idsrv4.Admin.Shared.Configuration.Authentication;
 using Idsrv4.Admin.Shared.Configuration.Configuration.Identity;
 using Idsrv4.Admin.STS.Identity.Configuration.ApplicationParts;
 using Idsrv4.Admin.STS.Identity.Helpers.Localization;
+using IdentityServer4.Services;
 
 namespace Idsrv4.Admin.STS.Identity.Helpers;
 
@@ -203,7 +204,6 @@ public static class StartupHelpers
             configuration.GetConnectionString(ConfigurationConsts.PersistedGrantDbConnectionStringKey);
         var dataProtectionConnectionString =
             configuration.GetConnectionString(ConfigurationConsts.DataProtectionDbConnectionStringKey);
-
         switch (databaseProvider.ProviderType)
         {
             case DatabaseProviderType.PostgreSQL:
@@ -364,6 +364,7 @@ public static class StartupHelpers
             .AddOperationalStore<TPersistedGrantDbContext>()
             .AddAspNetIdentity<TUserIdentity>();
 
+        services.AddTransient<IEventSink, CustomEventSink>();
         builder.AddCustomSigningCredential(configuration);
         builder.AddCustomValidationKey(configuration);
         builder.AddExtensionGrantValidator<DelegationGrantValidator>();

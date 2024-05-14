@@ -115,7 +115,7 @@ public abstract class DomainActor<TState> : Actor
     /// <returns></returns>
     public ISerialNumberActor GetSerialNumberService()
     {
-        var orderNumberActorId = new ActorId(DaprConstants.DefaultActorId);
+        var orderNumberActorId = new ActorId(ApplicationConstants.DefaultActorId);
 
         var orderNumberProxy =
             ProxyFactory.CreateActorProxy<ISerialNumberActor>(orderNumberActorId, nameof(SerialNumberActor));

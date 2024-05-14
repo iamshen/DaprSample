@@ -1,68 +1,91 @@
 
+using Aspire.Hosting;
 using Aspire.Hosting.Dapr;
+using DaprTool.BuildingBlocks.Utils.Constant;
+using k8s.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Immutable;
 
-var builder = DistributedApplication.CreateBuilder(args);
 
+var builder = DistributedApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 
 // proxy server
-builder.AddProject<Projects.ProxyServer>(AppConstants.ProxyServerApp)
+builder.AddProject<Projects.ProxyServer>(ApplicationConstants.ProxyServer.AppId)
     ;
 
+
+//var customContainer = builder.AddContainer("web-admin-container", "web-admin-img")
+//                           .WithHttpEndpoint(port: 9043, targetPort: 9044, name: "endpoint");
+
+//var endpoint = customContainer.GetEndpoint("endpoint");
+
 // web admin
-builder.AddProject<Projects.WebAdmin>(AppConstants.WebAdminApp)
+builder.AddProject<Projects.WebAdmin>(ApplicationConstants.WebAdmin.AppId)
     .WithDaprSidecar(new DaprSidecarOptions
     {
-        AppId = AppConstants.WebAdminApp,
-        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(AppConstants.ResourcesPath),
+        AppId = ApplicationConstants.WebAdmin.AppId,
+        DaprHttpPort = ApplicationConstants.WebAdmin.DaprHttpPort,
+        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(ApplicationConstants.ResourcesPath),
+        DaprHttpMaxRequestSize = 60,
+        DaprHttpReadBufferSize = 128,
     })
-    .WithHttpEndpoint(port: 51871)
-    .WithHttpsEndpoint(port: 51872, name: "webAdminHttpsEndPoint")
+    //.WithReference(endpoint)
+    .WithHttpEndpoint(port: ApplicationConstants.WebAdmin.ResourceHttpPort)
+    //.WithHttpsEndpoint(port: ApplicationConstants.WebAdmin.ResourceHttpsPort, name: ApplicationConstants.WebAdmin.ResourceHttpsEndpoint)
     ;
 
 // auth server
-builder.AddProject<Projects.Idsrv4_Admin_STS_Identity>(AppConstants.AuthStsApp)
+builder.AddProject<Projects.Idsrv4_Admin_STS_Identity>(ApplicationConstants.AuthSts.AppId)
     .WithDaprSidecar(new DaprSidecarOptions()
     {
-        AppId = AppConstants.AuthStsApp,
-        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(AppConstants.ResourcesPath),
+        AppId = ApplicationConstants.AuthSts.AppId,
+        DaprHttpPort = ApplicationConstants.AuthSts.DaprHttpPort,
+        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(ApplicationConstants.ResourcesPath),
+        DaprHttpMaxRequestSize = 60,
+        DaprHttpReadBufferSize = 128,
     })
-    .WithHttpEndpoint(port: 52871)
-    .WithHttpsEndpoint(port: 52873, name: "authStsHttpsEndPoint");
+    .WithHttpEndpoint(port: ApplicationConstants.AuthSts.ResourceHttpPort)
+    .WithHttpsEndpoint(port: ApplicationConstants.AuthSts.ResourceHttpsPort, name: ApplicationConstants.AuthSts.ResourceHttpsEndpoint);
 
-builder.AddProject<Projects.Idsrv4_Admin>(AppConstants.AuthAdminApp)
+builder.AddProject<Projects.Idsrv4_Admin>(ApplicationConstants.AuthAdmin.AppId)
     .WithDaprSidecar(new DaprSidecarOptions()
     {
-        AppId = AppConstants.AuthAdminApp,
-        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(AppConstants.ResourcesPath),
+        AppId = ApplicationConstants.AuthAdmin.AppId,
+        DaprHttpPort = ApplicationConstants.AuthAdmin.DaprHttpPort,
+        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(ApplicationConstants.ResourcesPath),
     })
-    .WithHttpEndpoint(port: 53871)
-    .WithHttpsEndpoint(port: 53873, name: "authAdminHttpsEndPoint");
+    .WithHttpEndpoint(port: ApplicationConstants.AuthAdmin.ResourceHttpPort)
+    .WithHttpsEndpoint(port: ApplicationConstants.AuthAdmin.ResourceHttpsPort, name: ApplicationConstants.AuthAdmin.ResourceHttpsEndpoint);
 
-builder.AddProject<Projects.Idsrv4_Admin_Api>(AppConstants.AuthApiApp)
+builder.AddProject<Projects.Idsrv4_Admin_Api>(ApplicationConstants.AuthApi.AppId)
     .WithDaprSidecar(new DaprSidecarOptions()
     {
-        AppId = AppConstants.AuthApiApp,
-        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(AppConstants.ResourcesPath),
+        AppId = ApplicationConstants.AuthApi.AppId,
+        DaprHttpPort = ApplicationConstants.AuthApi.DaprHttpPort,
+        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(ApplicationConstants.ResourcesPath),
+        DaprHttpMaxRequestSize = 60,
+        DaprHttpReadBufferSize = 128,
     })
-    .WithHttpEndpoint(port: 54871)
-    .WithHttpsEndpoint(port: 54873, name: "authApiHttpsEndPoint")
+    .WithHttpEndpoint(port: ApplicationConstants.AuthApi.ResourceHttpPort)
+    .WithHttpsEndpoint(port: ApplicationConstants.AuthApi.ResourceHttpsPort, name: ApplicationConstants.AuthApi.ResourceHttpsEndpoint)
     ;
 
 
 // api services
 
-builder.AddProject<Projects.Ordering_Api>(AppConstants.OrderApiApp)
+builder.AddProject<Projects.Ordering_Api>(ApplicationConstants.Ordering.AppId)
     .WithDaprSidecar(new DaprSidecarOptions()
     {
-        AppId = AppConstants.OrderApiApp,
-        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(AppConstants.ResourcesPath),
+        AppId = ApplicationConstants.Ordering.AppId,
+        DaprHttpPort = ApplicationConstants.Ordering.DaprHttpPort,
+        ResourcesPaths = ImmutableHashSet<string>.Empty.Add(ApplicationConstants.ResourcesPath),
+        DaprHttpMaxRequestSize = 60,
+        DaprHttpReadBufferSize = 128,
     })
-    .WithHttpEndpoint(port: 31441)
-    .WithHttpsEndpoint(port: 31443, name: "orderApiHttpsEndPoint")
+    .WithHttpEndpoint(port: ApplicationConstants.Ordering.ResourceHttpPort)
+    .WithHttpsEndpoint(port: ApplicationConstants.Ordering.ResourceHttpsPort, name: ApplicationConstants.Ordering.ResourceHttpsEndpoint)
     ;
 
 

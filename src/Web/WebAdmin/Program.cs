@@ -1,18 +1,20 @@
+using System.IdentityModel.Tokens.Jwt;
 using IdentityModel.AspNetCore.AccessTokenManagement;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.FluentUI.AspNetCore.Components;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using WebAdmin.Components;
 using WebAdmin.Plumbing;
 using WebAdmin.Shared.Configurations;
 using WebAdmin.Shared.Infrastructure;
 using _Imports = WebAdmin.Client._Imports;
+IdentityModelEventSource.ShowPII = true;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddProblemDetails();
 
@@ -40,6 +42,7 @@ var adminConfiguration = adminUiOptions.Admin;
 
 // 参考链接
 // https://github.com/IdentityModel/IdentityModel.AspNetCore/blob/72479bf781eac07b5f7f568ae45e498b5ba9ed69/samples/BlazorServer/HostingExtensions.cs#L15
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 builder.Services.AddAuthentication(options =>
     {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -50,6 +53,7 @@ builder.Services.AddAuthentication(options =>
         options =>
         {
             options.Cookie.Name = adminConfiguration.AdminCookieName;
+            options.SessionStore = new CookieSessionStore();
         })
     .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
     {
@@ -69,7 +73,7 @@ builder.Services.AddAuthentication(options =>
 
         options.SaveTokens = true;
 
-        options.GetClaimsFromUserInfoEndpoint = true;
+        //options.GetClaimsFromUserInfoEndpoint = true;
 
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -102,7 +106,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAccessTokenManagement();
 // 无法在会话（session）中管理令牌 因为 在 Blazor 服务器中不允许以编程方式使用 HttpContext
 builder.Services.AddSingleton<IUserAccessTokenStore, ServerSideTokenStore>();
-
+builder.Services.AddAntiforgery();
 
 builder.Services.AddAuthorization(options =>
 {
@@ -158,6 +162,15 @@ else
     app.UseHsts();
 }
 
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.All,
+    KnownNetworks = { },
+    KnownProxies = { }
+});
+
+app.UseWebSockets();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -187,6 +200,5 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(_Imports).Assembly);
-
 
 app.Run();
