@@ -5,8 +5,11 @@ using Dapr.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
+#nullable enable
+
 namespace Idsrv4.Admin.UI.Helpers
 {
+
     internal class CookieSessionStore : ITicketStore
     {
         string DAPR_STORE_NAME = "dt-statestore";
@@ -23,13 +26,13 @@ namespace Idsrv4.Admin.UI.Helpers
             byte[] value = SerializeToBytes(ticket);
 
             await _client.SaveStateAsync(DAPR_STORE_NAME, key, value, metadata: new Dictionary<string, string>()
-            {
-                {"ttlInSeconds", (60 * 1 * 60).ToString()},
-            });
+        {
+            {"ttlInSeconds", (60 * 1 * 60).ToString()},
+        });
 
         }
 
-        public async Task<AuthenticationTicket> RetrieveAsync(string key)
+        public async Task<AuthenticationTicket?> RetrieveAsync(string key)
         {
             var bytes = await _client.GetStateAsync<byte[]>(DAPR_STORE_NAME, key);
             var value = DeserializeFromBytes(bytes);
@@ -48,10 +51,9 @@ namespace Idsrv4.Admin.UI.Helpers
             return TicketSerializer.Default.Serialize(source);
         }
 
-        private static AuthenticationTicket DeserializeFromBytes(byte[] source)
+        private static AuthenticationTicket? DeserializeFromBytes(byte[] source)
         {
-            return source == null ? null : TicketSerializer.Default.Deserialize(source);
+            return source == null ? default : TicketSerializer.Default.Deserialize(source);
         }
     }
-
 }

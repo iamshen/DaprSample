@@ -129,7 +129,8 @@ public class PurchaseOrderProcessActor : DomainActor<PurchaseOrderState>, IPurch
                 CreatedTime = state.CreatedTime,
                 UpdatedTime = state.UpdatedTime,
                 OrderItems = state.OrderItems
-            }
+            },
+
         };
         await RaiseEvents(events.ToArray());
 

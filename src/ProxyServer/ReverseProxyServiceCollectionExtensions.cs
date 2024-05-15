@@ -70,6 +70,7 @@ internal static class ReverseProxyServiceCollectionExtensions
             Destinations = new Dictionary<string, DestinationConfig>(StringComparer.OrdinalIgnoreCase)
             {
                 { "destination1", new DestinationConfig() { Address = string.Concat("http://localhost:", ApplicationConstants.WebAdmin.ResourceHttpPort) } },
+                //{ "destination1", new DestinationConfig() { Address = "http://webAdmin" } },
             }
         }
     ];

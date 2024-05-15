@@ -62,7 +62,7 @@ public class RequestResponseLoggerMiddleware
 
     private static string FormatHeaders(IHeaderDictionary headers)
     {
-        return string.Join(", ", headers.Select(kvp => $"{{{kvp.Key}: {string.Join(", ", kvp.Value)}}}"));
+        return string.Join(", ", headers.Select(kvp => $"{{{kvp.Key}: {string.Join(", ", kvp.Value.ToString())}}}"));
     }
 
     private static async Task<string> ReadBodyFromRequest(HttpRequest request)

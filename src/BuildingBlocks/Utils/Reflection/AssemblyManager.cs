@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using Microsoft.Extensions.DependencyModel;
 
 namespace DaprTool.BuildingBlocks.Utils.Reflection;
@@ -50,6 +51,7 @@ public static class AssemblyManager
     /// <summary>
     ///     初始化
     /// </summary>
+    [RequiresAssemblyFiles("get all assemblyfiles", Url = "http://help/assemblyfiles")]
     public static void Init()
     {
         if (AssemblyFilterFunc == null) throw new Exception("AssemblyManager.AssemblyFilterFunc 不能为空");

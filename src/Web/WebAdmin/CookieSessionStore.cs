@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Dapr.Client;
+﻿using Dapr.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -27,7 +24,7 @@ internal class CookieSessionStore : ITicketStore
 
     }
 
-    public async Task<AuthenticationTicket> RetrieveAsync(string key)
+    public async Task<AuthenticationTicket?> RetrieveAsync(string key)
     {
         var bytes = await _client.GetStateAsync<byte[]>(DAPR_STORE_NAME, key);
         var value = DeserializeFromBytes(bytes);
@@ -46,9 +43,9 @@ internal class CookieSessionStore : ITicketStore
         return TicketSerializer.Default.Serialize(source);
     }
 
-    private static AuthenticationTicket DeserializeFromBytes(byte[] source)
+    private static AuthenticationTicket? DeserializeFromBytes(byte[] source)
     {
-        return source == null ? null : TicketSerializer.Default.Deserialize(source);
+        return source == null ? default : TicketSerializer.Default.Deserialize(source);
     }
 }
 

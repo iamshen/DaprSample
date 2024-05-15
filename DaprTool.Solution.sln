@@ -151,8 +151,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServer", "src\ProxyServer\ProxyServer.csproj", "{E8CEAD9D-B4BF-4ED1-9DA6-ABC41E797D60}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{B4373E4B-C419-4D3D-8A52-2A07AF906D0F}"
+	ProjectSection(SolutionItems) = preProject
+		build\README.md = build\README.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprTool.Solution.AppHost", "build\DaprTool.Solution.AppHost\DaprTool.Solution.AppHost.csproj", "{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprTool.Solution.AppHost", "build\DaprTool.Solution.AppHost\DaprTool.Solution.AppHost.csproj", "{639EAAE4-2DCB-41AD-A912-248F3FEA6B5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprTool.Solution.ServiceDefaults", "build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj", "{F2165039-0483-4149-BEB6-A40928C17D4E}"
 EndProject
