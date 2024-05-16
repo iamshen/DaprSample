@@ -7,4 +7,7 @@
     <ProjectReference Include="..\..\build\DaprTool.Solution.ServiceDefaults\DaprTool.Solution.ServiceDefaults.csproj" />
     <ProjectReference Include="..\BuildingBlocks\Utils\Utils.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
 </Project>

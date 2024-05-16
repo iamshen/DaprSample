@@ -5,7 +5,7 @@ using Yarp.ReverseProxy.Transforms.Builder;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-public class DaprTransformProvider(ILogger<DaprTransformProvider> logger) : ITransformProvider
+public class DaprTransformProvider: ITransformProvider
 {
     public void Apply(TransformBuilderContext context)
     {
@@ -32,8 +32,6 @@ public class DaprTransformProvider(ILogger<DaprTransformProvider> logger) : ITra
                     transformContext.DestinationPrefix,
                     new PathString(string.Format(ApplicationConstants.DaprServiceInvocation, context.Route.RouteId, catchAll)),
                     queryContext.QueryString);
-
-                logger.LogInformation("proxy to new path uri: {0}", newPathUri);
 
                 transformContext.ProxyRequest.RequestUri = newPathUri;
 
