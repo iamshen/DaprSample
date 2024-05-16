@@ -11,16 +11,6 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 
-
-// proxy server
-builder.AddProject<Projects.ProxyServer>(ApplicationConstants.ProxyServer.AppId)
-//.WithReference(webAdmin)
-//.WithReference(authAdmin)
-//.WithReference(authSts)
-//.WithReference(authApi)
-//.WithReference(orderApi)
-;
-
 // web admin
 var webAdmin = builder.AddProject<Projects.WebAdmin>(ApplicationConstants.WebAdmin.AppId)
     .WithDaprSidecar(new DaprSidecarOptions
@@ -74,7 +64,7 @@ var authApi = builder.AddProject<Projects.Idsrv4_Admin_Api>(ApplicationConstants
 
 var orderApi = builder.AddProject<Projects.Ordering_Api>(ApplicationConstants.Ordering.AppId)
     .WithDaprSidecar(new DaprSidecarOptions()
-    {
+    { 
         AppId = ApplicationConstants.Ordering.AppId,
         DaprHttpPort = ApplicationConstants.Ordering.DaprHttpPort,
         ResourcesPaths = ImmutableHashSet<string>.Empty.Add(ApplicationConstants.ResourcesPath),
@@ -83,6 +73,15 @@ var orderApi = builder.AddProject<Projects.Ordering_Api>(ApplicationConstants.Or
     })
     .WithHttpEndpoint(port: ApplicationConstants.Ordering.ResourceHttpPort)
     ;
+
+// proxy server
+builder.AddProject<Projects.ProxyServer>(ApplicationConstants.ProxyServer.AppId)
+.WithReference(webAdmin)
+//.WithReference(authAdmin)
+//.WithReference(authSts)
+//.WithReference(authApi)
+//.WithReference(orderApi)
+;
 
 
 var app = builder.Build();

@@ -179,8 +179,7 @@ ko.components.register("picker",
                         {
                             limit: self.topSuggestedItems()
                         },
-                        function(data) {
-
+                        function (data) {
                             self.suggestedResult(data);
 
                             //stop loading
@@ -308,7 +307,7 @@ ko.components.register("picker",
             '<hr data-bind="visible: searchResult().length > 0" />' +
             '<div data-bind="visible: searchResult().length > 0, text: searchResultTitle" class="search-title"></div>' +
             '<div class="block__buttons__add" data-bind="foreach: searchResult"><input type="button" class="btn btn-primary button__add" data-bind="value: $data, click: function() { $parent.add($data); }"></div>' +
-            '<img data-bind="visible: loading()" src="/images/loading.gif" alt="Loading.." />' +
+            '<img data-bind="visible: loading()" src="/auth/admin/images/loading.gif" alt="Loading.." />' +
             "<hr />" +
             '<div data-bind="visible: selectedResult().length == 0, text: noItemSelectedTitle" class="search-title"></div>' +
             '<div data-bind="visible: selectedResult().length > 0, text: selectedItemsTitle" class="search-title"></div>' +

@@ -62,7 +62,7 @@ builder.Services.AddAuthentication(options =>
         options.ClientId = adminConfiguration.ClientId;
         options.ClientSecret = adminConfiguration.ClientSecret;
         options.ResponseType = adminConfiguration.OidcResponseType!;
-
+        options.MapInboundClaims = false;
 
         options.Scope.Clear();
         foreach (var scope in adminConfiguration.Scopes) options.Scope.Add(scope);
@@ -73,7 +73,7 @@ builder.Services.AddAuthentication(options =>
 
         options.SaveTokens = true;
 
-        //options.GetClaimsFromUserInfoEndpoint = true;
+        options.GetClaimsFromUserInfoEndpoint = true;
 
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -98,6 +98,15 @@ builder.Services.AddAuthentication(options =>
                     context.ProtocolMessage.RedirectUri = adminConfiguration.AdminRedirectUri;
 
                 return Task.CompletedTask;
+            },
+            OnTokenValidated = async n =>
+            {
+                var svc = n.HttpContext.RequestServices.GetRequiredService<IUserAccessTokenStore>();
+                var exp = DateTimeOffset.UtcNow.AddSeconds(Double.Parse(n.TokenEndpointResponse!.ExpiresIn));
+
+                if(n.Principal is not null)
+                    await svc.StoreTokenAsync(n.Principal, n.TokenEndpointResponse.AccessToken, exp,
+                        n.TokenEndpointResponse.RefreshToken);
             }
         };
     });

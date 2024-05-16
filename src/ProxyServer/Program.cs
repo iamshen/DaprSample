@@ -17,6 +17,7 @@ builder.Services
     .AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
     .LoadHardCodeConfig(builder)
+    .AddServiceDiscoveryDestinationResolver()
     ;
 
 var app = builder.Build();
