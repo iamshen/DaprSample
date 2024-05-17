@@ -1,4 +1,4 @@
-
+这是 dapr .net sdk 使用的 简单示例
 
 ### Step 1: Run Service
 
