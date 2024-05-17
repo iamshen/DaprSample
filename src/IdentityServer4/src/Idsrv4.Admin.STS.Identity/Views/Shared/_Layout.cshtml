@@ -56,6 +56,9 @@
     @if (User.Identity.IsAuthenticated && !string.IsNullOrEmpty(name))
     {
         <!--Menu item -->
+        <vc:web-admin-link></vc:web-admin-link>
+
+        <!--Menu item -->
         <vc:identity-server-admin-link></vc:identity-server-admin-link>
 
         <!--Menu item -->

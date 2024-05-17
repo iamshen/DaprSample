@@ -3,17 +3,17 @@ using Idsrv4.Admin.UI.Configuration;
 
 namespace Idsrv4.Admin.UI.ViewComponents;
 
-public class IdentityServerLinkViewComponent : ViewComponent
+public class WebAdminLinkViewComponent : ViewComponent
 {
     private readonly AdminConfiguration _configuration;
 
-    public IdentityServerLinkViewComponent(AdminConfiguration configuration)
+    public WebAdminLinkViewComponent(AdminConfiguration configuration)
     {
         _configuration = configuration;
     }
 
     public IViewComponentResult Invoke()
     {
-        return View(model: _configuration.IdentityServerBaseUrl);
+        return View(model: _configuration.WebAdminBaseUrl);
     }
 }
