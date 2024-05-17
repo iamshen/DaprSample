@@ -2,17 +2,17 @@
 
 namespace Idsrv4.Admin.STS.Identity.ViewComponents;
 
-public class IdentityServerAdminLinkViewComponent : ViewComponent
+public class WebAdminLinkViewComponent : ViewComponent
 {
     private readonly IRootConfiguration _configuration;
 
-    public IdentityServerAdminLinkViewComponent(IRootConfiguration configuration)
+    public WebAdminLinkViewComponent(IRootConfiguration configuration)
     {
         _configuration = configuration;
     }
 
     public IViewComponentResult Invoke()
     {
-        return View(model: _configuration.AdminConfiguration.IdentityAdminBaseUrl);
+        return View(model: _configuration.AdminConfiguration.WebAdminBaseUrl);
     }
 }
