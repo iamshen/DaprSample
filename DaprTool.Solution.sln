@@ -97,6 +97,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprTool.AbstractionsTest", "test\DaprTool.AbstractionsTest\DaprTool.AbstractionsTest.csproj", "{9D99BAB3-C5FA-4EB8-8CCF-4476957484D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer4", "IdentityServer4", "{D2F20A9C-E732-43EA-9615-70F9FD46253A}"
+	ProjectSection(SolutionItems) = preProject
+		src\IdentityServer4\README.md = src\IdentityServer4\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprActorExtensions", "src\BuildingBlocks\DaprActorExtensions\DaprActorExtensions.csproj", "{E8E71C63-315D-4CD5-9847-4FFE30D2EA45}"
 EndProject

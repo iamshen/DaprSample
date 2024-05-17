@@ -82,9 +82,41 @@
     ],
     "Clients": [
       {
+        "ClientId": "web_admin",
+        "ClientName": "web_admin",
+        "ClientUri": "https://localhost:44444/admin",
+        "AllowedGrantTypes": [
+          "authorization_code"
+        ],
+        "RequirePkce": true,
+        "ClientSecrets": [
+          {
+            "Value": "c7c7d023-4bed-f262-64da-6d7a42c24f6c"
+          }
+        ],
+        "RedirectUris": [
+          "https://localhost:44444/admin/signin-oidc"
+        ],
+        "FrontChannelLogoutUri": "https://localhost:44444/admin/signout-oidc",
+        "PostLogoutRedirectUris": [
+          "https://localhost:44444/admin/signout-callback-oidc"
+        ],
+        "AllowedCorsOrigins": [
+          "https://localhost:44444"
+        ],
+        "AllowedScopes": [
+          "roles",
+          "profile",
+          "openid",
+          "email",
+          "identity_admin_api",
+          "offline_access"
+        ]
+      },
+      {
         "ClientId": "identity_admin",
         "ClientName": "identity_admin",
-        "ClientUri": "https://localhost:44303/authAdmin",
+        "ClientUri": "https://localhost:44444/auth/admin",
         "AllowedGrantTypes": [
           "authorization_code"
         ],
@@ -95,14 +127,14 @@
           }
         ],
         "RedirectUris": [
-          "https://localhost:44303/authAdmin/signin-oidc"
+          "https://localhost:44444/auth/admin/signin-oidc"
         ],
-        "FrontChannelLogoutUri": "https://localhost:44303/authAdmin/signout-oidc",
+        "FrontChannelLogoutUri": "https://localhost:44444/auth/admin/signout-oidc",
         "PostLogoutRedirectUris": [
-          "https://localhost:44303/authAdmin/signout-callback-oidc"
+          "https://localhost:44444/auth/admin/signout-callback-oidc"
         ],
         "AllowedCorsOrigins": [
-          "https://localhost:44303/authAdmin"
+          "https://localhost:44444"
         ],
         "AllowedScopes": [
           "openid",

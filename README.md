@@ -42,3 +42,16 @@
 # 可插拔组件
 
 > 本地测试 可插拔组件的时候  请使用 wsl 运行 dotnet run
+
+
+
+### IdentityServer4 
+
+#### 数据库准备
+
+* 1. 创建数据库
+  - `1.1 创建 postgres 用户 idsrv4 密码 Local@Db` 
+  - `1.2 创建 postgres 数据库 CREATE DATABASE idsrv4 OWNER idsrv4;`
+* 2. 初始化数据库
+  - `2.1 cd dapr-tool-solution\src\IdentityServer4\src\Idsrv4.Admin`
+  - `2.2 dotnet run /seed`
