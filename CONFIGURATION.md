@@ -16,7 +16,13 @@
 - 这些组件配置文件会被 Dapr 运行时自动加载，并根据配置初始化相应的组件。
 
 
-#### `dapr postgres` 配置
+#### 2.1 State stores
+
+> 如果需要 使用 `postgres` 作为  `statestore` 请使用以下脚本创建表
+
+
+> 详情可以参考 [`Dapr 文档`](https://docs.dapr.io/reference/components-reference/supported-state-stores/setup-postgresql-v2/)
+
 
 ```postgresql
 -- # 

@@ -1,7 +1,6 @@
 <Project>
 
   <Import Project="Common.props" />
-  <!--Release 模式下不要生产pdb调试文件-->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
