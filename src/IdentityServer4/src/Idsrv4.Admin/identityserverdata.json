@@ -85,6 +85,7 @@
         "ClientId": "web_admin",
         "ClientName": "web_admin",
         "ClientUri": "https://localhost:44444/admin",
+        "AllowOfflineAccess": true,
         "AllowedGrantTypes": [
           "authorization_code"
         ],
