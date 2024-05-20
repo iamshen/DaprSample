@@ -1,5 +1,6 @@
 ﻿using DaprTool.BuildingBlocks.Utils.Constant;
 using Yarp.ReverseProxy.Configuration;
+using Yarp.ReverseProxy.LoadBalancing;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -60,10 +61,12 @@ internal static class ReverseProxyServiceCollectionExtensions
     internal static IEnumerable<ClusterConfig> SystemClusters => Constants.SystemApps.Select(x => new ClusterConfig()
     {
         ClusterId = x.ClusterId,
+        LoadBalancingPolicy = LoadBalancingPolicies.PowerOfTwoChoices,
         Destinations = new Dictionary<string, DestinationConfig>(StringComparer.OrdinalIgnoreCase)
         {
-            { "destination1", new DestinationConfig() { Address = string.Concat("http://", x.AppId) } },
-            { "destination2", new DestinationConfig() { Address = string.Concat("http://localhost:", x.ResourceHttpPort) } },
+            { "destination1", new DestinationConfig() { Address = string.Concat("https://localhost:", x.AppHttpsPort) } },
+            { "destination2", new DestinationConfig() { Address = string.Concat("http://", x.AppId) } },
+            { "destination3", new DestinationConfig() { Address = string.Concat("http://localhost:", x.ResourceHttpPort) } },
         }
       
     });
