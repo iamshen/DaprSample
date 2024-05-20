@@ -55,6 +55,6 @@ public static class AppDataConnectionExtensions
     /// <exception cref="ArgumentException"></exception>
     public static void AddOrderAppDataConnection(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddOrderAppDataConnection(configuration.GetConnectionString(ApplicationConstants.Ordering.AppId)!);
+        services.AddOrderAppDataConnection(configuration.GetConnectionString(Constants.Ordering.AppId)!);
     }
 }

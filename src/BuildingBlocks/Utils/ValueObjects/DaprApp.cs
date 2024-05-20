@@ -8,8 +8,8 @@ public record DaprApp(string AppId, int? DaprHttpPort, int? ResourceHttpPort, in
     public string? ResourceHttpEndpoint => string.Concat(AppId, "-http");
 
     public string MatchPath => string.IsNullOrWhiteSpace(BasePath) ?
-        $"{ApplicationConstants.ApiPathPrefix}/{AppId}{ApplicationConstants.RoutePattern}" :
-        $"{BasePath}{ApplicationConstants.RoutePattern}";
+        $"{Constants.ApiPathPrefix}/{AppId}{Constants.RoutePattern}" :
+        $"{BasePath}{Constants.RoutePattern}";
 
-    public string ClusterId => string.Concat(AppId, ApplicationConstants.ClusterSuffix);
+    public string ClusterId => string.Concat(AppId, Constants.ClusterSuffix);
 }

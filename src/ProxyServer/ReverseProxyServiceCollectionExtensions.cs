@@ -15,7 +15,7 @@ internal static class ReverseProxyServiceCollectionExtensions
         new Dictionary<string, string>
         {
             {"RequestHeader", "X-Forwarded-Prefix"},
-            {"Set", ApplicationConstants.WebAdmin.BasePath ?? ""}
+            {"Set", Constants.WebAdmin.BasePath ?? ""}
         },
         new Dictionary<string, string>
         {
@@ -29,7 +29,8 @@ internal static class ReverseProxyServiceCollectionExtensions
 
     /// <summary>
     /// 添加 常量配置
-    /// <para> 把 /api/{appid}/{*remainder} 路由转换为 /v1.0/invoke/{appid}/method/{remainder} </para>
+    /// <para> 1. 把 /admin  /auth/admin  /api/auth 分别直接转发到对应的应用服务</para>
+    /// <para> 2. 把 /api/{appid}/{*remainder} 路由转换为 /v1.0/invoke/{appid}/method/{remainder} </para>
     /// </summary>
     /// <param name="reverseProxyBuilder"></param>
     /// <param name="builder"></param>
@@ -43,37 +44,7 @@ internal static class ReverseProxyServiceCollectionExtensions
     }
 
     /// <summary /> 
-    internal static IEnumerable<RouteConfig> SystemRoutes =>
-    [
-        new RouteConfig()
-        {
-            RouteId = ApplicationConstants.WebAdmin.AppId,
-            ClusterId = ApplicationConstants.WebAdmin.ClusterId,
-            Order = ApplicationConstants.WebAdmin.Order,
-            Match = new RouteMatch()
-            {
-                Path = ApplicationConstants.WebAdmin.MatchPath,
-            },
-            Transforms = DefaultTransform
-        }
-    ];
-
-    /// <summary /> 
-    internal static IEnumerable<ClusterConfig> SystemClusters =>
-    [
-        new ClusterConfig()
-        {
-            ClusterId = ApplicationConstants.WebAdmin.ClusterId,
-            Destinations = new Dictionary<string, DestinationConfig>(StringComparer.OrdinalIgnoreCase)
-            {
-                { "destination1", new DestinationConfig() { Address = string.Concat("http://", ApplicationConstants.WebAdmin.AppId) } },
-                { "destination2", new DestinationConfig() { Address = string.Concat("http://localhost:", ApplicationConstants.WebAdmin.ResourceHttpPort) } },
-            }
-        }
-    ];
-
-    /// <summary /> 
-    internal static IEnumerable<RouteConfig> Routes => ApplicationConstants.AllRoutes.Select(x => new RouteConfig()
+    internal static IEnumerable<RouteConfig> SystemRoutes => Constants.SystemApps.Select(x => new RouteConfig()
     {
         RouteId = x.AppId,
         ClusterId = x.ClusterId,
@@ -86,7 +57,32 @@ internal static class ReverseProxyServiceCollectionExtensions
     });
 
     /// <summary /> 
-    internal static IEnumerable<ClusterConfig> Clusters => ApplicationConstants.AllRoutes.Select(x => new ClusterConfig()
+    internal static IEnumerable<ClusterConfig> SystemClusters => Constants.SystemApps.Select(x => new ClusterConfig()
+    {
+        ClusterId = x.ClusterId,
+        Destinations = new Dictionary<string, DestinationConfig>(StringComparer.OrdinalIgnoreCase)
+        {
+            { "destination1", new DestinationConfig() { Address = string.Concat("http://", x.AppId) } },
+            { "destination2", new DestinationConfig() { Address = string.Concat("http://localhost:", x.ResourceHttpPort) } },
+        }
+      
+    });
+
+    /// <summary /> 
+    internal static IEnumerable<RouteConfig> Routes => Constants.ApiApps.Select(x => new RouteConfig()
+    {
+        RouteId = x.AppId,
+        ClusterId = x.ClusterId,
+        Order = x.Order,
+        Match = new RouteMatch()
+        {
+            Path = x.MatchPath,
+        },
+        Transforms = DefaultTransform
+    });
+
+    /// <summary /> 
+    internal static IEnumerable<ClusterConfig> Clusters => Constants.ApiApps.Select(x => new ClusterConfig()
     {
         ClusterId = x.ClusterId,
         Destinations = new Dictionary<string, DestinationConfig>(StringComparer.OrdinalIgnoreCase)

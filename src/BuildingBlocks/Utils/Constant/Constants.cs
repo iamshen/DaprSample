@@ -3,7 +3,7 @@
 namespace DaprTool.BuildingBlocks.Utils.Constant;
 
 /// <summary />
-public static class ApplicationConstants
+public static class Constants
 {
     /// <summary />
     public const string ResourcesPath = "../../dapr/components";
@@ -42,19 +42,30 @@ public static class ApplicationConstants
     /// <summary />
     public static DaprApp Catalog = new("catalog-api", 12070, 33441, 33442);
 
-    /// <summary />
-    public static IEnumerable<DaprApp> AllRoutes
+    /// <summary>
+    /// api 服务应用 ，Yarp 转发到 dapr cli 通过 dapr service invoke 调用  应用服务
+    /// </summary>
+    public static IEnumerable<DaprApp> ApiApps
     {
         get
         {
-            //yield return ProxyServer;// 
-            //yield return WebAdmin;
-            yield return AuthSts;
-            yield return AuthAdmin;
-            yield return AuthApi;
             yield return Ordering;
             yield return Identity;
             yield return Catalog;
+        }
+    }
+
+    /// <summary>
+    /// 系统 app ， Yarp 直接转发到应用，不通过 dapr cli 调用 应用服务
+    /// </summary>
+    public static IEnumerable<DaprApp> SystemApps
+    {
+        get
+        {
+            yield return WebAdmin;
+            yield return AuthAdmin;
+            yield return AuthApi;
+            yield return AuthSts;
         }
     }
 }
