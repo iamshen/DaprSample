@@ -4,6 +4,7 @@
     <Description>The package with UI for the administration of the IdentityServer4</Description>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <StaticWebAssetBasePath Condition="$(StaticWebAssetBasePath) == ''">/</StaticWebAssetBasePath>
+	<PublishSingleFile>false</PublishSingleFile>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="wwwroot\dist\js\Picker.js" />

@@ -13,7 +13,11 @@
 dotnet run --publisher manifest --output-path manifest.json
 aspirate init
 aspirate build
+# 默认生成 kubernetes
 aspirate generate
+# 也可以生成 docker-compose 部署
+# aspirate generate --output-format compose
+
 aspirate apply
 ```
 

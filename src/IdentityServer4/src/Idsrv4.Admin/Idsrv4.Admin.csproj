@@ -3,6 +3,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <UserSecretsId>8fe260ca-ef4c-4fa3-9364-029146f8d339</UserSecretsId>
     <NoWarn>NU1803;NU1507;1701;1702;1591;8002;CS1573;NU1604;</NoWarn>
+	<PublishSingleFile>false</PublishSingleFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI" />
