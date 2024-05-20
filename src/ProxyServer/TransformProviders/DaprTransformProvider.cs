@@ -9,7 +9,7 @@ public class DaprTransformProvider: ITransformProvider
 {
     public void Apply(TransformBuilderContext context)
     {
-        var route = ApplicationConstants.AllRoutes.FirstOrDefault(x => x.AppId.Equals(context.Route.RouteId, StringComparison.OrdinalIgnoreCase));
+        var route = Constants.ApiApps.FirstOrDefault(x => x.AppId.Equals(context.Route.RouteId, StringComparison.OrdinalIgnoreCase));
         if (route is not null)
         {
             context.AddRequestTransform((RequestTransformContext transformContext) =>
@@ -17,9 +17,9 @@ public class DaprTransformProvider: ITransformProvider
                 string catchAll = string.Empty;
                 var requestPath = transformContext.Path.Value!;
 
-                if (string.IsNullOrWhiteSpace(route.BasePath) && requestPath.StartsWith(ApplicationConstants.ApiPathPrefix))
+                if (string.IsNullOrWhiteSpace(route.BasePath) && requestPath.StartsWith(Constants.ApiPathPrefix))
                 {
-                    catchAll = requestPath[$"{ApplicationConstants.ApiPathPrefix}/{route.AppId}".Length..];
+                    catchAll = requestPath[$"{Constants.ApiPathPrefix}/{route.AppId}".Length..];
                 }
                 else
                 {
@@ -30,7 +30,7 @@ public class DaprTransformProvider: ITransformProvider
 
                 var newPathUri = RequestUtilities.MakeDestinationAddress(
                     transformContext.DestinationPrefix,
-                    new PathString(string.Format(ApplicationConstants.DaprServiceInvocation, context.Route.RouteId, catchAll)),
+                    new PathString(string.Format(Constants.DaprServiceInvocation, context.Route.RouteId, catchAll)),
                     queryContext.QueryString);
 
                 transformContext.ProxyRequest.RequestUri = newPathUri;

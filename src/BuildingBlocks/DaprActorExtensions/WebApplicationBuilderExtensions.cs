@@ -24,7 +24,7 @@ public static class WebApplicationBuilderExtensions
         // 配置 Dapr 客户端
         var client = new DaprClientBuilder().Build();
         // 注册 Dapr 配置
-        builder.Configuration.AddDaprConfigurationStore(ApplicationConstants.ConfigurationStore, Array.Empty<string>(), client, TimeSpan.FromMinutes(30));
+        builder.Configuration.AddDaprConfigurationStore(Constants.ConfigurationStore, Array.Empty<string>(), client, TimeSpan.FromMinutes(30));
         // 注册 Dapr 事件总线
         builder.Services.AddScoped<IEventBus, DaprEventBus>();
         // 注册 Dapr Actor 

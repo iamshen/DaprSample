@@ -345,6 +345,8 @@ public static class StartupHelpers
             .AddEntityFrameworkStores<TContext>()
             .AddDefaultTokenProviders();
 
+        services.AddDistributedMemoryCache();
+
         var authenticationBuilder = services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;

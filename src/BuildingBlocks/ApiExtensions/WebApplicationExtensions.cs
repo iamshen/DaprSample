@@ -24,7 +24,7 @@ public static class WebApplicationExtensions
     public static void AddAppServices(this WebApplicationBuilder builder)
     {
         // 注册 Serilog
-        builder.AddAppSerilog(ApplicationConstants.Ordering.AppId);
+        builder.AddAppSerilog(DaprTool.BuildingBlocks.Utils.Constant.Constants.Ordering.AppId);
         // 注册 Api 资源
         builder.AddAppApiResource();
         // 注册 Swagger 
@@ -34,7 +34,7 @@ public static class WebApplicationExtensions
         {
             // 注册过滤器
             // options.Filters.Add<ExceptionFilter>();
-            options.Filters.Add(new ResultFilter(AppConstants.ResponseJsonContentType));
+            options.Filters.Add(new ResultFilter(AspNetCore.Mvc.AppConstants.ResponseJsonContentType));
         });
         // 注册 自动依赖注入
         builder.Services.AddAutoInject();

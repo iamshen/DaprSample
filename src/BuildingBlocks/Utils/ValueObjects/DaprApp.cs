@@ -2,14 +2,14 @@
 
 namespace DaprTool.BuildingBlocks.Utils.ValueObjects;
 
-public record DaprApp(string AppId, int? DaprHttpPort, int? ResourceHttpPort, int? ResourceHttpsPort, string? BasePath = "", int? Order = 100)
+public record DaprApp(string AppId, int? DaprHttpPort, int? ResourceHttpPort, int? AppHttpsPort, string? BasePath = "", int? Order = 100)
 {
     public string? ResourceHttpsEndpoint => string.Concat(AppId, "-https");
     public string? ResourceHttpEndpoint => string.Concat(AppId, "-http");
 
     public string MatchPath => string.IsNullOrWhiteSpace(BasePath) ?
-        $"{ApplicationConstants.ApiPathPrefix}/{AppId}{ApplicationConstants.RoutePattern}" :
-        $"{BasePath}{ApplicationConstants.RoutePattern}";
+        $"{Constants.ApiPathPrefix}/{AppId}{Constants.RoutePattern}" :
+        $"{BasePath}{Constants.RoutePattern}";
 
-    public string ClusterId => string.Concat(AppId, ApplicationConstants.ClusterSuffix);
+    public string ClusterId => string.Concat(AppId, Constants.ClusterSuffix);
 }

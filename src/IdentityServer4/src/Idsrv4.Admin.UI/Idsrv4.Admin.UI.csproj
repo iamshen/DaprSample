@@ -6,6 +6,9 @@
     <StaticWebAssetBasePath Condition="$(StaticWebAssetBasePath) == ''">/</StaticWebAssetBasePath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="wwwroot\dist\js\Picker.js" />
+  </ItemGroup>
+  <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +87,10 @@
     <None Include="Areas\AdminUI\Views\Shared\_Layout.cshtml" />
     <None Include="Areas\AdminUI\Views\_ViewImports.cshtml" />
     <None Include="Areas\AdminUI\Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\dist\js\Picker.js" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dapr.AspNetCore"  />
+    <PackageReference Include="Dapr.AspNetCore" />
     <PackageReference Include="AspNetCore.HealthChecks.MySql" />
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" />
     <PackageReference Include="AspNetCore.HealthChecks.OpenIdConnectServer" />
