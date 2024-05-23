@@ -1,0 +1,16 @@
+{
+  "projectPath": ".",
+  "containerRegistry": "registry.cn-shenzhen.aliyuncs.com",
+  "containerImageTags": [
+    "latest"
+  ],
+  "containerBuilder": "docker",
+  "containerRepositoryPrefix": "huangshen",
+  "outputFormat": "kustomize",
+  "secrets": {
+    "salt": "IkrA7nfBQ7D\u002BCckn",
+    "hash": "zDNrZprNGlk91UFwKeYuvkbWnm9MuqzeHAckg6gyxkI=",
+    "secrets": {}
+  },
+  "processAllComponents": true
+}

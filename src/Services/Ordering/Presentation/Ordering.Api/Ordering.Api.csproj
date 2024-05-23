@@ -2,7 +2,10 @@
 
     <PropertyGroup>
         <UserSecretsId>db0f9eb4-ee32-47d3-8d93-f59a66d79da5</UserSecretsId>
-		<PublishSingleFile>false</PublishSingleFile>
+	    <PublishSingleFile>false</PublishSingleFile>
+	    <ContainerRepository>order-api</ContainerRepository>
+	    <ContainerRegistry>registry.cn-shenzhen.aliyuncs.com</ContainerRegistry>
+	    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
 	</PropertyGroup>
 
 

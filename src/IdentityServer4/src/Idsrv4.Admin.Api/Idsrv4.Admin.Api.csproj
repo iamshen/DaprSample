@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <UserSecretsId>1cc472a2-4e4b-48ce-846b-5219f71fc643</UserSecretsId>
+	<ContainerRepository>auth-api</ContainerRepository>
+	<ContainerRegistry>registry.cn-shenzhen.aliyuncs.com</ContainerRegistry>
+	<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.MySql" />

@@ -1,0 +1,11 @@
+{
+  "TemplatePath": null,
+  "ContainerSettings": {
+    "Registry": "registry.cn-shenzhen.aliyuncs.com",
+    "RepositoryPrefix": "huangshen",
+    "Tags": [
+      "latest"
+    ],
+    "Builder": "docker"
+  }
+}
