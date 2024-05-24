@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <PublishSingleFile>false</PublishSingleFile>
+	<ContainerRepository>web-admin</ContainerRepository>
+	<ContainerRegistry>registry.cn-shenzhen.aliyuncs.com</ContainerRegistry>
+	<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
   </PropertyGroup>
 	
   <ItemGroup>

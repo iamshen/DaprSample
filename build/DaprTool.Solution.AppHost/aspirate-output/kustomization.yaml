@@ -1,0 +1,16 @@
+namespace: dapr-playground
+
+resources:
+- admin
+- auth-sts
+- auth-admin
+- auth-api
+- order-api
+- proxy-server
+- namespace.yaml
+- dashboard.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+
