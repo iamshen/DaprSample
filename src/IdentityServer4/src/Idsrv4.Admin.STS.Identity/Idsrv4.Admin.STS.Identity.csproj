@@ -6,6 +6,7 @@
 	<ContainerRepository>auth-sts</ContainerRepository>
 	<ContainerRegistry>registry.cn-shenzhen.aliyuncs.com</ContainerRegistry>
 	<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
+	<ContainerUser>root</ContainerUser>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.GitHub" />

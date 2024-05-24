@@ -1,0 +1,21 @@
+resources:
+- deployment.yaml
+- service.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+- name: proxy-server-env
+  literals:
+    - OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES=true
+    - OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES=true
+    - OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY=in_memory
+    - ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+    - services__admin__http__0=http://admin:8080
+    - services__auth-admin__http__0=http://auth-admin:8080
+    - services__auth-sts__http__0=http://auth-sts:8080
+    - services__auth-api__http__0=http://auth-api:8080
+    - services__order-api__http__0=http://order-api:8080
+    - ASPNETCORE_URLS=http://+:8080;
+

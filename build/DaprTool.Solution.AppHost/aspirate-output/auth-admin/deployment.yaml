@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-admin
+  labels:
+    app: auth-admin
+  annotations:
+    dapr.io/enabled: 'true'
+    dapr.io/config: tracing
+    dapr.io/app-id: auth-admin
+    dapr.io/enable-api-logging: 'true'
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-admin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: auth-admin
+      annotations:
+        dapr.io/enabled: 'true'
+        dapr.io/config: tracing
+        dapr.io/app-id: auth-admin
+        dapr.io/enable-api-logging: 'true'
+    spec:
+      containers:
+      - name: auth-admin
+        image: registry.cn-shenzhen.aliyuncs.com/huangshen/auth-admin:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        - containerPort: 8443
+        envFrom:
+        - configMapRef:
+            name: auth-admin-env
+      terminationGracePeriodSeconds: 180

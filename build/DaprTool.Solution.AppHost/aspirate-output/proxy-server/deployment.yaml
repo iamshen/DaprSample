@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy-server
+  labels:
+    app: proxy-server
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proxy-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: proxy-server
+    spec:
+      containers:
+      - name: proxy-server
+        image: registry.cn-shenzhen.aliyuncs.com/huangshen/proxy-server:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        - containerPort: 8443
+        envFrom:
+        - configMapRef:
+            name: proxy-server-env
+      terminationGracePeriodSeconds: 180

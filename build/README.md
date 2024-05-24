@@ -10,10 +10,11 @@
 ## Quick Start
 
 ```
-dotnet run --publisher manifest --output-path manifest.json
-aspirate init
+# 初始化配置： 可以跳过这步，因为我运行过了，（可以删除掉，aspirate.json aspirate-state.json 再重新 init）
+aspirate init 
+ # 构建项目并推送到 Registry 仓库（也可以是本地）
 aspirate build
-# 默认生成 kubernetes
+# 默认生成 kubernetes yaml 清单 (上一步已经构建过了，可以添加参数 --skip-build 跳过构建)
 aspirate generate
 # 也可以生成 docker-compose 部署
 # aspirate generate --output-format compose
