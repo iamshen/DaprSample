@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
+using OpenTelemetry.Exporter;
 using WebAdmin.Components;
 using WebAdmin.Plumbing;
 using WebAdmin.Shared.Configurations;

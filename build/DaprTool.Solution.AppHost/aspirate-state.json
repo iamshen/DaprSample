@@ -4,13 +4,13 @@
   "namespace": "dapr-playground",
   "containerRegistry": "registry.cn-shenzhen.aliyuncs.com",
   "containerImageTags": [
-    "1.0.5-alpha1",
+    "1.0.6-alpha1",
     "latest"
   ],
   "imagePullPolicy": "IfNotPresent",
   "containerBuilder": "docker",
   "containerRepositoryPrefix": "project-workspace",
-  "outputFormat": "kustomize",
+  "outputFormat": "compose",
   "skipFinalKustomizeGeneration": false,
   "privateRegistryEmail": "aspir8@aka.ms",
   "includeDashboard": true,
