@@ -4,13 +4,16 @@
   "namespace": "dapr-playground",
   "containerRegistry": "registry.cn-shenzhen.aliyuncs.com",
   "containerImageTags": [
+    "1.0.5-alpha1",
     "latest"
   ],
+  "imagePullPolicy": "IfNotPresent",
   "containerBuilder": "docker",
-  "containerRepositoryPrefix": "huangshen",
+  "containerRepositoryPrefix": "project-workspace",
   "outputFormat": "kustomize",
   "skipFinalKustomizeGeneration": false,
   "privateRegistryEmail": "aspir8@aka.ms",
+  "includeDashboard": true,
   "useCustomNamespace": true,
   "secrets": {
     "salt": "IkrA7nfBQ7D\u002BCckn",

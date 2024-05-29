@@ -17,5 +17,7 @@ configMapGenerator:
     - services__auth-sts__http__0=http://auth-sts:8080
     - services__auth-api__http__0=http://auth-api:8080
     - services__order-api__http__0=http://order-api:8080
+    - OTEL_EXPORTER_OTLP_ENDPOINT=http://aspire-dashboard:18889
+    - OTEL_SERVICE_NAME=proxy-server
     - ASPNETCORE_URLS=http://+:8080;
 

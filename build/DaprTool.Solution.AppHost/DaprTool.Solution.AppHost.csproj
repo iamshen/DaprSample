@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BuildingBlocks\Utils\Utils.csproj"  IsAspireProjectResource="false" />
+    <ProjectReference Include="..\..\src\BuildingBlocks\Utils\Utils.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\..\src\IdentityServer4\src\Idsrv4.Admin.Api\Idsrv4.Admin.Api.csproj" />
     <ProjectReference Include="..\..\src\IdentityServer4\src\Idsrv4.Admin.STS.Identity\Idsrv4.Admin.STS.Identity.csproj" />
     <ProjectReference Include="..\..\src\IdentityServer4\src\Idsrv4.Admin\Idsrv4.Admin.csproj" />

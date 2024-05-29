@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: auth-api
-        image: registry.cn-shenzhen.aliyuncs.com/huangshen/auth-api:latest
+        image: registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-api:1.0.5-alpha1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
