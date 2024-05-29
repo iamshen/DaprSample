@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: order-api
-        image: registry.cn-shenzhen.aliyuncs.com/huangshen/order-api:latest
+        image: registry.cn-shenzhen.aliyuncs.com/project-workspace/order-api:1.0.5-alpha1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

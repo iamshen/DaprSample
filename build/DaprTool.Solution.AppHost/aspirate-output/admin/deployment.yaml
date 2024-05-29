@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: admin
-        image: registry.cn-shenzhen.aliyuncs.com/huangshen/web-admin:latest
+        image: registry.cn-shenzhen.aliyuncs.com/project-workspace/web-admin:1.0.5-alpha1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

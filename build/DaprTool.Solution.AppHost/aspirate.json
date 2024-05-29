@@ -2,7 +2,7 @@
   "TemplatePath": null,
   "ContainerSettings": {
     "Registry": "registry.cn-shenzhen.aliyuncs.com",
-    "RepositoryPrefix": "huangshen",
+    "RepositoryPrefix": "project-workspace",
     "Tags": [
       "latest"
     ],

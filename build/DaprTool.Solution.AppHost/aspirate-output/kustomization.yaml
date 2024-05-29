@@ -6,6 +6,7 @@ resources:
 - auth-admin
 - auth-api
 - order-api
+- proxy-monitor
 - proxy-server
 - namespace.yaml
 - dashboard.yaml

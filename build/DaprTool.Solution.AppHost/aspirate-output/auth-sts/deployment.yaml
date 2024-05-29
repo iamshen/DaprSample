@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: auth-sts
-        image: registry.cn-shenzhen.aliyuncs.com/huangshen/auth-sts:latest
+        image: registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-sts:1.0.5-alpha1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

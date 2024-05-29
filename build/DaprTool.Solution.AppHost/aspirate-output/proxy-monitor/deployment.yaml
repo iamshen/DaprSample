@@ -2,30 +2,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: proxy-server
+  name: proxy-monitor
   labels:
-    app: proxy-server
+    app: proxy-monitor
 spec:
   minReadySeconds: 60
   replicas: 1
   selector:
     matchLabels:
-      app: proxy-server
+      app: proxy-monitor
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: proxy-server
+        app: proxy-monitor
     spec:
       containers:
-      - name: proxy-server
-        image: registry.cn-shenzhen.aliyuncs.com/project-workspace/proxy-server:1.0.5-alpha1
+      - name: proxy-monitor
+        image: registry.cn-shenzhen.aliyuncs.com/project-workspace/proxy-monitor:1.0.5-alpha1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
         - containerPort: 8443
         envFrom:
         - configMapRef:
-            name: proxy-server-env
+            name: proxy-monitor-env
       terminationGracePeriodSeconds: 180
