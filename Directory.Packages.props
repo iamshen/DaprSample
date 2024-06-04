@@ -123,8 +123,8 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="[2.0.3,2.0.4]" />
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+	  <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+	  <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
   <!--.Net Aspire-->
   <ItemGroup>

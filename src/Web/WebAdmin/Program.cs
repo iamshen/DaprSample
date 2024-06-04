@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using OpenTelemetry.Exporter;
 using WebAdmin.Components;
 using WebAdmin.Plumbing;
 using WebAdmin.Shared.Configurations;
@@ -150,11 +149,6 @@ forwardingOptions.KnownNetworks.Clear();
 forwardingOptions.KnownProxies.Clear();
 
 app.UseForwardedHeaders(forwardingOptions);
-
-app.UseXXssProtection(options => options.EnabledWithBlockMode());
-app.UseXContentTypeOptions();
-app.UseXfo(options => options.SameOrigin());
-app.UseReferrerPolicy(options => options.NoReferrer());
 
 #endregion
 

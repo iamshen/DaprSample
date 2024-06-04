@@ -26,21 +26,21 @@ public static class Constants
     /// <summary />
     public const string DaprServiceInvocation = "/v1.0/invoke/{0}/method{1}";
     /// <summary />
-    public static DaprApp ProxyServer = new("proxy-server", 12001, 44440, 44444);
+    public static DaprApp ProxyServer = new("proxy-server", 12000, 55444, 44444);
     /// <summary />
-    public static DaprApp WebAdmin = new("admin", 12010, 51871, 7273, "/admin");
+    public static DaprApp AuthAdmin = new("auth-admin", 12010, 55303, 44303, "/auth/admin", 90);
     /// <summary />
-    public static DaprApp AuthAdmin = new("auth-admin", 12030, 53871, 44303, "/auth/admin", 90);
+    public static DaprApp AuthApi = new("auth-api", 12020, 55302, 44302, "/api/auth", 95);
     /// <summary />
-    public static DaprApp AuthApi = new("auth-api", 12040, 54871, 44302, "/api/auth", 95);
+    public static DaprApp AuthSts = new("auth-sts", 12030, 55310, 44310, "/auth");
     /// <summary />
-    public static DaprApp AuthSts = new("auth-sts", 12020, 52871, 44310, "/auth");
+    public static DaprApp WebAdmin = new("admin", 12040, 55510, 44510, "/admin");
     /// <summary />
-    public static DaprApp Ordering = new("order-api", 12050, 31441, 5510);
+    public static DaprApp Ordering = new("order", 12050, 55610, 44610);
     /// <summary />
-    public static DaprApp Identity = new("identity-api", 12060, 32441, 5520);
+    public static DaprApp Identity = new("identity", 12060, 55620, 44620);
     /// <summary />
-    public static DaprApp Catalog = new("catalog-api", 12070, 33441, 5530);
+    public static DaprApp Catalog = new("catalog", 12070, 55630, 44630);
 
     /// <summary>
     /// api 服务应用 ，Yarp 转发到 dapr cli 通过 dapr service invoke 调用  应用服务

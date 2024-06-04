@@ -50,9 +50,6 @@
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.ProxyServer">
             <summary />
         </member>
-        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.WebAdmin">
-            <summary />
-        </member>
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthAdmin">
             <summary />
         </member>
@@ -60,6 +57,9 @@
             <summary />
         </member>
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthSts">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.WebAdmin">
             <summary />
         </member>
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.Ordering">

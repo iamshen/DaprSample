@@ -4,7 +4,7 @@
   "namespace": "dapr-playground",
   "containerRegistry": "registry.cn-shenzhen.aliyuncs.com",
   "containerImageTags": [
-    "1.0.6-alpha1",
+    "1.0.11-alpha1",
     "latest"
   ],
   "imagePullPolicy": "IfNotPresent",

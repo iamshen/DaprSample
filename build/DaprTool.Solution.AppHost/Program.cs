@@ -1,40 +1,40 @@
 using DaprTool.BuildingBlocks.Utils.Constant;
 using Microsoft.Extensions.DependencyInjection;
+using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 
-// web admin
-var webAdmin = builder.AddProject<Projects.WebAdmin>(Constants.WebAdmin.AppId)
+var webAdmin = builder.AddProject<WebAdmin>(Constants.WebAdmin.AppId)
     .WithDaprSidecar(Constants.WebAdmin.GetSideCarOptions())
-    .WithHttpEndpoint(port: Constants.WebAdmin.ResourceHttpPort);
+    .WithExternalHttpEndpoints();
 
-// auth-server
-var authSts = builder.AddProject<Projects.Idsrv4_Admin_STS_Identity>(Constants.AuthSts.AppId)
+var authSts = builder.AddProject<Idsrv4_Admin_STS_Identity>(Constants.AuthSts.AppId)
     .WithDaprSidecar(Constants.AuthSts.GetSideCarOptions())
-    .WithHttpEndpoint(port: Constants.AuthSts.ResourceHttpPort);
+    .WithExternalHttpEndpoints();
 
-var authAdmin = builder.AddProject<Projects.Idsrv4_Admin>(Constants.AuthAdmin.AppId)
+var authAdmin = builder.AddProject<Idsrv4_Admin>(Constants.AuthAdmin.AppId)
     .WithDaprSidecar(Constants.AuthAdmin.GetSideCarOptions())
-    .WithHttpEndpoint(port: Constants.AuthAdmin.ResourceHttpPort);
+    .WithExternalHttpEndpoints();
 
-var authApi = builder.AddProject<Projects.Idsrv4_Admin_Api>(Constants.AuthApi.AppId)
+var authApi = builder.AddProject<Idsrv4_Admin_Api>(Constants.AuthApi.AppId)
     .WithDaprSidecar(Constants.AuthApi.GetSideCarOptions())
-    .WithHttpEndpoint(port: Constants.AuthApi.ResourceHttpPort);
+    .WithExternalHttpEndpoints();
 
 // api services
-var orderApi = builder.AddProject<Projects.Ordering_Api>(Constants.Ordering.AppId)
+var orderApi = builder.AddProject<Ordering_Api>(Constants.Ordering.AppId)
     .WithDaprSidecar(Constants.Ordering.GetSideCarOptions())
-    .WithHttpEndpoint(port: Constants.Ordering.ResourceHttpPort);
+    .WithExternalHttpEndpoints();
 
 // proxy server
-builder.AddProject<Projects.ProxyServer>(Constants.ProxyServer.AppId)
-      .WithReference(webAdmin)
-      .WithReference(authAdmin)
-      .WithReference(authSts)
-      .WithReference(authApi)
-      .WithReference(orderApi);
+builder.AddProject<ProxyServer>(Constants.ProxyServer.AppId)
+    .WithReference(webAdmin)
+    .WithReference(authAdmin)
+    .WithReference(authSts)
+    .WithReference(authApi)
+    .WithReference(orderApi)
+    .WithExternalHttpEndpoints();
 
 var app = builder.Build();
 
