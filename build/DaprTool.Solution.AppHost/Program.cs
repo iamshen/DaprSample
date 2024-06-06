@@ -6,10 +6,6 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 
-var webAdmin = builder.AddProject<WebAdmin>(Constants.WebAdmin.AppId)
-    .WithDaprSidecar(Constants.WebAdmin.GetSideCarOptions())
-    .WithExternalHttpEndpoints();
-
 var authSts = builder.AddProject<Idsrv4_Admin_STS_Identity>(Constants.AuthSts.AppId)
     .WithDaprSidecar(Constants.AuthSts.GetSideCarOptions())
     .WithExternalHttpEndpoints();
@@ -22,12 +18,16 @@ var authApi = builder.AddProject<Idsrv4_Admin_Api>(Constants.AuthApi.AppId)
     .WithDaprSidecar(Constants.AuthApi.GetSideCarOptions())
     .WithExternalHttpEndpoints();
 
-// api services
+var webAdmin = builder.AddProject<WebAdmin>(Constants.WebAdmin.AppId)
+    .WithDaprSidecar(Constants.WebAdmin.GetSideCarOptions())
+    .WithReference(authSts)
+    .WithReference(authApi)
+    .WithExternalHttpEndpoints();
+
 var orderApi = builder.AddProject<Ordering_Api>(Constants.Ordering.AppId)
     .WithDaprSidecar(Constants.Ordering.GetSideCarOptions())
     .WithExternalHttpEndpoints();
 
-// proxy server
 builder.AddProject<ProxyServer>(Constants.ProxyServer.AppId)
     .WithReference(webAdmin)
     .WithReference(authAdmin)

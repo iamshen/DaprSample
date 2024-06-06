@@ -7,7 +7,7 @@
   </PropertyGroup>
 	
   <ItemGroup>
-	<PackageReference Include="Dapr.AspNetCore"  />
+	<PackageReference Include="Dapr.AspNetCore" />
     <PackageReference Include="IdentityModel.AspNetCore" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />

@@ -47,19 +47,16 @@
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.DaprServiceInvocation">
             <summary />
         </member>
-        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.ProxyServer">
-            <summary />
-        </member>
-        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthAdmin">
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.WebAdmin">
             <summary />
         </member>
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthApi">
             <summary />
         </member>
-        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthSts">
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthAdmin">
             <summary />
         </member>
-        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.WebAdmin">
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.AuthSts">
             <summary />
         </member>
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.Ordering">
@@ -69,6 +66,9 @@
             <summary />
         </member>
         <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.Catalog">
+            <summary />
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Constant.Constants.ProxyServer">
             <summary />
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.Constant.Constants.ApiApps">

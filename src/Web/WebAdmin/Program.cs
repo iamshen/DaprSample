@@ -74,7 +74,7 @@ builder.Services.AddAuthentication(options =>
         options.SaveTokens = true;
 
         options.GetClaimsFromUserInfoEndpoint = true;
-
+        
         options.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = adminConfiguration.TokenValidationClaimName,
@@ -83,6 +83,13 @@ builder.Services.AddAuthentication(options =>
 
         options.Events = new OpenIdConnectEvents
         {
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine(context.Exception?.Message);
+                Console.WriteLine(context.Exception?.InnerException?.Message);
+                
+                return Task.CompletedTask;
+            },
             OnMessageReceived = context =>
             {
                 if (context.Properties is null) return Task.CompletedTask;
@@ -122,7 +129,6 @@ builder.Services.AddAuthorization(options =>
     // 默认情况下，所有请求都将根据默认策略进行授权 如果您想从用户界面驱动登录/注销工作流程，注释掉
     options.FallbackPolicy = options.DefaultPolicy;
 });
-
 
 var app = builder.Build();
 

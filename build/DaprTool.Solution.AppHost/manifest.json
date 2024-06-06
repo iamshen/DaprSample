@@ -30,7 +30,7 @@
         "application": "admin",
         "appId": "admin",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12040,
+        "daprHttpPort": 23301,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -67,7 +67,7 @@
         "application": "auth-sts",
         "appId": "auth-sts",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12030,
+        "daprHttpPort": 23304,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -104,7 +104,7 @@
         "application": "auth-admin",
         "appId": "auth-admin",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12010,
+        "daprHttpPort": 23303,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -141,7 +141,7 @@
         "application": "auth-api",
         "appId": "auth-api",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12020,
+        "daprHttpPort": 23302,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -178,7 +178,7 @@
         "application": "order",
         "appId": "order",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12050,
+        "daprHttpPort": 23305,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"

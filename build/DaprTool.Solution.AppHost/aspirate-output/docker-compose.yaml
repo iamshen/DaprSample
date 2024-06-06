@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
   admin:
     container_name: "admin"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/web-admin:1.0.10-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/web-admin:1.0.12-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
@@ -38,7 +38,7 @@ services:
     - "admin"
   auth-sts:
     container_name: "auth-sts"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-sts:1.0.10-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-sts:1.0.12-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
@@ -66,7 +66,7 @@ services:
     - "auth-sts"
   auth-admin:
     container_name: "auth-admin"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-admin:1.0.10-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-admin:1.0.12-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
@@ -94,7 +94,7 @@ services:
     - "auth-admin"
   auth-api:
     container_name: "auth-api"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-api:1.0.10-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-api:1.0.12-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
@@ -122,7 +122,7 @@ services:
     - "auth-api"
   order:
     container_name: "order"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/order-api:1.0.10-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/order-api:1.0.12-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
@@ -150,7 +150,7 @@ services:
     - "order"
   proxy-server:
     container_name: "proxy-server"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/proxy-server:1.0.10-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/proxy-server:1.0.12-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"

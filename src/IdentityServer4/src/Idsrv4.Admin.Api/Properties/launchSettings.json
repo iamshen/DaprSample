@@ -5,7 +5,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:55302",
+      "applicationUrl": "http://localhost:24402",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -14,7 +14,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:44302;http://localhost:55302",
+      "applicationUrl": "https://localhost:25502;http://localhost:24402",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
