@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  admin:
+    ports:
+      - target: 8080
+        published: 24401
+      - target: 8443
+        published: 25501
+
+  admin-dapr:
+    command:
+      - "./daprd"
+      - "-app-id"
+      - "admin"
+      - "-app-port"
+      - "24401"
+
+  auth-sts:
+    ports:
+      - target: 8080
+        published: 24404
+      - target: 8443
+        published: 25504
+
+  auth-sts-dapr:
+    command:
+      - "./daprd"
+      - "-app-id"
+      - "auth-sts"
+      - "-app-port"
+      - "24404"
+
+  auth-admin:
+    ports:
+      - target: 8080
+        published: 24403
+      - target: 8443
+        published: 25503
+
+  auth-admin-dapr:
+    command:
+      - "./daprd"
+      - "-app-id"
+      - "auth-admin"
+      - "-app-port"
+      - "24403"
+
+  auth-api:
+    ports:
+      - target: 8080
+        published: 24402
+      - target: 8443
+        published: 25502
+
+  auth-api-dapr:
+    command:
+      - "./daprd"
+      - "-app-id"
+      - "auth-api"
+      - "-app-port"
+      - "24402"
+
+  order:
+    ports:
+      - target: 8080
+        published: 24405
+      - target: 8443
+        published: 25505
+
+  order-dapr:
+    command:
+      - "./daprd"
+      - "-app-id"
+      - "order"
+      - "-app-port"
+      - "24405"
+
+  proxy-server:
+    ports:
+      - target: 8080
+        published: 24400
+      - target: 8443
+        published: 25500

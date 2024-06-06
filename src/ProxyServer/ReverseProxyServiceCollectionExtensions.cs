@@ -64,9 +64,8 @@ internal static class ReverseProxyServiceCollectionExtensions
         LoadBalancingPolicy = LoadBalancingPolicies.PowerOfTwoChoices,
         Destinations = new Dictionary<string, DestinationConfig>(StringComparer.OrdinalIgnoreCase)
         {
-            { "destination1", new DestinationConfig() { Address = string.Concat("https://localhost:", x.AppHttpsPort) } },
+            { "destination1", new DestinationConfig() { Address = string.Concat("http://localhost:", x.HttpPort) } },
             { "destination2", new DestinationConfig() { Address = string.Concat("http://", x.AppId) } },
-            { "destination3", new DestinationConfig() { Address = string.Concat("http://localhost:", x.ResourceHttpPort) } },
         }
       
     });

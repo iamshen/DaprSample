@@ -4,6 +4,7 @@
     "Registry": "registry.cn-shenzhen.aliyuncs.com",
     "RepositoryPrefix": "project-workspace",
     "Tags": [
+      "1.0.7-alpha1",
       "latest"
     ],
     "Builder": "docker"

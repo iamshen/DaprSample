@@ -13,18 +13,14 @@
         "http": {
           "scheme": "http",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         },
         "https": {
           "scheme": "https",
           "protocol": "tcp",
-          "transport": "http"
-        },
-        "http": {
-          "scheme": "http",
-          "protocol": "tcp",
           "transport": "http",
-          "port": 51871
+          "external": true
         }
       }
     },
@@ -34,7 +30,7 @@
         "application": "admin",
         "appId": "admin",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12010,
+        "daprHttpPort": 23301,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -54,18 +50,14 @@
         "http": {
           "scheme": "http",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         },
         "https": {
           "scheme": "https",
           "protocol": "tcp",
-          "transport": "http"
-        },
-        "http": {
-          "scheme": "http",
-          "protocol": "tcp",
           "transport": "http",
-          "port": 52871
+          "external": true
         }
       }
     },
@@ -75,7 +67,7 @@
         "application": "auth-sts",
         "appId": "auth-sts",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12020,
+        "daprHttpPort": 23304,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -95,18 +87,14 @@
         "http": {
           "scheme": "http",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         },
         "https": {
           "scheme": "https",
           "protocol": "tcp",
-          "transport": "http"
-        },
-        "http": {
-          "scheme": "http",
-          "protocol": "tcp",
           "transport": "http",
-          "port": 53871
+          "external": true
         }
       }
     },
@@ -116,7 +104,7 @@
         "application": "auth-admin",
         "appId": "auth-admin",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12030,
+        "daprHttpPort": 23303,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -136,18 +124,14 @@
         "http": {
           "scheme": "http",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         },
         "https": {
           "scheme": "https",
           "protocol": "tcp",
-          "transport": "http"
-        },
-        "http": {
-          "scheme": "http",
-          "protocol": "tcp",
           "transport": "http",
-          "port": 54871
+          "external": true
         }
       }
     },
@@ -157,14 +141,14 @@
         "application": "auth-api",
         "appId": "auth-api",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12040,
+        "daprHttpPort": 23302,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
         ]
       }
     },
-    "order-api": {
+    "order": {
       "type": "project.v0",
       "path": "../../src/Services/Ordering/Presentation/Ordering.Api/Ordering.Api.csproj",
       "env": {
@@ -177,28 +161,24 @@
         "http": {
           "scheme": "http",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         },
         "https": {
           "scheme": "https",
           "protocol": "tcp",
-          "transport": "http"
-        },
-        "http": {
-          "scheme": "http",
-          "protocol": "tcp",
           "transport": "http",
-          "port": 31441
+          "external": true
         }
       }
     },
-    "order-api-dapr": {
+    "order-dapr": {
       "type": "dapr.v0",
       "dapr": {
-        "application": "order-api",
-        "appId": "order-api",
+        "application": "order",
+        "appId": "order",
         "daprHttpMaxRequestSize": 60,
-        "daprHttpPort": 12050,
+        "daprHttpPort": 23305,
         "daprHttpReadBufferSize": 128,
         "resourcesPath": [
           "../../dapr/components"
@@ -221,19 +201,21 @@
         "services__auth-sts__https__0": "{auth-sts.bindings.https.url}",
         "services__auth-api__http__0": "{auth-api.bindings.http.url}",
         "services__auth-api__https__0": "{auth-api.bindings.https.url}",
-        "services__order-api__http__0": "{order-api.bindings.http.url}",
-        "services__order-api__https__0": "{order-api.bindings.https.url}"
+        "services__order__http__0": "{order.bindings.http.url}",
+        "services__order__https__0": "{order.bindings.https.url}"
       },
       "bindings": {
         "http": {
           "scheme": "http",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         },
         "https": {
           "scheme": "https",
           "protocol": "tcp",
-          "transport": "http"
+          "transport": "http",
+          "external": true
         }
       }
     }

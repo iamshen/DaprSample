@@ -16,7 +16,7 @@ public static class Constants
     /// <summary />
     public const string ConfigurationStore = "dt-configurationstore";
     /// <summary />
-    public static string DefaultActorId = "0";
+    public static readonly string DefaultActorId = "0";
     /// <summary />
     public const string ClusterSuffix = "Cluster";
     /// <summary />
@@ -26,21 +26,21 @@ public static class Constants
     /// <summary />
     public const string DaprServiceInvocation = "/v1.0/invoke/{0}/method{1}";
     /// <summary />
-    public static DaprApp ProxyServer = new("proxy-server", 12001, 44440, 44444);
+    public static readonly DaprApp WebAdmin = new(AppId: "admin", DaprHttpPort: 23301, HttpPort: 24401,  BasePath: "/admin");
     /// <summary />
-    public static DaprApp WebAdmin = new("admin", 12010, 51871, 7273, "/admin");
+    public static readonly DaprApp AuthApi = new(AppId: "auth-api", DaprHttpPort: 23302, HttpPort: 24402, BasePath: "/api/auth", Order: 95);
     /// <summary />
-    public static DaprApp AuthAdmin = new("auth-admin", 12030, 53871, 44303, "/auth/admin", 90);
+    public static readonly DaprApp AuthAdmin = new(AppId: "auth-admin", DaprHttpPort: 23303, HttpPort: 24403, BasePath: "/auth/admin", Order: 90);  
     /// <summary />
-    public static DaprApp AuthApi = new("auth-api", 12040, 54871, 44302, "/api/auth", 95);
+    public static readonly DaprApp AuthSts = new(AppId: "auth-sts", DaprHttpPort: 23304, HttpPort: 24404, BasePath: "/auth");
     /// <summary />
-    public static DaprApp AuthSts = new("auth-sts", 12020, 52871, 44310, "/auth");
+    public static readonly DaprApp Ordering = new(AppId: "order", DaprHttpPort: 23305, HttpPort: 24405);
     /// <summary />
-    public static DaprApp Ordering = new("order-api", 12050, 31441, 5510);
+    public static readonly DaprApp Identity = new(AppId: "identity", DaprHttpPort: 23306, HttpPort: 24406);
     /// <summary />
-    public static DaprApp Identity = new("identity-api", 12060, 32441, 5520);
+    public static readonly DaprApp Catalog = new(AppId: "catalog", DaprHttpPort: 23307, HttpPort: 24407);
     /// <summary />
-    public static DaprApp Catalog = new("catalog-api", 12070, 33441, 5530);
+    public static readonly DaprApp ProxyServer = new(AppId: "proxy-server", DaprHttpPort: 23300, HttpPort: 24400);
 
     /// <summary>
     /// api 服务应用 ，Yarp 转发到 dapr cli 通过 dapr service invoke 调用  应用服务

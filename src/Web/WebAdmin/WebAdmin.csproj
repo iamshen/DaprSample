@@ -7,12 +7,11 @@
   </PropertyGroup>
 	
   <ItemGroup>
-	<PackageReference Include="Dapr.AspNetCore"  />
+	<PackageReference Include="Dapr.AspNetCore" />
     <PackageReference Include="IdentityModel.AspNetCore" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
     <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" />
-    <PackageReference Include="NWebsec.AspNetCore.Middleware" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,9 +19,4 @@
     <ProjectReference Include="..\WebAdmin.Client\WebAdmin.Client.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Components\Pages\Weather.en.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>

@@ -34,7 +34,6 @@ var app = builder.Build();
 app.UseMiddleware<RequestResponseLoggerMiddleware>();
 
 app.UseWebSockets();
-app.UseStaticFiles();
 app.UseRouting();
 app.UseAntiforgery();
 app.MapDefaultEndpoints();

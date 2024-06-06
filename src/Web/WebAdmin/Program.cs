@@ -74,7 +74,7 @@ builder.Services.AddAuthentication(options =>
         options.SaveTokens = true;
 
         options.GetClaimsFromUserInfoEndpoint = true;
-
+        
         options.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = adminConfiguration.TokenValidationClaimName,
@@ -83,6 +83,13 @@ builder.Services.AddAuthentication(options =>
 
         options.Events = new OpenIdConnectEvents
         {
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine(context.Exception?.Message);
+                Console.WriteLine(context.Exception?.InnerException?.Message);
+                
+                return Task.CompletedTask;
+            },
             OnMessageReceived = context =>
             {
                 if (context.Properties is null) return Task.CompletedTask;
@@ -123,7 +130,6 @@ builder.Services.AddAuthorization(options =>
     options.FallbackPolicy = options.DefaultPolicy;
 });
 
-
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
@@ -149,11 +155,6 @@ forwardingOptions.KnownNetworks.Clear();
 forwardingOptions.KnownProxies.Clear();
 
 app.UseForwardedHeaders(forwardingOptions);
-
-app.UseXXssProtection(options => options.EnabledWithBlockMode());
-app.UseXContentTypeOptions();
-app.UseXfo(options => options.SameOrigin());
-app.UseReferrerPolicy(options => options.NoReferrer());
 
 #endregion
 
