@@ -1,163 +1,163 @@
 <Project>
-  <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
-  <PropertyGroup>
-    <FrameworkVersion>8.0.0</FrameworkVersion>
-    <ExtensionsVersion>8.0.0</ExtensionsVersion>
-    <AspNetCoreVersion>8.0.4</AspNetCoreVersion>
-    <DaprVersion>1.13.0</DaprVersion>
-  </PropertyGroup>
-  <!-- dapr -->
-  <ItemGroup>
-    <PackageVersion Include="Dapr.Client" Version="1.13.1" />
-    <PackageVersion Include="Dapr.Actors" Version="1.13.1" />
-    <PackageVersion Include="Dapr.Actors.AspNetCore" Version="1.13.1" />
-    <PackageVersion Include="Dapr.AspNetCore" Version="1.13.1" />
-    <PackageVersion Include="Dapr.Extensions.Configuration" Version="1.13.1" />
-    <PackageVersion Include="Dapr.PluggableComponents.AspNetCore" Version="0.3.0-rc02" />
-    <PackageVersion Include="IdentityModel.AspNetCore" Version="4.3.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.0.1" />
-    <PackageVersion Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
-    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
-    <PackageVersion Include="AspNetCore.HealthChecks.UI" Version="8.0.1" />
-    <PackageVersion Include="AspNetCore.HealthChecks.MySql" Version="8.0.1" />
-    <PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.1" />
-    <PackageVersion Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="8.0.1" />
-    <PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
-    <PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.1-dev-10391" />
-    <PackageVersion Include="Serilog.Formatting.Compact" Version="2.0.1-dev-00969" />
-    <PackageVersion Include="Yarp.ReverseProxy" Version="2.1.0" />
-  </ItemGroup>
-  <!--FluentUI-->
-  <ItemGroup>
-    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.7.1" />
-    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" Version="4.6.0" />
-    <PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.7.0" />
-  </ItemGroup>
-  <!--microsoft asp.net core -->
-  <ItemGroup>
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.DataProtection" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCoreVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCoreVersion)" />
-  </ItemGroup>
-  <!--microsoft extensions -->
-  <ItemGroup>
-    <PackageVersion Include="Microsoft.Extensions.Options" Version="8.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="$(FrameworkVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Telemetry" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Localization" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Primitives" Version="$(ExtensionsVersion)" />
-  </ItemGroup>
-  <!-- VisualStudio -->
-  <ItemGroup>
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
-    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
-  </ItemGroup>
-  <!--System-->
-  <ItemGroup>
-    <PackageVersion Include="System.Security.Cryptography.Xml" Version="8.0.0" />
-    <PackageVersion Include="System.Net.Http.Json" Version="8.0.0" />
-  </ItemGroup>
-  <!--misc -->
-  <ItemGroup>
-    <PackageVersion Include="Serilog" Version="3.1.1" />
-    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
-    <PackageVersion Include="Serilog.Enrichers.Environment" Version="2.3.0" />
-    <PackageVersion Include="Serilog.Enrichers.Thread" Version="3.1.0" />
-    <PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
-    <PackageVersion Include="Serilog.Settings.Configuration" Version="8.0.0" />
-    <PackageVersion Include="Serilog.Sinks.Console" Version="5.1.0-dev-00943" />
-    <PackageVersion Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageVersion Include="Serilog.Sinks.MSSqlServer" Version="6.6.0" />
-    <PackageVersion Include="Serilog.Sinks.Seq" Version="7.0.0" />
-    <PackageVersion Include="linq2db.AspNet" Version="5.4.1" />
-    <PackageVersion Include="linq2db.PostgreSQL" Version="5.4.1" />
-    <PackageVersion Include="AutoMapper" Version="13.0.1" />
-    <PackageVersion Include="RestSharp" Version="110.2.0" />
-    <PackageVersion Include="LanguageExt.Core" Version="4.4.8" />
-    <PackageVersion Include="MediatR" Version="12.2.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
-    <PackageVersion Include="FluentValidation" Version="11.9.0" />
-  </ItemGroup>
-  <!-- api versioning -->
-  <ItemGroup>
-    <PackageVersion Include="Asp.Versioning.Mvc" Version="8.1.0" />
-    <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
-  </ItemGroup>
-  <!--tests -->
-  <ItemGroup>
-    <PackageVersion Include="coverlet.collector" Version="6.0.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageVersion Include="xunit" Version="2.5.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3" />
-  </ItemGroup>
-  <!-- idsrv4 -->
-  <ItemGroup>
-    <PackageVersion Include="Reborn.IdentityServer4.EntityFramework" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageVersion>
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
-  </ItemGroup>
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
-    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
-  </ItemGroup>
-  <!--.Net Aspire-->
-  <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="8.1.0" />
-    <PackageVersion Include="Aspire.Hosting.Dapr" Version="8.1.0" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="8.7.0" />
-    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="8.1.0" />
-    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.9.0" />
-    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.9.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.9.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.9.0" />
-    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.9.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.4" />
-    <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
-    <PackageVersion Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
-    <PackageVersion Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
-    <PackageVersion Include="Sendgrid" Version="9.29.3" />
-    <PackageVersion Include="AspNet.Security.OAuth.GitHub" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Identity.Web" Version="2.17.5" />
-    <PackageVersion Include="Reborn.IdentityServer4.AspNetIdentity" Version="8.0.4" />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.4" />
-    <PackageVersion Include="coverlet.msbuild" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="8.0.4" />
-    <PackageVersion Include="HtmlAgilityPack" Version="1.11.60" />
-    <PackageVersion Include="IdentityModel" Version="6.2.0" />
-    <PackageVersion Include="Bogus" Version="35.5.0" />
-    <PackageVersion Include="Moq" Version="4.20.70" />
-    <PackageVersion Include="FluentAssertions" Version="6.12.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	<PropertyGroup>
+		<FrameworkVersion>8.0.0</FrameworkVersion>
+		<ExtensionsVersion>8.0.0</ExtensionsVersion>
+		<AspNetCoreVersion>8.0.4</AspNetCoreVersion>
+		<DaprVersion>1.13.0</DaprVersion>
+	</PropertyGroup>
+	<!-- dapr -->
+	<ItemGroup>
+		<PackageVersion Include="Dapr.Client" Version="1.14.0" />
+		<PackageVersion Include="Dapr.Actors" Version="1.14.0" />
+		<PackageVersion Include="Dapr.Actors.AspNetCore" Version="1.14.0" />
+		<PackageVersion Include="Dapr.AspNetCore" Version="1.14.0" />
+		<PackageVersion Include="Dapr.Extensions.Configuration" Version="1.14.0" />
+		<PackageVersion Include="Dapr.PluggableComponents.AspNetCore" Version="0.3.0" />
+		<PackageVersion Include="IdentityModel.AspNetCore" Version="4.3.0" />
+		<PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.2.2" />
+		<PackageVersion Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
+		<PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+		<PackageVersion Include="AspNetCore.HealthChecks.UI" Version="8.0.2" />
+		<PackageVersion Include="AspNetCore.HealthChecks.MySql" Version="8.0.1" />
+		<PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.2" />
+		<PackageVersion Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="8.0.1" />
+		<PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
+		<PackageVersion Include="Serilog.Extensions.Logging" Version="8.0.1-dev-10391" />
+		<PackageVersion Include="Serilog.Formatting.Compact" Version="3.0.0" />
+		<PackageVersion Include="Yarp.ReverseProxy" Version="2.2.0" />
+	</ItemGroup>
+	<!--FluentUI-->
+	<ItemGroup>
+		<PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.10.3" />
+		<PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Emoji" Version="4.6.0" />
+		<PackageVersion Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.10.3" />
+	</ItemGroup>
+	<!--microsoft asp.net core -->
+	<ItemGroup>
+		<PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="$(AspNetCoreVersion)" />
+		<PackageVersion Include="Microsoft.AspNetCore.DataProtection" Version="$(AspNetCoreVersion)" />
+		<PackageVersion Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCoreVersion)" />
+	</ItemGroup>
+	<!--microsoft extensions -->
+	<ItemGroup>
+		<PackageVersion Include="Microsoft.Extensions.Options" Version="8.0.2" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="8.0.2" />
+		<PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(ExtensionsVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Http" Version="$(FrameworkVersion)" />
+		<PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+		<PackageVersion Include="Microsoft.Extensions.Telemetry" Version="8.10.0" />
+		<PackageVersion Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+		<PackageVersion Include="Microsoft.Extensions.Localization" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+		<PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+		<PackageVersion Include="Microsoft.Extensions.Primitives" Version="$(ExtensionsVersion)" />
+	</ItemGroup>
+	<!-- VisualStudio -->
+	<ItemGroup>
+		<PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+		<PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+	</ItemGroup>
+	<!--System-->
+	<ItemGroup>
+		<PackageVersion Include="System.Security.Cryptography.Xml" Version="8.0.0" />
+		<PackageVersion Include="System.Net.Http.Json" Version="8.0.0" />
+	</ItemGroup>
+	<!--misc -->
+	<ItemGroup>
+		<PackageVersion Include="Serilog" Version="4.1.0" />
+		<PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
+		<PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+		<PackageVersion Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+		<PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+		<PackageVersion Include="Serilog.Settings.Configuration" Version="8.0.4" />
+		<PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
+		<PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
+		<PackageVersion Include="Serilog.Sinks.MSSqlServer" Version="7.0.2" />
+		<PackageVersion Include="Serilog.Sinks.Seq" Version="8.0.0" />
+		<PackageVersion Include="linq2db.AspNet" Version="5.4.1" />
+		<PackageVersion Include="linq2db.PostgreSQL" Version="5.4.1" />
+		<PackageVersion Include="AutoMapper" Version="13.0.1" />
+		<PackageVersion Include="RestSharp" Version="112.1.0" />
+		<PackageVersion Include="LanguageExt.Core" Version="4.4.9" />
+		<PackageVersion Include="MediatR" Version="12.4.1" />
+		<PackageVersion Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+		<PackageVersion Include="Swashbuckle.AspNetCore.Swagger" Version="6.9.0" />
+		<PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.9.0" />
+		<PackageVersion Include="FluentValidation" Version="11.10.0" />
+	</ItemGroup>
+	<!-- api versioning -->
+	<ItemGroup>
+		<PackageVersion Include="Asp.Versioning.Mvc" Version="8.1.0" />
+		<PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+	</ItemGroup>
+	<!--tests -->
+	<ItemGroup>
+		<PackageVersion Include="coverlet.collector" Version="6.0.2" />
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+		<PackageVersion Include="xunit" Version="2.9.2" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+	</ItemGroup>
+	<!-- idsrv4 -->
+	<ItemGroup>
+		<PackageVersion Include="Reborn.IdentityServer4.EntityFramework" Version="8.0.4" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageVersion>
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+		<DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+	</ItemGroup>
+	<!--.Net Aspire-->
+	<ItemGroup>
+		<PackageVersion Include="Aspire.Hosting.AppHost" Version="8.2.2" />
+		<PackageVersion Include="Aspire.Hosting.Dapr" Version="8.2.2" />
+		<PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="8.10.0" />
+		<PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="8.2.2" />
+		<PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.9.0" />
+		<PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.9.0" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.9.0" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.9.0" />
+		<PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.9.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10" />
+		<PackageVersion Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.10" />
+		<PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
+		<PackageVersion Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+		<PackageVersion Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
+		<PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
+		<PackageVersion Include="Sendgrid" Version="9.29.3" />
+		<PackageVersion Include="AspNet.Security.OAuth.GitHub" Version="8.2.0" />
+		<PackageVersion Include="Microsoft.Identity.Web" Version="2.17.5" />
+		<PackageVersion Include="Reborn.IdentityServer4.AspNetIdentity" Version="8.0.4" />
+		<PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.4" />
+		<PackageVersion Include="coverlet.msbuild" Version="6.0.2" />
+		<PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="8.0.4" />
+		<PackageVersion Include="HtmlAgilityPack" Version="1.11.60" />
+		<PackageVersion Include="IdentityModel" Version="6.2.0" />
+		<PackageVersion Include="Bogus" Version="35.5.0" />
+		<PackageVersion Include="Moq" Version="4.20.70" />
+		<PackageVersion Include="FluentAssertions" Version="6.12.0" />
+	</ItemGroup>
 </Project>
