@@ -1,4 +1,4 @@
-using Idsrv4.Admin.Shared.ModuleInitializer;
+using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Logging;
 
@@ -25,9 +25,12 @@ try
     #region Configuration
 
     IRootConfiguration rootConfiguration = new RootConfiguration();
-    builder.Configuration.GetSection(ConfigurationConsts.AdminConfigurationKey).Bind(rootConfiguration.AdminConfiguration);
-    builder.Configuration.GetSection(ConfigurationConsts.RegisterConfigurationKey).Bind(rootConfiguration.RegisterConfiguration);
+    builder.Configuration.GetSection(ConfigurationConsts.AdminConfigurationKey)
+        .Bind(rootConfiguration.AdminConfiguration);
+    builder.Configuration.GetSection(ConfigurationConsts.RegisterConfigurationKey)
+        .Bind(rootConfiguration.RegisterConfiguration);
     builder.Services.AddSingleton(rootConfiguration);
+
     #endregion
 
     #region Services
@@ -85,15 +88,15 @@ try
     IdentityModelEventSource.ShowPII = true;
     // Add custom security headers
     app.UseSecurityHeaders(builder.Configuration);
-    
-   #region BasePath
 
-     string basePath = builder.Configuration.GetValue<string>("BasePath");
+    #region BasePath
+
+    var basePath = builder.Configuration.GetValue<string>("BasePath");
     if (!string.IsNullOrWhiteSpace(basePath))
-            app.UsePathBase(new PathString(basePath));
+        app.UsePathBase(new PathString(basePath));
 
-   #endregion
-            
+    #endregion
+
     app.UseCookiePolicy();
 
     if (app.Environment.IsDevelopment())
@@ -101,6 +104,13 @@ try
     else
         app.UseHsts();
 
+
+    //if (!string.IsNullOrWhiteSpace(rootConfiguration.AdminConfiguration.ProxyServerUrl))
+    //    app.Use(async (ctx, next) =>
+    //    {
+    //        ctx.SetIdentityServerOrigin(string.Concat(rootConfiguration.AdminConfiguration.ProxyServerUrl, basePath));
+    //        await next();
+    //    });
 
     app.UseStaticFiles();
     app.UseIdentityServer();
@@ -113,7 +123,7 @@ try
 
     app.MapDefaultEndpoints();
     app.MapDefaultControllerRoute();
-    
+
 
     await app.RunAsync();
 }
@@ -125,4 +135,3 @@ finally
 {
     await Log.CloseAndFlushAsync();
 }
-

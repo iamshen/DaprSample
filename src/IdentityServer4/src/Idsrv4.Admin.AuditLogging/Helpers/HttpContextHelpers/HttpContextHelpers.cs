@@ -38,7 +38,7 @@ namespace Idsrv4.Admin.AuditLogging.Helpers.HttpContextHelpers
             IDictionary<string, string> dict = new Dictionary<string, string>();
             foreach (var k in col)
             {
-                dict.Add(k.Key, string.Join(", ", k.Value));
+                dict.Add(k.Key, string.Join(", ", k.Value.ToString()));
             }
             return dict;
         }
