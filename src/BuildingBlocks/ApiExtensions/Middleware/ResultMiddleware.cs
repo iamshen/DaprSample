@@ -33,7 +33,7 @@ public class ResultMiddleware(RequestDelegate next)
             {
                 var version = context.GetRequestedApiVersion(1).ToString();
                 var traceId = context.TraceIdentifier;
-                object returnObject = null;
+                object? returnObject = null;
 
                 if (context.Response.StatusCode == StatusCodes.Status200OK)
                 {
