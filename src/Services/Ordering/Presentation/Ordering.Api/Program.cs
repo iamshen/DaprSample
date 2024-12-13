@@ -18,11 +18,9 @@ builder.RegisterAppDapr(options =>
 
 var app = builder.Build();
 
-
-app.MapDefaultEndpoints();
-
 app.UseAppServer(builder.Configuration);
 
+app.MapDefaultEndpoints();
 app.MapGet("/", () => Results.LocalRedirect("~/docs"));
 app.MapControllers();
 app.MapSubscribeHandler();

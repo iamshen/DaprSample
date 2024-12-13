@@ -8,8 +8,8 @@ spec:
   version: v1
   metadata:
     - name: connectionString
-      value: "host=192.168.8.111 user=dapr password=Local@Db port=5432 connect_timeout=10 database=dapr_manager"
+      value: "host=192.168.10.111 user=dapr password=Local@Db port=5432 connect_timeout=10 database=dapr_manager"
     - name: table # name of the table which holds configuration information
-      value: "dapr_appsettings"
+      value: "appsettings"
     - name: connMaxIdleTime # max timeout for connection
       value : "15s"

@@ -297,6 +297,26 @@
             <param name="isThrowExceptionIfNotFound"></param>
             <returns></returns>
         </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Filters.ModelStateFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+                Action执行之后的事件
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Filters.ModelStateFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+                Action执行前检查数据模型是否通过验证
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.Filters.ModelStateExtensions.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary,System.String)">
+            <summary>
+                获取验证模型的错误消息
+            </summary>
+            <param name="state"></param>
+            <param name="split"></param>
+            <returns></returns>
+        </member>
         <member name="T:Microsoft.AspNetCore.Mvc.Filters.ResultFilter">
             <summary>
             统一返回格式的内容的Fileter

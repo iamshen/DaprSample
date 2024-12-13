@@ -42,7 +42,7 @@ public class JsonQueryTest(DbDependencySetupFixture fixture, ITestOutputHelper t
 
         var query = db.GetTable<MyJsonTable>()
             .Where(x => x.CapitalAccount != null)
-            .JsonWhere(x => x.CapitalAccount.CapitalId == 723453551573140002);
+            .JsonWhere(x => x.CapitalAccount!.CapitalId == 723453551573140002);
         testOutputHelper.WriteLine($"查询 sql：{query}");
 
         var row = await query.FirstOrDefaultAsync();
@@ -82,7 +82,7 @@ public class JsonQueryTest(DbDependencySetupFixture fixture, ITestOutputHelper t
 
         var query = db.GetTable<MyJsonTable>()
             .Where(x => x.CapitalAccount != null)
-            .Where(x => x.CertificationInfo.JsonExtractPathText(json => json.RealName) == "张三");
+            .Where(x => x.CertificationInfo.JsonExtractPathText(json => json!.RealName) == "张三");
         testOutputHelper.WriteLine($"查询 sql：{query}");
 
         var row = await query.FirstOrDefaultAsync();

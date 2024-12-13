@@ -8,49 +8,22 @@ services:
     - target: 18888
       published: 18888
     restart: unless-stopped
-  admin:
-    container_name: "admin"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/web-admin:1.0.12-alpha1"
+  auth-sts:
+    container_name: "auth-sts"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-sts:1.0.13-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
       ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://aspire-dashboard:18889"
-      OTEL_SERVICE_NAME: "admin"
+      OTEL_SERVICE_NAME: "auth-sts"
     ports:
     - target: 8080
       published: 10000
     - target: 8443
       published: 10001
-    restart: unless-stopped
-  admin-dapr:
-    network_mode: "service:admin"
-    image: "daprio/daprd:latest"
-    command:
-    - "./daprd"
-    - "-app-id"
-    - "admin"
-    - "-app-port"
-    - "8080"
-    restart: unless-stopped
-    depends_on:
-    - "admin"
-  auth-sts:
-    container_name: "auth-sts"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-sts:1.0.12-alpha1"
-    environment:
-      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
-      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
-      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
-      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
-      OTEL_EXPORTER_OTLP_ENDPOINT: "http://aspire-dashboard:18889"
-      OTEL_SERVICE_NAME: "auth-sts"
-    ports:
-    - target: 8080
-      published: 10002
-    - target: 8443
-      published: 10003
     restart: unless-stopped
   auth-sts-dapr:
     network_mode: "service:auth-sts"
@@ -66,19 +39,20 @@ services:
     - "auth-sts"
   auth-admin:
     container_name: "auth-admin"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-admin:1.0.12-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-admin:1.0.13-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
       ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://aspire-dashboard:18889"
       OTEL_SERVICE_NAME: "auth-admin"
     ports:
     - target: 8080
-      published: 10004
+      published: 10002
     - target: 8443
-      published: 10005
+      published: 10003
     restart: unless-stopped
   auth-admin-dapr:
     network_mode: "service:auth-admin"
@@ -94,19 +68,20 @@ services:
     - "auth-admin"
   auth-api:
     container_name: "auth-api"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-api:1.0.12-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/auth-api:1.0.13-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
       ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://aspire-dashboard:18889"
       OTEL_SERVICE_NAME: "auth-api"
     ports:
     - target: 8080
-      published: 10006
+      published: 10004
     - target: 8443
-      published: 10007
+      published: 10005
     restart: unless-stopped
   auth-api-dapr:
     network_mode: "service:auth-api"
@@ -120,14 +95,46 @@ services:
     restart: unless-stopped
     depends_on:
     - "auth-api"
-  order:
-    container_name: "order"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/order-api:1.0.12-alpha1"
+  admin:
+    container_name: "admin"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/web-admin:1.0.13-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
       ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
+      services__auth-sts__http__0: "http://auth-sts:8080"
+      services__auth-api__http__0: "http://auth-api:8080"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://aspire-dashboard:18889"
+      OTEL_SERVICE_NAME: "admin"
+    ports:
+    - target: 8080
+      published: 10006
+    - target: 8443
+      published: 10007
+    restart: unless-stopped
+  admin-dapr:
+    network_mode: "service:admin"
+    image: "daprio/daprd:latest"
+    command:
+    - "./daprd"
+    - "-app-id"
+    - "admin"
+    - "-app-port"
+    - "8080"
+    restart: unless-stopped
+    depends_on:
+    - "admin"
+  order:
+    container_name: "order"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/order-api:1.0.13-alpha1"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://aspire-dashboard:18889"
       OTEL_SERVICE_NAME: "order"
     ports:
@@ -150,12 +157,13 @@ services:
     - "order"
   proxy-server:
     container_name: "proxy-server"
-    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/proxy-server:1.0.12-alpha1"
+    image: "registry.cn-shenzhen.aliyuncs.com/project-workspace/proxy-server:1.0.13-alpha1"
     environment:
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
       OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
       ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "8080"
       services__admin__http__0: "http://admin:8080"
       services__auth-admin__http__0: "http://auth-admin:8080"
       services__auth-sts__http__0: "http://auth-sts:8080"

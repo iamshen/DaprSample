@@ -33,7 +33,10 @@ public static class WebApplicationExtensions
         builder.Services.AddControllers(options =>
         {
             // 注册过滤器
+            // 数模模型检查过滤器
+            // options.Filters.Add(new ModelStateFilter());
             // options.Filters.Add<ExceptionFilter>();
+            // 返回结果处理过滤器 (改用 Middleware/ResultMiddleware)
             options.Filters.Add(new ResultFilter(AspNetCore.Mvc.AppConstants.ResponseJsonContentType));
         });
         // 注册 自动依赖注入

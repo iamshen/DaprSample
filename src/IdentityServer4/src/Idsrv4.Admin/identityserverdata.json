@@ -84,7 +84,7 @@
       {
         "ClientId": "web_admin",
         "ClientName": "web_admin",
-        "ClientUri": "https://localhost:44444/admin",
+        "ClientUri": "http://localhost:24400/admin",
         "AllowOfflineAccess": true,
         "AllowedGrantTypes": [
           "authorization_code"
@@ -96,14 +96,14 @@
           }
         ],
         "RedirectUris": [
-          "https://localhost:44444/admin/signin-oidc"
+          "http://localhost:24400/admin/signin-oidc"
         ],
-        "FrontChannelLogoutUri": "https://localhost:44444/admin/signout-oidc",
+        "FrontChannelLogoutUri": "http://localhost:24400/admin/signout-oidc",
         "PostLogoutRedirectUris": [
-          "https://localhost:44444/admin/signout-callback-oidc"
+          "http://localhost:24400/admin/signout-callback-oidc"
         ],
         "AllowedCorsOrigins": [
-          "https://localhost:44444"
+          "http://localhost:24400"
         ],
         "AllowedScopes": [
           "roles",
@@ -117,7 +117,7 @@
       {
         "ClientId": "identity_admin",
         "ClientName": "identity_admin",
-        "ClientUri": "https://localhost:44444/auth/admin",
+        "ClientUri": "http://localhost:24400/auth/admin",
         "AllowedGrantTypes": [
           "authorization_code"
         ],
@@ -128,14 +128,14 @@
           }
         ],
         "RedirectUris": [
-          "https://localhost:44444/auth/admin/signin-oidc"
+          "http://localhost:24400/auth/admin/signin-oidc"
         ],
-        "FrontChannelLogoutUri": "https://localhost:44444/auth/admin/signout-oidc",
+        "FrontChannelLogoutUri": "http://localhost:24400/auth/admin/signout-oidc",
         "PostLogoutRedirectUris": [
-          "https://localhost:44444/auth/admin/signout-callback-oidc"
+          "http://localhost:24400/auth/admin/signout-callback-oidc"
         ],
         "AllowedCorsOrigins": [
-          "https://localhost:44444"
+          "http://localhost:24400"
         ],
         "AllowedScopes": [
           "openid",
@@ -153,13 +153,13 @@
         "RequireClientSecret": false,
         "RequirePkce": true,
         "RedirectUris": [
-          "https://localhost:44302/swagger/oauth2-redirect.html"
+          "http://localhost:24400/api/auth/swagger/oauth2-redirect.html"
         ],
         "AllowedScopes": [
           "identity_admin_api"
         ],
         "AllowedCorsOrigins": [
-          "https://localhost:44302"
+          "http://localhost:24400"
         ]
       }
     ]
