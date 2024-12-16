@@ -63,9 +63,9 @@ options:
 - Set the startup project to `Idsrv4.Admin`.
 - Open the Package Manager console and set the default project to `Idsrv4.Admin.EntityFramework.PostgreSQL`.
 - After adding or modifying entity fields, generate a new migration file using the corresponding database context.Refer to the following `Visual Studio` commands for details
+- Update `Idsrv4.Admin` appsettings.json config section DatabaseMigrationsConfiguration and SeedConfiguration
 - Apply the migration `dotnet run /migrateonly` in the Idsrv4.Admin project directory.
 
-*** Translated with www.DeepL.com/Translator (free version) ***
 
 
 ```

@@ -16,7 +16,7 @@
       {
         "Name": "File",
         "Args": {
-          "path": "Log/reborn_idsrv4_sts.txt",
+          "path": "Log/reborn_idsrv4_sts_.txt",
           "rollingInterval": "Day",
           "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext} {Message:lj}{NewLine}{Exception}"
         }

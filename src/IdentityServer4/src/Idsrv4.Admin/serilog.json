@@ -16,7 +16,7 @@
       {
         "Name": "File",
         "Args": {
-          "path": "Log/identity_admin.txt",
+          "path": "Log/identity_admin_.txt",
           "rollingInterval": "Day",
           "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {SourceContext} {Message:lj}{NewLine}{Exception}"
         }
