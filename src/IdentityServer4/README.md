@@ -1,20 +1,20 @@
-# Idsrv4.Admin
+# Idsrv4
 
 
-![CI](https://github.com/iamshen/Idsrv4.Admin/workflows/CI/badge.svg)
-[![NuGet](https://img.shields.io/nuget/dt/Idsrv4.Admin.Templates.svg)](https://www.nuget.org/packages/Idsrv4.Admin.Templates) 
-[![NuGet](https://img.shields.io/nuget/vpre/Idsrv4.Admin.Templates.svg)](https://www.nuget.org/packages/Idsrv4.Admin.Templates)
+![CI](https://github.com/iamshen/Reborn.IdentityServer4.Admin/workflows/CI/badge.svg)
+[![NuGet](https://img.shields.io/nuget/dt/Reborn.IdentityServer4.Admin.Templates.svg)](https://www.nuget.org/packages/Reborn.IdentityServer4.Admin.Templates) 
+[![NuGet](https://img.shields.io/nuget/vpre/Reborn.IdentityServer4.Admin.Templates.svg)](https://www.nuget.org/packages/Reborn.IdentityServer4.Admin.Templates)
 
 
 The administration for the IdentityServer4 and Asp.Net Core Identity <br>
-The application is written in the **Asp.Net Core MVC - using .NET 8**
+The application is written in the **Asp.Net Core MVC - using .NET 9**
 
 
 ## QuickStart 
 
 ### Requirements
 
-- [Install](https://www.microsoft.com/net/download/windows#/current) the latest .NET 8 SDK 
+- [Install](https://www.microsoft.com/net/download/windows#/current) the latest .NET 9 SDK 
 
 
 ### Installation via dotnet new template
@@ -50,8 +50,6 @@ options:
 ```
 
 
-
-
 # Note
 
 > This project, modified by iamshen from [IdentityServer4.Admin](https://github.com/skoruba/IdentityServer4.Admin), has been upgraded to .NET 8.
@@ -62,10 +60,13 @@ options:
 
 # Migrations 
 
-1. 设置启动项目为 Idsrv4.Admin
-2. 打开 程序包管理器控制台 设置默认项目为 Idsrv4.Admin.EntityFramework.PostgreSQL
-3. 新增活修改实体字段后 使用对应的 数据库上下文生成新的迁移文件
-4. 运行 Idsrv4.Admin 项目 应用迁移 `dotnet run /migrateonly`
+- Set the startup project to `Idsrv4.Admin`.
+- Open the Package Manager console and set the default project to `Idsrv4.Admin.EntityFramework.PostgreSQL`.
+- After adding or modifying entity fields, generate a new migration file using the corresponding database context.Refer to the following `Visual Studio` commands for details
+- Apply the migration `dotnet run /migrateonly` in the Idsrv4.Admin project directory.
+
+*** Translated with www.DeepL.com/Translator (free version) ***
+
 
 ```
 
