@@ -10,4 +10,7 @@
     <ProjectReference Include="..\Idsrv4.Admin.AuditLogging.EntityFramework\Idsrv4.Admin.AuditLogging.EntityFramework.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Configuration\Idsrv4.Admin.EntityFramework.Configuration.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
 </Project>

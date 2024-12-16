@@ -64,7 +64,7 @@ try
     // Add all dependencies for Asp.Net Core Identity in MVC - these dependencies are injected into generic Controllers
     // Including settings for MVC and Localization
     // If you want to change primary keys or use another db model for Asp.Net Core Identity:
-    builder.Services.AddMvcWithLocalization<UserIdentity, string>(builder.Configuration);
+    builder.Services.AddMvcWithLocalization<UserIdentity, Guid>(builder.Configuration);
 
     // Add authorization policies for MVC
     builder.Services.AddAuthorizationPolicies(rootConfiguration);

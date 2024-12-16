@@ -37,8 +37,8 @@ public static class DbMigrationHelpers
         where TLogDbContext : DbContext, IAdminLogDbContext
         where TAuditLogDbContext : DbContext, IAuditLoggingDbContext<AuditLog>
         where TDataProtectionDbContext : DbContext, IDataProtectionKeyContext
-        where TUser : IdentityUser, new()
-        where TRole : IdentityRole, new()
+        where TUser : IdentityUser<Guid>, new()
+        where TRole : IdentityRole<Guid>, new()
     {
         var migrationComplete = false;
         using var serviceScope = serviceProvider.CreateScope();
@@ -113,8 +113,8 @@ public static class DbMigrationHelpers
     private static async Task<bool> EnsureSeedDataAsync<TIdentityServerDbContext, TUser, TRole>(
         IServiceProvider serviceProvider)
         where TIdentityServerDbContext : DbContext, IAdminConfigurationDbContext
-        where TUser : IdentityUser, new()
-        where TRole : IdentityRole, new()
+        where TUser : IdentityUser<Guid>, new()
+        where TRole : IdentityRole<Guid>, new()
     {
         using var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<TIdentityServerDbContext>();
@@ -133,8 +133,8 @@ public static class DbMigrationHelpers
     /// </summary>
     private static async Task EnsureSeedIdentityData<TUser, TRole>(UserManager<TUser> userManager,
         RoleManager<TRole> roleManager, IdentityData identityDataConfiguration)
-        where TUser : IdentityUser, new()
-        where TRole : IdentityRole, new()
+        where TUser : IdentityUser<Guid>, new()
+        where TRole : IdentityRole<Guid>, new()
     {
         // adding roles from seed
         foreach (var r in identityDataConfiguration.Roles)

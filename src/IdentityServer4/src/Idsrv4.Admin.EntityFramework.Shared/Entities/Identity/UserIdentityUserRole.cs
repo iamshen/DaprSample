@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace Idsrv4.Admin.EntityFramework.Shared.Entities.Identity;
 
-public class UserIdentityUserRole : IdentityUserRole<string>
+public class UserIdentityUserRole : IdentityUserRole<Guid>
 {
 }

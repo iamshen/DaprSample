@@ -509,6 +509,29 @@
             <param name="value"></param>
             <param name="options"></param>
         </member>
+        <member name="T:DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem">
+            <summary>
+            地理空间参考系统（Spatial Reference System, SRS），
+            它定义了如何将地球上的位置映射到二维或三维坐标。
+            不同的应用和国家可能会使用不同的坐标系，
+            下面是一些常见的坐标系
+            </summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem.WGS84">
+            <summary>WGS 84坐标系</summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem.GCJ02">
+            <summary>GCJ-02坐标系</summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem.BD09">
+            <summary>BD-09坐标系</summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem.EPSG3857">
+            <summary>EPSG:3857坐标系</summary>
+        </member>
+        <member name="F:DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem.CGCS2000">
+            <summary>CGCS2000坐标系</summary>
+        </member>
         <member name="T:DaprTool.BuildingBlocks.Utils.ErrorCode">
             <summary>
             错误编码
@@ -2022,6 +2045,11 @@
                 详细地址
             </summary>
         </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.Position">
+            <summary>
+                地理坐标
+            </summary>
+        </member>
         <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.Address.ToString">
             <summary>
                 转字符串
@@ -2034,19 +2062,24 @@
             </summary>
             <param name="Longitude">经度</param>
             <param name="Latitude">纬度</param>
+            <param name="CoordinateSystem">坐标系</param>
         </member>
-        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.#ctor(System.Double,System.Double)">
+        <member name="M:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.#ctor(System.Double,System.Double,DaprTool.BuildingBlocks.Utils.Enumerations.CoordinateSystem)">
             <summary>
             地理位置
             </summary>
             <param name="Longitude">经度</param>
             <param name="Latitude">纬度</param>
+            <param name="CoordinateSystem">坐标系</param>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.Longitude">
             <summary>经度</summary>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.Latitude">
             <summary>纬度</summary>
+        </member>
+        <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.AddressPosition.CoordinateSystem">
+            <summary>坐标系</summary>
         </member>
         <member name="P:DaprTool.BuildingBlocks.Utils.ValueObjects.IdentityUserInfo.UserId">
             <summary>

@@ -57,3 +57,28 @@ options:
 > This project, modified by iamshen from [IdentityServer4.Admin](https://github.com/skoruba/IdentityServer4.Admin), has been upgraded to .NET 8.
 
 > The project also references [Reborn.IdentityServer4](https://www.nuget.org/packages/Reborn.IdentityServer4), which also supports .NET 8.
+
+
+
+# Migrations 
+
+1. 设置启动项目为 Idsrv4.Admin
+2. 打开 程序包管理器控制台 设置默认项目为 Idsrv4.Admin.EntityFramework.PostgreSQL
+3. 新增活修改实体字段后 使用对应的 数据库上下文生成新的迁移文件
+4. 运行 Idsrv4.Admin 项目 应用迁移 `dotnet run /migrateonly`
+
+```
+
+Add-Migration DbInit -Context AdminAuditLogDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/AuditLogging
+
+Add-Migration DbInit -Context IdentityServerDataProtectionDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/DataProtection
+
+Add-Migration DbInit -Context AdminIdentityDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/Identity
+
+Add-Migration DbInit -Context IdentityServerConfigurationDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/IdentityServerConfiguration
+
+Add-Migration DbInit -Context IdentityServerPersistedGrantDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/IdentityServerGrants
+
+Add-Migration DbInit -Context AdminLogDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/Logging
+
+```

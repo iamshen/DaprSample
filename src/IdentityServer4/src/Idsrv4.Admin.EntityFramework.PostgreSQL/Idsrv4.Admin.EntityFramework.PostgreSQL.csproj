@@ -9,4 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Shared\Idsrv4.Admin.EntityFramework.Shared.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
 </Project>

@@ -41,13 +41,13 @@ public class Startup
 
         var profileTypes = new HashSet<Type>
         {
-            typeof(IdentityMapperProfile<IdentityRoleDto, IdentityUserRolesDto, string, IdentityUserClaimsDto,
+            typeof(IdentityMapperProfile<IdentityRoleDto, IdentityUserRolesDto, Guid, IdentityUserClaimsDto,
                 IdentityUserClaimDto, IdentityUserProviderDto, IdentityUserProvidersDto, IdentityUserChangePasswordDto,
                 IdentityRoleClaimDto, IdentityRoleClaimsDto>)
         };
 
         services.AddAdminAspNetIdentityServices<AdminIdentityDbContext, IdentityServerPersistedGrantDbContext,
-            IdentityUserDto, IdentityRoleDto, UserIdentity, UserIdentityRole, string, UserIdentityUserClaim,
+            IdentityUserDto, IdentityRoleDto, UserIdentity, UserIdentityRole, Guid, UserIdentityUserClaim,
             UserIdentityUserRole,
             UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken,
             IdentityUsersDto, IdentityRolesDto, IdentityUserRolesDto,
@@ -61,7 +61,7 @@ public class Startup
         services.AddAdminApiCors(adminApiConfiguration);
 
         services.AddMvcServices<IdentityUserDto, IdentityRoleDto,
-            UserIdentity, UserIdentityRole, string, UserIdentityUserClaim, UserIdentityUserRole,
+            UserIdentity, UserIdentityRole, Guid, UserIdentityUserClaim, UserIdentityUserRole,
             UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken,
             IdentityUsersDto, IdentityRolesDto, IdentityUserRolesDto,
             IdentityUserClaimsDto, IdentityUserProviderDto, IdentityUserProvidersDto, IdentityUserChangePasswordDto,
