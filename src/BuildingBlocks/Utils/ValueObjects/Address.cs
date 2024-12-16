@@ -1,6 +1,7 @@
 ﻿#nullable disable
 
 using System.ComponentModel.DataAnnotations;
+using DaprTool.BuildingBlocks.Utils.Enumerations;
 
 namespace DaprTool.BuildingBlocks.Utils.ValueObjects;
 
@@ -13,25 +14,25 @@ public record Address
     ///     省 地址编码
     /// </summary>
     [Display(Name = "省 地址编码")]
-    public string ProvinceCode { get; set; }
+    public string ProvinceCode { get; init; }
 
     /// <summary>
     ///     省
     /// </summary>
     [Display(Name = "省")]
-    public string Province { get; set; }
+    public string Province { get; init; }
 
     /// <summary>
     ///     市 地址编码
     /// </summary>
     [Display(Name = "市 地址编码")]
-    public string CityCode { get; set; }
+    public string CityCode { get; init; }
 
     /// <summary>
     ///     市
     /// </summary>
     [Display(Name = "市")]
-    public string City { get; set; }
+    public string City { get; init; }
 
     /// <summary>
     ///     区 编码
@@ -43,37 +44,42 @@ public record Address
     ///     区
     /// </summary>
     [Display(Name = "区")]
-    public string Area { get; set; }
+    public string Area { get; init; }
 
     /// <summary>
     ///     街道/镇 地址编码
     /// </summary>
     [Display(Name = "街道/镇 地址编码")]
-    public string StreetCode { get; set; }
+    public string StreetCode { get; init; }
 
     /// <summary>
     ///     街道/镇
     /// </summary>
     [Display(Name = "街道/乡镇")]
-    public string Street { get; set; }
+    public string Street { get; init; }
 
     /// <summary>
     ///     居委会/村庄 地址编码
     /// </summary>
     [Display(Name = "居委会/村庄 地址编码")]
-    public string VillageCode { get; set; }
+    public string VillageCode { get; init; }
 
     /// <summary>
     ///     居委会/村庄
     /// </summary>
     [Display(Name = "居委会/村庄")]
-    public string Village { get; set; }
+    public string Village { get; init; }
 
     /// <summary>
     ///     详细地址
     /// </summary>
     [Display(Name = "详细地址")]
-    public string Detailed { get; set; }
+    public string Detailed { get; init; }
+
+    /// <summary>
+    ///     地理坐标
+    /// </summary>
+    public AddressPosition Position { get; init; }
 
     /// <summary>
     ///     转字符串
@@ -90,4 +96,5 @@ public record Address
 /// </summary>
 /// <param name="Longitude">经度</param>
 /// <param name="Latitude">纬度</param>
-public record AddressPosition(double Longitude, double Latitude);
+/// <param name="CoordinateSystem">坐标系</param>
+public record AddressPosition(double Longitude, double Latitude, CoordinateSystem CoordinateSystem = CoordinateSystem.WGS84);
