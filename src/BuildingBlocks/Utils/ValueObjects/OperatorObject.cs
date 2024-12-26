@@ -5,7 +5,7 @@
 /// <summary>
 ///     操作人对象
 /// </summary>
-public record class OperatorObject<T> where T : IEquatable<T>
+public record OperatorObject<T> where T : IEquatable<T>
 {
     /// <summary>
     ///     操作人ID

@@ -5,7 +5,7 @@
 	<PublishSingleFile>false</PublishSingleFile>
 	<ContainerRepository>auth-api</ContainerRepository>
 	<ContainerRegistry>registry.cn-shenzhen.aliyuncs.com</ContainerRegistry>
-	<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
+	<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:9.0</ContainerBaseImage>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" />

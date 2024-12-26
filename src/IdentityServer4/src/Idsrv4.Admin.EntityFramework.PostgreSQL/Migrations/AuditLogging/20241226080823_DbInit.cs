@@ -22,15 +22,15 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.AuditLogging
                 {
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    @event = table.Column<string>(name: "event", type: "text", nullable: true),
-                    source = table.Column<string>(type: "text", nullable: true),
-                    category = table.Column<string>(type: "text", nullable: true),
-                    subject_identifier = table.Column<string>(type: "text", nullable: true),
-                    subject_name = table.Column<string>(type: "text", nullable: true),
-                    subject_type = table.Column<string>(type: "text", nullable: true),
-                    subject_additional_data = table.Column<string>(type: "text", nullable: true),
-                    action = table.Column<string>(type: "text", nullable: true),
-                    data = table.Column<string>(type: "text", nullable: true),
+                    @event = table.Column<string>(name: "event", type: "text", nullable: false),
+                    source = table.Column<string>(type: "text", nullable: false),
+                    category = table.Column<string>(type: "text", nullable: false),
+                    subject_identifier = table.Column<string>(type: "text", nullable: false),
+                    subject_name = table.Column<string>(type: "text", nullable: false),
+                    subject_type = table.Column<string>(type: "text", nullable: false),
+                    subject_additional_data = table.Column<string>(type: "text", nullable: false),
+                    action = table.Column<string>(type: "text", nullable: false),
+                    data = table.Column<string>(type: "text", nullable: false),
                     created = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>

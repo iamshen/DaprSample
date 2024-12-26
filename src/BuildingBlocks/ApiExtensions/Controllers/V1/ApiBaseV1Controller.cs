@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using DaprTool.BuildingBlocks.Utils.Data;
 using DaprTool.BuildingBlocks.Utils.Extensions;
 using DaprTool.BuildingBlocks.Utils.ValueObjects;
 using Microsoft.Extensions.DependencyInjection;

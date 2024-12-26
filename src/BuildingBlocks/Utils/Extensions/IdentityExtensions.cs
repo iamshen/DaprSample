@@ -3,7 +3,7 @@
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text.Json;
-using DaprTool.BuildingBlocks.Utils.ValueObjects;
+using DaprTool.BuildingBlocks.Utils.Data;
 
 namespace DaprTool.BuildingBlocks.Utils.Extensions;
 
@@ -34,7 +34,7 @@ public static class IdentityExtensions
             UserId = userId,
             UserName = claimsIdentity.FindFirst("UserName")?.Value,
             UserType = claimsIdentity.FindFirst("UserType")?.Value,
-            DisplayName = claimsIdentity.FindFirst("DisplayName")?.Value,
+            NickName = claimsIdentity.FindFirst("NickName")?.Value,
             RealName = claimsIdentity.FindFirst("RealName")?.Value,
             Email = claimsIdentity.FindFirst("Email")?.Value,
             PhoneNumber = claimsIdentity.FindFirst("PhoneNumber")?.Value,

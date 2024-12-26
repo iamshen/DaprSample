@@ -83,3 +83,23 @@ Add-Migration DbInit -Context IdentityServerPersistedGrantDbContext -OutputDir .
 Add-Migration DbInit -Context AdminLogDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/Logging
 
 ```
+
+
+> 运行之后 下面的 The host was aborted. 可以忽略
+
+```bash
+
+PM> Add-Migration DbInit -Context IdentityServerConfigurationDbContext -OutputDir ../Idsrv4.Admin.EntityFramework.PostgreSQL/Migrations/IdentityServerConfiguration
+Build started...
+Build succeeded.
+[15:57:28 FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in E:\Source\Repos\DotNetProjects\DaprProjects\dapr-tool-solution\src\IdentityServer4\src\Idsrv4.Admin\Program.cs:line 78
+To undo this action, use Remove-Migration.
+```

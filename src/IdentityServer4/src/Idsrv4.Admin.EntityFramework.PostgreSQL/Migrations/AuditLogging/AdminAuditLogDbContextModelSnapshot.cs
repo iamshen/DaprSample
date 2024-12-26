@@ -32,10 +32,12 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.AuditLogging
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Action")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("action");
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("category");
 
@@ -44,30 +46,37 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.AuditLogging
                         .HasColumnName("created");
 
                     b.Property<string>("Data")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("data");
 
                     b.Property<string>("Event")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("event");
 
                     b.Property<string>("Source")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("source");
 
                     b.Property<string>("SubjectAdditionalData")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("subject_additional_data");
 
                     b.Property<string>("SubjectIdentifier")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("subject_identifier");
 
                     b.Property<string>("SubjectName")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("subject_name");
 
                     b.Property<string>("SubjectType")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("subject_type");
 

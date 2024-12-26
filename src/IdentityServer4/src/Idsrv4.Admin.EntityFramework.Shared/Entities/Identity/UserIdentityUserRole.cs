@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.AspNetCore.Identity;
+﻿using DaprTool.BuildingBlocks.IdentityData;
 
 namespace Idsrv4.Admin.EntityFramework.Shared.Entities.Identity;
 
-public class UserIdentityUserRole : IdentityUserRole<Guid>
+public class UserIdentityUserRole : UserRoleBase
 {
 }

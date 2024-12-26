@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<ContainerRepository>proxy-server</ContainerRepository>
 		<ContainerRegistry>registry.cn-shenzhen.aliyuncs.com</ContainerRegistry>
-		<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
+		<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:9.0</ContainerBaseImage>
 	</PropertyGroup>
 
 	<ItemGroup>

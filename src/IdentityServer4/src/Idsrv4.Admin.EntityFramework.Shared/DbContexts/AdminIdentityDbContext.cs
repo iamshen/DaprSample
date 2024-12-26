@@ -33,7 +33,12 @@ public class AdminIdentityDbContext(DbContextOptions<AdminIdentityDbContext> opt
         builder.Entity<UserIdentityRoleClaim>().ToTable(TableConsts.IdentityRoleClaims, TableConsts.Schema);
         builder.Entity<UserIdentityUserRole>().ToTable(TableConsts.IdentityUserRoles, TableConsts.Schema);
 
-        builder.Entity<UserIdentity>().ToTable(TableConsts.IdentityUsers, TableConsts.Schema);
+        builder.Entity<UserIdentity>(b =>
+        {
+            b.ToTable(TableConsts.IdentityUsers, TableConsts.Schema);
+            b.Property(x => x.Authentication).HasColumnType("jsonb");
+        });
+        
         builder.Entity<UserIdentityUserLogin>().ToTable(TableConsts.IdentityUserLogins, TableConsts.Schema);
         builder.Entity<UserIdentityUserClaim>().ToTable(TableConsts.IdentityUserClaims, TableConsts.Schema);
         builder.Entity<UserIdentityUserToken>().ToTable(TableConsts.IdentityUserTokens, TableConsts.Schema);

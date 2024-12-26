@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using DaprTool.BuildingBlocks.Utils.Enumerations;
 using IdentityModel;
 using IdentityServer4.EntityFramework.Mappers;
 using IdentityServer4.Models;
@@ -14,6 +15,7 @@ using Idsrv4.Admin.EntityFramework.Interfaces;
 using Idsrv4.Admin.AuditLogging.EntityFramework.DbContexts;
 using Idsrv4.Admin.AuditLogging.EntityFramework.Entities;
 using Idsrv4.Admin.EntityFramework.Entities;
+using Idsrv4.Admin.EntityFramework.Shared.Entities.Identity;
 
 namespace Idsrv4.Admin.EntityFramework.Shared.Helpers;
 
@@ -37,8 +39,8 @@ public static class DbMigrationHelpers
         where TLogDbContext : DbContext, IAdminLogDbContext
         where TAuditLogDbContext : DbContext, IAuditLoggingDbContext<AuditLog>
         where TDataProtectionDbContext : DbContext, IDataProtectionKeyContext
-        where TUser : IdentityUser<Guid>, new()
-        where TRole : IdentityRole<Guid>, new()
+        where TUser : UserIdentity, new()
+        where TRole : UserIdentityRole, new()
     {
         var migrationComplete = false;
         using var serviceScope = serviceProvider.CreateScope();
@@ -113,8 +115,8 @@ public static class DbMigrationHelpers
     private static async Task<bool> EnsureSeedDataAsync<TIdentityServerDbContext, TUser, TRole>(
         IServiceProvider serviceProvider)
         where TIdentityServerDbContext : DbContext, IAdminConfigurationDbContext
-        where TUser : IdentityUser<Guid>, new()
-        where TRole : IdentityRole<Guid>, new()
+        where TUser : UserIdentity, new()
+        where TRole : UserIdentityRole, new()
     {
         using var scope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<TIdentityServerDbContext>();
@@ -133,8 +135,8 @@ public static class DbMigrationHelpers
     /// </summary>
     private static async Task EnsureSeedIdentityData<TUser, TRole>(UserManager<TUser> userManager,
         RoleManager<TRole> roleManager, IdentityData identityDataConfiguration)
-        where TUser : IdentityUser<Guid>, new()
-        where TRole : IdentityRole<Guid>, new()
+        where TUser : UserIdentity, new()
+        where TRole : UserIdentityRole, new()
     {
         // adding roles from seed
         foreach (var r in identityDataConfiguration.Roles)
@@ -142,7 +144,9 @@ public static class DbMigrationHelpers
             {
                 var role = new TRole
                 {
-                    Name = r.Name
+                    Name = r.Name,
+                    CreatedTime = DateTimeOffset.Now,
+                    UpdatedTime = DateTimeOffset.Now
                 };
 
                 var result = await roleManager.CreateAsync(role);
@@ -157,9 +161,14 @@ public static class DbMigrationHelpers
         {
             var identityUser = new TUser
             {
+                UserCode = Guid.NewGuid().ToString("N"),
                 UserName = user.Username,
                 Email = user.Email,
-                EmailConfirmed = true
+                EmailConfirmed = true,
+                AccountStatus = AccountStatus.Normal,
+                AuthenticationStatus = AuthenticationStatus.Unauthorized,
+                CreatedTime = DateTimeOffset.Now,
+                UpdatedTime = DateTimeOffset.Now
             };
 
             var userByUserName = await userManager.FindByNameAsync(user.Username);

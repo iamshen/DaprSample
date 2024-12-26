@@ -185,6 +185,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sts", "sts", "{C27A08DD-CF8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{B76D6ACE-5EC8-49DC-BA37-ED479808FEDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityData", "src\BuildingBlocks\IdentityData\IdentityData.csproj", "{D905CD4E-F2F4-49BE-959A-22B5582A72DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -367,6 +369,10 @@ Global
 		{08901097-7D7E-4A4F-ADC8-547C756B50EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08901097-7D7E-4A4F-ADC8-547C756B50EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08901097-7D7E-4A4F-ADC8-547C756B50EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D905CD4E-F2F4-49BE-959A-22B5582A72DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D905CD4E-F2F4-49BE-959A-22B5582A72DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D905CD4E-F2F4-49BE-959A-22B5582A72DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D905CD4E-F2F4-49BE-959A-22B5582A72DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -444,6 +450,7 @@ Global
 		{14D68EB5-39B8-45EC-89B4-60C661C5B2C6} = {D2F20A9C-E732-43EA-9615-70F9FD46253A}
 		{C27A08DD-CF84-4B1D-A276-82A19B86BD1C} = {D2F20A9C-E732-43EA-9615-70F9FD46253A}
 		{B76D6ACE-5EC8-49DC-BA37-ED479808FEDE} = {D2F20A9C-E732-43EA-9615-70F9FD46253A}
+		{D905CD4E-F2F4-49BE-959A-22B5582A72DB} = {121D78F3-3F0F-4F00-B2C9-3C797653C951}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE377903-BDA1-4347-BEC2-62ED2F807EE3}

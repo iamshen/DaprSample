@@ -1,4 +1,4 @@
-﻿namespace DaprTool.BuildingBlocks.Utils.ValueObjects;
+﻿namespace DaprTool.BuildingBlocks.Utils.Data;
 
 public record IdentityUserInfo
 {
@@ -15,7 +15,7 @@ public record IdentityUserInfo
     /// <summary>
     ///     显示名称
     /// </summary>
-    public string DisplayName { get; set; } = string.Empty;
+    public string NickName { get; set; } = string.Empty;
 
     /// <summary>
     ///     真实名称

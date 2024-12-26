@@ -1,4 +1,5 @@
 ﻿using System;
+using DaprTool.BuildingBlocks.Utils.ValueObjects;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -23,7 +24,11 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Identity
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     normalized_name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
-                    concurrency_stamp = table.Column<string>(type: "text", nullable: true)
+                    concurrency_stamp = table.Column<string>(type: "text", nullable: true),
+                    description = table.Column<string>(type: "text", nullable: true),
+                    created_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    updated_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    deleted_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,7 +54,16 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Identity
                     two_factor_enabled = table.Column<bool>(type: "boolean", nullable: false),
                     lockout_end = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     lockout_enabled = table.Column<bool>(type: "boolean", nullable: false),
-                    access_failed_count = table.Column<int>(type: "integer", nullable: false)
+                    access_failed_count = table.Column<int>(type: "integer", nullable: false),
+                    user_code = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    nick_name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
+                    avatar = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
+                    account_status = table.Column<int>(type: "integer", nullable: false),
+                    authentication = table.Column<RealNameAuthentication>(type: "jsonb", nullable: true),
+                    authentication_status = table.Column<int>(type: "integer", nullable: false),
+                    created_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    updated_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    deleted_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,7 +124,11 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Identity
                     login_provider = table.Column<string>(type: "text", nullable: false),
                     provider_key = table.Column<string>(type: "text", nullable: false),
                     provider_display_name = table.Column<string>(type: "text", nullable: true),
-                    user_id = table.Column<Guid>(type: "uuid", nullable: false)
+                    user_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    description = table.Column<string>(type: "text", nullable: true),
+                    created_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    updated_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    deleted_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,7 +177,11 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Identity
                     user_id = table.Column<Guid>(type: "uuid", nullable: false),
                     login_provider = table.Column<string>(type: "text", nullable: false),
                     name = table.Column<string>(type: "text", nullable: false),
-                    value = table.Column<string>(type: "text", nullable: true)
+                    value = table.Column<string>(type: "text", nullable: true),
+                    description = table.Column<string>(type: "text", nullable: true),
+                    created_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    updated_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    deleted_time = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {

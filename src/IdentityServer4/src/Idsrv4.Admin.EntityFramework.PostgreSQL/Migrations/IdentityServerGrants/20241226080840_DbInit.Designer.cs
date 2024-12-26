@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.IdentityServerGrants
 {
     [DbContext(typeof(IdentityServerPersistedGrantDbContext))]
-    [Migration("20241216032335_DbInit")]
+    [Migration("20241226080840_DbInit")]
     partial class DbInit
     {
         /// <inheritdoc />

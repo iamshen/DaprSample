@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Logging
 {
     [DbContext(typeof(AdminLogDbContext))]
-    [Migration("20241216061131_DbInit")]
+    [Migration("20241226080845_DbInit")]
     partial class DbInit
     {
         /// <inheritdoc />
@@ -35,27 +35,33 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Logging
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Exception")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("exception");
 
                     b.Property<string>("Level")
+                        .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("character varying(128)")
                         .HasColumnName("level");
 
                     b.Property<string>("LogEvent")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("log_event");
 
                     b.Property<string>("Message")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("message");
 
                     b.Property<string>("MessageTemplate")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("message_template");
 
                     b.Property<string>("Properties")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("properties");
 

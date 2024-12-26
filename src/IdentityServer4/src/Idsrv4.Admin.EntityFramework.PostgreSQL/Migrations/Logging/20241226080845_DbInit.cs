@@ -22,13 +22,13 @@ namespace Idsrv4.Admin.EntityFramework.PostgreSQL.Migrations.Logging
                 {
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    message = table.Column<string>(type: "text", nullable: true),
-                    message_template = table.Column<string>(type: "text", nullable: true),
-                    level = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: true),
+                    message = table.Column<string>(type: "text", nullable: false),
+                    message_template = table.Column<string>(type: "text", nullable: false),
+                    level = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
                     time_stamp = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    exception = table.Column<string>(type: "text", nullable: true),
-                    log_event = table.Column<string>(type: "text", nullable: true),
-                    properties = table.Column<string>(type: "text", nullable: true)
+                    exception = table.Column<string>(type: "text", nullable: false),
+                    log_event = table.Column<string>(type: "text", nullable: false),
+                    properties = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

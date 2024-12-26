@@ -7,6 +7,8 @@
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\IdentityData\IdentityData.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\Utils\Utils.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.AuditLogging.EntityFramework\Idsrv4.Admin.AuditLogging.EntityFramework.csproj" />
     <ProjectReference Include="..\Idsrv4.Admin.EntityFramework.Configuration\Idsrv4.Admin.EntityFramework.Configuration.csproj" />
   </ItemGroup>
